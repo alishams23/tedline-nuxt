@@ -1,0 +1,125 @@
+
+@import 'vuetify/styles/main.sass';
+
+
+$main-color : rgb(6, 145, 192);
+$main-color-dark : rgb(3, 82, 108);
+
+.irsa {
+    font-family: IRANSans !important;
+    
+}
+
+* {
+    font-family: IRANSans;
+}
+
+.line-height-sm{
+    line-height: 1.2;
+}
+
+.line-height-md{
+    line-height: 2;
+}
+
+button {
+    font-family: IRANSans !important;
+}
+
+.text-main{
+    color: $main-color;
+}
+
+
+.text-main-dark{
+    color: $main-color-dark ;
+}
+
+.bg-main{
+    background-color: $main-color ;
+    color: white;
+}
+
+.bg-main-dark{
+    background-color: $main-color-dark ;
+    color: white;
+}
+
+.rounded-main{
+    border-radius: 15px !important;
+}
+
+.rtl{
+    direction: rtl;
+}
+
+
+
+.shadow-1 {
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 50px 100px -20px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px !important;
+}
+
+.shadow-2 {
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 25px 40px -20px, rgba(0, 0, 0, 0.17) 0px 15px 30px -10px !important;
+}
+.shadow-3 {
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 25px 40px -20px, rgba(0, 0, 0, 0.05) 0px 15px 30px -10px !important;
+}
+
+
+
+.text-sm{
+    font-size: 15px !important;
+}
+.text-md{
+    font-size: 18px !important;
+}
+
+.text-xs{
+    font-size: 13px !important;
+}
+
+.v-btn {
+    /* Apply the custom letter-spacing to all v-btn components */
+    letter-spacing: 0px !important; /* Adjust the value as needed */
+  }
+
+
+
+
+
+.bg-glass{
+    /* From https://css.glass */
+background: rgba(49, 49, 49, 0.591) !important;
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(5px);
+border-top: 0.8px solid rgba(255, 255, 255, 0.304) !important;
+}
+
+
+.bg-blue-gradient{
+    background-color: #045de9 !important;
+    background-image: linear-gradient(315deg, #0382f1 0%, #004ac1 74%) !important;
+}
+
+
+.custom-rounded-1{
+    border-radius: 15px !important;
+}
+
+
+
+.custom-bg-gradient-blue-light{
+    background-color: #045de9 !important ;
+    background-image: linear-gradient(180deg, #c0edff 0%, #e4f6ff 74%) !important ;
+}
+
+
+.custom-bg-blue{
+    background-color: #c0edff !important;
+
+}
+
+
