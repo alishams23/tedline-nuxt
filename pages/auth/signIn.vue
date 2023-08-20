@@ -93,7 +93,7 @@ export default {
         try {
         
           await axios
-            .post("http://127.0.0.1:8000/api/account/login/", {
+            .post("https://tedline.org/api/account/login/", {
               username: this.username,
               password: this.password,
             })

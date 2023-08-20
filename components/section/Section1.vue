@@ -5,7 +5,7 @@
 
           <v-row>
             <v-col cols="12" md="10" lg="9" class=" ">
-              <img src="/assets/images/section.avif"
+              <v-img src="/assets/images/section.avif"
                width="100%"
                
                 cover

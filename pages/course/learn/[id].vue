@@ -129,7 +129,7 @@ export default {
     }),
     methods: {
         getData() {
-            axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) =>
+            axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) =>
                 this.data = response.data
             )
         }
