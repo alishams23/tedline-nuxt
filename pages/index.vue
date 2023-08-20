@@ -4,8 +4,13 @@
   <Header />
   <v-container>
     <Tabbar />
+    <div class="py-16">
+      <BestCourses class="my-16" />
+    </div>
     <Courses />
-    <Category1 />
+   <div class="pt-16 pb-lg-16">
+    <Category1  />
+   </div>
     <Section1 />
   </v-container>
   <FooterComponent />
@@ -18,6 +23,7 @@ import Courses from "~/components/section/Courses.vue";
 import Section1 from "~/components/section/Section1.vue";
 import Tabbar from "~/components/section/Tabbar.vue";
 import Category1 from "~/components/section/Category1.vue";
+import BestCourses from "~/components/section/BestCourses.vue";
 
 
 export default {
@@ -33,7 +39,8 @@ export default {
     Courses,
     Section1,
     Tabbar,
-    Category1
+    Category1,
+    BestCourses
   }, mounted() {
     if (this.$store.state.isAuthenticated == null)  this.$store.commit('onStart');
     if (this.$store.state.isAuthenticated == true) this.$router.push('/home');

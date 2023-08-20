@@ -2,33 +2,30 @@
   <div class=" custom-bg-gradient-blue-light">
     <v-container class="py-12 mb-12 ">
       <v-row justify="center" class="my-12 ">
-        <v-col cols="12" sm="5" lg="6" class="mr-auto">
-       
+        <v-col cols="12" sm="6" lg="6" xl="4"  class="ml-auto">
           <v-img  class=" hidden-sm-and-down"  src="images/header.png">
            <v-sheet height="550" color="transparent">
-            
            </v-sheet>
           </v-img>
-     
         </v-col>
-        <v-col cols="12" sm="7" lg="5" class="d-flex align-center ">
+        <v-col cols="12" sm="6" lg="6" class="d-flex align-center flex-wrap ">
           <div class="text-right">
-            <div class=" text-h5 font-weight-bold irsa">
-              <div class="">
+            <div class="   ">
+              <div class=" text-h6 text-md-h5 irsa font-weight-bold">
                 هیجان یادگیری و شگفتی های نو
               </div>
-              <h2 class="text-h3 pt-3 font-weight-bold  irsa  mt-3">پلتفرم آموزشی <span class="text-blue">تدلاین</span>
+              <h2 class="text-h4 text-md-h3 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-blue">تدلاین</span>
               </h2>
             </div>
-            <p class="mt-3 pt-4 line-height-md text-body-1 irsa">
+            <p class="mt-3 pt-4 ms-lg-16 ps-lg-16 line-height-md text-body-1 irsa">
               فضایی برای یادگیری و آموزش هایی که منجر به کسب مهارت
-              <br>
+            
               و زندگی حرفه ای شما می شود
             </p>
-            <div class="mt-6 pt-2 justify-center d-flex">
+            <div class="mt-6 pt-2 justify-center justify-lg-end d-flex">
               <form>
                 <div class="stylish-input-group">
-                  <input placeholder="درس مورد نظر را بنویسید" class="custom-search bg-white px-md-16 px-10">
+                  <input placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-8">
                   <v-btn rounded color="blue" elevation="0" class=" text-uppercase custom-btn font-weight-medium" dark>
                     جستجو
                   </v-btn>

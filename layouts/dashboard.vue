@@ -54,7 +54,7 @@ export default {
 
   data: () => ({
     drawerChecker: false,
-    value: 0,
+    value: null,
     menu: [
 
       {

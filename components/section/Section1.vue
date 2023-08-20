@@ -13,7 +13,7 @@
                
                 class="rounded-xl img-fluid hidden-sm-and-down"
               >
-              </v-img>> 
+              </v-img>
             
               <v-sheet height="500" class=" hidden-md-and-up">
 

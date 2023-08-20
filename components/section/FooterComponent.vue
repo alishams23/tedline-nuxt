@@ -2,14 +2,15 @@
     <v-footer color="black">
       <v-row justify="center" no-gutters>
         <v-btn
-          v-for="link in links"
-          :key="link"
+          v-for="item in menuItems"
+          :key="item"
           color="white"
           variant="text"
           class="mx-2"
           rounded="xl"
+          :to="item.path"
         >
-          {{ link }}
+          {{ item.title }}
         </v-btn>
         <v-col class="text-center mt-4" cols="12">
           {{ new Date().getFullYear() }} — <strong>Tedline</strong>
@@ -21,14 +22,14 @@
     export default {
       
       data: () => ({
-        links: [
-          'خانه',
-          'درباره ی ما',
-          'دوره ها',
-          'بلاگ',
-          'قوانین',
-          
-        ],
+  
+        menuItems: [
+        { title: "خانه", path: "/"},
+        { title: "وبلاگ", path: "/blog"},
+        { title: "ارتباط با ما", path: "/contactUs"},
+        { title: "دوره ها", path: "/explore" },
+        { title:  'قوانین', path: "/blog" }
+      ],
       }),
     }
   </script>

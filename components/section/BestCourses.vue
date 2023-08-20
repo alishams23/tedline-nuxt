@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" class="  bg-grey-lighten-4 rounded-xl flex-row-reverse" align="center" no-gutters>
     <v-col cols="12" lg="3" class="px-6 py-10">
-      <h3 class=" text-h3 font-weight-bold irsa text-center line-height-sm">
+      <h3 class=" text-h4 text-md-h3 font-weight-bold irsa text-center line-height-sm">
         <span class=" text-blue">بهترین</span> دوره ها
       </h3>
       <p class="mt-6 pt-4 text-muted text-center">

@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center" no-gutters>
     <v-col cols="12" lg="3" class="">
-      <h3 class=" text-h3 font-weight-bold irsa text-center line-height-sm">
+      <h3 class=" text-h4 text-md-h3 font-weight-bold irsa text-center line-height-sm">
         دوره های <span class=" text-blue">پیشنهادی</span>
       </h3>
       <p class="mt-6 pt-4 text-muted text-center">
@@ -10,7 +10,7 @@
     </v-col>
     <v-col cols="12" lg="9" class="">
       <v-slide-group v-model="model" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right"
-        selected-class="bg-primary" show-arrows>
+        selected-class="bg-primary" :show-arrows="false">
         <v-slide-group-item v-for="item in data" :key="item" v-slot="{ isSelected, toggle, selectedClass }">
           <Course :data="item" />
         </v-slide-group-item>
