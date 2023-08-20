@@ -3,11 +3,13 @@
     <v-container class="py-12 mb-12 ">
       <v-row justify="center" class="my-12 ">
         <v-col cols="12" sm="5" lg="6" class="mr-auto">
-          <v-img  class=" hidden-sm-and-down"  src="/assets/images/header.png">
+       
+          <v-img  class=" hidden-sm-and-down"  src="images/header.png">
            <v-sheet height="550" color="transparent">
             
            </v-sheet>
           </v-img>
+     
         </v-col>
         <v-col cols="12" sm="7" lg="5" class="d-flex align-center ">
           <div class="text-right">

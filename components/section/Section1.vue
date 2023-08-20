@@ -5,13 +5,16 @@
 
           <v-row>
             <v-col cols="12" md="10" lg="9" class=" ">
-              <v-img src="/assets/images/section.avif"
+             
+              <v-img src="images/section.avif"
                width="100%"
                
                 cover
                
                 class="rounded-xl img-fluid hidden-sm-and-down"
-              />
+              >
+              </v-img>> 
+            
               <v-sheet height="500" class=" hidden-md-and-up">
 
               </v-sheet>
