@@ -7,7 +7,20 @@ export default defineNuxtConfig({
   build: {
   
       transpile: ["vuetify"],
+      
     },
+    modules: ['@vite-pwa/nuxt'],
+  pwa: {
+    manifest: {
+      lang: 'fa',
+      name: 'tedline',
+      orientation: 'portrait',
+      background_color: '#FFFFFF',
+      theme_color: '#045de9',
+  },
+    /* your pwa options */
+  }
+    
     
  
  

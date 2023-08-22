@@ -22,7 +22,7 @@
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
                 <Course :data="item" class="w-100 ma-3" />
               </v-col>
-              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="indigo-darken-4" class="rtl border-opacity-100 my-10" border="start">
+              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue-darken-4" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
@@ -54,7 +54,7 @@
             <p class="text-sm pb-0 mb-0 font-weight-bold ">فیلتر </p>
             <p class="text-xs mt-n2">فیلتر دوره</p>
           </div>
-          <v-avatar color="indigo-darken-4" rounded="lg" class="ms-3" >
+          <v-avatar color="blue-darken-4" rounded="lg" class="ms-3" >
             <v-icon size="18px">
               fa fa-filter
             </v-icon>
@@ -70,13 +70,13 @@
           <v-chip
             v-for="item in dataCategoryBest"
             :key="item.id"
-         
-            :color=" selectedDataCategoryIds.includes(item.id)  ? 'indigo-darken-3' : ''"
+            
+            :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue-darken-4' : ''"
            
             filter
             :isSelected="selectedDataCategoryIds.includes(item.id) "
             :append-icon="selectedDataCategoryIds.includes(item.id)  ? 'fal fa-check' : ''"
-           class="mx-1"
+           class="ma-1"
             :variant="selectedDataCategoryIds.includes(item.id)  ? 'flat' : 'outlined'"
             @click="toggleDataCategory(item.id)"
           >
@@ -88,10 +88,10 @@
     </v-card>
     <v-list lines="three" select-strategy="classic">
 
-      <v-list-item color="indigo-darken-3" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue-darken-4" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="indigo-darken-3" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue-darken-4" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>
@@ -102,10 +102,10 @@
       </v-list-item>
 
 
-      <v-list-item color="indigo-darken-3" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue-darken-4" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="indigo-darken-3" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue-darken-4" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>

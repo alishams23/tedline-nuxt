@@ -1,10 +1,24 @@
 <template>
     <v-container>
+       
+
         <div>
 
-            <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3  mt-10">
-                آموزش مقدماتی پایتون
+            <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex">
+                
+                <v-avatar size="x-large" rounded="lg" color="blue">
+                    <v-icon color="white"> fad fa-info</v-icon>
+                </v-avatar>
+               <div class="px-2">
+                <div>
+                    آموزش مقدماتی پایتون
+                </div>
+                <div class=" font-weight-light text-body-2 irsa ">
+                    هفته ی اول
+                </div>
+               </div>
             </div>
+
             <v-expansion-panels v-model="panel" :disabled="disabled" multiple class=" rounded-lg ">
                 <v-expansion-panel elevation="0" class="">
                     <v-expansion-panel-title expand-icon="fal fa-chevron-left" collapse-icon="fal fa-chevron-up">Panel
@@ -34,10 +48,10 @@
                     </v-expansion-panel-text>
                 </v-expansion-panel>
             </v-expansion-panels>
+        
         </div>
     </v-container>
     <v-navigation-drawer location="right" class="" elevation="0" v-model="drawerChecker">
-
 
 
         <div>
@@ -69,6 +83,16 @@
             </v-list>
         </div>
     </v-navigation-drawer>
+    <v-app-bar color="black" scroll-behavior="collapse inverted"
+    scroll-threshold="70" elevation="0" icon="" class="rtl bg-blue-gradient ">
+
+        <v-app-bar-nav-icon  @click.stop="drawerChecker = !drawerChecker" >
+            <i class="fa fa-bars"></i>
+          </v-app-bar-nav-icon>
+          <v-app-bar-title class=" font-weight-bold text-body-1">
+            آموزش مقدماتی پایتون
+        </v-app-bar-title>
+    </v-app-bar>
 </template>
 
 

@@ -2,7 +2,7 @@
 <template>
   <v-app id="inspire">
 
-    <v-navigation-drawer location="right" rail-width="90" rail style="position:fixed; top:0; right:0; ">
+    <v-navigation-drawer class=" hidden-sm-and-down" location="right" rail-width="90" rail style="position:fixed; top:0; right:0; ">
       <div class="d-flex flex-column justify-center align-center" style="height: 100%;">
         <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="mt-5 mb-auto">tedline</v-btn>
         <v-btn v-for="item in menu" :variant="currentRouteCheck(item.to) ? 'tonal' : 'flat'" :key="item + '+sidebar'"
@@ -17,16 +17,16 @@
     <v-main>
       <slot />
     </v-main>
-    <v-navigation-drawer temporary location="right" class=" border-none  shadow-2 " elevation="0" v-model="drawerChecker">
+    <v-navigation-drawer temporary location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0" v-model="drawerChecker">
       <Notification />
 
     </v-navigation-drawer>
 
   </v-app>
-  <v-layout class="overflow-visible hidden-lg-and-up" style="height: 65px;">
-    <v-bottom-navigation v-model="value" height="65" elevation="1" mode="shift" color="transparent" class="px-1 w-100"
+  <v-layout class="overflow-visible  hidden-lg-and-up" style="height: 65px;">
+    <v-bottom-navigation v-model="value" height="65"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
       grow>
-      <v-btn  class=" rounded-main"  v-for="(item, index) in menuDown" :to="item.to" :key="item + '+Down menu'"    :ripple="{ class: 'text-blue' }">
+      <v-btn   v-for="(item, index) in menuDown" :to="item.to" :key="item + '+Down menu'"    :ripple="{ class: 'text-blue' }">
         <v-sheet variant="flat" class="px-6 py-2 rounded-pill "
           :color="currentRouteCheck(item.to) ? 'blue' : 'white'">
           <v-icon :size="currentRouteCheck(item.to) ? '17' : '20'">{{ currentRouteCheck(item.to) == false ? "fad " : "fa "

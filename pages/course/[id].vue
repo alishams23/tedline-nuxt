@@ -27,7 +27,8 @@
   <v-container v-if="loading == false">
     <v-row>
       <v-col cols="12" md="7" class="">
-        <v-img class="rounded-xl mt-12" aspect-ratio="16/9" height="400px" cover :src="data.image"></v-img>
+       
+        <v-img class="rounded-xl mt-12" :aspect-ratio="16 / 9"  cover :src="data.image"></v-img>
         <v-list-item class="rounded-xl mb-lg-12 mt-2" v-if="data.teacher">
           <template v-slot:prepend>
             <v-avatar size="x-large" color="blue-grey-darken-4" :image="data.teacher.image">
@@ -51,7 +52,7 @@
 
         <v-row class="py-10 ">
           <v-col>
-            <v-btn variant="flat" color="blue" rounded="lg" elevation="0" class="w-100">
+            <v-btn variant="flat" color="blue" rounded="xl" elevation="0" class="w-100">
               ثبت نام
             </v-btn>
           </v-col>
@@ -79,8 +80,8 @@
                 مهارت هایی که کسب میکنید
               </v-card-title>
               <v-card-text>
-                <v-alert v-if="data.skill && data.skill.length == 0" border="start" variant="tonal"
-                  class="border-opacity-100 font-weight-bold" color="indigo-darken-4">
+                <v-alert v-if="data.skill && data.skill.length == 0" border="start" variant="outlined"
+                  class="border-opacity-100 font-weight-bold" color="black">
                   <div class="text-black">
                     مهارتی برای این آموزش ثبت نشده
                   </div>
