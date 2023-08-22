@@ -12,8 +12,9 @@
       <v-slide-group v-model="model" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right"
         selected-class="bg-primary" :show-arrows="false">
         <v-slide-group-item v-for="item in data" :key="item" v-slot="{ isSelected, toggle, selectedClass }">
-          <Course :data="item" />
+          <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
         </v-slide-group-item>
+    
       </v-slide-group>
       <div class="d-flex justify-center">
         <v-progress-circular v-if="loading" :size="60" class="ma-10" :width="10" color="blue"
@@ -47,3 +48,5 @@ export default {
   }
 }
 </script>
+
+

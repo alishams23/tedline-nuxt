@@ -1,27 +1,43 @@
 <template>
   <Navbar />
+  <v-snackbar
+  v-model="snackbar"
+  class="rtl"
+  color="indigo-darken-4"
+  elevation="24"
+  rounded="lg"
+>
+<template v-slot:actions>
+  <v-btn
+    color="white"
+    variant="text"
+    icon="fal fa-times"
+    @click="snackbar = false"
+  >
+  </v-btn>
+</template>
+ کپی شد
 
-  <v-container>
-
+ 
+</v-snackbar>
+  <div class="d-flex h-100 justify-center align-center" v-if="loading">
+    <v-progress-circular  :size="60" class="ma-10" :width="10" color="blue"
+      indeterminate></v-progress-circular>
+  </div>
+  <v-container v-if="loading == false">
     <v-row>
       <v-col cols="12" md="7" class="">
-
-
         <v-img class="rounded-xl mt-12" aspect-ratio="16/9" height="400px" cover :src="data.image"></v-img>
         <v-list-item class="rounded-xl mb-lg-12 mt-2" v-if="data.teacher">
           <template v-slot:prepend>
             <v-avatar size="x-large" color="blue-grey-darken-4" :image="data.teacher.image">
-
               <v-icon size="small" icon="fad fa-users"></v-icon>
             </v-avatar>
           </template>
-
           <v-list-item-title class=" font-weight-bold" >{{ data.teacher.username }}</v-list-item-title>
-
           <v-list-item-subtitle class="text-xs">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
-
-
         </v-list-item>
+       
       </v-col>
       <v-col cols="12" md="5" class="pt-lg-10 pt-sm-1 px-lg-12">
         <h1 class=' text-h6 font-weight-black irsa rtl py-5'>
@@ -41,7 +57,7 @@
           </v-col>
           <v-col>
 
-            <v-btn variant="text" append-icon="fal fa-external-link" color="blue-darken-3" rounded="lg" elevation="0"
+            <v-btn @click="shareLink()" variant="text" append-icon="fal fa-external-link" color="blue-darken-3" rounded="lg" elevation="0"
               class="w-100">
               <div class="px-2">اشتراک گذاری</div>
             </v-btn>
@@ -156,14 +172,47 @@ export default {
   },
   data: () => ({
     model: null,
-    data: {}
+    data: {},
+    loading:true,
+    snackbar:false
   }),
   methods: {
     getData() {
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) =>
+      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) => {
         this.data = response.data
+        this.loading = false
+      }
+       
+
       )
-    }
+    },
+      copyToClipboard(textToCopy) {
+      // navigator clipboard api needs a secure context (https)
+      if (navigator.clipboard && window.isSecureContext) {
+        // navigator clipboard api method'
+        return navigator.clipboard.writeText(textToCopy);
+      } else {
+        // text area method
+        let textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        // make the textarea out of viewport
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        return new Promise((res, rej) => {
+          // here the magic happens
+          document.execCommand("copy") ? res() : rej();
+          textArea.remove();
+        });
+      }
+    },
+    shareLink() {
+      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
+      this.snackbar = true
+    },
   }, mounted() {
     this.getData()
   }

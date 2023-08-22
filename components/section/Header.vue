@@ -22,15 +22,16 @@
             
               و زندگی حرفه ای شما می شود
             </p>
+           
             <div class="mt-6 pt-2 justify-center justify-lg-end d-flex">
-              <form>
+              <div>
                 <div class="stylish-input-group">
-                  <input placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-8">
-                  <v-btn rounded color="blue" elevation="0" class=" text-uppercase custom-btn font-weight-medium" dark>
+                  <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-8">
+                  <v-btn rounded :to="'/explore/?search='+text" color="blue" elevation="0" class=" text-uppercase custom-btn font-weight-medium" dark>
                     جستجو
                   </v-btn>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </v-col>
@@ -38,7 +39,17 @@
     </v-container>
   </div>
 </template>
-  
+
+<script>
+
+export default {
+
+  data: () => ({
+    text: "",
+  }),
+
+}
+</script>
 <style scoped>
 .stylish-input-group {
   display: flex;

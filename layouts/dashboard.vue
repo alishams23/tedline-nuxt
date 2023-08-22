@@ -26,14 +26,13 @@
   <v-layout class="overflow-visible hidden-lg-and-up" style="height: 65px;">
     <v-bottom-navigation v-model="value" height="65" elevation="1" mode="shift" color="transparent" class="px-1 w-100"
       grow>
-      <v-btn v-for="(item, index) in menuDown" :to="item.to" :key="item + '+Down menu'" :ripple="false">
+      <v-btn  class=" rounded-main"  v-for="(item, index) in menuDown" :to="item.to" :key="item + '+Down menu'"    :ripple="{ class: 'text-blue' }">
         <v-sheet variant="flat" class="px-6 py-2 rounded-pill "
-          :color="currentRouteCheck(item.to) ? 'blue' : 'transparent'">
+          :color="currentRouteCheck(item.to) ? 'blue' : 'white'">
           <v-icon :size="currentRouteCheck(item.to) ? '17' : '20'">{{ currentRouteCheck(item.to) == false ? "fad " : "fa "
           }} {{ item.icon }}</v-icon>
         </v-sheet>
-
-        <span class="pt-2 text-black">{{ item.title }}</span>
+        <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2 text-black">{{ item.title }}</span>
       </v-btn>
 
 
@@ -84,17 +83,17 @@ export default {
       {
         title: 'خانه',
         icon: "fa-home",
-        to: '/home'
+        to: '/home',
       },
       {
         title: 'جستجو',
         icon: "fa-search",
-        to: '/explore'
+        to: '/explore',
       },
       {
         title: 'پروفایل',
         icon: "fa-user",
-        to: '/profile/1/'
+        to: '/profile/1/',
       },
     ]
 

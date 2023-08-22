@@ -20,9 +20,10 @@
           <v-container fluid>
             <v-row no-gutters>
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
-                <Course :data="item" />
+                <Course :data="item" class="w-100 ma-3" />
 
               </v-col>
+            
               <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="indigo-darken-4" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
@@ -107,9 +108,10 @@
           نمایش دوره های دارای تخفیف
         </v-list-item-subtitle>
       </v-list-item>
-
+     
     </v-list>
   </v-navigation-drawer>
+  
 </template>
 
 
@@ -164,6 +166,9 @@ export default {
     }
 
   }, mounted() {
+     if (this.$route.query.search != null) this.text = this.$route.query.search
+    
+   
     this.searchCourse()
     this.getDataCategoryBest()
   }

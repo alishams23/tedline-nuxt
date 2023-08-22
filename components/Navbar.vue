@@ -13,18 +13,17 @@
       </v-btn>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    
-    <v-hover 
+    <div
     
     v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin"
-    v-slot="{ isHovering ,props}"
+    
   >
-    <v-btn class=" hidden-md-and-down font-weight-bold"  width="120px" v-bind="props" :color="isHovering ? 'blue-darken-3' : undefined"   rounded="pill"  :key="item.title" :to="item.path">
+    <v-list-item colo  class=" hidden-md-and-down text-center text-body-2 font-weight-bold"  width="120px"   color="blue-darken-2"   rounded="pill"  :key="item.title" :to="item.path">
   
       {{ item.title }}
-    </v-btn>
+    </v-list-item>
 
-  </v-hover>
+  </div>
   
     <v-btn v-if="  isAuthenticated != true" to="/auth/signIn/" width="120px" class="ma-3 font-weight-bold" height="40"  variant="flat" color="blue-darken-1" rounded="pill"  >
       ورود
