@@ -3,9 +3,9 @@
 
     <v-card color="white" :class="['ma-1', selectedClass]" class="rounded-xl shadow-2 " @click="toggle">
       <v-card class=""  elevation="0" :to="'/course/' + data.id">
-        <v-responsive :aspect-ratio="1 / 1">
-
-          <v-img class="align-end text-white " height="100%" width="100%" :src="data.image" cover>
+       
+         <div class="responsive-image ">
+          <v-img class=" align-end text-white " height="100%" width="100%" :src="data.image" cover>
             <v-btn  class="bg-glass text-white text-body-2 mx-3 my-3 shadow-2  " rounded>
               <div v-if="data.price != 0">
                 {{ data.price }} <span class="  ps-1 irsa">تومان</span>
@@ -15,17 +15,12 @@
               </div>
             </v-btn>
           </v-img>
-        </v-responsive>
-
+         </div>
+     
         <v-responsive height="70" >
           <div class=" test-n text-body-2 text-lg-body-1  rtl irsa px-3 pt-2 line-height-md  font-weight-black">{{ data.title }}
           </div>
-
         </v-responsive>
-
-
-
-
       </v-card>
       <v-card-actions>
         <v-btn :icon="show ? 'fal fa-chevron-up' : 'fal fa-chevron-down'" @click="show = !show" size="small"></v-btn>

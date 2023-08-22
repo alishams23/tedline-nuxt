@@ -6,7 +6,7 @@
           <v-row>
             <v-col cols="12" md="10" lg="9" class=" ">
              
-              <v-img src="images/section.avif"
+              <v-img src="images/section.jpg"
                width="100%"
                
                 cover
@@ -63,17 +63,18 @@
   .position-relative {
     position: relative !important;
   }
+  
   .feature3-card {
     position: absolute;
     top: 17%;
     right: 0;
-    .feature3-title {
-      font-size: 20px;
-      line-height: 30px;
-      margin: 20px 0 15px;
-    }
   }
   
+  .feature3-card .feature3-title {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 20px 0 15px;
+  }
   
   
 </style>

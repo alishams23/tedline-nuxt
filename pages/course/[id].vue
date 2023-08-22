@@ -21,7 +21,7 @@
  
 </v-snackbar>
   <div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular  :size="60" class="ma-10" :width="10" color="blue"
+    <v-progress-circular  :size="60" class="ma-10" :width="8" color="blue"
       indeterminate></v-progress-circular>
   </div>
   <v-container v-if="loading == false">

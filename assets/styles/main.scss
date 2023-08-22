@@ -131,3 +131,13 @@ border-top: 0.8px solid rgba(255, 255, 255, 0.447) !important;
       width: 250px; /* Half width on medium screens (md) */
     }
   }
+
+.responsive-image {
+    height: 210px !important; /* Default width for all screen sizes */
+   /* Extra large screen (xl) and above */
+  
+    /* Medium screen (md) and above */
+    @media (min-width: 960px) {
+        height: 250px !important; /* Half width on medium screens (md) */
+    }
+  }

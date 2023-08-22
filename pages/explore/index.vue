@@ -21,16 +21,12 @@
             <v-row no-gutters>
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
                 <Course :data="item" class="w-100 ma-3" />
-
               </v-col>
-            
               <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="indigo-darken-4" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
-  
               </v-alert>
-
             </v-row>
           </v-container>
         </v-window-item>
@@ -67,19 +63,29 @@
          </v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <h2 class="text-sm mt-5 irsa rtl mb-2">
-          دسته بندی
-        </h2>
+  
+        <h2 class="text-sm mt-5 irsa rtl mb-2">دسته بندی</h2>
+       
 
-        <v-chip-group v-model="dataCategoryChecked"  column v-for="item in dataCategoryBest" multiple>
-          <v-chip color="indigo-darken-3" filter filter-icon=" fal fa-check" variant="outlined">
+          <v-chip
+            v-for="item in dataCategoryBest"
+            :key="item.id"
+         
+            :color=" selectedDataCategoryIds.includes(item.id)  ? 'indigo-darken-3' : ''"
+           
+            filter
+            :isSelected="selectedDataCategoryIds.includes(item.id) "
+            :append-icon="selectedDataCategoryIds.includes(item.id)  ? 'fal fa-check' : ''"
+           class="mx-1"
+            :variant="selectedDataCategoryIds.includes(item.id)  ? 'flat' : 'outlined'"
+            @click="toggleDataCategory(item.id)"
+          >
             {{ item.title }}
-          </v-chip>
 
-        </v-chip-group>
+          </v-chip>
+       
       </v-card-text>
     </v-card>
-   
     <v-list lines="three" select-strategy="classic">
 
       <v-list-item color="indigo-darken-3" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
@@ -140,7 +146,7 @@ export default {
     data: [],
     dataCategoryBest: [],
     drawerChecker: false,
-    dataCategoryChecked: [],
+    selectedDataCategoryIds: [],
     tab: null,
     loading: false,
     loadingCategoryBest: false,
@@ -151,7 +157,7 @@ export default {
   methods: {
     searchCourse() {
       this.loading = true
-      axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}`).then((response) => {
+      axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
         this.data = response.data.results
         this.loading = false
       }
@@ -163,10 +169,21 @@ export default {
         this.loadingCategoryBest = false
       }
       )
-    }
+    },
+    toggleDataCategory(id) {
+      console.log(id)
+      const index = this.selectedDataCategoryIds.indexOf(id);
+      if (index === -1) {
+        this.selectedDataCategoryIds.push(id);
+      } else {
+        this.selectedDataCategoryIds.splice(index, 1);
+      }
+      this.searchCourse()
+    },
 
   }, mounted() {
      if (this.$route.query.search != null) this.text = this.$route.query.search
+     if (this.$route.query.category != null) this.selectedDataCategoryIds = [parseInt(this.$route.query.category)]
     
    
     this.searchCourse()

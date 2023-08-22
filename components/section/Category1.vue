@@ -9,7 +9,7 @@
       <v-col cols="12" lg="9" md="8">
         <v-slide-group :show-arrows="false" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right">
           <v-slide-group-item v-for="item in data" :key="item.id + '+category'">
-            <v-btn class="ma-2 text-body-2  rtl" rounded="lg" prepend-icon="fal fa-arrow-right" size="large" min-width="150">
+            <v-btn :to="'/explore/?category=' + item.id" class="ma-2 text-body-2  rtl" rounded="lg" prepend-icon="fal fa-arrow-right" size="large" min-width="150">
               <template v-slot:prepend>
                 <v-icon color="blue" size="small"></v-icon>
               </template>
