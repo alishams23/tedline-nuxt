@@ -5,7 +5,7 @@
   </v-navigation-drawer>
   <v-app-bar  :class="transparent == true ? 'custom-bg-blue' : 'shadow-1'" :scroll-behavior="transparent == true ||transparent == null ? '':'elevate hide inverted' " scroll-threshold="1" class="py-2" app elevation="0">
     <v-app-bar-nav-icon  @click.stop="drawerChecker = !drawerChecker">
-      <i class="fad fa-bars"></i>
+      <i class="fa fa-bars"></i>
     </v-app-bar-nav-icon>
     <v-toolbar-title>
       <v-btn  variant="text" class="mx-4 text-blue font-weight-bold text-h6  hidden-md-and-down "  rounded  >

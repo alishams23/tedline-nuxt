@@ -14,6 +14,8 @@
     <Section1 />
   </v-container>
   <FooterComponent />
+ 
+
 </template>
 
 <script>

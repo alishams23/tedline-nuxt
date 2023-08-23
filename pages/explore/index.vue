@@ -10,9 +10,9 @@
       <v-tabs v-model="tab" color="black" align-tabs="end" class="border-b text-grey">
         <v-btn v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
           @click="drawerChecker = true" size="small" color="black" prepend-icon="fa fa-cog" rounded="pill"> فیلتر</v-btn>
-        <v-tab selected-class=" border-b-lg  border-opacity-100 rounded-0" :value="1" width="150">
+        <v-tab selected-class=" border-b-md   border-opacity-100 rounded-0" :value="1" width="150">
           دوره ها</v-tab>
-        <v-tab selected-class=" border-b-lg  border-opacity-100 rounded-0" :value="2" width="150">
+        <v-tab selected-class=" border-b-md   border-opacity-100 rounded-0" :value="2" width="150">
           اساتید</v-tab>
       </v-tabs>
       <v-window v-model="tab">
@@ -22,7 +22,7 @@
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
                 <Course :data="item" class="w-100 ma-3" />
               </v-col>
-              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue-darken-4" class="rtl border-opacity-100 my-10" border="start">
+              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
@@ -116,6 +116,8 @@
       </v-list-item>
      
     </v-list>
+    <v-sheet height="100"></v-sheet>
+
   </v-navigation-drawer>
   
 </template>

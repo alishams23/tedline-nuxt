@@ -2,7 +2,7 @@
   <v-snackbar
   v-model="snackbar"
   class="rtl"
-  color="indigo-darken-4"
+  color="blue-darken-4"
   elevation="24"
   rounded="lg"
 >
