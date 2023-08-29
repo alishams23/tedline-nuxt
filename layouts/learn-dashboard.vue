@@ -32,8 +32,8 @@
                   </v-list-item>
                   <v-list-subheader color="blue-darken-4"
                       class="   text-sm mt-9  text-grey justify-end  mb-2 ">عمومی</v-list-subheader>
-                  <v-list-item class="leftPadding  rounded-pill px-6  " color="blue" subtitle="">
-                      <v-list-item-title class=" text-right rtl font-weight-bold  irsa "> توضیحات دوره</v-list-item-title>
+                  <v-list-item :to="'/course/'+data.id"  class="leftPadding  rounded-s-pill px-6 mb-3 py-2" color="blue-darken-2" >
+                      <v-list-item-title  class=" text-right rtl font-weight-bold  irsa "> توضیحات دوره</v-list-item-title>
                   </v-list-item>
   
               </v-list>
@@ -50,8 +50,6 @@
           </v-app-bar-title>
       </v-app-bar>
        <slot />
-  
-       
       </v-main>
      
     </v-app>
@@ -83,7 +81,16 @@
     updatePageDrawerChecker() {
         this.drawerChecker = !this.drawerChecker;
       },  getData() {
-            axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) => {
+        
+            axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`,{
+            headers: {
+              "Content-type": "application/json",
+              Accept: "application/json",
+              Authorization: this.$store.state.token != ''
+                ? `Token ${this.$store.state.token}`
+                : ''
+            },
+          }).then((response) => {
                 this.data = response.data
                 this.loading = false
             }

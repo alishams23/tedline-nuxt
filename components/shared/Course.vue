@@ -1,7 +1,7 @@
 <template>
   <div >
 
-    <v-card color="white" :class="['ma-1', selectedClass]" class="rounded-xl shadow-2 " @click="toggle">
+    <v-card   class="rounded-xl shadow-2 " >
       <v-card class=""  elevation="0" :to="'/course/' + data.id">
        
          <div class="">

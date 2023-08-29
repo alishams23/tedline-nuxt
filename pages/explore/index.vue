@@ -1,19 +1,33 @@
 <template>
   <v-container>
     <v-card-text class="" color="" elevation="0">
-      <v-text-field :loading="loading" elevation="0" @update:model-value="searchCourse" v-model="text"
-        class="rtl pe-5 ps-1 bg-grey-lighten-4 py-1  rounded-pill"  :flat="true" variant="solo-filled" append-icon="fad fa-search"
-        label="جستجو بین درس ها" rounded="pill" single-line hide-details>
+      <v-text-field   :loading="loading" elevation="0" @update:model-value="searchCourse" v-model="text"
+        class="   py-1  "  :flat="true" variant="solo-filled" 
+        label="جستجو بین درس ها" rounded="xl" single-line hide-details>
+        <template v-slot:prepend>
+          <v-avatar color="blue" rounded="xl" class="text-xs" size="55" icon="fa fa-search"></v-avatar>
+        </template>
       </v-text-field>
+    
     </v-card-text>
     <v-card elevation="0">
-      <v-tabs v-model="tab" color="black" align-tabs="end" class="border-b text-grey">
+      <v-tabs v-model="tab" align-tabs="end" class="border-b text-grey">
         <v-btn v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
           @click="drawerChecker = true" size="small" color="black" prepend-icon="fa fa-cog" rounded="pill"> فیلتر</v-btn>
-        <v-tab selected-class=" border-b-md   border-opacity-100 rounded-0" :value="1" width="150">
-          دوره ها</v-tab>
-        <v-tab selected-class=" border-b-md   border-opacity-100 rounded-0" :value="2" width="150">
-          اساتید</v-tab>
+        <v-tab class="rounded-0 px-8 px-md-16" variant="text" color="blue" :value="1" >
+        <div :class="tab == 1 ? 'text-black' : 'text-grey'">
+          دوره ها
+          <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon>
+        </div>
+        </v-tab>
+        <v-tab class="rounded-0 px-8 px-md-16" variant="text" color="blue" :value="2" >
+          
+        <div :class="tab == 2 ? 'text-black' : 'text-grey'" >
+          اساتید
+          <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon>
+
+        </div>
+        </v-tab>
       </v-tabs>
       <v-window v-model="tab">
         <v-window-item :value="1">
@@ -54,7 +68,7 @@
             <p class="text-sm pb-0 mb-0 font-weight-bold ">فیلتر </p>
             <p class="text-xs mt-n2">فیلتر دوره</p>
           </div>
-          <v-avatar color="blue-darken-4" rounded="lg" class="ms-3" >
+          <v-avatar color="blue" rounded="lg" class="ms-3" >
             <v-icon size="18px">
               fa fa-filter
             </v-icon>
@@ -71,7 +85,7 @@
             v-for="item in dataCategoryBest"
             :key="item.id"
             
-            :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue-darken-4' : ''"
+            :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue' : ''"
            
             filter
             :isSelected="selectedDataCategoryIds.includes(item.id) "
@@ -88,10 +102,10 @@
     </v-card>
     <v-list lines="three" select-strategy="classic">
 
-      <v-list-item color="blue-darken-4" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="blue-darken-4" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>
@@ -102,10 +116,10 @@
       </v-list-item>
 
 
-      <v-list-item color="blue-darken-4" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="blue-darken-4" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>

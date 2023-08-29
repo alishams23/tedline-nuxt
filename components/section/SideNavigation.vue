@@ -3,8 +3,8 @@
     style="position:fixed; top:0; right:0; ">
     <div class="d-flex flex-column justify-center align-center" style="height: 100%;">
       <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="mt-5 mb-auto">tedline</v-btn>
-      <v-btn v-for="item in menu" :variant="currentRouteCheck(item.to) ? 'tonal' : 'flat'" :key="item + '+sidebar'"
-        :to="item.to" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
+      <v-btn v-for="(item,index) in menu" :variant="currentRouteCheck(item.to) ? 'tonal' : 'flat'" :key="item + '+sidebar'"
+        :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `/${index == 2 ? username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
         :color="currentRouteCheck(item.to) ? 'blue-darken-1' : 'grey-lighten-4'"
         :icon="currentRouteCheck(item.to) ? 'fa ' + item.icon : 'fad ' + item.icon"></v-btn>
       <v-btn rounded="xl" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
@@ -21,24 +21,38 @@
 export default {
 
 
-
+  computed: {
+  isAuthenticated() {
+    return this.$store.state.isAuthenticated;
+  },
+  username() {
+    return this.$store.state.username;
+  }
+},
   data: () => ({
     menu: [
       {
         icon: "fa-home-alt",
-        to: '/home'
+        to: '/home',
+        login:false
       },
       {
         icon: "fa-search",
-        to: '/explore'
+        to: '/explore',
+        login:false
+
       },
       {
         icon: "fa-user",
-        to: '/profile/1/'
+        to: '/profile',
+        login:true
+
       },
       {
         icon: "fa-book",
-        to: '/blog/'
+        to: '/blog',
+        login:false
+
       },
     ],
   }),

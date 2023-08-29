@@ -1,8 +1,7 @@
 <template>
     <v-container>
         <div v-if="data">
-            <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex">
-               
+            <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex align-center">
                 <v-avatar size="x-large" rounded="lg" color="blue">
                     <v-icon color="white"> fad fa-info</v-icon>
                 </v-avatar>
@@ -10,9 +9,9 @@
                     <div>
                         {{ data.title }}
                     </div>
-                    <div class=" font-weight-light text-body-2 irsa ">
+                    <!-- <div class=" font-weight-light text-body-2 irsa ">
                         هفته ی اول
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div>
@@ -26,13 +25,12 @@
                     <v-expansion-panel-text>
                         <v-list lines="two">
                             <div v-for="box in boxes.box" :key="box.title">
-                             
-                               <box v-if="box.video" title="فایل" color="amber" icon="fa-file" />    
+                               <box v-if="box.file" :read="box.is_finished" title="فایل" color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
+                               <box v-if="box.video" :read="box.is_finished" title="ویدئو" color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.video+ '/video'" />    
                             </div>
                         </v-list>
                     </v-expansion-panel-text>
                 </v-expansion-panel>
-
             </v-expansion-panels>
         </div>
     </v-container>
@@ -57,20 +55,26 @@ components:{box},
         model: null,
         data: {},
         panel: [0],
-    
-
-
     }),
     methods: {
         getData() {
-            axios.get(`https://tedline.org/api/course/RetrieveSession/${this.$route.params.session}/`).then((response) => {
+            axios.get(`https://tedline.org/api/course/RetrieveSession/${this.$route.params.session}/`,{
+            headers: {
+              "Content-type": "application/json",
+              Accept: "application/json",
+              Authorization: this.$store.state.token != ''
+                ? `Token ${this.$store.state.token}`
+                : ''
+            },
+          }).then((response) => {
                 this.data = response.data
                 this.loading = false
             }
             )
         }
-    }, mounted() {
-        this.getData()
+    },async mounted() {
+     await this.$store.commit('onStart') // get token
+      this.getData()
     }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <v-list-item class="mb-3 rounded-lg  border rtl">
+    <v-list-item :to="to" class="mb-3 rounded-lg  border rtl">
     
         <template v-slot:prepend>
             <v-avatar size="x-large" rounded="lg" :color="color">
@@ -13,14 +13,15 @@
         </template>
 
         <template v-slot:append>
-            <v-btn color="grey-lighten-1" size="x-small" variant="outlined"> خوانده نشده</v-btn>
+            <v-btn v-if="read == true" color="green" append-icon="fal fa-check" size="x-small" variant="flat"> خوانده شده</v-btn>
+            <v-btn v-else color="grey-lighten-1" size="x-small" variant="outlined"> خوانده نشده</v-btn>
         </template>
     </v-list-item>
 </template>
 
 <script>
 export default {
-    props: ["color", "icon", "title"]
+    props: ["color", "icon", "title","to","read"]
 }
 
 </script>

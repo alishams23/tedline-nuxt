@@ -13,6 +13,16 @@
                               tedline
                             </div>
                             <v-form validate-on="input" @submit.prevent="Login">
+                              <v-alert
+                                
+                                variant="tonal"
+                                v-if="generalError == true"
+                                icon="fa fa-exclamation-triangle"
+                                title="خطا"
+                                class="rtl my-8"
+                                text="پسورد یا نام کاربری اشتباه میباشد"
+                                type="error"
+                              ></v-alert>
                             <v-row class="d-flex mb-3">
                                 <v-col cols="12">
                                     <v-text-field
@@ -29,6 +39,7 @@
                                     v-model="password"
                                     :rules="[rules.required]"
                                     label="password"
+                                    type="password"
                                     rounded="lg"
                                     persistent-hint
                                     variant="outlined"
