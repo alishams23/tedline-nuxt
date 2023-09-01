@@ -8,9 +8,9 @@ export default defineNuxtConfig({
       transpile: ["vuetify"],
     },
     modules: ['@vite-pwa/nuxt'],
-  pwa: {
-    registerType: 'autoUpdate',
-    manifest: {
+    pwa: {
+      registerType: 'autoUpdate',
+      manifest: {
       lang: 'fa',
       name: 'tedline',
       orientation: 'portrait',
@@ -19,17 +19,28 @@ export default defineNuxtConfig({
       short_name: 'تدلاین',
       description: 'پلتفرم آموزشی تدلاین',
       start_url: '/',
-  }, 
-  devOptions: {
-    enabled: true,
-    suppressWarnings: true,
-    navigateFallbackAllowlist: [/^\/$/],
-    type: 'module',
-  },
+      },
+       
+      workbox: {
+        navigateFallback: '/',
+        globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      },
+      client: {
+        installPrompt: true,
+        // you don't need to include this: only for testing purposes
+        // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
+        periodicSyncForUpdates: 20,
+      },
+      devOptions: {
+        enabled: true,
+        suppressWarnings: true,
+        navigateFallbackAllowlist: [/^\/$/],
+        type: 'module',
+      },
+  
     /* your pwa options */
   }
-    
-    
+
  
  
 })

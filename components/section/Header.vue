@@ -4,8 +4,7 @@
       <v-row justify="center" class="my-12 ">
         <v-col cols="12" sm="6" lg="6" xl="4"  class="ml-auto">
           <v-img  class=" hidden-sm-and-down"  src="/images/header.png">
-           <v-sheet height="550" color="transparent">
-           </v-sheet>
+         
           </v-img>
         </v-col>
         <v-col cols="12" sm="6" lg="6" class="d-flex align-center flex-wrap ">
@@ -26,7 +25,7 @@
             <div class="mt-6 pt-2 justify-center justify-lg-end d-flex">
               <div>
                 <div class="stylish-input-group">
-                  <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-8">
+                  <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-3">
                   <v-btn rounded :to="'/explore/?search='+text" color="blue" elevation="0" class=" text-uppercase custom-btn font-weight-medium" dark>
                     جستجو
                   </v-btn>

@@ -15,12 +15,10 @@
           <Course :data="item" class="my-16 responsive-card px-1 px-md-2"   />
         </v-slide-group-item>
       </v-slide-group>
-
       <div class="d-flex justify-center">
         <v-progress-circular class="ma-10" v-if="loading" :size="60" :width="10" color="blue" indeterminate></v-progress-circular>
       </div>
     </v-col>
-
   </v-row>
 </template>
 
@@ -42,8 +40,6 @@ export default {
         this.data = response.data
       this.loading = false
       }
-      
-
       )
     }
   }, mounted() {
