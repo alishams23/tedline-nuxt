@@ -16,28 +16,42 @@
       </template>
     </v-list-item>
       <div>
-        <video autoplay controls class="w-100 rounded-xl">
-          <source :src="videoUrl + $route.params.box +`/?token=${$store.state.token}`" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <v-sheet rounded="xl" class="player-container ">
+          <vue3-video-player class="text-blue" :auto-play="true"  :src="videoUrl + $route.params.box +`/?token=${$store.state.token}`" >
+          </vue3-video-player>
+        </v-sheet>
+        
       </div>
     </v-container>
   </template>
   
   <script>
+import '~/assets/styles/video.css'
+
   export default {
     setup() {
         definePageMeta({
             layout: "dashboard",
         })
     },
+
     data() {
       return {
         videoUrl :'https://tedline.org/api/box/video/stream_video/',
+
       };
     },
     async mounted() {
-    
+      document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+
+// Prevent F12 key from opening developer tools
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode == 123 /* F12 */) {
+    e.preventDefault();
+  }
+});
       
     },
     methods: {

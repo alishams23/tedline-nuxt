@@ -78,7 +78,7 @@
                 </v-chip>
               </v-card-text>
             </div>
-            <v-avatar class="ma-3 custom-rounded-1" color="indigo-darken-4">
+            <v-avatar class="ma-3 custom-rounded-1"  color="indigo-darken-4">
               <i class="fad fa-key"></i>
             </v-avatar>
           </div>
