@@ -30,7 +30,7 @@
             fa fa-clock
           </v-icon>
           {{ data.duration }}
-          ساعت
+          دقیقه
 
         </div>
       </v-card-actions>

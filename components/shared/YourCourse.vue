@@ -39,7 +39,7 @@
                         <h3 class="text-h6 irsa font-weight-black">{{data.title}}</h3>
                         <div class="d-flex align-center mt-sm-10 mt-8">
                             <h6 class="irsa text-body-2 text-muted pl-5">
-                                <v-icon icon="fa fa-clock" class="mr-1" size="10" color="blue"></v-icon> {{data.duration}} ساعت
+                                <v-icon icon="fa fa-clock" class="mr-1" size="10" color="blue"></v-icon> {{data.duration}} دقیقه
                             </h6>
                         </div>
                     </div>

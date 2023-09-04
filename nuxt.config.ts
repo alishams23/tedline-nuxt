@@ -19,6 +19,14 @@ export default defineNuxtConfig({
       short_name: 'تدلاین',
       description: 'پلتفرم آموزشی تدلاین',
       start_url: '/',
+      icons: [
+        {
+          src: 'icon.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+       
+      ],
       },
        
       workbox: {

@@ -107,7 +107,7 @@
               <v-card-title class="text-sm irsa font-weight-black">
                 مدت زمان دوره
               </v-card-title>
-              <v-card-text>{{ data.duration }} ساعت</v-card-text>
+              <v-card-text>{{ data.duration }} دقیقه</v-card-text>
             </div>
             <v-avatar class="ma-3 custom-rounded-1" color="blue-accent-4">
               <i class="fad fa-clock"></i>
