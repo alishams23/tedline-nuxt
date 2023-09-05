@@ -3,7 +3,7 @@
     <v-navigation-drawer elevation="0" temporary v-model="drawerChecker">
       <Sidebar />
     </v-navigation-drawer>
-    <v-app-bar :class="transparent == true ? 'custom-bg-blue' : 'shadow-1'"
+    <v-app-bar :class="transparent == true ? 'custom-bg-blue' : shadow == true ? 'shadow-1' : ''"
       :scroll-behavior="transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
       class="py-2" app elevation="0">
       <v-app-bar-nav-icon @click.stop="drawerChecker = !drawerChecker">
@@ -73,7 +73,7 @@ import dark from "~/components/shared/dark.vue";
 export default {
 
   name: "App",
-  props: ['transparent'],
+  props: ['transparent','shadow'],
   components: { Sidebar, Notification ,dark},
   computed: {
     isAuthenticated() {
@@ -83,8 +83,6 @@ export default {
   data() {
     return {
       menuNotification: false,
-      appTitle: "tedline",
-   
       drawerChecker: false,
       loading: true,
       menuItems: [

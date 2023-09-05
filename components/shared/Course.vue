@@ -1,12 +1,12 @@
 <template>
   <div >
 
-    <v-card   class="rounded-xl shadow-2 " >
-      <v-card class=""  elevation="0" :to="'/course/' + data.id">
+    <v-card   class="rounded-xl shadow-3 " >
+      <v-card class="rounded-0"  elevation="0" :to="'/course/' + data.id">
        
          <div class="">
-          <v-img class=" align-end text-white " :aspect-ratio="1 / 1" :src="data.image" cover>
-            <v-btn  class="bg-glass text-white text-body-2 mx-3 my-3 shadow-2  " rounded>
+          <v-img class=" align-end  rounded-xl text-white " :aspect-ratio="1 / 1" :src="data.image" cover>
+            <v-btn  class="bg-glass  text-white  font-weight-bold text-body-2 mx-3 my-3 shadow-2  " rounded>
               <div v-if="data.price != 0">
                 {{ data.price }} <span class="  ps-1 irsa">تومان</span>
               </div>
@@ -17,8 +17,8 @@
           </v-img>
          </div>
      
-        <v-responsive height="70" >
-          <div class=" test-n text-body-2 text-lg-body-1  rtl irsa px-3 pt-2 line-height-md  font-weight-black">{{ data.title }}
+        <v-responsive height="60" >
+          <div class=" test-n text-body-2 text-lg-body-1  rtl irsa px-3 pt-2 line-height-sm  font-weight-bold">{{ data.title }}
           </div>
         </v-responsive>
       </v-card>

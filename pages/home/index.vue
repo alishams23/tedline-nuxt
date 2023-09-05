@@ -1,12 +1,12 @@
 <template>
 
-  <Navbar :transparent="false"   />
+  <Navbar :transparent="false" :shadow="true"  />
   <Navbar :transparent="true"  />
   <Header />
   <v-container>
-   <YourCorses :username="$store.state.username" class="pb-16 pb-lg-0" />
-    <SuggestionCourses class="my-12  pb-16" />
-   <div class="pb-16 ">
+   <YourCorses :username="$store.state.username"  />
+    <SuggestionCourses class="my-12  pb-md-16" />
+   <div class="pb-md-16 ">
     <Category1  />
    </div>
     <BestCourses class="my-16 " />
@@ -29,6 +29,11 @@ export default {
       
     })
   },
+  head () {
+    return {
+        title: 'تدلاین'
+    }
+},
   components: {
     Course,
     Header,

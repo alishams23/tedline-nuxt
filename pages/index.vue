@@ -34,6 +34,11 @@ export default {
       layout: "home",
     })
   },
+  head () {
+    return {
+        title: 'تدلاین'
+    }
+},
   name: "index",
   components: {
     Header,

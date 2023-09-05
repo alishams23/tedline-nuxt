@@ -36,7 +36,7 @@
                 </v-col>
                 <v-col cols="12" sm="7" class="rtl">
                     <div class="mt-md-6   px-10">
-                        <h3 class="text-h6 irsa font-weight-black">{{data.title}}</h3>
+                        <h3 class="text-h6 irsa font-weight-bold">{{data.title}}</h3>
                         <div class="d-flex align-center mt-sm-10 mt-8">
                             <h6 class="irsa text-body-2 text-muted pl-5">
                                 <v-icon icon="fa fa-clock" class="mr-1" size="10" color="blue"></v-icon> {{data.duration}} دقیقه

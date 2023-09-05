@@ -15,7 +15,7 @@ $main-color-dark : rgb(3, 82, 108);
 }
 
 .line-height-sm{
-    line-height: 1.2;
+    line-height: 1.8;
 }
 
 .line-height-md{
@@ -93,10 +93,20 @@ button {
 
 .bg-glass{
     /* From https://css.glass */
-background: rgba(49, 49, 49, 0.77) !important;
+background: rgba(0, 0, 0, 0.788) !important;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+// backdrop-filter: blur(9px);
 
 border-top: 0.8px solid rgba(255, 255, 255, 0.447) !important;
+}
+
+
+.bg-glass-white{
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.854) !important;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9px);
+
 }
 
 

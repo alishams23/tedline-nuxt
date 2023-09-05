@@ -1,6 +1,6 @@
 <template>
-  <div class=" custom-bg-gradient-blue-light">
-    <v-container class="py-12 mb-12 ">
+  <div class=" custom-bg-gradient-blue-light" >
+    <v-container class="py-md-12 mb-12 ">
       <v-row justify="center" class="my-12 ">
         <v-col cols="12" sm="6" lg="6" xl="4"  class="ml-auto">
           <v-img  class=" hidden-sm-and-down"  src="/images/header.png">
@@ -8,9 +8,9 @@
           </v-img>
         </v-col>
         <v-col cols="12" sm="6" lg="6" class="d-flex align-center flex-wrap ">
-          <div class="text-right">
+          <div class="text-md-right text-center">
             <div class="   ">
-              <div class=" text-h6 text-md-h5 irsa font-weight-bold">
+              <div class=" text-h6 text-md-h5  irsa font-weight-bold">
                 هیجان یادگیری و شگفتی های نو
               </div>
               <h2 class="text-h4 text-md-h3 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-blue">تدلاین</span>
@@ -36,6 +36,8 @@
         </v-col>
       </v-row>
     </v-container>
+    
+  
   </div>
 </template>
 
@@ -85,6 +87,8 @@ export default {
     padding-left: 20px !important;
   }
 }
+
+
 
 
 </style>

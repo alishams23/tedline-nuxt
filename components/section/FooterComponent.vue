@@ -1,5 +1,5 @@
 <template>
-    <v-footer color="black">
+    <v-footer color="black" v-if="isAuthenticated != true">
       <v-row justify="center" no-gutters>
         <v-btn
           v-for="item in menuItems"
@@ -20,7 +20,11 @@
   </template>
   <script>
     export default {
-      
+      computed: {
+    isAuthenticated() {
+      return this.$store.state.isAuthenticated;
+    }
+  },
       data: () => ({
   
         menuItems: [

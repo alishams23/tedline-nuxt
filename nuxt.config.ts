@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  
   ssr:true,
   devtools: { enabled: true },
   css: ['~/assets/WebFonts/css/fontiran.css','~/assets/styles/main.scss', '~/assets/WebFonts/css/all.min.css',],
@@ -21,7 +20,7 @@ export default defineNuxtConfig({
       start_url: '/',
       icons: [
         {
-          src: 'icon.png',
+          src: 'pwa-192x192.png',
           sizes: '512x512',
           type: 'image/png',
         },
@@ -39,12 +38,7 @@ export default defineNuxtConfig({
         // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
         periodicSyncForUpdates: 20,
       },
-      devOptions: {
-        enabled: true,
-        suppressWarnings: true,
-        navigateFallbackAllowlist: [/^\/$/],
-        type: 'module',
-      },
+    
   
     /* your pwa options */
   }

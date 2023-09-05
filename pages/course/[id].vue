@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <Navbar  />
   <v-snackbar v-model="snackbar" class="rtl" color="blue-darken-4" elevation="24" rounded="lg">
     <template v-slot:actions>
       <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
@@ -78,7 +78,7 @@
                 </v-chip>
               </v-card-text>
             </div>
-            <v-avatar class="ma-3 custom-rounded-1"  color="indigo-darken-4">
+            <v-avatar class="ma-3 text-h6 rounded-pill " size="50"  color="indigo-darken-3">
               <i class="fad fa-key"></i>
             </v-avatar>
           </div>
@@ -88,7 +88,7 @@
 
       </v-col>
       <v-col cols="12" md="4">
-        <v-card color="#F4FAF4" class="custom-rounded-1 rtl mb-4" elevation="0">
+        <v-card color="#008000" class=" text-white custom-rounded-1 rtl mb-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="irsa text-sm font-weight-black">
@@ -96,12 +96,12 @@
               </v-card-title>
               <v-card-text>{{ data.price }} تومان</v-card-text>
             </div>
-            <v-avatar class="ma-3 custom-rounded-1" color="teal-darken-2">
+            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50"  color="white">
               <i class="fad fa-money-bill shadow-2"></i>
             </v-avatar>
           </div>
         </v-card>
-        <v-card color="light-blue-lighten-5" class="custom-rounded-1 rtl mt-4" elevation="0">
+        <v-card color="blue-accent-4" class="custom-rounded-1 rtl mt-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="text-sm irsa font-weight-black">
@@ -109,7 +109,7 @@
               </v-card-title>
               <v-card-text>{{ data.duration }} دقیقه</v-card-text>
             </div>
-            <v-avatar class="ma-3 custom-rounded-1" color="blue-accent-4">
+            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50"  color="white">
               <i class="fad fa-clock"></i>
             </v-avatar>
           </div>
@@ -152,6 +152,11 @@ export default {
       layout: "dashboard",
     })
   },
+  head () {
+    return {
+        title: 'تدلاین'
+    }
+},
   components: {
     Course,
     FooterComponent
