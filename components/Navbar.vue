@@ -10,9 +10,9 @@
         <i class="fa fa-bars"></i>
       </v-app-bar-nav-icon>
       <v-toolbar-title>
-        <v-btn variant="text" class="mx-4 text-blue font-weight-bold text-h6  hidden-md-and-down " rounded>
-          Tedline
-        </v-btn>
+     
+          <v-img src="/images/icon2.png" height="40" width="90" class="mr-auto hidden-md-and-down"></v-img>
+ 
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <div v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
