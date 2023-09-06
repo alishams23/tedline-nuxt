@@ -53,7 +53,7 @@
           <Notification />
         </v-card>
       </v-menu>
-      <router-link :to="`/profile/${$store.state.username}/`"> 
+      <router-link :to="$store.state.username ? `/profile/${$store.state.username}/`: '/'"> 
         <v-avatar   color="indigo-darken-4" style="font-size:9px" class="me-9  ms-md-4" v-if="isAuthenticated == true">
           <v-icon class=" position-absolute">
             fad fa-user

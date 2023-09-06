@@ -9,7 +9,7 @@
       </v-img>
       </v-sheet> -->
       <v-btn v-for="(item,index) in menu" :variant="currentRouteCheck(item.to) ? 'tonal' : 'flat'" :key="item + '+sidebar'"
-        :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `/${index == 2 ? username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
+        :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
         :color="currentRouteCheck(item.to) ? 'blue-darken-1' : 'grey-lighten-4'"
         :icon="currentRouteCheck(item.to) ? 'fa ' + item.icon : 'fad ' + item.icon"></v-btn>
       <v-btn rounded="xl" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
