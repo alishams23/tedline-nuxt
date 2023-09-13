@@ -4,8 +4,8 @@
     <div>
         <v-list class="pa-6">
             <!---Menu Loop -->
-            <div class="d-flex justify-center mt-11">
-                <v-avatar color="indigo-darken-4" class="bg-blue-gradient" :size="90">
+            <div class="d-flex justify-center mt-5">
+                <v-avatar color="blue" variant="tonal" :size="100">
                     <v-icon :size="29" icon="fad fa-chalkboard-teacher"></v-icon>
                 </v-avatar>
             </div>
@@ -15,9 +15,9 @@
                 <v-list-subheader v-if="item.header" :item="item" :key="item.title" color="grey"
                     class="  smallCap text-xs mt-10 font-weight-bold justify-end   ">{{ item.header }}</v-list-subheader>
 
-                <v-list-item v-if="!item.header"  :to="item.to" class="leftPadding px-8  rounded-pill mb-1" color="blue">
+                <v-list-item v-if="!item.header" variant="flat"  :to="item.to" class="leftPadding px-7  custom-rounded-1 mb-1" color="blue-accent-4">
                     <template v-slot:prepend="{ isActive }">
-                        <v-icon :icon="isActive ? 'fa ' + item.icon: 'fad ' + item.icon" :size="15"></v-icon>
+                        <v-icon :icon="isActive ? 'fa ' + item.icon: 'far ' + item.icon" :size="15"></v-icon>
                     </template>
 
 

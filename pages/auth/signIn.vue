@@ -2,11 +2,21 @@
 <template>
     <v-app id="inspire">
         <v-main class=" bg-blue "> 
- 
+          <v-locale-provider rtl>
         <v-container  >
             <v-row class="my-16 d-flex justify-center align-center" >
-                <v-col cols="12" lg="4" xl="3" class="d-flex align-center" >
+                <v-col cols="12" lg="5" xl="4" class="d-flex align-center" >
                     <v-card rounded="xl" elevation="0" class=" shadow-2  px-5  mx-auto" >
+                      <v-btn
+                      variant="tonal"
+                      color="blue"
+                      size="small"
+                      class="mt-5"
+                      to="/"
+                      prepend-icon="far fa-arrow-right"
+                      >
+                        برگشت به خانه
+                      </v-btn>
                         <v-card-item class="">
                             <div class="font-weight-bold irsa text-muted text-center  text-h4 mt-5 ">ورود</div>
                             <div class="d-flex text-h6 text-blue justify-center font-weight-bold py-4 mb-5">
@@ -68,6 +78,7 @@
                 </v-col>
             </v-row>
         </v-container>
+      </v-locale-provider>
     </v-main>
     </v-app>
 

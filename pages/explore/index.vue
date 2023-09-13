@@ -5,7 +5,7 @@
         class="   py-1  "  :flat="true" variant="solo-filled" 
         label="جستجو بین درس ها" rounded="xl" single-line hide-details>
         <template v-slot:prepend>
-          <v-avatar color="blue" rounded="xl" class="text-xs" size="55" icon="fa fa-search"></v-avatar>
+          <v-avatar color="blue-accent-4" rounded="xl" class="text-xs" size="55" icon="fa fa-search"></v-avatar>
         </template>
       </v-text-field>
     
@@ -36,7 +36,7 @@
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
                 <Course :data="item" class="w-100 ma-3" />
               </v-col>
-              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
+              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue-accent-4" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
@@ -56,7 +56,7 @@
       </v-window>
     </v-card>
   </v-container>
-  <v-navigation-drawer v-if="tab == 1" location="right" class=" " elevation="0" v-model="drawerChecker">
+  <v-navigation-drawer v-if="tab == 1" location="right"  elevation="0" v-model="drawerChecker">
     <v-card class="mx-auto" max-width="400" elevation="0" rounded="0">
       <v-toolbar flat class="border-b" color="transparent">
         <v-btn icon @click="drawerChecker = false">
@@ -68,7 +68,7 @@
             <p class="text-sm pb-0 mb-0 font-weight-bold ">فیلتر </p>
             <p class="text-xs mt-n2">فیلتر دوره</p>
           </div>
-          <v-avatar color="blue" rounded="lg" class="ms-3" >
+          <v-avatar color="blue-accent-4" rounded="lg" class="ms-3" >
             <v-icon size="18px">
               fa fa-filter
             </v-icon>
@@ -85,7 +85,7 @@
             v-for="item in dataCategoryBest"
             :key="item.id"
             
-            :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue' : ''"
+            :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue-accent-4' : ''"
            
             filter
             :isSelected="selectedDataCategoryIds.includes(item.id) "
@@ -95,17 +95,16 @@
             @click="toggleDataCategory(item.id)"
           >
             {{ item.title }}
-
           </v-chip>
        
       </v-card-text>
     </v-card>
     <v-list lines="three" select-strategy="classic">
 
-      <v-list-item color="blue" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue-accent-4" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="blue" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue-accent-4" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>
@@ -116,10 +115,10 @@
       </v-list-item>
 
 
-      <v-list-item color="blue" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+      <v-list-item color="blue-accent-4" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
         <template v-slot:prepend="{ isActive }">
           <v-list-item-action start>
-            <v-checkbox-btn color="blue" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
+            <v-checkbox-btn color="blue-accent-4" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
               true-icon="fad fa-check-square"></v-checkbox-btn>
           </v-list-item-action>
         </template>

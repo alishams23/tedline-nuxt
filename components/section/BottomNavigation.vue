@@ -2,10 +2,10 @@
    
         <v-bottom-navigation v-model="value" height="65"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
           grow>
-          <v-btn   v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"    :ripple="{ class: 'text-blue' }">
+          <v-btn   v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"    :ripple="false">
             <v-sheet variant="flat" class="px-6 py-2 rounded-pill "
-              :color="currentRouteCheck(item.to) ? 'blue' : 'white'">
-              <v-icon :size="currentRouteCheck(item.to) ? '16' : '19'">{{ currentRouteCheck(item.to) == false ? "far " : "fa "
+              :color="currentRouteCheck(item.to) ? 'blue-accent-4' : 'white'">
+              <v-icon :size="currentRouteCheck(item.to) ? '16' : '18'">{{ currentRouteCheck(item.to) == false ? "far " : "fa "
               }} {{ item.icon }}</v-icon>
             </v-sheet>
             <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2 text-black">{{ item.title }}</span>

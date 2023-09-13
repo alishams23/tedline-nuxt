@@ -1,5 +1,14 @@
 <template>
     <v-container>
+        <div class="d-flex justify-center mx-10">
+            <v-progress-linear
+            v-if="loading"
+            color="blue-accent-4"
+            indeterminate
+            rounded
+            height="6"
+          ></v-progress-linear>
+          </div>
         <div v-if="data">
             <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex align-center">
                 <v-avatar size="x-large" rounded="lg" color="blue">
@@ -53,8 +62,9 @@ export default {
 components:{box},
     data: () => ({
         model: null,
-        data: {},
-        panel: [0],
+        data: null,
+        panel: [],
+        loading:true,
     }),
     methods: {
         getData() {
@@ -67,8 +77,13 @@ components:{box},
                 : ''
             },
           }).then((response) => {
+              this.loading = false
                 this.data = response.data
-                this.loading = false
+                let index = 0
+                this.data.boxes.forEach(element => {
+                    this.panel.push(index)
+                    index ++
+                });
             }
             )
         }

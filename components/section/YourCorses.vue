@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-2"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-1"
       density="comfortable">
       <div class=" rounded-pill bg-grey-lighten-4 ">
         <v-tab class="bg-transparent px-md-16 px-10 rounded-pill " variant="flat" value="one">در حال یادگیری</v-tab>
@@ -42,8 +42,9 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingUnfinished" :size="60" class="ma-10" :width="8" color="blue"
+            <v-progress-circular v-if="loadingUnfinished" :size="60" class="ma-10" :width="10" color="blue"
               indeterminate></v-progress-circular>
+              
           </div>
         </v-window-item>
         <v-window-item value="two">
@@ -59,7 +60,7 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingFinished" :size="60" class="ma-10" :width="8" color="blue"
+            <v-progress-circular v-if="loadingFinished" :size="60" class="ma-10" :width="10" color="blue"
               indeterminate></v-progress-circular>
           </div>
         </v-window-item>

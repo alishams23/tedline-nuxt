@@ -10,7 +10,7 @@
     <v-navigation-drawer temporary location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0" v-model="drawerChecker">
       <div class="d-flex  flex-column align-center justify-center mt-11">
 
-      <v-avatar color="indigo-darken-4" variant="tonal" :size="80"  >
+      <v-avatar color="blue-accent-4" variant="tonal" :size="80"  >
         <v-icon :size="29" icon="fad fa-bells"></v-icon>
       </v-avatar>
       <div class="my-5 font-weight-bold text-sm">

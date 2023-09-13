@@ -3,7 +3,7 @@
     <v-navigation-drawer elevation="0" temporary v-model="drawerChecker">
       <Sidebar />
     </v-navigation-drawer>
-    <v-app-bar :class="transparent == true ? 'custom-bg-blue' : shadow == true ? 'shadow-1' : ''"
+    <v-app-bar :class="transparent == true ? 'custom-bg-blue text-white ' : shadow == true ? 'shadow-1' : ''"
       :scroll-behavior="transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
       class="py-2" app elevation="0">
       <v-app-bar-nav-icon @click.stop="drawerChecker = !drawerChecker">
@@ -11,18 +11,20 @@
       </v-app-bar-nav-icon>
       <v-toolbar-title>
      
-          <v-img src="/images/icon2.png" height="40" width="90" class="mr-auto hidden-md-and-down"></v-img>
- 
+<v-sheet class="mr-auto hidden-md-and-down rounded-pill   " color="transparent"  height="40" width="110">
+  <v-img src="/images/icon2.png"  class="  w-100 h-100  "></v-img>
+
+</v-sheet> 
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <div v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
-        <v-list-item colo class=" hidden-md-and-down text-center text-body-2 font-weight-bold" width="120px"
-          color="blue-darken-2" rounded="pill" :key="item.title" :to="item.path">
+        <v-list-item  class=" hidden-md-and-down text-center text-body-2 font-weight-bold" width="120px"
+          :color="transparent == true ? 'white': 'blue' " rounded="pill" :key="item.title" :to="item.path">
           {{ item.title }}
         </v-list-item>
       </div>
       <v-btn v-if="isAuthenticated != true" to="/auth/signIn/" width="120px" class="ma-3 font-weight-bold" height="40"
-        variant="flat" color="blue-darken-1" rounded="pill">
+        variant="flat" :color="transparent == true ? 'indigo-darken-4': 'blue-darken-1'" rounded="pill">
         ورود
       </v-btn>
       <v-btn v-if="isAuthenticated != true" to="/auth/signUp/" width="120px"

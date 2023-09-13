@@ -1,5 +1,5 @@
 <template>
-  <Navbar  />
+  <Navbar />
   <v-snackbar v-model="snackbar" class="rtl" color="blue-darken-4" elevation="24" rounded="lg">
     <template v-slot:actions>
       <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
@@ -11,6 +11,7 @@
     <v-progress-circular :size="60" class="ma-10" :width="8" color="blue" indeterminate></v-progress-circular>
   </div>
   <v-container v-if="loading == false">
+
     <v-row>
       <v-col cols="12" md="7" class="">
 
@@ -35,11 +36,25 @@
         <p class="rtl  font-weight-light py-8">
           {{ data.description }}
         </p>
-
+        <v-alert
+        icon="fa fa-info"
+        variant="tonal"
+        type="info"
+        v-if="data.registered == true"
+        class="rtl border-opacity-100  my-2"
+        border="start"
+        >
+          شما در این دوره ثبت نام کرده اید
+        </v-alert>
         <v-row class="py-10 ">
           <v-col>
-            <v-btn variant="flat" color="blue" rounded="xl" elevation="0" class="w-100">
+            <v-btn variant="flat" @click="register" :loading="loadingRegister" color="blue-accent-4" rounded="xl"
+              elevation="0" class="w-100" v-if="data.registered == false">
               ثبت نام
+            </v-btn>
+            <v-btn variant="flat" :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue-accent-4"
+              rounded="xl" elevation="0" class="w-100" v-if="data.registered == true">
+              مشاهده ی دوره
             </v-btn>
           </v-col>
           <v-col>
@@ -78,7 +93,7 @@
                 </v-chip>
               </v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 rounded-pill " size="50"  color="indigo-darken-3">
+            <v-avatar class="ma-3 text-h6 rounded-pill " size="50" color="indigo-darken-3">
               <i class="fad fa-key"></i>
             </v-avatar>
           </div>
@@ -96,7 +111,7 @@
               </v-card-title>
               <v-card-text>{{ data.price }} تومان</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50"  color="white">
+            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50" color="white">
               <i class="fad fa-money-bill shadow-2"></i>
             </v-avatar>
           </div>
@@ -109,7 +124,7 @@
               </v-card-title>
               <v-card-text>{{ data.duration }} دقیقه</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50"  color="white">
+            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50" color="white">
               <i class="fad fa-clock"></i>
             </v-avatar>
           </div>
@@ -152,11 +167,11 @@ export default {
       layout: "dashboard",
     })
   },
-  head () {
+  head() {
     return {
-        title: 'تدلاین'
+      title: 'تدلاین'
     }
-},
+  },
   components: {
     Course,
     FooterComponent
@@ -166,17 +181,26 @@ export default {
     model: null,
     data: {},
     loading: true,
-    snackbar: false
+    snackbar: false,
+    loadingRegister: false,
   }),
   methods: {
     getData() {
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`).then((response) => {
+      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: this.$store.state.token != ''
+            ? `Token ${this.$store.state.token}`
+            : ''
+        },
+      }).then((response) => {
         this.data = response.data
         this.loading = false
       }
       )
     },
-    
+
     copyToClipboard(textToCopy) {
       // navigator clipboard api needs a secure context (https)
       if (navigator.clipboard && window.isSecureContext) {
@@ -200,11 +224,32 @@ export default {
         });
       }
     },
+    register() {
+      this.loadingRegister = true
+      if (this.$store.state.isAuthenticated != true) {
+        this.$router.push(`/auth/signIn/`)
+      } else {
+        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+          headers: {
+            "Content-type": "application/json",
+            Accept: "application/json",
+            Authorization: `Token ${this.$store.state.token}`
+          },
+        }).then((response) => {
+          this.$router.push(`/course/learn/${this.data.id}/${this.data.session[0].id}`)
+        }
+
+        )
+      }
+
+    },
     shareLink() {
       this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
-  }, mounted() {
+  }, async mounted() {
+    await this.$store.commit('onStart') // get token
+
     this.getData()
   }
 }
