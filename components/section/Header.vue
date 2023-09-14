@@ -98,8 +98,8 @@ export default {
 
   .curved {
     padding: 10px 20px 50px 20px;
-    background-image:radial-gradient(ellipse 100% 60% at 80% 0%, #0473e9 90%, #ffffff00 90%), radial-gradient(ellipse 100% 90% at 50% 7%, #045de9 90%, #ffffff00 90%),
-        radial-gradient(ellipse 100% 90% at 60% 10%, #d5eef9 90%, #ffffff00 90%);
+    background-image:radial-gradient(ellipse 100% 60% at 80% 0%, #0473e9 89.9%, #ffffff00 90%), radial-gradient(ellipse 100% 90% at 50% 7%, #045de9 89.9%, #ffffff00 90%),
+        radial-gradient(ellipse 100% 90% at 60% 10%, #d5eef9 89.9%, #ffffff00 90%);
     text-align: center;
     font-family: sans-serif;
     text-transform: uppercase;
