@@ -1,5 +1,8 @@
 
 <template>
+  <Head>
+    <Title>ورود</Title>
+ </Head>
     <v-app id="inspire">
         <v-main class=" bg-blue "> 
           <v-locale-provider rtl>
@@ -88,11 +91,7 @@
 <script>
 import axios from "axios";
 export default {
-  head() {
-    return {
-      title: "ورود"
-    };
-  },
+ 
   data() {
     return {
       rules: {

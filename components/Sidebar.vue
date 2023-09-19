@@ -63,7 +63,7 @@ export default {
             {
                 title: 'قوانین',
                 icon: "fa-shield-check",
-                to: '/auth/signUp/'
+                to: '/terms/'
             },
             { header: 'کاربر' },
             {
@@ -104,7 +104,7 @@ export default {
             {
                 title: 'قوانین',
                 icon: "fa-shield-check",
-                to: '/auth/signUp/'
+                to: '/terms/'
             },
             { header: 'کاربر' },
             {

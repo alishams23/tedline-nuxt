@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title v-if="data.title"> دوره ی  {{data.title}}</Title>
+ </Head>
   <Navbar />
   <v-snackbar v-model="snackbar" class="rtl" color="blue-darken-4" elevation="24" rounded="lg">
     <template v-slot:actions>

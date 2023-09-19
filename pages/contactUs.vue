@@ -1,9 +1,13 @@
 <template>
+  <Head>
+    <Title>ارتباط با ما</Title>
+ </Head>
   <v-app id="inspire">
     <v-main class=" bg-blue "> 
   <v-locale-provider rtl  >
-  <v-card
-    class="mx-auto pa-10 shadow-3 rounded-xl mt-10"
+  <div class="px-5">
+    <v-card
+    class="mx-auto pa-10 shadow-3  rounded-xl mt-10"
     max-width="444"
 
   >
@@ -74,6 +78,7 @@
    
   </form>
   </v-card>
+  </div>
 </v-locale-provider>
     </v-main>
   </v-app>

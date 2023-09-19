@@ -32,7 +32,7 @@
         { title: "وبلاگ", path: "/blog"},
         { title: "ارتباط با ما", path: "/contactUs"},
         { title: "دوره ها", path: "/explore" },
-        { title:  'قوانین', path: "/blog" }
+        { title:  'قوانین', path: "/terms" }
       ],
       }),
     }

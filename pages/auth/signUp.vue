@@ -1,5 +1,8 @@
 
 <template>
+  <Head>
+    <Title>ثبت نام</Title>
+ </Head>
   <v-app id="inspire">
     <v-main class=" bg-blue ">
       <v-locale-provider rtl>
