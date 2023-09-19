@@ -3,7 +3,7 @@
   <NuxtLoadingIndicator />
   <div>
     <Head>
-        <Title>۳۷۸۶۸۶</Title>
+        <Title>تدلاین</Title>
      </Head>
 </div>
   <div>
