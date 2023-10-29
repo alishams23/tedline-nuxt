@@ -9,13 +9,28 @@
       </p>
     </v-col>
     <v-col cols="12" lg="9" class="">
-      <v-slide-group v-model="model" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right"
-        selected-class="bg-primary" :show-arrows="false">
-        <v-slide-group-item v-for="item in data" :key="item" v-slot="{ isSelected, toggle, selectedClass }">
-          <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
-        </v-slide-group-item>
     
-      </v-slide-group>
+
+      <Swiper
+      :breakpoints="breakpoints"
+       
+      :effect="'coverflow'"
+      :slidesPerView="4"
+    :spaceBetween="30"
+    :pagination="{
+      clickable: true,
+    }"
+    :modules="modules"
+    class="mySwiper"
+    >
+      <SwiperSlide v-for="item in data"  :key="item">
+        <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
+
+      </SwiperSlide>
+    </Swiper>
+
+
+
       <div class="d-flex justify-center">
         <v-progress-circular v-if="loading" :size="60" class="ma-10" :width="10" color="blue"
           indeterminate></v-progress-circular>
@@ -26,13 +41,38 @@
 <script>
 import Course from '~/components/shared/Course.vue'
 import axios from "axios";
+import { Pagination } from 'swiper/modules';
 export default {
   components: {
     Course,
   },
   data: () => ({
-    model: null,
+
+          breakpoints: {       
+      320: {       
+         slidesPerView: 1.5,
+         spaceBetween: 10     
+      },     
+      410: {       
+         slidesPerView: 2,       
+         spaceBetween: 50     
+      },    
+      620: {       
+         slidesPerView: 3,       
+         spaceBetween: 50     
+      },      
+      970: {       
+         slidesPerView: 3.5,       
+         spaceBetween: 50     
+      },   
+  
+      1950: {       
+         slidesPerView: 4,       
+         spaceBetween: 30     
+      } 
+   }   ,
     data: [],
+    modules: [Pagination],
     loading: true
   }),
   methods: {

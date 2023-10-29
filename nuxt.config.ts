@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   build: {
       transpile: ["vuetify"],
     },
-    modules: ['@vite-pwa/nuxt'],
+    modules: ['@vite-pwa/nuxt','nuxt-swiper'],
     pwa: {
       registerType: 'autoUpdate',
       manifest: {
@@ -47,16 +47,17 @@ export default defineNuxtConfig({
         installPrompt: true,
        
       },
-      devOptions: {
-        enabled: true,
-        suppressWarnings: true,
-        navigateFallbackAllowlist: [/^\/$/],
-        type: 'module',
-      },
+   
   
     /* your pwa options */
-  }
+  },
 
- 
+  swiper: {
+    // Swiper options
+    //----------------------
+    // prefix: 'Swiper',
+    // styleLang: 'css',
+    // modules: ['navigation', 'pagination'], // all modules are imported by default
+  }
  
 })
