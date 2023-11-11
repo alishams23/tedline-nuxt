@@ -5,7 +5,6 @@
       <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="text-sm text-blue-darken-4 font-weight-black mt-5 mb-auto">تدلاین</v-btn>
       <!-- <v-sheet class="mt-5 mb-auto">
       <v-img src="/pwa-512x512.png" width="50" class="custom-rounded-1">
-
       </v-img>
       </v-sheet> -->
       <v-btn v-for="(item,index) in menu" :variant="currentRouteCheck(item.to) ? 'flat' : 'flat'" :key="item + '+sidebar'"

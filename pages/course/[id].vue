@@ -14,12 +14,12 @@
     <v-progress-circular :size="60" class="ma-10" :width="8" color="blue" indeterminate></v-progress-circular>
   </div>
   <v-container v-if="loading == false">
-
     <v-row>
       <v-col cols="12" md="7" class="">
 
         <v-img class="rounded-xl mt-12" :aspect-ratio="16 / 9" cover :src="data.image"></v-img>
-        <v-list-item class="rounded-xl mb-lg-12 mt-2" v-if="data.teacher">
+       <div v-if="data.teacher" class="d-flex">
+        <v-list-item class="rounded-xl mb-lg-12 mt-2 py-2" :to="'/profile/' + data.teacher.username " >
           <template v-slot:prepend>
             <v-avatar size="x-large" color="blue-grey-darken-4" :image="data.teacher.image">
               <v-icon size="small" icon="fad fa-users"></v-icon>
@@ -29,6 +29,7 @@
           <v-list-item-subtitle class="text-xs">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
         </v-list-item>
 
+       </div>
       </v-col>
       <v-col cols="12" md="5" class="pt-lg-10 pt-sm-1 px-lg-12">
         <h1 class=' text-h6 font-weight-black irsa rtl py-5'>
@@ -61,7 +62,6 @@
             </v-btn>
           </v-col>
           <v-col>
-
             <v-btn @click="shareLink()" variant="text" append-icon="fal fa-external-link" color="black" rounded="xl"
               elevation="0" class="w-100">
               <div class="px-2">اشتراک گذاری</div>
@@ -70,11 +70,9 @@
         </v-row>
       </v-col>
     </v-row>
-
     <v-row justify="end" align="stretch" class="mb-12">
       <v-col cols="12">
         <div class="text-h6 irsa font-weight-black rtl px-5"> جزئیات دوره </div>
-
       </v-col>
       <v-col cols="12" md="8">
         <v-card height="100%" color="grey-lighten-4" class="custom-rounded-1 rtl " elevation="0">
@@ -100,10 +98,7 @@
               <i class="fad fa-key"></i>
             </v-avatar>
           </div>
-
         </v-card>
-
-
       </v-col>
       <v-col cols="12" md="4">
         <v-card color="#008000" class=" text-white custom-rounded-1 rtl mb-4" elevation="0">
@@ -189,7 +184,7 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -232,7 +227,7 @@ export default {
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`http://127.0.0.1:8000/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -247,7 +242,7 @@ export default {
 
     },
     shareLink() {
-      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
+      this.copyToClipboard(`http://127.0.0.1:8000/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
   }, async mounted() {

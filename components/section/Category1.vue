@@ -7,7 +7,27 @@
         </v-card-title>
       </v-col>
       <v-col cols="12" lg="9" md="8">
-        <v-slide-group :show-arrows="false" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right">
+      
+          <Swiper
+        
+        
+            :slides-per-view="'auto'"
+            :loop="false"
+            :space-between="3"
+       
+          
+          >
+            <SwiperSlide v-for="item in data" :key="item.id + '+category'" >
+              <v-btn :to="'/explore/?category=' + item.id" class="ma-2 text-body-2  rtl" rounded="lg" prepend-icon="fal fa-arrow-right" size="large" min-width="150">
+                <template v-slot:prepend>
+                  <v-icon color="blue" size="small"></v-icon>
+                </template>
+                {{ item.title }}
+              </v-btn>
+            </SwiperSlide>
+          </Swiper>
+     
+        <!-- <v-slide-group :show-arrows="false" prev-icon=" fal fa-chevron-left" next-icon="  fal fa-chevron-right">
           <v-slide-group-item v-for="item in data" :key="item.id + '+category'">
             <v-btn :to="'/explore/?category=' + item.id" class="ma-2 text-body-2  rtl" rounded="lg" prepend-icon="fal fa-arrow-right" size="large" min-width="150">
               <template v-slot:prepend>
@@ -16,7 +36,7 @@
               {{ item.title }}
             </v-btn>
           </v-slide-group-item>
-        </v-slide-group>
+        </v-slide-group> -->
         <div class="d-flex justify-center">
           <v-progress-circular v-if="loading" :size="60" :width="10" class="ma-10" color="white"
             indeterminate></v-progress-circular>
@@ -34,35 +54,13 @@ export default {
 
   data: () => ({
 
-    category: [
-      {
-        title: 'برنامه نویسی'
-      },
-      {
-        title: 'عکاسی'
-      },
-      {
-        title: 'طراحی'
-      },
-      {
-        title: 'برنامه نویسی'
-      },
-      {
-        title: 'برنامه نویسی'
-      },
-      {
-        title: 'برنامه نویسی'
-      },
-      {
-        title: 'برنامه نویسی'
-      },
-    ],
+   
     data: [],
     loading: true,
   }),
   methods: {
     getData() {
-      axios.get('https://tedline.org/api/course/CourseCategoryPopular/').then((response) => {
+      axios.get('http://127.0.0.1:8000/api/course/CourseCategoryPopular/').then((response) => {
         this.data = response.data
         this.loading = false
       }
@@ -74,3 +72,21 @@ export default {
   }
 }
 </script>
+<style>
+.swiper-container{
+  width: 100%;
+}
+.swiper-wrapper {
+  width: 50%;
+}
+.swiper-slide {
+  text-align: center;
+  width: auto;
+}
+.slide-image {
+  height: 400px;
+  width: auto;
+}
+.my-gallery figure {
+  margin: 0px;
+}</style>

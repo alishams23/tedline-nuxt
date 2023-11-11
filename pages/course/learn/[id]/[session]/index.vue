@@ -68,7 +68,7 @@ components:{box},
     }),
     methods: {
         getData() {
-            axios.get(`https://tedline.org/api/course/RetrieveSession/${this.$route.params.session}/`,{
+            axios.get(`http://127.0.0.1:8000/api/course/RetrieveSession/${this.$route.params.session}/`,{
             headers: {
               "Content-type": "application/json",
               Accept: "application/json",

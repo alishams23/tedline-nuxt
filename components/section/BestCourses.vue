@@ -12,16 +12,10 @@
     
 
       <Swiper
-      :breakpoints="breakpoints"
-       
-      :effect="'coverflow'"
-      :slidesPerView="4"
-    :spaceBetween="30"
-    :pagination="{
-      clickable: true,
-    }"
-    :modules="modules"
-    class="mySwiper"
+      :slides-per-view="'auto'"
+      :loop="false"
+      :space-between="3"
+     
     >
       <SwiperSlide v-for="item in data"  :key="item">
         <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
@@ -48,36 +42,14 @@ export default {
   },
   data: () => ({
 
-          breakpoints: {       
-      320: {       
-         slidesPerView: 1.5,
-         spaceBetween: 10     
-      },     
-      410: {       
-         slidesPerView: 2,       
-         spaceBetween: 50     
-      },    
-      620: {       
-         slidesPerView: 3,       
-         spaceBetween: 50     
-      },      
-      970: {       
-         slidesPerView: 3.5,       
-         spaceBetween: 50     
-      },   
-  
-      1950: {       
-         slidesPerView: 4,       
-         spaceBetween: 30     
-      } 
-   }   ,
+ 
     data: [],
-    modules: [Pagination],
+
     loading: true
   }),
   methods: {
     getData() {
-      axios.get('https://tedline.org/api/course/HomeCourses/').then((response) => {
+      axios.get('http://127.0.0.1:8000/api/course/HomeCourses/').then((response) => {
         this.data = response.data
         this.loading = false
       }

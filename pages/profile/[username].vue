@@ -1,6 +1,17 @@
 <template>
   
   <Navbar />
+  <v-app-bar elevation="0">
+    <v-progress-linear
+    v-if="loading"
+    color="blue-accent-4"
+    indeterminate
+
+    
+    height="6"
+  ></v-progress-linear>
+  </v-app-bar>
+
   <v-snackbar v-model="snackbar" class="rtl" color="blue-darken-4" elevation="24" rounded="lg">
     <template v-slot:actions>
       <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
@@ -8,15 +19,17 @@
     </template>
     کپی شد
   </v-snackbar>
-  <v-container>
+  <v-container >
+    
     <v-row align="center" class="mt-7 mx-10">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
        <div>
-        <v-avatar   class="text-h5" variant="tonal" color="blue" size="120">
-          <v-icon class=" position-absolute">
+        <v-avatar   class="text-h5" variant="tonal" color="blue" size="120" >
+          
+          <v-icon class=" position-absolute" >
             fad fa-user
           </v-icon>
-          <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
+          <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
         </v-avatar>
         <div class="mt-n10 ">
           <v-menu elevation="0" location="start">
@@ -37,6 +50,8 @@
        
       </v-col>
       <v-col class="rtl  d-flex mb-5  justify-center justify-md-start" cols="12" md="6">
+     
+
         <div class=" d-flex flex-column align-center align-md-start">
           <h3 class="text-h5  font-weight-black irsa">
             {{ $route.params.username }}
@@ -45,8 +60,8 @@
         </div>
       </v-col>
     </v-row>
-    <v-row   class="d-flex flex-row-reverse justify-md-start justify-center  mt-lg-16 flex-wrap align-stretch">
-        <v-col cols="6" md="2" class="pa-1 " v-if="data">
+    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center  mt-lg-16 flex-wrap align-stretch">
+        <v-col cols="6" md="2" class="pa-1 " v-if="data.status == 's'">
           <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between pa-2 pe-3">
             <v-avatar variant="tonal" class=" " color="white" size="38">
              <v-icon size="15">
@@ -59,7 +74,7 @@
              </div>
           </v-sheet>
         </v-col>
-        <v-col cols="6" md="2" class="pa-1" v-if="data">
+        <v-col cols="6" md="2" class="pa-1" v-if="data.status == 's'" >
           <v-sheet  class="align-center rounded-pill bg-blue-grey-darken-4  d-flex justify-space-between  pa-2 pe-3">
             <v-avatar variant="tonal"  class=" " color="white" size="38">
              <v-icon size="15">
@@ -72,9 +87,24 @@
              </div>
           </v-sheet>
         </v-col>
+        <v-col cols="6" md="2" class="pa-1" v-if="data.status == 't'" >
+          <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between  pa-2 pe-3">
+            <v-avatar variant="tonal"  class=" " color="white" size="38">
+             <v-icon size="15">
+              fad fa-chalkboard-teacher
+             </v-icon>
+            </v-avatar>
+            <div class="rtl">
+              <p class=" font-weight-bold text-sm font-weight-black">مدرس </p>
+          
+             </div>
+          </v-sheet>
+        </v-col>
     </v-row>
-    <YourCorses :progress="false" variant="flat" :username="$route.params.username" class="mt-16 " />
+    <YourCorses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username" class="mt-16 " />
   </v-container>
+
+
 </template>
 <script>
 import axios from "axios";
@@ -82,6 +112,7 @@ import axios from "axios";
 import YourCorses from "~/components/section/YourCorses.vue";
 
 export default {
+
   data(){
     return{
       snackbar :false,
@@ -119,11 +150,11 @@ export default {
       }
     },
     shareLink() {
-      this.copyToClipboard(`https://tedline.org/profile/${this.$route.params.username}/`)
+      this.copyToClipboard(`http://127.0.0.1:8000/profile/${this.$route.params.username}/`)
       this.snackbar = true
     },
     getData() {
-      axios.get(`https://tedline.org/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
+      axios.get(`http://127.0.0.1:8000/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
         this.data = response.data
         this.loading = false
       }
