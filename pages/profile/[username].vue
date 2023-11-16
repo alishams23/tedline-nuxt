@@ -29,7 +29,7 @@
           <v-icon class=" position-absolute" >
             fad fa-user
           </v-icon>
-          <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
+          <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
         </v-avatar>
         <div class="mt-n10 ">
           <v-menu elevation="0" location="start">
@@ -60,6 +60,9 @@
         </div>
       </v-col>
     </v-row>
+    <div class="text-right rtl my-10 px-5 " v-if="data">
+        {{ data.bio }}
+    </div>
     <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center  mt-lg-16 flex-wrap align-stretch">
         <v-col cols="6" md="2" class="pa-1 " v-if="data.status == 's'">
           <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between pa-2 pe-3">
@@ -101,7 +104,8 @@
           </v-sheet>
         </v-col>
     </v-row>
-    <YourCorses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username" class="mt-16 " />
+    <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username" class="mt-16 " />
+    <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username" class="mt-16 " />
   </v-container>
 
 
@@ -109,7 +113,8 @@
 <script>
 import axios from "axios";
 
-import YourCorses from "~/components/section/YourCorses.vue";
+import YourCourses from "~/components/section/YourCourses.vue";
+import TeacherCourses from "~/components/section/TeacherCourses.vue";
 
 export default {
 
@@ -150,11 +155,11 @@ export default {
       }
     },
     shareLink() {
-      this.copyToClipboard(`http://127.0.0.1:8000/profile/${this.$route.params.username}/`)
+      this.copyToClipboard(`https://tedline.org/profile/${this.$route.params.username}/`)
       this.snackbar = true
     },
     getData() {
-      axios.get(`http://127.0.0.1:8000/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
+      axios.get(`https://tedline.org/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
         this.data = response.data
         this.loading = false
       }
@@ -167,8 +172,8 @@ export default {
   },
   components: {
 
-    YourCorses,
-
+    YourCourses,
+    TeacherCourses
 
   },
 }

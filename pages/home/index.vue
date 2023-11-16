@@ -4,7 +4,7 @@
   <Navbar :transparent="true"  />
   <Header />
   <v-container>
-   <YourCorses :username="$store.state.username"  />
+   <YourCourses :username="$store.state.username"  />
     <SuggestionCourses class="my-12  pb-md-16" />
    <div class="pb-md-16 ">
     <Category1  />
@@ -19,7 +19,7 @@ import Header from "~/components/section/Header.vue";
 import SuggestionCourses from "~/components/section/Courses.vue";
 import BestCourses from "~/components/section/BestCourses.vue";
 import Category1 from "~/components/section/Category1.vue";
-import YourCorses from "~/components/section/YourCorses.vue";
+import YourCourses from "~/components/section/YourCourses.vue";
 
 
 export default {
@@ -38,7 +38,7 @@ export default {
     Course,
     Header,
     SuggestionCourses,
-    YourCorses,
+    YourCourses,
     BestCourses,
     Category1
 

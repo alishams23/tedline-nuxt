@@ -184,7 +184,7 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -227,7 +227,7 @@ export default {
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`http://127.0.0.1:8000/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -242,7 +242,7 @@ export default {
 
     },
     shareLink() {
-      this.copyToClipboard(`http://127.0.0.1:8000/course/${this.$route.params.id}/`)
+      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
   }, async mounted() {

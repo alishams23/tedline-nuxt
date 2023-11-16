@@ -95,7 +95,7 @@ export default {
       this.drawerChecker = !this.drawerChecker;
     }, getData() {
 
-      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",

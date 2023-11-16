@@ -1,4 +1,5 @@
 <template>
+  <v-locale-provider rtl>
   <v-card elevation="0" class="mt-5 ">
     <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-1"
       density="comfortable">
@@ -67,6 +68,7 @@
       </v-window>
     </v-card-text>
   </v-card>
+</v-locale-provider>
 </template>
 
 
@@ -90,7 +92,7 @@ props:['username','progress','variant'],
   }),
   methods: {
     async getData() {
-      await axios.get(`http://127.0.0.1:8000/api/course/UnfinishedCourse/${this.username}/`, {
+      await axios.get(`https://tedline.org/api/course/UnfinishedCourse/${this.username}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -103,7 +105,7 @@ props:['username','progress','variant'],
       )
     },
     async getDataFinished() {
-      await axios.get(`http://127.0.0.1:8000/api/course/FinishedCourse/${this.username}/`, {
+      await axios.get(`https://tedline.org/api/course/FinishedCourse/${this.username}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
