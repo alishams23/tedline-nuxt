@@ -81,6 +81,9 @@ button {
 .text-xs{
     font-size: 13px !important;
 }
+.text-xxs{
+    font-size: 8px !important;
+}
 
 .v-btn {
     /* Apply the custom letter-spacing to all v-btn components */
@@ -90,14 +93,16 @@ button {
 
 
 
-
+.rounded-tr-xl{
+    border-radius: 0px 20px 0px 0px !important;
+}
 .bg-glass{
     /* From https://css.glass */
-background: rgba(0, 0, 0, 0.788) !important;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-// backdrop-filter: blur(9px);
+background: #ffffff !important;
 
-border-top: 0.8px solid rgba(255, 255, 255, 0.447) !important;
+// backdrop-filter: blur(1px);
+
+border-top: 0.8px solid rgba(218, 218, 218, 0.447) !important;
 }
 
 
@@ -116,8 +121,11 @@ backdrop-filter: blur(9px);
 }
 
 .bg-blue-gradient-2{
+border-top: 0.8px solid rgba(255, 255, 255, 0.447) !important;
+
     background-color: #045de9 !important;
-    background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);
+    background-image: linear-gradient(180deg, #0270cf 0%, #0251d0 74%) !important;
+
 }
 
 

@@ -15,7 +15,7 @@
       :slides-per-view="'auto'"
       :loop="false"
       :space-between="3"
-      
+      class="px-3"
     >
       <SwiperSlide v-for="item in data"  :key="item">
         <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />

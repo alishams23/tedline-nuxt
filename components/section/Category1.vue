@@ -14,6 +14,7 @@
             :slides-per-view="'auto'"
             :loop="false"
             :space-between="3"
+      class="px-3"
        
           
           >

@@ -5,11 +5,16 @@
       <v-card class="rounded-0" elevation="0" :to="'/course/' + data.id">
 
         <div class="">
-          <v-img class=" align-end  rounded-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
-            <v-btn class="bg-glass   text-white  font-weight-bold text-body-2 mx-3 my-3 shadow-2  " rounded>
+          <v-img class=" align-end  rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+            <v-btn    class="  text-xs  bg-white  font-weight-bold   shadow-2  rounded-tr-xl " >
+              
+              <template  v-slot:prepend>
+                <v-icon></v-icon>
+              </template>
               <div v-if="data.price != 0">
-                {{ data.price }} <span class="  ps-1 irsa">تومان</span>
+                {{ data.price }} <span class="  text-grey irsa text-xxs">تومان</span>
               </div>
+              
               <div v-else>
                 رایگان
               </div>
@@ -26,12 +31,12 @@
       <v-card-actions>
 
 
-        <v-icon @click="show = !show" class="px-3" size="20">
+        <v-icon @click="show = !show" class="px-3" size="17">
           {{ show ? 'fal fa-chevron-up' : 'fal fa-chevron-down' }}
         </v-icon>
 
         <v-spacer></v-spacer>
-        <div class="rtl text-xs px-3 ">
+        <div class="rtl text-xs  ">
           <v-icon color="blue" class="px-3 " :size="13">
             fa fa-clock
           </v-icon>
