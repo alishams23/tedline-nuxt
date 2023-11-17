@@ -15,7 +15,7 @@
       :slides-per-view="'auto'"
       :loop="false"
       :space-between="3"
-     
+      
     >
       <SwiperSlide v-for="item in data"  :key="item">
         <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
@@ -35,7 +35,8 @@
 <script>
 import Course from '~/components/shared/Course.vue'
 import axios from "axios";
-import { Pagination } from 'swiper/modules';
+
+
 export default {
   components: {
     Course,
@@ -62,3 +63,6 @@ export default {
 </script>
 
 
+<style>
+.swiper-slide { width: auto; }
+</style>
