@@ -64,5 +64,5 @@ export default {
 
 
 <style>
-.swiper-slide { width: auto; }
+.swiper-slide { width: auto  !important; }
 </style>
