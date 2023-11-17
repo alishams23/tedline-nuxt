@@ -1,14 +1,14 @@
 <template>
   
   <Navbar />
-  <v-app-bar elevation="0">
+  <v-app-bar elevation="0" height="35">
     <v-progress-linear
     v-if="loading"
     color="blue-accent-4"
     indeterminate
 
     
-    height="6"
+    height="2"
   ></v-progress-linear>
   </v-app-bar>
 
@@ -21,7 +21,7 @@
   </v-snackbar>
   <v-container >
     
-    <v-row align="center" class="mt-7 mx-10">
+    <v-row align="center" class=" mx-10">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
        <div>
         <v-avatar   class="text-h5" variant="tonal" color="blue" size="120" >

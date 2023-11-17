@@ -1,16 +1,32 @@
+
 <template>
+
+  <v-bottom-navigation  v-model="value" height="65"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
+    grow>
+    <v-btn variant="plain"  v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"  class="no-hover-effect"  :ripple="false">
+      
+      <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="px-6 py-2 rounded-pill "
+        :color="'white'">
+      
+        <v-icon :size=" '18'">{{ "far " 
+        }} {{ item.icon }}</v-icon>
    
-        <v-bottom-navigation v-model="value" height="65"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
-          grow>
-          <v-btn   v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"    :ripple="false">
-            <v-sheet variant="flat" class="px-6 py-2 rounded-pill "
-              :color="currentRouteCheck(item.to) ? 'blue-accent-4' : 'white'">
-              <v-icon :size="currentRouteCheck(item.to) ? '16' : '18'">{{ currentRouteCheck(item.to) == false ? "far " : "fa "
-              }} {{ item.icon }}</v-icon>
-            </v-sheet>
-            <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2 text-black">{{ item.title }}</span>
-          </v-btn>
-        </v-bottom-navigation>
+      </v-sheet>
+   
+    <v-scale-transition :disabled="currentRouteCheck(item.to) == false">
+      <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" class="px-6 py-2 rounded-pill "
+        :color="'blue-accent-4'">
+      
+        <v-icon :size=" '16' ">{{  "fa "
+        }} {{ item.icon }}</v-icon>
+   
+      </v-sheet>
+    </v-scale-transition>
+      <v-expand-transition>
+      <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2 text-black">{{ item.title }}</span>
+    </v-expand-transition>
+    </v-btn>
+  </v-bottom-navigation>
 </template>
 
 
@@ -69,3 +85,14 @@ async beforeMount(){
 
 };
 </script>
+
+<style scoped>
+/* Using scoped style for the component */
+.no-hover-effect:hover {
+  background-color: inherit !important; /* Use !important to override Vuetify styles */
+  color: inherit !important;
+}
+.v-btn--variant-plain {
+  opacity: 1 !important;
+}
+</style>

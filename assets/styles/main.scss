@@ -157,3 +157,10 @@ backdrop-filter: blur(9px);
   }
 
 
+
+.swiper-slide { width: auto  !important; }
+
+.no-hover-effect:hover {
+    background-color: inherit !important; /* Use !important to override Vuetify styles */
+    color: inherit !important;
+  }
