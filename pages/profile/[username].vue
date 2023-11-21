@@ -1,14 +1,14 @@
 <template>
   
-  <Navbar />
-  <v-app-bar elevation="0" height="35">
+  <!-- <Navbar :transparent="false" /> -->
+  <v-app-bar elevation="0" color="transparent" v-if="loading" height="35">
     <v-progress-linear
-    v-if="loading"
-    color="blue-accent-4"
+    
+    color="blue"
     indeterminate
 
     
-    height="2"
+    height="3"
   ></v-progress-linear>
   </v-app-bar>
 
@@ -19,14 +19,14 @@
     </template>
     کپی شد
   </v-snackbar>
+ <div class="bg-blue-gradient-2 text-white">
   <v-container >
-    
-    <v-row align="center" class=" mx-10">
+    <v-row align="center" class=" mx-10 mb-5 mt-2">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
        <div>
-        <v-avatar   class="text-h5" variant="tonal" color="blue" size="120" >
+        <v-avatar   class="text-h5 shadow-1 bg-white"   size="110" >
           
-          <v-icon class=" position-absolute" >
+          <v-icon color="black" class=" position-absolute" >
             fad fa-user
           </v-icon>
           <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
@@ -34,7 +34,7 @@
         <div class="mt-n10 ">
           <v-menu elevation="0" location="start">
             <template v-slot:activator="{ props }">
-              <v-btn size="small" class="shadow-2" color="white" v-bind="props" icon="far  fa-ellipsis-v"  variant="flat"></v-btn>
+              <v-btn size="small" class="shadow-2  bg-glass-white"     v-bind="props" icon="far  fa-ellipsis-v"  variant="flat"></v-btn>
             </template>
             <v-list elevation="0" class="shadow-2" rounded="lg">
               <v-list-item @click="shareLink">
@@ -49,7 +49,7 @@
        </div>
        
       </v-col>
-      <v-col class="rtl  d-flex mb-5  justify-center justify-md-start" cols="12" md="6">
+      <v-col class="rtl  d-flex   justify-center justify-md-start" cols="12" md="6">
      
 
         <div class=" d-flex flex-column align-center align-md-start">
@@ -60,11 +60,23 @@
         </div>
       </v-col>
     </v-row>
-    <div class="text-right rtl my-10 px-5 " v-if="data">
+  </v-container>
+  <v-sheet height="40" elevation="0"  class=" hidden-md-and-up rounded-t-xl  w-100 " style="border:1px solid  white">
+
+    <div class="d-flex justify-center">
+      <v-sheet width="100" height="6" rounded="pill" class="mt-3" color="grey-lighten-3"></v-sheet>
+    </div>
+  </v-sheet>
+
+ </div>
+  <v-container class="mt-0 mt-md-5">
+    
+   
+    <div class="text-right rtl mb-10 px-5 " v-if="data && data.bio">
         {{ data.bio }}
     </div>
-    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center  mt-lg-16 flex-wrap align-stretch">
-        <v-col cols="6" md="2" class="pa-1 " v-if="data.status == 's'">
+    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center   flex-wrap align-stretch">
+        <v-col cols="6" lg="2" class="pa-1 " v-if="data.status == 's'">
           <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between pa-2 pe-3">
             <v-avatar variant="tonal" class=" " color="white" size="38">
              <v-icon size="15">
@@ -77,7 +89,7 @@
              </div>
           </v-sheet>
         </v-col>
-        <v-col cols="6" md="2" class="pa-1" v-if="data.status == 's'" >
+        <v-col cols="6" lg="2" class="pa-1" v-if="data.status == 's'" >
           <v-sheet  class="align-center rounded-pill bg-blue-grey-darken-4  d-flex justify-space-between  pa-2 pe-3">
             <v-avatar variant="tonal"  class=" " color="white" size="38">
              <v-icon size="15">
@@ -104,8 +116,9 @@
           </v-sheet>
         </v-col>
     </v-row>
-    <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username" class="mt-16 " />
-    <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username" class="mt-16 " />
+    <div class="mt-16"></div>
+    <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username"  />
+    <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username"  />
   </v-container>
 
 

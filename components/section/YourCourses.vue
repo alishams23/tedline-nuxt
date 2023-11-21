@@ -1,24 +1,24 @@
 <template>
   <v-locale-provider rtl>
   <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-1"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-2"
       density="comfortable">
       <div class=" rounded-pill bg-grey-lighten-4 ">
-        <v-tab class="bg-transparent px-md-16 px-10 rounded-pill " variant="flat" value="one">در حال یادگیری</v-tab>
-        <v-tab class="bg-transparent   px-md-16 px-10  rounded-pill " variant="flat" value="two">به اتمام
+        <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
+        <v-tab class="bg-transparent  text-xs  px-md-16 px-10  rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="two">به اتمام
           رسیده</v-tab>
       </div>
     </v-tabs>
     <v-tabs fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="border-b rtl"  elevation="0" 
       >
 
-        <v-tab color="blue" class=""  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
+        <v-tab color="blue" class=" rounded-t-lg"  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
           در حال یادگیری
 
           <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>
       
         </div></v-tab>
-        <v-tab color="blue" class="" variant="text" value="two">
+        <v-tab color="blue" class=" rounded-t-lg" variant="text" value="two">
           <div :class="tab == 'two'?'text-black' : 'text-grey'">
             به اتمام
           رسیده
@@ -43,7 +43,7 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingUnfinished" :size="60" class="ma-10" :width="10" color="blue"
+            <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
               indeterminate></v-progress-circular>
               
           </div>
@@ -61,7 +61,7 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingFinished" :size="60" class="ma-10" :width="10" color="blue"
+            <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
               indeterminate></v-progress-circular>
           </div>
         </v-window-item>

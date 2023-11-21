@@ -26,7 +26,9 @@
                       :size="100"
                       :width="15"
                       :model-value="value"
+                    
                       color="white"
+                     
                     >
                       {{ value }}
                     </v-progress-circular>
@@ -34,10 +36,10 @@
                     </v-row>
                   </v-card>   
                 </v-col>
-                <v-col cols="12" sm="7" class="rtl">
-                    <div class="mt-md-6 px-10">
-                        <h3 class=" text-body2 line-height-sm text-md-h6 irsa font-weight-bold">{{data.title}}</h3>
-                        <div class="d-flex pb-3 align-center mt-sm-10 mt-8">
+                <v-col cols="12" sm="7" class="rtl pt-0 pt-md-3 ">
+                    <div class="mt-md-6 px-6 px-md-10 ">
+                        <h3 class=" text-body-2 text-md-body-1 line-height-sm text-md-body1 irsa font-weight-bold ">{{data.title}}</h3>
+                        <div class="d-flex pb-5 align-center mt-5 mt-sm-10 ">
                             <h6 class="irsa text-body-2 text-muted pl-5">
                                 <v-icon icon="fa fa-clock" class="mr-1" size="10" color="blue"></v-icon> {{data.duration}} دقیقه
                             </h6>

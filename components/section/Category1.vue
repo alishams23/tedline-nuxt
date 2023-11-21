@@ -1,5 +1,5 @@
 <template>
-  <v-card color="indigo-darken-4" class="rounded-xl my-15 py-10  " elevation="0">
+  <v-card  class="rounded-xl my-15 py-10 text-white  bg-blue-gradient-2" elevation="0">
     <v-row class=" flex-row-reverse " align="center">
       <v-col cols="12" lg="3" md="4">
         <v-card-title class="irsa  font-weight-black rtl">
@@ -19,9 +19,14 @@
           
           >
             <SwiperSlide v-for="item in data" :key="item.id + '+category'" >
-              <v-btn :to="'/explore/?category=' + item.id" class="ma-2 text-body-2  rtl" rounded="lg" prepend-icon="fal fa-arrow-right" size="large" min-width="150">
+              <v-btn :to="'/explore/?category=' + item.id" class="ma-2  text-xs  rtl" elevation="0" rounded="xl"  size="large" min-width="120">
                 <template v-slot:prepend>
-                  <v-icon color="blue" size="small"></v-icon>
+                  <v-avatar color="blue" variant="tonal" class="" size="25">
+                  <v-icon color="blue"  size="small" >
+                    fal fa-arrow-right
+                  </v-icon>
+
+                  </v-avatar>
                 </template>
                 {{ item.title }}
               </v-btn>
@@ -39,7 +44,7 @@
           </v-slide-group-item>
         </v-slide-group> -->
         <div class="d-flex justify-center">
-          <v-progress-circular v-if="loading" :size="60" :width="10" class="ma-10" color="white"
+          <v-progress-circular v-if="loading" :size="60" :width="8" class="ma-10" color="white"
             indeterminate></v-progress-circular>
         </div>
       </v-col>

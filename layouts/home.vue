@@ -5,7 +5,9 @@
       <Navbar :transparent="false"   />
   
       <v-main>
+        
         <slot />  
+      
       </v-main>
   
     </v-app>

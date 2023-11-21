@@ -11,7 +11,7 @@
     کپی شد
   </v-snackbar>
   <div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular :size="60" class="ma-10" :width="8" color="blue" indeterminate></v-progress-circular>
+    <v-progress-circular :size="60" class="ma-10" bg-color="transparent" :width="6" color="blue" indeterminate></v-progress-circular>
   </div>
   <v-container v-if="loading == false">
     <v-row>
@@ -42,13 +42,16 @@
         </p>
         <v-alert
         icon="fa fa-info"
-        variant="tonal"
-        type="info"
+        variant="text"
+        
+        color="blue-accent-4"
         v-if="data.registered == true"
-        class="rtl border-opacity-100  my-2"
+        class="rtl  bg-grey-lighten-4  border-opacity-100  my-2"
         border="start"
         >
+         <div class="text-black">
           شما در این دوره ثبت نام کرده اید
+         </div>
         </v-alert>
         <v-row class="py-10 ">
           <v-col>
@@ -101,7 +104,7 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card color="#008000" class=" text-white custom-rounded-1 rtl mb-4" elevation="0">
+        <v-card  class="bg-green-gradient text-white custom-rounded-1 rtl mb-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="irsa text-sm font-weight-black">
@@ -114,7 +117,7 @@
             </v-avatar>
           </div>
         </v-card>
-        <v-card color="blue-accent-4" class="custom-rounded-1 rtl mt-4" elevation="0">
+        <v-card  class="bg-blue-gradient text-white custom-rounded-1 rtl mt-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="text-sm irsa font-weight-black">

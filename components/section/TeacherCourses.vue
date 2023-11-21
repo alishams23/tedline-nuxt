@@ -34,7 +34,7 @@
                   </div>
                 </v-alert>
                 <div class="d-flex justify-center">
-                  <v-progress-circular v-if="loadingFinished" :size="60" class="ma-10" :width="10" color="blue"
+                  <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
                     indeterminate></v-progress-circular>
                 </div>
               </v-window-item>
@@ -51,7 +51,7 @@
               </div>
             </v-alert>
             <div class="d-flex justify-center">
-              <v-progress-circular v-if="loadingUnfinished" :size="60" class="ma-10" :width="10" color="blue"
+              <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
                 indeterminate></v-progress-circular>
                 
             </div>

@@ -2,7 +2,11 @@
   <v-navigation-drawer class=" hidden-sm-and-down" location="right" rail-width="90" rail
     style="position:fixed; top:0; right:0; ">
     <div class="d-flex flex-column justify-center align-center" style="height: 100%;">
-      <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="text-sm text-blue-darken-4 font-weight-black mt-5 mb-auto">تدلاین</v-btn>
+      <!-- <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="text-sm text-blue-darken-4 font-weight-black mt-5 mb-auto">تدلاین</v-btn> -->
+    <div class="w-50 mt-5 mb-auto">
+      <v-img src="/pwa-512x512.png" ></v-img>
+
+    </div>
       <!-- <v-sheet class="mt-5 mb-auto">
       <v-img src="/pwa-512x512.png" width="50" class="custom-rounded-1">
       </v-img>
@@ -11,8 +15,8 @@
         :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
         :color="currentRouteCheck(item.to) ? 'blue-accent-4' : 'white'"
         :icon="currentRouteCheck(item.to) ? 'fa ' + item.icon : 'far ' + item.icon"></v-btn>
-      <v-btn rounded="xl" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
-        class="mt-auto mb-5 custom-rounded-1" color="indigo-darken-3" icon="fad fa-bells"></v-btn>
+      <v-btn rounded="xl" variant="tonal" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
+        class="mt-auto mb-5 custom-rounded-1" color="blue-darken-3" icon="fad fa-bells"></v-btn>
     </div>
   </v-navigation-drawer>
 </template>

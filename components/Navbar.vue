@@ -11,7 +11,7 @@
       </v-app-bar-nav-icon>
       <v-toolbar-title>
      
-<v-sheet class="mr-auto hidden-md-and-down rounded-pill   " color="transparent"  height="40" width="110">
+<v-sheet v-if="transparent == false" class="mr-auto hidden-md-and-down rounded-pill   " color="transparent"  height="40" width="110">
   <v-img src="/images/icon2.png"  class="  w-100 h-100  "></v-img>
 
 </v-sheet> 

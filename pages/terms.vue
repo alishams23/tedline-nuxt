@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="d-flex justify-center">
-                <v-progress-circular v-if="loading" :size="60" class="ma-10" :width="10" color="blue"
+                <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
                   indeterminate></v-progress-circular>
               </div>
 

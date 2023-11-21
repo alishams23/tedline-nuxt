@@ -26,7 +26,7 @@
               <div>
                 <div class="stylish-input-group">
                   <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-3">
-                  <v-btn rounded :to="'/explore/?search='+text" color="indigo-darken-4" elevation="0" class=" text-uppercase custom-btn font-weight-medium" dark>
+                  <v-btn rounded :to="'/explore/?search='+text"  elevation="0" class="bg-blue-gradient-2 text-white text-uppercase custom-btn font-weight-medium" dark>
                     جستجو
                   </v-btn>
                 </div>
@@ -91,7 +91,8 @@ export default {
     padding-left: 20px !important;
   }
   .curved {
-    background-color: #0473e9;
+    background-color: #2a2a72;
+    background-image: linear-gradient(360deg, #3333b2 0%, #0473e9 74%);
   }
 }
 @media (min-width: 767px) {

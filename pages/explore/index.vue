@@ -1,26 +1,27 @@
 <template>
   <v-container>
     <v-card-text class="" color="" elevation="0">
-      <v-text-field   :loading="loading" elevation="0" @update:model-value="searchCourse" v-model="text"
+      <v-locale-provider rtl>
+      <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="searchCourse" v-model="text"
         class="   py-1  "  :flat="true" variant="solo-filled" 
         label="جستجو بین درس ها" rounded="xl" single-line hide-details>
         <template v-slot:prepend>
           <v-avatar color="blue-accent-4" rounded="xl" class="text-xs" size="55" icon="fa fa-search"></v-avatar>
         </template>
       </v-text-field>
-    
+    </v-locale-provider>
     </v-card-text>
     <v-card elevation="0">
       <v-tabs v-model="tab" align-tabs="end" class="border-b text-grey">
         <v-btn v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
           @click="drawerChecker = true" size="small" color="black" prepend-icon="fa fa-cog" rounded="pill"> فیلتر</v-btn>
-        <v-tab class="rounded-0 px-8 px-md-16" variant="text" color="blue" :value="1" >
+        <v-tab class="rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="1" >
         <div :class="tab == 1 ? 'text-black' : 'text-grey'">
           دوره ها
           <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon>
         </div>
         </v-tab>
-        <v-tab class="rounded-0 px-8 px-md-16" variant="text" color="blue" :value="2" >
+        <v-tab class="rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="2" >
           
         <div :class="tab == 2 ? 'text-black' : 'text-grey'" >
           اساتید

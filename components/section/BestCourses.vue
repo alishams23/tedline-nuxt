@@ -1,10 +1,10 @@
 <template>
   <v-row justify="center" class="  bg-grey-lighten-4  rounded-xl flex-row-reverse" align="center" no-gutters>
-    <v-col cols="12" lg="3" class="px-6 py-10">
-      <h3 class=" text-h4 text-md-h3 font-weight-bold irsa text-center line-height-sm">
+    <v-col cols="12" lg="3" class="px-6 pb-md-10 pt-10">
+      <h3 class=" text-h5 text-md-h3 font-weight-bold irsa text-right text-md-center line-height-sm">
         <span class=" text-blue">بهترین</span> دوره ها
       </h3>
-      <p class="mt-6 pt-4 text-muted text-center">
+      <p class="mt-md-6 pt-4 text-muted text-right text-md-center">
         دوره هایی آموزشی که تدلاین به شما توصیه میکند
       </p>
     </v-col>
@@ -17,7 +17,9 @@
       :space-between="3"
       class="px-3"
     >
+    
       <SwiperSlide v-for="item in data"  :key="item">
+        
         <Course :data="item" class="my-16 responsive-card px-1 px-md-2"  />
 
       </SwiperSlide>
@@ -26,7 +28,7 @@
 
 
       <div class="d-flex justify-center">
-        <v-progress-circular v-if="loading" :size="60" class="ma-10" :width="10" color="blue"
+        <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
           indeterminate></v-progress-circular>
       </div>
     </v-col>

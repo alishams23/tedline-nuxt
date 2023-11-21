@@ -5,7 +5,7 @@
         <v-list class="pa-6">
             <!---Menu Loop -->
             <div class="d-flex justify-center mt-5">
-                <v-avatar color="blue" variant="tonal" :size="100">
+                <v-avatar color="blue-accent-4" variant="tonal" :size="100">
                     <v-icon :size="29" icon="fad fa-chalkboard-teacher"></v-icon>
                 </v-avatar>
             </div>

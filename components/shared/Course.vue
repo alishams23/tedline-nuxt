@@ -6,11 +6,10 @@
 
         <div class="">
           <v-img class=" align-end  rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
-            <v-btn    class="  text-xs  bg-white  font-weight-bold   shadow-2  rounded-tr-xl " >
+           <div class="d-flex">
+            <div    class="  text-xs  bg-white pl-10 pr-4 py-2 font-weight-bold   shadow-2  rounded-tr-xl " >
               
-              <template  v-slot:prepend>
-                <v-icon></v-icon>
-              </template>
+            
               <div v-if="data.price != 0">
                 {{ data.price }} <span class="  text-grey irsa text-xxs">تومان</span>
               </div>
@@ -18,12 +17,13 @@
               <div v-else>
                 رایگان
               </div>
-            </v-btn>
+            </div>
+           </div>
           </v-img>
         </div>
 
         <v-responsive height="60">
-          <div class=" test-right text-body-2 text-lg-body-1  rtl irsa px-3 pt-2 line-height-sm  font-weight-bold">{{
+          <div class=" test-right text-body-2   rtl irsa px-3 pt-2 line-height-sm  font-weight-bold">{{
             data.title }}
           </div>
         </v-responsive>
