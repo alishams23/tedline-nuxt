@@ -34,8 +34,9 @@
                     <v-expansion-panel-text>
                         <v-list lines="two">
                             <div v-for="box in boxes.box" :key="box.title">
+                               
                                <box v-if="box.file" :read="box.is_finished" title="فایل" color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
-                               <box v-if="box.video" :read="box.is_finished" title="ویدئو" color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.video+ '/video'" />    
+                               <box v-if="box.video" :read="box.is_finished" title="ویدئو" color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
                             </div>
                         </v-list>
                     </v-expansion-panel-text>

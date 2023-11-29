@@ -1,30 +1,30 @@
 
 <template>
 
-  <v-bottom-navigation  v-model="value" height="65"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
+  <v-bottom-navigation  v-model="value" height="63"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
     grow>
     <v-btn variant="plain"  v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"  class="no-hover-effect"  :ripple="false">
       
       <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="px-6 py-2 rounded-pill "
         :color="'white'">
       
-        <v-icon :size=" '18'">{{ "far " 
+        <v-icon :size=" '18'" >{{ "far " 
         }} {{ item.icon }}</v-icon>
    
       </v-sheet>
    
     <v-scale-transition :disabled="currentRouteCheck(item.to) == false">
-      <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" class="px-6 py-2 rounded-pill "
-        :color="'blue-accent-4'">
+      <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" class="px-5 py-1 rounded-pill "
+        :color="'blue'">
       
-        <v-icon :size=" '16' ">{{  "fa "
+        <v-icon :size=" '16' " style="margin-top: 2px;margin-bottom: 2px;">{{  "fa "
         }} {{ item.icon }}</v-icon>
    
       </v-sheet>
     </v-scale-transition>
-      <v-expand-transition>
-      <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2 text-black">{{ item.title }}</span>
-    </v-expand-transition>
+     
+      <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-1  text-black">{{ item.title }}</span>
+  
     </v-btn>
   </v-bottom-navigation>
 </template>

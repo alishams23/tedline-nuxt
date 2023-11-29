@@ -92,7 +92,7 @@ export default {
   }
   .curved {
     background-color: #2a2a72;
-    background-image: linear-gradient(360deg, #3333b2 0%, #0473e9 74%);
+    background-image: linear-gradient(360deg, #0b0bb5 0%, #0473e9 40%);
   }
 }
 @media (min-width: 767px) {

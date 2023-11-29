@@ -37,7 +37,7 @@
               <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
                 <Course :data="item" class="w-100 ma-3" />
               </v-col>
-              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue-accent-4" class="rtl border-opacity-100 my-10" border="start">
+              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
@@ -200,8 +200,7 @@ export default {
   }, mounted() {
      if (this.$route.query.search != null) this.text = this.$route.query.search
      if (this.$route.query.category != null) this.selectedDataCategoryIds = [parseInt(this.$route.query.category)]
-    
-   
+
     this.searchCourse()
     this.getDataCategoryBest()
   }

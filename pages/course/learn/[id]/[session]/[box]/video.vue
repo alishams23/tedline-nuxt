@@ -17,7 +17,7 @@
     </v-list-item>
       <div>
         <v-sheet rounded="xl" class="player-container ">
-          <vue3-video-player class="text-blue" :auto-play="true"  :src="videoUrl + $route.params.box +`/?token=${$store.state.token}`" >
+          <vue3-video-player class="text-blue" :auto-play="true"  :src="`${videoUrl}/${$route.params.id}/${$route.params.box}/?token=${$store.state.token}`" >
           </vue3-video-player>
         </v-sheet>
         
@@ -37,7 +37,7 @@ import '~/assets/styles/video.css'
 
     data() {
       return {
-        videoUrl :'https://tedline.org/api/box/video/stream_video/',
+        videoUrl :'https://tedline.org/api/box/video/stream_video',
 
       };
     },

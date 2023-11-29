@@ -1,7 +1,7 @@
 <template>
   <v-locale-provider rtl>
   <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-darken-2"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue"
       density="comfortable">
       <div class=" rounded-pill bg-grey-lighten-4 ">
         <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
