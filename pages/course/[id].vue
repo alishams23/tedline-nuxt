@@ -277,14 +277,19 @@ export default {
         }),
       })
         .then((response) => {
+          console.log('ddd')
+
           if (response.status == 200) {
             return response.json();
           } else {
             // Handle error
+          console.log('ddd')
+
           }
         })
         .then((data) => {
-          window.open(data["result"]);
+        
+          window.location.href = data["result"]
         });
       this.loading = false;
     },
