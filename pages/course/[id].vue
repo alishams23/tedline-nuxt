@@ -226,6 +226,13 @@ export default {
       }
     },
     register() {
+      if (this.data.price > 0 ) {
+        this.registerCredit()
+      } else{
+        this.registerFree()
+      }
+    },
+    registerFree(){
       this.loadingRegister = true
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
@@ -243,6 +250,43 @@ export default {
         )
       }
 
+    },
+    async registerCredit() {
+      if (this.amount < 10000) {
+        this.amountError = true;
+        return;
+      } else {
+        if (this.amountError != false) {
+          this.amountError = false;
+        }
+      }
+
+      this.loading = true;
+      await fetch(`https://tedline.org/api/wallet/increase-money/`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization:
+            this.$store.state.token != ""
+              ? `Token ${this.$store.state.token}`
+              : "",
+        },
+        body: JSON.stringify({
+          course_id:this.$route.params.id
+        }),
+      })
+        .then((response) => {
+          if (response.status == 200) {
+            return response.json();
+          } else {
+            // Handle error
+          }
+        })
+        .then((data) => {
+          window.open(data["result"]);
+        });
+      this.loading = false;
     },
     shareLink() {
       this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
