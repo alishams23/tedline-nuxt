@@ -134,7 +134,7 @@ export default {
         this.loading = true;
         try {
           await axios
-            .post(`https://tedline.org/api/account/RegisterUser/`, {
+            .post(`http://127.0.0.1:8000/api/account/RegisterUser/`, {
               "username": this.username,
               "password": this.password,
               "email": this.email,

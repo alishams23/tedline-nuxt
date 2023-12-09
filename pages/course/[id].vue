@@ -54,21 +54,37 @@
          </div>
         </v-alert>
         <v-row class="py-10 ">
-          <v-col>
-            <v-btn variant="flat" @click="register" :loading="loadingRegister" color="blue-accent-4" rounded="xl"
-              elevation="0" class="w-100" v-if="data.registered == false">
+          <v-col v-if="data.registered == false">
+            <v-btn variant="flat" size="large" @click="register" :loading="loadingRegister" color="blue-grey-darken-4" 
+              elevation="0" class="w-100 text-body-2 " rounded="xl" >
               ثبت نام
             </v-btn>
-            <v-btn variant="flat" :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue-accent-4"
-              rounded="xl" elevation="0" class="w-100" v-if="data.registered == true">
-              مشاهده ی دوره
-            </v-btn>
+          
           </v-col>
-          <v-col>
-            <v-btn @click="shareLink()" variant="text" append-icon="fal fa-external-link" color="black" rounded="xl"
-              elevation="0" class="w-100">
-              <div class="px-2">اشتراک گذاری</div>
-            </v-btn>
+          <v-col class="d-flex justify-center">
+            <v-btn variant="flat"  size="large" :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue-accent-4"
+            rounded="xl" elevation="0" class=" w-75 text-body-2 rounded-s-xl rounded-e-0" >
+            مشاهده ی دوره
+          </v-btn>
+           
+            <v-menu elevation="0" location="start">
+              <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" variant="flat" size="small"   color="blue-accent-3" 
+                elevation="0" height="44"  class=" rounded-e-xl  rounded-s-0">
+               <v-icon  icon="far  fa-ellipsis-v">
+
+               </v-icon>
+              </v-btn>
+              </template>
+              <v-list elevation="0" class="shadow-2" rounded="lg">
+                <v-list-item @click="shareLink">
+                  <v-list-item-title class=" font-weight-bold px-5 text-body-2 irsa" >به اشتراک گذاری</v-list-item-title>
+                  <template v-slot:prepend>
+                    <v-avatar class="text-blue text-xs" icon="fad fa-external-link" size="25" rounded="0"></v-avatar>
+                  </template>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-col>
         </v-row>
       </v-col>
@@ -187,7 +203,7 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -237,7 +253,7 @@ export default {
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`http://127.0.0.1:8000/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -262,7 +278,7 @@ export default {
       }
 
       this.loading = true;
-      await fetch(`https://tedline.org/api/wallet/increase-money/`, {
+      await fetch(`http://127.0.0.1:8000/api/wallet/increase-money/`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -294,7 +310,7 @@ export default {
       this.loading = false;
     },
     shareLink() {
-      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
+      this.copyToClipboard(`http://127.0.0.1:8000/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
   }, async mounted() {

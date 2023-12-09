@@ -1,5 +1,5 @@
 <template>
-    <v-list-item :to="to" class="mb-3 rounded-lg  border rtl">
+    <v-list-item :disabled="disable" :to="to" class="mb-3 rounded-lg  border rtl">
     
         <template v-slot:prepend>
             <v-avatar size="x-large" rounded="lg" :color="color">
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    props: ["color", "icon", "title","to","read"]
+    props: ["color", "icon", "title","to","read","disable"]
 }
 
 </script>

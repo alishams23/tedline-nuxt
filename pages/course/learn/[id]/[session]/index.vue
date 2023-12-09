@@ -9,7 +9,10 @@
             height="6"
           ></v-progress-linear>
           </div>
+
+          
         <div v-if="data">
+
             <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex align-center">
                 <v-avatar size="x-large" rounded="lg" color="blue">
                     <v-icon color="white"> fad fa-info</v-icon>
@@ -34,9 +37,9 @@
                     <v-expansion-panel-text>
                         <v-list lines="two">
                             <div v-for="box in boxes.box" :key="box.title">
-                               
-                               <box v-if="box.file" :read="box.is_finished" title="فایل" color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
-                               <box v-if="box.video" :read="box.is_finished" title="ویدئو" color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
+                            
+                               <box v-if="box.file" :read="box.is_finished" title="فایل" :disable="box.is_locked == true && data.is_signed == false " color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
+                               <box v-if="box.video" :read="box.is_finished" title="ویدئو" :disable="box.is_locked == true && data.is_signed == false " color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
                             </div>
                         </v-list>
                     </v-expansion-panel-text>
@@ -69,7 +72,7 @@ components:{box},
     }),
     methods: {
         getData() {
-            axios.get(`https://tedline.org/api/course/RetrieveSession/${this.$route.params.session}/`,{
+            axios.get(`http://127.0.0.1:8000/api/course/RetrieveSession/${this.$route.params.session}/`,{
             headers: {
               "Content-type": "application/json",
               Accept: "application/json",

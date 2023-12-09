@@ -50,14 +50,16 @@ export default {
       loadingDownload:[],
     };
   },
-  mounted() {
+  async mounted() {
+    await this.$store.commit('onStart') // get token
+
     this.getData()
   },
   methods: {
 
     getData() {
       this.loading =true
-      axios.get(`https://tedline.org/api/box/files/collections/${this.$route.params.box}/`, {
+      axios.get(`http://127.0.0.1:8000/api/box/files/collections/${this.$route.params.box}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -76,7 +78,15 @@ export default {
     async downloadFile(id) {
       try {
         this.loadingDownload.push(id)
-        const response = await axios.get(`https://tedline.org/api/box/files/download/${id}/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/box/files/download/${id}/`, {
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: this.$store.state.token != ''
+            ? `Token ${this.$store.state.token}`
+            : ''
+        },
+      });
         this.loadingDownload.splice(this.loadingDownload.indexOf(id))
 
         // Trigger file download

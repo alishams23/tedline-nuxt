@@ -30,7 +30,24 @@
         ></v-progress-linear>
         </div>
         <div v-if="data">
-
+          <v-alert
+        
+          variant="text"
+          
+          color="blue-grey-darken-4"
+          v-if="data.registered == false"
+          class="rtl mx-3 bg-grey-lighten-4  border-opacity-100  my-2"
+          border="start"
+          >
+           <div class="text-black text-body-2 irsa">
+            در این دوره ثبت نام کنید
+           </div>
+     
+          <v-btn :to="'/course/' + data.id" variant="flat" class="mt-3 px-4" color="blue-grey-darken-4" size="small" rounded="xl">
+            ثبت نام
+           </v-btn>
+        
+          </v-alert>
           <v-list active-class="bg-blue-accent-4 text-white" variant="flat" class="ms-3">
             <div class="rtl text-right px-3 text-body-1 irsa font-weight-black  mt-3">
                       {{ data.title }}
@@ -95,7 +112,7 @@ export default {
       this.drawerChecker = !this.drawerChecker;
     }, getData() {
 
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
