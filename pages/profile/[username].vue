@@ -19,7 +19,7 @@
     </template>
     کپی شد
   </v-snackbar>
- <div class="bg-blue-gradient-2 text-white">
+ <div class=" curved text-white">
   <v-container >
     <v-row align="center" class=" mx-10 mb-5 mt-2">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
@@ -191,3 +191,27 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+
+
+
+@media (max-width: 767px) {
+  .curved {
+    background-color: #060f21;
+
+    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, #0b1630 89.9%, #ffffff00 90%),radial-gradient(ellipse 100% 60% at 30% 100%, #15233f 89.9%, #00000000 90%);
+    
+  }
+}
+@media (min-width: 767px) {
+
+  .curved {
+    background-color: #0f1931;
+
+    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #15233f 89.9%, #00000000 90%), radial-gradient(ellipse 100% 90% at 20% 7%, #0f1931 89.9%, #ffffff00 90%);
+    
+  }
+}
+
+</style>

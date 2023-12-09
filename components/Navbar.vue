@@ -45,7 +45,7 @@
                 نوتیفیکیشن
               </v-list-item-title>
               <template v-slot:prepend>
-                <v-avatar variant="tonal" color="indigo-darken-4" class="me-4">
+                <v-avatar variant="tonal" color="blue-darken-2" class="me-4">
                   <v-icon size="13" icon="fa fa-bell"></v-icon>
                 </v-avatar>
               </template>
@@ -56,7 +56,7 @@
         </v-card>
       </v-menu>
       <router-link :to="$store.state.username ? `/profile/${$store.state.username}/`: '/'"> 
-        <v-avatar   color="indigo-darken-4" style="font-size:9px" class="me-9  ms-md-4" v-if="isAuthenticated == true">
+        <v-avatar    style="font-size:9px" class="me-9 bg-blue-gradient-2 text-white ms-md-4" v-if="isAuthenticated == true">
           <v-icon class=" position-absolute">
             fad fa-user
           </v-icon>

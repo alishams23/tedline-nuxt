@@ -21,7 +21,7 @@
        <div v-if="data.teacher" class="d-flex">
         <v-list-item class="rounded-xl mb-lg-12 mt-2 py-2" :to="'/profile/' + data.teacher.username " >
           <template v-slot:prepend>
-            <v-avatar size="x-large" color="blue-grey-darken-4" :image="data.teacher.image">
+            <v-avatar size="x-large" class="bg-blue-gradient-2 text-white" :image="data.teacher.image">
               <v-icon size="small" icon="fad fa-users"></v-icon>
             </v-avatar>
           </template>
@@ -49,7 +49,7 @@
         class="rtl  bg-grey-lighten-4  border-opacity-100  my-2"
         border="start"
         >
-         <div class="text-black">
+         <div class="text-black text-body-2 irsa">
           شما در این دوره ثبت نام کرده اید
          </div>
         </v-alert>
@@ -101,12 +101,11 @@
                 مهارت هایی که کسب میکنید
               </v-card-title>
               <v-card-text>
-                <v-alert icon="fa fa-info" v-if="data.skill && data.skill.length == 0" border="start" variant="text"
-                  class="border-opacity-100 bg-grey-lighten-3 font-weight-bold" color="black">
-                  <div class="text-black">
-                    مهارتی برای این آموزش ثبت نشده
-                  </div>
-                </v-alert>
+               
+                <div class=" pa-4" v-if="data.skill && data.skill.length == 0">
+                  مهارتی برای این آموزش ثبت نشده
+
+                </div>
                 <v-chip v-for="item in data.skill" :key="item.id + '+skill'" variant="flat" color="white"
                   class="mx-2 my-2 px-8 shadow-2 font-weight-medium ">
                   {{ item.title }}
@@ -126,7 +125,8 @@
               <v-card-title class="irsa text-sm font-weight-black">
                 هزینه ی دوره
               </v-card-title>
-              <v-card-text>{{ data.price }} تومان</v-card-text>
+              <v-card-text v-if="data.price != 0">{{ data.price }} تومان</v-card-text>
+              <v-card-text v-else>رایگان</v-card-text>
             </div>
             <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50" color="white">
               <i class="fad fa-money-bill shadow-2"></i>
@@ -151,9 +151,9 @@
     <div class="py-12 mt-12">
       <div class="text-h6 irsa font-weight-black rtl px-5 mb-10">سر فصل های دوره </div>
       <v-timeline side="start">
-        <v-timeline-item size="large" v-for="item in data.session" :key="item.id + '+session'">
+        <v-timeline-item size="large" v-for="item in data.session" dot-color="transparent" :key="item.id + '+session'">
           <template v-slot:icon>
-            <v-avatar color="white" size="20"></v-avatar>
+            <v-avatar  class="bg-blue-gradient-2" size="30"></v-avatar>
           </template>
           <template v-slot:opposite>
             <span class=" font-weight-bold"> {{ item.title }}</span>

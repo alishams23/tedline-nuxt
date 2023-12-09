@@ -2,7 +2,7 @@
   <div>
 
     <v-card class="rounded-xl shadow-3  text-right">
-      <v-card class="rounded-0" elevation="0" :to="'/course/' + data.id">
+      <v-card  :ripple="false" class="rounded-0" elevation="0" :to="'/course/' + data.id">
 
         <div class="">
           <v-img class=" align-end  rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
@@ -23,7 +23,7 @@
         </div>
 
         <v-responsive height="60">
-          <div class=" test-right text-body-2   rtl irsa px-3 pt-2 line-height-sm  font-weight-bold">{{
+          <div class=" test-right text-body-2   rtl irsa px-3 pt-2 line-height-sm  font-weight-medium font-weight-black-lg">{{
             data.title }}
           </div>
         </v-responsive>
@@ -31,12 +31,12 @@
       <v-card-actions>
 
 
-        <v-icon @click="show = !show" class="px-3" size="17">
+        <v-icon @click="show = !show" class="px-3" size="17" v-if="detail!= false">
           {{ show ? 'fal fa-chevron-up' : 'fal fa-chevron-down' }}
         </v-icon>
 
         <v-spacer></v-spacer>
-        <div class="rtl text-xs  ">
+        <div class="rtl text-xs font-weight-light  ">
           <v-icon color="blue" class="px-3 " :size="13">
             fa fa-clock
           </v-icon>
@@ -63,7 +63,7 @@
 </template>
 <script>
 export default {
-  props: ["data", "width"],
+  props: ["data", "width","detail"],
   data: () => ({
     show: false,
   }),

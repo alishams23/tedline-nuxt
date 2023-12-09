@@ -1,7 +1,7 @@
 <template>
   <div class="  curved" >
-    <v-container class=" mb-16 text-white ">
-      <v-row justify="center" class="mb-md-16 mb-5 mt-10 mt-md-0 ">
+    <v-container class=" mb-10 text-white ">
+      <v-row justify="center" class="mb-md-16 mb-5 mt-0 ">
         <v-col cols="12" sm="6" lg="6" xl="4"  class="ml-auto">
           <v-img  class=" hidden-sm-and-down"  src="/images/header.png">
          
@@ -10,13 +10,13 @@
         <v-col cols="12" sm="6" lg="6" class="d-flex align-center flex-wrap ">
           <div class="text-md-right text-center">
             <div class="   ">
-              <div class=" text-body-1 text-md-h6 text-blue-lighten-3 irsa font-weight-bold">
+              <div class=" text-body-2 text-md-body-1 text-md-h6 text-blue-lighten-3 irsa font-weight-bold">
                 هیجان یادگیری و شگفتی های نو
               </div>
-              <h2 class="text-h4 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-white rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
+              <h2 class="text-h5 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-white rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
               </h2>
             </div>
-            <p class="mt-3 pt-4 ms-lg-16 text-blue-lighten-4 ps-lg-16 line-height-md text-body-1 irsa">
+            <p class="mt-3 pt-4 ms-lg-16 text-blue-lighten-4 ps-lg-16 line-height-md text-body-2 text-md-body-1 irsa">
               فضایی برای یادگیری و آموزش هایی که منجر به کسب مهارت
             
               و زندگی حرفه ای شما می شود
@@ -92,7 +92,9 @@ export default {
   }
   .curved {
     background-color: #2a2a72;
-    background-image: linear-gradient(360deg, #0b0bb5 0%, #0473e9 40%);
+
+    background-image:radial-gradient(ellipse 100% 80% at 80% 0%, #0473e9 89.9%, #ffffff00 90%), radial-gradient(ellipse 100% 100% at 20% 7%, #045de9 89.9%, #ffffff00 90%),
+    radial-gradient(ellipse 100% 90% at 50% 50%, #1c7ce3 89.9%, #ffffff00 90%);
   }
 }
 @media (min-width: 767px) {

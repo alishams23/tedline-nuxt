@@ -118,8 +118,10 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 
 
 .bg-blue-gradient{
-    background-color: #045de9 !important;
-    background-image: linear-gradient(315deg, #0382f1 0%, #004ac1 74%) !important;
+    background-color: #004ac1 !important;
+    // background-image: linear-gradient(315deg, #0382f1 0%, #004ac1 74%) !important;
+    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #0382f1 89.9%, #00000000 90%)!important;
+
 }
 
 .bg-blue-gradient-2{
@@ -128,8 +130,10 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
     
 }
 .bg-green-gradient {
-    background-color: #04e92e !important;
-    background-image: linear-gradient(315deg, #01ba0b 0%, rgb(2, 160, 99) 74%) !important;
+    background-color: rgb(2, 160, 99) !important;
+    // background-image: linear-gradient(315deg, #01ba0b 0%, rgb(2, 160, 99) 74%) !important;
+    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #01ba0b 89.9%, #00000000 90%)!important;
+
   }
 
 .custom-rounded-1{
@@ -175,3 +179,7 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
     background-color: inherit !important; /* Use !important to override Vuetify styles */
     color: inherit !important;
   }
+
+.rounded-2lg{
+    border-radius: 20px !important;
+}

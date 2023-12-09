@@ -15,13 +15,13 @@
       <v-tabs v-model="tab" align-tabs="end" class="border-b text-grey">
         <v-btn v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
           @click="drawerChecker = true" size="small" color="black" prepend-icon="fa fa-cog" rounded="pill"> فیلتر</v-btn>
-        <v-tab class="rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="1" >
+        <v-tab class="text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="1" >
         <div :class="tab == 1 ? 'text-black' : 'text-grey'">
           دوره ها
           <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon>
         </div>
         </v-tab>
-        <v-tab class="rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="2" >
+        <v-tab class="text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="2" >
           
         <div :class="tab == 2 ? 'text-black' : 'text-grey'" >
           اساتید
@@ -32,18 +32,16 @@
       </v-tabs>
       <v-window v-model="tab">
         <v-window-item :value="1">
-          <v-container fluid>
-            <v-row no-gutters>
-              <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="12" lg="3" md="4" sm="6">
-                <Course :data="item" class="w-100 ma-3" />
-              </v-col>
-              <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
-                <div class="text-sm  font-weight-black irsa">
-                  دوره ای وجود ندارد
-                </div>
-              </v-alert>
-            </v-row>
-          </v-container>
+          <v-row no-gutters>
+            <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="6" lg="3" md="4" sm="6">
+              <Course :data="item" :detail="false" class="w-100 mx-2 mb-5 mt-4" />
+            </v-col>
+            <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
+              <div class="text-sm  font-weight-black irsa">
+                دوره ای وجود ندارد
+              </div>
+            </v-alert>
+          </v-row>
         </v-window-item>
         <v-window-item :value="2">
           <v-container>

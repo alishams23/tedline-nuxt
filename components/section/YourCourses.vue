@@ -1,7 +1,7 @@
 <template>
   <v-locale-provider rtl>
   <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-accent-4"
       density="comfortable">
       <div class=" rounded-pill bg-grey-lighten-4 ">
         <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
@@ -12,13 +12,13 @@
     <v-tabs fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="border-b rtl"  elevation="0" 
       >
 
-        <v-tab color="blue" class=" rounded-t-lg"  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
+        <v-tab color="blue" class=" rounded-t-lg text-xs"  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
           در حال یادگیری
 
           <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>
       
         </div></v-tab>
-        <v-tab color="blue" class=" rounded-t-lg" variant="text" value="two">
+        <v-tab color="blue" class=" rounded-t-lg text-xs" variant="text" value="two">
           <div :class="tab == 'two'?'text-black' : 'text-grey'">
             به اتمام
           رسیده
