@@ -173,14 +173,14 @@ export default {
   methods: {
     searchCourse() {
       this.loading = true
-      axios.get(`http://127.0.0.1:8000/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
+      axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
         this.data = response.data.results
         this.loading = false
       }
       )
     },
     getDataCategoryBest() {
-      axios.get('http://127.0.0.1:8000/api/course/CourseCategoryPopular/').then((response) => {
+      axios.get('https://tedline.org/api/course/CourseCategoryPopular/').then((response) => {
         this.dataCategoryBest = response.data
         this.loadingCategoryBest = false
       }

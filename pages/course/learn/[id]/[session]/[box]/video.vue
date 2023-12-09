@@ -37,7 +37,7 @@ import '~/assets/styles/video.css'
 
     data() {
       return {
-        videoUrl :'http://127.0.0.1:8000/api/box/video/stream_video',
+        videoUrl :'https://tedline.org/api/box/video/stream_video',
 
       };
     },
