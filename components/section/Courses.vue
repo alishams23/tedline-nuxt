@@ -20,9 +20,7 @@
     
     >
       <SwiperSlide v-for="item in data"  :key="item">
-        <Course :data="item" class="my-16 responsive-card mx-1 mx-md-2 rounded-xl shadow-3"   />
-
-
+        <Course :data="item" color="grey-lighten-5" class="my-16 responsive-card mx-1 mx-md-2   rounded-2xl" />
       </SwiperSlide>
     </Swiper>
 
@@ -56,7 +54,7 @@ export default {
         this.data = response.data
       this.loading = false
       }
-      )
+    )
     }
   }, mounted() {
     this.getData()

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer elevation="0" temporary v-model="drawerChecker">
+    <v-navigation-drawer  elevation="0" temporary v-model="drawerChecker">
       <Sidebar />
     </v-navigation-drawer>
     <v-app-bar :class="transparent == true ? 'custom-bg-blue text-white ' : shadow == true ? 'shadow-1' : ''"

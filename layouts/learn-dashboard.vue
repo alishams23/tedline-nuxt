@@ -1,7 +1,7 @@
 
 <template>
   <v-app id="inspire">
-    <SideNavigation @updateData="updatePageDrawerChecker" />
+    <SideNavigation class="shadow-3" @updateData="updatePageDrawerChecker" />
     <v-navigation-drawer temporary location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0"
       v-model="drawerChecker">
       <Notification />
@@ -18,7 +18,7 @@
     </v-app-bar>
     <v-main>
 
-      <v-navigation-drawer location="right" class="shadow-3 border-none" elevation="0" v-model="drawerCheckerSide">
+      <v-navigation-drawer location="right" class="shadow-3   border-none" elevation="0" v-model="drawerCheckerSide">
 
         <div class="d-flex justify-center mx-10">
           <v-progress-linear
@@ -56,8 +56,8 @@
                
             <v-list-subheader color="blue-darken-4"
               class="   text-sm mt-9  text-grey justify-end  mb-2 ">جلسات</v-list-subheader>
-            <v-list-item :to="'/course/learn/' + data.id + '/' + item.id" v-for="(item, i) in data.session"
-              class="leftPadding  rounded-s-pill px-6 mb-3 py-2" color="blue-darken-2" subtitle="">
+            <v-list-item active-class="bg-blue-gradient-3" :to="'/course/learn/' + data.id + '/' + item.id" v-for="(item, i) in data.session"
+              class="leftPadding  rounded-s-pill  px-6 mb-3 py-2" color="blue-darken-2" subtitle="">
               <v-list-item-title class=" text-right rtl font-weight-bold  irsa ">{{ item.title }}</v-list-item-title>
               <v-list-item-subtitle class="text-right rtl text-xs">
                 {{ item.description }}

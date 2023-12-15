@@ -3,11 +3,8 @@
   <!-- <Navbar :transparent="false" /> -->
   <v-app-bar elevation="0" color="#0f1931" v-if="loading" height="35">
     <v-progress-linear
-    
     color="white"
     indeterminate
-
-    
     height="3"
   ></v-progress-linear>
   </v-app-bar>
@@ -19,7 +16,7 @@
     </template>
     کپی شد
   </v-snackbar>
- <div class=" curved text-white">
+ <div class=" curved text-white rounded-b-xl mx-md-16">
   <v-container >
     <v-row align="center" class=" mx-10 mb-5 mt-2">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
@@ -88,7 +85,7 @@
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs">دوره های تمام نشده </p>
+              <p class=" font-weight-bold text-xs">دوره  تمام نشده </p>
               <p class="text-xs irsa ">{{data.unfinished_course}} دوره</p>
              </div>
           </v-sheet>
@@ -101,7 +98,7 @@
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs">دوره های تمام شده </p>
+              <p class=" font-weight-bold text-xs">دوره  تمام شده </p>
               <p class="text-xs irsa ">{{data.finished_course}} دوره</p>
              </div>
           </v-sheet>

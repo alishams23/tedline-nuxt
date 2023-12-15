@@ -1,30 +1,30 @@
 
 <template>
 
-  <v-bottom-navigation  v-model="value" height="69"  elevation="2"  mode="shift" color="transparent" class=" px-1 w-100 shadow-t"
+  <v-bottom-navigation  v-model="value" height="69"   elevation="0"    class="shadow-t   px-1 w-100 "
     grow>
     <v-btn variant="plain"  v-for="(item, index) in menuDown" :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" :key="item + '+Down menu'"  class="no-hover-effect"  :ripple="false">
       
-      <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="px-6 py-2 rounded-pill "
-        :color="'white'">
+      <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="px-5 py-1 rounded-pill "
+        color="white">
       
-        <component :is="item.icon" style="height: 23px;"  />
+        <component :is="item.icon" class="text-grey" style="height: 25px;margin-bottom: -3px;"  />
 
    
       </v-sheet>
    
     <v-slide-y-transition :disabled="currentRouteCheck(item.to) == false">
-      <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" class="px-5 py-1 bg-blue-accent-4 text-white rounded-pill "
+      <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" color="blue" class="px-5 bg-blue-gradient-3 py-1  text-white rounded-pill "
         >
-        <component :is="item.iconSolid" style="height: 19px;margin-top: 1px;margin-bottom: -3px;"  />
+        <component :is="item.iconSolid"  style="height: 21px;margin-top: 1px;margin-bottom: -3px;"  />
       
      
    
       </v-sheet>
     </v-slide-y-transition>
-  <v-slide-y-reverse-transition>
-      <span v-if="value != index || (value == index && currentRouteCheck(item.to) )" class="pt-2   text-black">{{ item.title }}</span>
-    </v-slide-y-reverse-transition>
+
+      <div v-if="currentRouteCheck(item.to)" :class="currentRouteCheck(item.to) ? 'font-weight-bold' : 'font-weight-light text-grey'" class="pt-2  text-xs-2  text-black">{{ item.title }}</div>
+  
     </v-btn>
   </v-bottom-navigation>
 </template>

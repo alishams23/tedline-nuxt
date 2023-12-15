@@ -1,7 +1,7 @@
 <template>
   <v-locale-provider rtl>
   <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" color="blue-accent-4"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" selected-class="bg-blue-gradient" color="blue-accent-4"
       density="comfortable">
       <div class=" rounded-pill bg-grey-lighten-4 ">
         <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
@@ -9,7 +9,7 @@
           رسیده</v-tab>
       </div>
     </v-tabs>
-    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="border-b  rtl"  elevation="0" 
+    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="shadow-3  rtl"  elevation="0" 
       >
 
         <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs no-hover-effect"  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">

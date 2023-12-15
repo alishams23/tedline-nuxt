@@ -1,13 +1,13 @@
 <template>
   <div>
 
-    <v-card class="rounded-2xl     text-right" elevation="0">
-      <v-card  :ripple="false" class="  pa-3 " elevation="0" :to="'/course/' + data.id">
+    <v-card class=" rounded-xl   text-right" :color="color ? color : 'white'" rounded="xl" elevation="0" >
+      <v-card  :ripple="false" class=" pa-0  " color="transparent"  elevation="0" :to="'/course/' + data.id">
 
         <div >
           <v-img class=" align-end rounded-t-xl rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
            <div class="d-flex">
-            <div    class="  text-xs  bg-white mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
+            <div  :class="color? 'bg-' + color : 'bg-white'"  class="  text-xs   mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
               
             
               <div v-if="data.price != 0">
@@ -29,7 +29,7 @@
           </div>
         </v-responsive>
       </v-card>
-      <v-card-actions class="pt-0 mt-n3  pb-0 "  v-if="detail!= false">
+      <v-card-actions class=" pb-0 "  v-if="detail!= false">
 
 
         <v-icon @click="show = !show" class="px-3" size="17">
@@ -46,7 +46,7 @@
 
         </div>
       </v-card-actions>
-      <v-expand-transition>
+      <v-expand-transition >
         <div v-show="show" class="rtl">
           <v-divider></v-divider>
 
@@ -64,7 +64,7 @@
 </template>
 <script>
 export default {
-  props: ["data", "width","detail"],
+  props: ["data", "width","detail","color"],
   data: () => ({
     show: false,
   }),

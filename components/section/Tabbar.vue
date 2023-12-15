@@ -24,6 +24,7 @@
       v-model="tab"
       align-tabs="center"
       elevation="0"
+      selected-class="bg-blue-gradient" 
      slider-color="transparent" 
      color="blue-darken-2"
      density="comfortable"
@@ -55,7 +56,7 @@
                           nuxt
                           large
                           to="/auth/signUp"
-                          class="btn-custom-lg btn-arrow px-12"
+                          class=" btn-arrow px-12"
                           depressed
                           rounded
                           color="blue"
