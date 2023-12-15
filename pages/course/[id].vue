@@ -37,7 +37,7 @@
         </h1>
         <v-divider>
         </v-divider>
-        <p class="rtl  font-weight-light py-8">
+        <p class="rtl  font-weight-light text-body-2 irsa px-4 py-8">
           {{ data.description }}
         </p>
         <v-alert
@@ -67,7 +67,7 @@
             مشاهده ی دوره
           </v-btn>
            
-            <v-menu elevation="0" location="start">
+            <v-menu elevation="0" >
               <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" variant="flat" size="small"   color="blue-accent-3" 
                 elevation="0" height="44"  class=" rounded-e-xl  rounded-s-0">
@@ -80,7 +80,11 @@
                 <v-list-item @click="shareLink">
                   <v-list-item-title class=" font-weight-bold px-5 text-body-2 irsa" >به اشتراک گذاری</v-list-item-title>
                   <template v-slot:prepend>
-                    <v-avatar class="text-blue text-xs" icon="fad fa-external-link" size="25" rounded="0"></v-avatar>
+                    <v-avatar class="text-blue text-xs"  size="25" rounded="0">
+                      <v-icon size="15">
+                        fa fa-external-link
+                      </v-icon>
+                    </v-avatar>
                   </template>
                 </v-list-item>
               </v-list>
@@ -100,11 +104,9 @@
               <v-card-title class="irsa text-sm font-weight-black">
                 مهارت هایی که کسب میکنید
               </v-card-title>
-              <v-card-text>
-               
+              <v-card-text> 
                 <div class=" pa-4" v-if="data.skill && data.skill.length == 0">
                   مهارتی برای این آموزش ثبت نشده
-
                 </div>
                 <v-chip v-for="item in data.skill" :key="item.id + '+skill'" variant="flat" color="white"
                   class="mx-2 my-2 px-8 shadow-2 font-weight-medium ">
@@ -133,7 +135,7 @@
             </v-avatar>
           </div>
         </v-card>
-        <v-card  class="bg-blue-gradient text-white custom-rounded-1 rtl mt-4" elevation="0">
+        <v-card  class="bg-blue-circle text-white custom-rounded-1 rtl mt-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="text-sm irsa font-weight-black">
@@ -150,8 +152,8 @@
     </v-row>
     <div class="py-12 mt-12">
       <div class="text-h6 irsa font-weight-black rtl px-5 mb-10">سر فصل های دوره </div>
-      <v-timeline side="start">
-        <v-timeline-item size="large" v-for="item in data.session" dot-color="transparent" :key="item.id + '+session'">
+      <v-timeline side="end">
+        <v-timeline-item size="small" v-for="item in data.session" dot-color="transparent" :key="item.id + '+session'">
           <template v-slot:icon>
             <v-avatar  class="bg-blue-gradient-2" size="30"></v-avatar>
           </template>

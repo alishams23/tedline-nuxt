@@ -9,16 +9,16 @@
           رسیده</v-tab>
       </div>
     </v-tabs>
-    <v-tabs fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="border-b rtl"  elevation="0" 
+    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="border-b  rtl"  elevation="0" 
       >
 
-        <v-tab color="blue" class=" rounded-t-lg text-xs"  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
+        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs no-hover-effect"  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
           در حال یادگیری
 
           <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>
       
         </div></v-tab>
-        <v-tab color="blue" class=" rounded-t-lg text-xs" variant="text" value="two">
+        <v-tab color="blue" class="transition-inactive-class rounded-t-lg text-xs no-hover-effect" variant="text" :ripple="false" value="two">
           <div :class="tab == 'two'?'text-black' : 'text-grey'">
             به اتمام
           رسیده
@@ -125,3 +125,32 @@ props:['username','progress','variant'],
 
 }
 </script>
+
+<style>
+
+
+.active-tab-class::after{
+ 
+
+  bottom: -5px; 
+
+
+  opacity: 100% !important;
+  width: 80%;
+  left: 10%;
+  height: 6px ;
+  top:93%;
+  border: 10px solid rgb(0, 153, 255);
+  
+  
+  border-radius: 3px 3px 0px 0px;
+}
+
+.transition-inactive-class::after{
+  transition:  opacity 0s ease-in-out;
+}
+.no-hover-effect:hover {
+  background-color: inherit !important; /* Use !important to override Vuetify styles */
+  color: transparent !important;
+}
+</style>

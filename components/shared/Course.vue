@@ -1,21 +1,22 @@
 <template>
   <div>
 
-    <v-card class="rounded-xl shadow-3  text-right">
-      <v-card  :ripple="false" class="rounded-0" elevation="0" :to="'/course/' + data.id">
+    <v-card class="rounded-2xl     text-right" elevation="0">
+      <v-card  :ripple="false" class="  pa-3 " elevation="0" :to="'/course/' + data.id">
 
-        <div class="">
-          <v-img class=" align-end  rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+        <div >
+          <v-img class=" align-end rounded-t-xl rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
            <div class="d-flex">
-            <div    class="  text-xs  bg-white pl-10 pr-4 py-2 font-weight-bold   shadow-2  rounded-tr-xl " >
+            <div    class="  text-xs  bg-white mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
               
             
               <div v-if="data.price != 0">
                 {{ data.price }} <span class="  text-grey irsa text-xxs">تومان</span>
               </div>
               
-              <div v-else>
+              <div v-else class="text-xs-2" >
                 رایگان
+              
               </div>
             </div>
            </div>
@@ -23,15 +24,15 @@
         </div>
 
         <v-responsive height="60">
-          <div class=" test-right text-body-2   rtl irsa px-3 pt-2 line-height-sm  font-weight-medium font-weight-black-lg">{{
+          <div class=" test-right text-xs   rtl irsa px-3 pt-2  line-height-sm  font-weight-medium font-weight-black-lg">{{
             data.title }}
           </div>
         </v-responsive>
       </v-card>
-      <v-card-actions>
+      <v-card-actions class="pt-0 mt-n3  pb-0 "  v-if="detail!= false">
 
 
-        <v-icon @click="show = !show" class="px-3" size="17" v-if="detail!= false">
+        <v-icon @click="show = !show" class="px-3" size="17">
           {{ show ? 'fal fa-chevron-up' : 'fal fa-chevron-down' }}
         </v-icon>
 
@@ -49,7 +50,7 @@
         <div v-show="show" class="rtl">
           <v-divider></v-divider>
 
-          <v-card-text class="rtl">
+          <v-card-text class="rtl text-xs-2" >
 
             {{ data.description }}
           </v-card-text>

@@ -34,7 +34,7 @@
       </v-btn>
       <v-menu v-if="isAuthenticated == true" v-model="menuNotification" :close-on-content-click="false" location="start">
         <template v-slot:activator="{ props }">
-          <v-avatar v-bind="props" variant="tonal" color="indigo-darken-4" class="me-4  hidden-md-and-up">
+          <v-avatar v-bind="props" variant="tonal" :color="transparent == true ? 'white' : 'blue-darken-4'" class="me-4  hidden-md-and-up">
             <v-icon size="13" icon="fa fa-bell"></v-icon>
           </v-avatar>
         </template>
@@ -45,7 +45,7 @@
                 نوتیفیکیشن
               </v-list-item-title>
               <template v-slot:prepend>
-                <v-avatar variant="tonal" color="blue-darken-2" class="me-4">
+                <v-avatar variant="tonal" color="blue-darken-4" class="me-4">
                   <v-icon size="13" icon="fa fa-bell"></v-icon>
                 </v-avatar>
               </template>

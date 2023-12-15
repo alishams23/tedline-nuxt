@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="">
     <v-card-text class="" color="" elevation="0">
       <v-locale-provider rtl>
       <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="searchCourse" v-model="text"
@@ -32,9 +32,9 @@
       </v-tabs>
       <v-window v-model="tab">
         <v-window-item :value="1">
-          <v-row no-gutters>
-            <v-col v-for="item in data" :key="item" class="d-flex justify-center" cols="6" lg="3" md="4" sm="6">
-              <Course :data="item" :detail="false" class="w-100 mx-2 mb-5 mt-4" />
+          <v-row no-gutters class="mt-7  ">
+            <v-col v-for="item in data" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
+              <Course :data="item" :detail="false" class="w-100  mx-md-3 " />
             </v-col>
             <v-alert v-if="data.length == 0 && loading == false"  icon="fa fa-info" variant="tonal" color="blue" class="rtl border-opacity-100 my-10" border="start">
               <div class="text-sm  font-weight-black irsa">

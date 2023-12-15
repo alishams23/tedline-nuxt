@@ -12,7 +12,7 @@
       <v-app-bar-nav-icon class="" @click.stop="drawerCheckerSide = !drawerCheckerSide">
         <i class="fa fa-bars"></i>
       </v-app-bar-nav-icon>
-      <v-app-bar-title class=" font-weight-black hidden-md-and-up   text-body-1" v-if="data">
+      <v-app-bar-title class=" font-weight-medium hidden-md-and-up   text-body-2" v-if="data">
         {{ data.title }}
       </v-app-bar-title>
     </v-app-bar>

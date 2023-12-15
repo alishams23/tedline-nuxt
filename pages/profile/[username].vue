@@ -1,10 +1,10 @@
 <template>
   
   <!-- <Navbar :transparent="false" /> -->
-  <v-app-bar elevation="0" color="transparent" v-if="loading" height="35">
+  <v-app-bar elevation="0" color="#0f1931" v-if="loading" height="35">
     <v-progress-linear
     
-    color="blue"
+    color="white"
     indeterminate
 
     
@@ -32,15 +32,19 @@
           <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
         </v-avatar>
         <div class="mt-n10 ">
-          <v-menu elevation="0" location="start">
+          <v-menu elevation="0" >
             <template v-slot:activator="{ props }">
               <v-btn size="small" class="shadow-2  bg-glass-white"     v-bind="props" icon="far  fa-ellipsis-v"  variant="flat"></v-btn>
             </template>
-            <v-list elevation="0" class="shadow-2" rounded="lg">
+            <v-list elevation="0" class="shadow-2 py-0" rounded="lg">
               <v-list-item @click="shareLink">
                 <v-list-item-title class=" font-weight-bold px-5 text-body-2 irsa" >به اشتراک گذاری</v-list-item-title>
                 <template v-slot:prepend>
-                  <v-avatar class="text-blue text-xs" icon="fad fa-external-link" size="25" rounded="0"></v-avatar>
+                  <v-avatar class="text-blue " icon="" size="20" rounded="0">
+                    <v-icon size="15">
+                      fa fa-external-link
+                    </v-icon>
+                  </v-avatar>
                 </template>
               </v-list-item>
             </v-list>
@@ -75,8 +79,8 @@
     <div class="text-right rtl mb-10 px-5 " v-if="data && data.bio">
         {{ data.bio }}
     </div>
-    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center   flex-wrap align-stretch">
-        <v-col cols="6" lg="2" class="pa-1 " v-if="data.status == 's'">
+    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">
+        <v-col cols="6" md="4" lg="2" class="pa-1 " v-if="data.status == 's'">
           <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between pa-2 pe-3">
             <v-avatar variant="tonal" class=" " color="white" size="38">
              <v-icon size="15">
@@ -89,7 +93,7 @@
              </div>
           </v-sheet>
         </v-col>
-        <v-col cols="6" lg="2" class="pa-1" v-if="data.status == 's'" >
+        <v-col cols="6" md="4" lg="2" class="pa-1" v-if="data.status == 's'" >
           <v-sheet  class="align-center rounded-pill bg-blue-grey-darken-4  d-flex justify-space-between  pa-2 pe-3">
             <v-avatar variant="tonal"  class=" " color="white" size="38">
              <v-icon size="15">

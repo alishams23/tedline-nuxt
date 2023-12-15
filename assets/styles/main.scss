@@ -81,6 +81,9 @@ button {
 .text-xs{
     font-size: 13px !important;
 }
+.text-xs-2{
+    font-size: 12px !important;
+}
 .text-xxs{
     font-size: 8px !important;
 }
@@ -117,10 +120,16 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 }
 
 
-.bg-blue-gradient{
+.bg-blue-circle{
     background-color: #004ac1 !important;
     // background-image: linear-gradient(315deg, #0382f1 0%, #004ac1 74%) !important;
     background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #0382f1 89.9%, #00000000 90%)!important;
+
+}
+
+.bg-blue-gradient{
+    background-color: #004ac1 ;
+    background-image: linear-gradient(315deg, #4eabf7 0%, #0f4efc 74%) !important;
 
 }
 
@@ -182,4 +191,8 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 
 .rounded-2lg{
     border-radius: 20px !important;
+}
+
+.rounded-2xl{
+    border-radius: 33px !important;
 }

@@ -20,7 +20,7 @@
     
     >
       <SwiperSlide v-for="item in data"  :key="item">
-        <Course :data="item" class="my-16 responsive-card px-1 px-md-2"   />
+        <Course :data="item" class="my-16 responsive-card mx-1 mx-md-2 rounded-xl shadow-3"   />
 
 
       </SwiperSlide>

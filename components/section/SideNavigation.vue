@@ -13,10 +13,11 @@
       </v-sheet> -->
       <v-btn v-for="(item,index) in menu" :variant="currentRouteCheck(item.to) ? 'flat' : 'flat'" :key="item + '+sidebar'"
         :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
-        :color="currentRouteCheck(item.to) ? 'blue-accent-4' : 'white'"
+        :class="currentRouteCheck(item.to) ? 'bg-blue-gradient text-white' : 'bg-white'"
         :icon="currentRouteCheck(item.to) ? 'fa ' + item.icon : 'far ' + item.icon"></v-btn>
-      <v-btn rounded="xl" variant="tonal" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
-        class="mt-auto mb-5 custom-rounded-1" color="blue-darken-3" icon="fad fa-bells"></v-btn>
+
+        <v-btn rounded="xl" variant="text" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
+        class="mt-auto mb-5 bg-grey-lighten-4 custom-rounded-1" color="blue-darken-3" icon="fad fa-bells"></v-btn>
     </div>
   </v-navigation-drawer>
 </template>
@@ -25,9 +26,7 @@
 <script>
 
 
-
 export default {
-
 
   computed: {
   isAuthenticated() {
