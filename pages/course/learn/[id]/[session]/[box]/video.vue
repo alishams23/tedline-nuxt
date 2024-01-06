@@ -3,7 +3,7 @@
       <v-list-item class="mb-5 mt-3 rounded-lg   rtl">
         <template v-slot:prepend>
             <v-avatar size="x-large" rounded="lg" color="blue">
-                <v-icon color="white"> fad fa-video</v-icon>
+                <v-icon color="auto"> fad fa-video</v-icon>
             </v-avatar>
         </template>
         <template v-slot:title>

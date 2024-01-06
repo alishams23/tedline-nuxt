@@ -15,7 +15,7 @@
 
             <div class="rtl text-right px-3 text-h6 irsa font-weight-bold mb-3   d-flex align-center">
                 <v-avatar size="x-large" rounded="lg" color="blue">
-                    <v-icon color="white"> fad fa-info</v-icon>
+                    <v-icon color="auto"> fad fa-info</v-icon>
                 </v-avatar>
                 <div class="px-2">
                     <div>
@@ -27,15 +27,15 @@
                 </div>
             </div>
             <div>
-                <div class="rtl pa-5 border bg-grey-lighten-4 rounded-lg mx-2 my-10">
+                <div class="rtl pa-5 border bg-grey4 rounded-lg mx-2 my-10">
                     {{ data.description }}
                 </div>
             </div>
-            <v-expansion-panels v-model="panel" multiple class=" rounded-lg ">
-                <v-expansion-panel active v-for="(boxes, index) in data.boxes" elevation="0" class="">
-                    <v-expansion-panel-title  class="rtl font-weight-bold" expand-icon="fal fa-chevron-left" collapse-icon="fal fa-chevron-up">{{boxes.title}}</v-expansion-panel-title>
-                    <v-expansion-panel-text>
-                        <v-list lines="two">
+            <v-expansion-panels colo v-model="panel" multiple class="bg-auto  rounded-lg ">
+                <v-expansion-panel active v-for="(boxes, index) in data.boxes" elevation="0" class="bg-auto ">
+                    <v-expansion-panel-title  class="rtl bg-auto  font-weight-bold" expand-icon="fal bg-auto  fa-chevron-left" collapse-icon="fal fa-chevron-up">{{boxes.title}}</v-expansion-panel-title>
+                    <v-expansion-panel-text class="bg-auto ">
+                        <v-list lines="two" class="bg-auto ">
                             <div v-for="box in boxes.box" :key="box.title">
                             
                                <box v-if="box.file" :read="box.is_finished" title="فایل" :disable="box.is_locked == true && data.is_signed == false " color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
@@ -99,6 +99,6 @@ components:{box},
 </script>
 <style >
 .v-expansion-panel-title__overlay {
-    background-color: white !important;
+    background-color: light !important;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="  curved" >
-    <v-container class=" mb-10 text-white ">
+    <v-container class=" mb-10 text-auto  ">
       <v-row justify="center" class="mb-md-16 mb-5 mt-0 ">
         <v-col cols="12" sm="6" lg="6" xl="4"  class="ml-auto">
           <v-img  class=" hidden-sm-and-down"  src="/images/header.png">
@@ -13,7 +13,7 @@
               <div class=" text-body-2 text-md-body-1 text-md-h6 text-blue-lighten-3 irsa font-weight-bold">
                 هیجان یادگیری و شگفتی های نو
               </div>
-              <h2 class="text-h5 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-white rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
+              <h2 class="text-h5 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa  mt-3">پلتفرم آموزشی <span class="text-auto  rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
               </h2>
             </div>
             <p class="mt-3 pt-4 ms-lg-16 text-blue-lighten-4 ps-lg-16 line-height-md text-body-2 text-md-body-1 irsa">
@@ -25,8 +25,8 @@
             <div class="mt-6 pt-2 justify-center justify-lg-end d-flex">
               <div>
                 <div class="stylish-input-group">
-                  <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search bg-white px-md-16 px-3">
-                  <v-btn rounded :to="'/explore/?search='+text"  elevation="0" class="bg-blue-gradient-2 text-white text-uppercase custom-btn font-weight-medium" dark>
+                  <input  v-on:keyup.enter="$router.push('/explore/?search='+text);" v-model="text" placeholder="درس مورد نظر شما" class="custom-search inner-shadow-1 bg-auto  px-md-16 px-3">
+                  <v-btn rounded :to="'/explore/?search='+text"  elevation="0" class="bg-blue-gradient-2 text-white text-uppercase custom-btn  font-weight-medium" dark>
                     جستجو
                   </v-btn>
                 </div>
@@ -38,11 +38,11 @@
     </v-container>
     
   
-    <v-sheet height="40" elevation="0"  class=" rounded-t-xl hidden-md-and-up w-100 " style="border:1px solid  white"></v-sheet>
+    <v-sheet height="40" color="auto" elevation="0"  class=" rounded-t-xl hidden-md-and-up w-100 " ></v-sheet>
   </div>
 </template>
 
-<script>
+<script >
 
 export default {
 
@@ -52,7 +52,7 @@ export default {
 
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 
 
 .stylish-input-group {
@@ -102,7 +102,7 @@ export default {
   .curved {
     padding: 10px 20px 50px 20px;
     background-image:radial-gradient(ellipse 100% 60% at 80% 0%, #0473e9 89.9%, #ffffff00 90%), radial-gradient(ellipse 100% 90% at 50% 7%, #045de9 89.9%, #ffffff00 90%),
-        radial-gradient(ellipse 100% 90% at 60% 10%, #d5eef9 89.9%, #ffffff00 90%);
+        radial-gradient(ellipse 100% 90% at 60% 10%, rgba(var(--v-theme-primary-lighten-5)) 89.9%, #ffffff00 90%);
     text-align: center;
     font-family: sans-serif;
     text-transform: uppercase;

@@ -25,7 +25,7 @@
                 <div class="my-10" v-for="item in dataFinished" :key="item.id+'unfinished'">
                   <YourCourseComponents :progress="progress" :data="item"  />
                 </div>
-                <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="bg-grey-lighten-5 rtl border-opacity-100  my-10" border="start">
+                <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="bg-grey5 rtl border-opacity-100  my-10" border="start">
                   <div class="pb-3 text-body-1 font-weight-black irsa">
                     دوره ای وجود ندارد
                   </div>
@@ -42,7 +42,7 @@
             <div class="my-10" v-for="item in data" :key="item.id+'unfinished'">
               <YourCourseComponents :progress="false"  :data="item" />
             </div>
-            <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class="rtl bg-grey-lighten-5  border-opacity-100  my-10" border="start">
+            <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class="rtl bg-grey5  border-opacity-100  my-10" border="start">
               <div class="pb-3 text-body-1 font-weight-black irsa">
                 دوره ای وجود ندارد
               </div>

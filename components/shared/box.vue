@@ -3,7 +3,7 @@
     
         <template v-slot:prepend>
             <v-avatar size="x-large" rounded="lg" :color="color">
-                <v-icon color="white"> fad {{ icon }}</v-icon>
+                <v-icon color="auto"> fad {{ icon }}</v-icon>
             </v-avatar>
         </template>
         <template v-slot:title>

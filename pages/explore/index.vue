@@ -2,10 +2,11 @@
 
 
       <v-bottom-sheet  inset v-if="tab == 1"  elevation="0" v-model="drawerChecker">
-      <v-card  elevation="0" class="rounded-t-xl">
+      <v-card  elevation="0" class="rounded-t-xl ">
         <v-toolbar flat class="border-b rounded-t-xl" color="transparent">
           <v-btn icon @click="drawerChecker = false">
             <v-icon size="25px">fal fa-times</v-icon>
+            
           </v-btn>
           <v-toolbar-title class=" text-right px-3  ">
            <div class="d-flex justify-end align-center">
@@ -14,9 +15,7 @@
               <p class="text-xs mt-n2">فیلتر دوره</p>
             </div>
             <v-avatar color="blue-accent-4" rounded="xl" class="ms-3" >
-              <v-icon size="18px">
-                fa fa-filter
-              </v-icon>
+              <AdjustmentsHorizontalIcon style="height: 21px"/>
             </v-avatar>
            </div>
            </v-toolbar-title>
@@ -81,7 +80,7 @@
  
   
   
-      <v-app-bar  height="100"   elevation="0">
+      <v-app-bar color="auto" height="100"   elevation="0">
       <v-container class="">
       <v-card-text class="" color="" elevation="0">
         <v-locale-provider rtl>
@@ -89,7 +88,9 @@
           class=" custom-label-color  "  :flat="true" variant="solo-filled" 
           label="جستجو بین درس ها" rounded="pill" single-line hide-details>
           <template v-slot:prepend>
-            <v-avatar color="blue-accent-4" rounded="pill" class="text-xs" size="55" icon="fa fa-search"></v-avatar>
+            <v-avatar color="blue-accent-4" rounded="pill" class="text-xs" size="55">
+              <MagnifyingGlassIcon style="height: 21px" />
+            </v-avatar>
           </template>
         </v-text-field>
       </v-locale-provider>
@@ -98,24 +99,35 @@
     </v-app-bar>
    
   
-    <v-app-bar elevation="0" height="60"  >
+    <v-app-bar color="auto" elevation="0" height="60"  >
 
       <v-container>
-        <v-tabs v-model="tab" align-tabs="end"  class=" text-grey ">
+        <v-tabs v-model="tab" align-tabs="end"  class="text-grey2">
           <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
-            @click="drawerChecker = true" size="small" color="black" prepend-icon="fa fa-cog" rounded="pill"> فیلتر</v-btn>
+            @click="drawerChecker = true" size="small" color="nauto "   rounded="pill" icon=""> 
+    
+            <AdjustmentsHorizontalIcon style="height: 21px"/>
+       
+          
+          </v-btn>
           <v-tab height="50" class="mt-auto text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="1" >
-          <div :class="tab == 1 ? 'text-black' : 'text-grey'">
+          <div :class="tab == 1 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex">
+           <span>
             دوره ها
-            <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon>
+           </span>
+
+            <VideoCameraIconSolid v-if="tab == 1"  class="text-blue ps-5 "  style="height: 21px"  />
+            <VideoCameraIcon v-else class="text-grey ps-5 "  style="height: 21px" />
+            <!-- <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon> -->
           </div>
           </v-tab>
           <v-tab height="50" class="mt-auto text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="2" >
             
-          <div :class="tab == 2 ? 'text-black' : 'text-grey'" >
-            اساتید
-            <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon>
-  
+          <div :class="tab == 2 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
+          <span>  بلاگ ها</span>
+        <DocumentTextIconSolid v-if="tab == 2"  class="text-blue ps-5 "  style="height: 21px"  />
+            <DocumentTextIcon v-else class="text-grey ps-5 "  style="height: 21px" />
+            <!-- <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon> -->
           </div>
           </v-tab>
         </v-tabs>
@@ -123,16 +135,16 @@
     </v-app-bar>
   <div>
   
-    <v-container v-if="loading == false" class="pt-10 " >
-      <v-card color="transparent" class="bg-grey-lighten-4 rounded-2xl pa-3 pa-md-5" elevation="0">
+    <v-container v-if="loading == false"  >
+      <v-card  color="grey4" class="inner-shadow-1 rounded-2xl pa-3 pa-md-5" elevation="0">
         <v-window v-model="tab" >
           <v-window-item :value="1">
             <v-row no-gutters >
               <v-col v-for="item in data" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
-                <Course :data="item" :detail="false" color="grey-lighten-4" class="w-100  ma-2 ma-md-5 " />
+                <Course :data="item" :detail="false" color="grey4" class="w-100  ma-2 ma-md-5 " />
               </v-col>
               <v-container>
-              <v-alert v-if="data.length == 0 && loading == false"  color="black" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+              <v-alert v-if="data.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
                 <div class="text-sm  font-weight-black irsa">
                   دوره ای وجود ندارد
                 </div>
@@ -142,7 +154,7 @@
           </v-window-item>
           <v-window-item :value="2">
             <v-container>
-              <v-alert icon="fa fa-info" variant="tonal" type="info" color="black"  class="rtl rounded-lg my-10" border="none">
+              <v-alert icon="fa fa-info" variant="tonal" type="info" color="blue"  class="rtl rounded-lg my-10" border="none">
                 <div class=" text-sm  font-weight-black irsa">
                   این بخش در حال اپدیت است
                 </div>
@@ -167,6 +179,21 @@ import Course from '~/components/shared/Course.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
 
+import {
+  
+ 
+  VideoCameraIcon,
+  DocumentTextIcon,
+  
+  
+
+} from '@heroicons/vue/24/outline'
+
+import DocumentTextIconSolid from '@heroicons/vue/24/solid/DocumentTextIcon'
+import VideoCameraIconSolid from '@heroicons/vue/24/solid/VideoCameraIcon'
+import MagnifyingGlassIcon from '@heroicons/vue/24/solid/MagnifyingGlassIcon'
+import AdjustmentsHorizontalIcon from '@heroicons/vue/24/solid/AdjustmentsHorizontalIcon'
+
 
 export default {
   setup() {
@@ -176,8 +203,15 @@ export default {
   },
   components: {
     Course,
+    DocumentTextIcon,
+    DocumentTextIconSolid,
+    VideoCameraIconSolid,
+    MagnifyingGlassIcon,
+    VideoCameraIcon,
+    AdjustmentsHorizontalIcon,
     FooterComponent,
-    Sidebar
+    Sidebar,
+ 
   },
   data: () => ({
     model: null,

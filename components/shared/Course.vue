@@ -1,13 +1,13 @@
 <template>
   <div>
 
-    <v-card class=" rounded-xl   text-right" :color="color ? color : 'white'" rounded="xl" elevation="0" >
+    <v-card   class=" rounded-xl   text-right" :color="color ? color : 'light'" rounded="xl" elevation="0" >
       <v-card  :ripple="false" class=" pa-0  " color="transparent"  elevation="0" :to="'/course/' + data.id">
 
         <div >
-          <v-img class=" align-end rounded-t-xl rounded-e-xl text-white text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+          <v-img class=" align-end rounded-t-xl rounded-e-xl text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
            <div class="d-flex">
-            <div  :class="color? 'bg-' + color : 'bg-white'"  class="  text-xs   mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
+            <div  :class="color? 'bg-' + color : 'bg-auto '"  class="  text-xs   mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
               
             
               <div v-if="data.price != 0">
@@ -38,9 +38,12 @@
 
         <v-spacer></v-spacer>
         <div class="rtl text-xs font-weight-light  ">
-          <v-icon color="blue" class="px-3 " :size="13">
+         <v-avatar color="auto" class="ml-3 " size="33">
+          <IconClockFilled class="text-blue" size="15" />
+          <!-- <v-icon color="blue"  :size="13">
             fa fa-clock
-          </v-icon>
+          </v-icon> -->
+         </v-avatar>
           {{ data.duration }}
           دقیقه
 
@@ -63,8 +66,10 @@
   </div>
 </template>
 <script>
+import { IconClockFilled } from '@tabler/icons-vue';
 export default {
   props: ["data", "width","detail","color"],
+  components:{IconClockFilled,},
   data: () => ({
     show: false,
   }),

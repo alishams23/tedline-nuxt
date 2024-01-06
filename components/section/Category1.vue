@@ -1,5 +1,5 @@
 <template>
-  <v-card  class="rounded-xl my-15 py-10 text-white  bg-blue-gradient-2" elevation="0">
+  <v-card  class="rounded-xl  my-15 py-10 text-white  bg-blue-gradient-2" elevation="0">
     <v-row class=" flex-row-reverse " align="center">
       <v-col cols="12" lg="3" md="4">
         <v-card-title class="irsa  font-weight-black rtl">
@@ -7,19 +7,14 @@
         </v-card-title>
       </v-col>
       <v-col cols="12" lg="9" md="8">
-      
           <Swiper
-        
-        
             :slides-per-view="'auto'"
             :loop="false"
             :space-between="3"
       class="px-3"
-       
-          
           >
             <SwiperSlide v-for="item in data" :key="item.id + '+category'" >
-              <v-btn :to="'/explore/?category=' + item.id" class="ma-2  text-xs  rtl" elevation="0" rounded="xl"  size="large" min-width="120">
+              <v-btn :to="'/explore/?category=' + item.id" class="ma-2  text-xs inner-shadow-1   rtl" color="auto" elevation="0" rounded="xl"  size="large" min-width="120">
                 <template v-slot:prepend>
                   <v-avatar color="blue" variant="tonal" class="" size="25">
                   <v-icon color="blue"  size="small" >
@@ -44,7 +39,7 @@
           </v-slide-group-item>
         </v-slide-group> -->
         <div class="d-flex justify-center">
-          <v-progress-circular v-if="loading" :size="60" :width="8" class="ma-10" color="white"
+          <v-progress-circular v-if="loading" :size="60" :width="8" class="ma-10" color="auto"
             indeterminate></v-progress-circular>
         </div>
       </v-col>

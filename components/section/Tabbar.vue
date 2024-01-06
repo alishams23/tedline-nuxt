@@ -2,13 +2,13 @@
   <v-snackbar
   v-model="snackbar"
   class="rtl"
-  color="blue-darken-4"
+  color="blue-accent-4"
   elevation="24"
   rounded="lg"
 >
 <template v-slot:actions>
   <v-btn
-    color="white"
+    color="auto"
     variant="text"
     icon="fal fa-times"
     @click="snackbar = false"
@@ -19,21 +19,21 @@
 
  
 </v-snackbar>
-  <v-card elevation="0">
+  <v-card elevation="0" color="transparent">
     <v-tabs
       v-model="tab"
       align-tabs="center"
       elevation="0"
-      selected-class="bg-blue-gradient" 
+   
      slider-color="transparent" 
-     color="blue-darken-2"
+     color="blue-accent-4"
      density="comfortable"
     >
-      <div class=" rounded-pill bg-grey-lighten-5 " >
+      <v-sheet class=" rounded-pill bg-grey5 " >
         <v-tab class="bg-transparent  px-7 px-md-16 rounded-pill "  variant="flat" value="one">دانشجویان</v-tab>
       <v-tab class="bg-transparent px-7 mx-1 px-md-16  rounded-pill "  variant="flat" value="two">مدرسین</v-tab>
       <v-tab class="bg-transparent px-7 px-md-16 rounded-pill "  variant="flat" value="three">سازمان ها</v-tab>
-      </div>
+      </v-sheet>
     </v-tabs>
     <v-card-text>
       <v-window v-model="tab">

@@ -9,7 +9,7 @@
         color="grey-darken-3"
         border-color="blue"
         
-        class="rtl border-opacity-100 my-10 bg-white"
+        class="rtl border-opacity-100 my-10"
         border="start"
       >
     <div class=" text-sm   irsa">

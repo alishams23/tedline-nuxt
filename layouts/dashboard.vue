@@ -9,7 +9,7 @@
       <slot />
    
     </v-main>
-    <v-navigation-drawer temporary location="right" class=" rounded-s-xl border-none  hidden-sm-and-down shadow-2 " elevation="0" v-model="drawerChecker">
+    <v-navigation-drawer temporary color="auto" location="right" class=" rounded-s-xl border-none  hidden-sm-and-down shadow-2 " elevation="0" v-model="drawerChecker">
       <div class="d-flex  flex-column align-center justify-center mt-11">
 
       <v-avatar color="blue-accent-4" variant="tonal" :size="80"  >

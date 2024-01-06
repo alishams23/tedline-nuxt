@@ -1,25 +1,22 @@
 <template>
   <v-locale-provider rtl>
-  <v-card elevation="0" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent" selected-class="bg-blue-gradient" color="blue-accent-4"
+  <v-card elevation="0" color="transparent" class="mt-5 ">
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent"  color="blue-accent-4"
       density="comfortable">
-      <div class=" rounded-pill bg-grey-lighten-4 ">
+      <div class=" rounded-pill bg-grey4 ">
         <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
         <v-tab class="bg-transparent  text-xs  px-md-16 px-10  rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="two">به اتمام
           رسیده</v-tab>
       </div>
     </v-tabs>
-    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="shadow-3  rtl"  elevation="0" 
+    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="  border-b   rtl"  elevation="0" 
       >
-
-        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs no-hover-effect"  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
+        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs no-hover-effect"  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-nauto  ' : 'text-grey2'">
           در حال یادگیری
-
-          <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>
-      
+          <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>  
         </div></v-tab>
         <v-tab color="blue" class="transition-inactive-class rounded-t-lg text-xs no-hover-effect" variant="text" :ripple="false" value="two">
-          <div :class="tab == 'two'?'text-black' : 'text-grey'">
+          <div :class="tab == 'two'?'text-nauto  ' : 'text-grey2'">
             به اتمام
           رسیده
           <v-icon :color="tab == 'two'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'two' ? 'fad' : 'fa'}} fa-check</v-icon>
@@ -34,7 +31,7 @@
           <div class="my-10" v-for="item in data" :key="item.id+'unfinished'">
             <YourCourseComponents :progress="progress"  :data="item" />
           </div>
-          <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class="rtl bg-grey-lighten-5  border-opacity-100  my-10" border="start">
+          <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class=" rounded-lg rtl bg-grey5  border-opacity-100  my-10" border="start">
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
             </div>
@@ -52,7 +49,7 @@
           <div class="my-10" v-for="item in dataFinished" :key="item.id+'unfinished'">
             <YourCourseComponents :progress="progress" :data="item"  />
           </div>
-          <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="bg-grey-lighten-5 rtl border-opacity-100  my-10" border="start">
+          <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="rounded-lg bg-grey5 rtl border-opacity-100  my-10" border="start">
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
             </div>

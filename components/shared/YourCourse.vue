@@ -2,7 +2,7 @@
 <template>
     <v-card
     :to="progress == false && data.registered == false ? `/course/${data.id}`:`/course/learn/${data.id}/${data.session[0].id}`"
-     class=" bg-grey-lighten-4 rounded-xl " elevation="0">
+     class=" bg-grey4 inner-shadow-1 rounded-xl " elevation="0">
             <v-row>
                 <v-col cols="12"  sm="5"  class=" rtl text-black ">
                     <v-card
@@ -22,6 +22,7 @@
                       <v-overlay
                         v-model="overlay"
                         :persistent="true"
+                       
                         contained
                         class="align-center justify-center ma-3 rounded-2lg font-weight-bold"
                       >
@@ -31,7 +32,7 @@
                       :width="15"
                       :model-value="value"
                     
-                      color="white"
+                      color="auto"
                      
                     >
                       {{ value }}

@@ -2,6 +2,7 @@
 @import 'vuetify/styles/main.sass';
 
 
+
 $main-color : rgb(6, 145, 192);
 $main-color-dark : rgb(3, 82, 108);
 
@@ -53,10 +54,19 @@ button {
     direction: rtl;
 }
 
+.inner-shadow-1 {
+    box-shadow:inset rgba(50, 50, 93, 0.05) 0px 50px 100px -20px,inset rgba(var(--v-theme-shadow-inner-dark), 0.1) 0px 30px 60px -30px !important;
+    border-top: solid rgb(var(--v-theme-grey3)) 1px !important;
+}
+
+.inner-shadow-reverse {
+    box-shadow:inset rgba(50, 50, 93, 0.05) 0px 50px 100px -20px,inset rgba(129, 129, 139, 0.1) 0px -30px 60px 0px !important;
+  
+}
 
 
 .shadow-1 {
-    box-shadow: rgba(50, 50, 93, 0.05) 0px 50px 100px -20px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px !important;
+    box-shadow: rgba(50, 50, 93, 0.05) 0px 50px 100px -20px, rgba(var(--v-theme-shadow1), 0.1) 0px 30px 60px -30px !important;
 }
 
 .shadow-2 {
@@ -129,7 +139,7 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 
 .bg-blue-gradient{
     background-color: #004ac1 ;
-    background-image: linear-gradient(315deg, #4eabf7 0%, #0f4efc 74%) !important;
+    background-image: linear-gradient(315deg, rgb(var(--v-theme-primary-lighten-3)) 0%, #0f4efc 74%) !important;
 
 }
 
@@ -140,7 +150,7 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 }
 .bg-blue-gradient-3{
     background-color: #004ac1 ;
-    background-image: linear-gradient(130deg, #7498fa 0%, #0f4efc 74%) !important;
+    background-image: linear-gradient(130deg, rgba(var(--v-theme-primary-lighten-4)) 0%, #0f6afc 74%) !important;
 }
 .bg-green-gradient {
     background-color: rgb(2, 160, 99) !important;

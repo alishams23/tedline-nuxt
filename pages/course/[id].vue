@@ -2,10 +2,10 @@
   <Head>
     <Title v-if="data.title"> دوره ی  {{data.title}}</Title>
  </Head>
-  <Navbar />
-  <v-snackbar v-model="snackbar" class="rtl" color="blue-darken-4" elevation="24" rounded="lg">
+  <Navbar :shadow="true" />
+  <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
-      <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
+      <v-btn color="auto" variant="text" icon="fal fa-times" @click="snackbar = false">
       </v-btn>
     </template>
     کپی شد
@@ -46,10 +46,10 @@
         
         color="blue-accent-4"
         v-if="data.registered == true"
-        class="rtl  bg-grey-lighten-4  border-opacity-100  my-2"
+        class="rtl inner-shadow-1 rounded-lg bg-grey4  border-opacity-100  my-2"
         border="start"
         >
-         <div class="text-black text-body-2 irsa">
+         <div class="text-nauto   text-body-2 irsa">
           شما در این دوره ثبت نام کرده اید
          </div>
         </v-alert>
@@ -98,7 +98,7 @@
         <div class="text-h6 irsa font-weight-black rtl px-5"> جزئیات دوره </div>
       </v-col>
       <v-col cols="12" md="8">
-        <v-card height="100%" color="grey-lighten-4" class="custom-rounded-1 rtl " elevation="0">
+        <v-card height="100%" color="grey4" class="inner-shadow-1 custom-rounded-1 rtl " elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
             <div>
               <v-card-title class="irsa text-sm font-weight-black">
@@ -108,7 +108,7 @@
                 <div class=" pa-4" v-if="data.skill && data.skill.length == 0">
                   مهارتی برای این آموزش ثبت نشده
                 </div>
-                <v-chip v-for="item in data.skill" :key="item.id + '+skill'" variant="flat" color="white"
+                <v-chip v-for="item in data.skill" :key="item.id + '+skill'" variant="flat" color="auto"
                   class="mx-2 my-2 px-8 shadow-2 font-weight-medium ">
                   {{ item.title }}
                 </v-chip>
@@ -121,7 +121,7 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card  class="bg-green-gradient text-white custom-rounded-1 rtl mb-4" elevation="0">
+        <v-card  class="bg-green-gradient text-auto  custom-rounded-1 rtl mb-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="irsa text-sm font-weight-black">
@@ -130,12 +130,12 @@
               <v-card-text v-if="data.price != 0">{{ data.price }} تومان</v-card-text>
               <v-card-text v-else>رایگان</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50" color="white">
+            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50" color="auto">
               <i class="fad fa-money-bill shadow-2"></i>
             </v-avatar>
           </div>
         </v-card>
-        <v-card  class="bg-blue-circle text-white custom-rounded-1 rtl mt-4" elevation="0">
+        <v-card  class="bg-blue-circle text-auto  custom-rounded-1 rtl mt-4" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="text-sm irsa font-weight-black">
@@ -143,7 +143,7 @@
               </v-card-title>
               <v-card-text>{{ data.duration }} دقیقه</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50" color="white">
+            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50" color="auto">
               <i class="fad fa-clock"></i>
             </v-avatar>
           </div>

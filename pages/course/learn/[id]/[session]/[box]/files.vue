@@ -4,7 +4,7 @@
 
       <template v-slot:prepend>
         <v-avatar size="x-large" rounded="lg" color="amber">
-          <v-icon color="white"> fad fa-file</v-icon>
+          <v-icon color="auto"> fad fa-file</v-icon>
         </v-avatar>
       </template>
       <template v-slot:title>

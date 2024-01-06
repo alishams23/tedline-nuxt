@@ -2,12 +2,12 @@
 <template>
   <v-app id="inspire">
     <SideNavigation class="shadow-3" @updateData="updatePageDrawerChecker" />
-    <v-navigation-drawer temporary location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0"
+    <v-navigation-drawer temporary color="auto" location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0"
       v-model="drawerChecker">
       <Notification />
 
     </v-navigation-drawer>
-    <v-app-bar color="" scroll-threshold="70" elevation="0" icon="" class="rtl  ">
+    <v-app-bar color="transparent" scroll-threshold="70" elevation="0" icon="" class="rtl  ">
 
       <v-app-bar-nav-icon class="" @click.stop="drawerCheckerSide = !drawerCheckerSide">
         <i class="fa fa-bars"></i>
@@ -18,7 +18,7 @@
     </v-app-bar>
     <v-main>
 
-      <v-navigation-drawer location="right" class="shadow-3   border-none" elevation="0" v-model="drawerCheckerSide">
+      <v-navigation-drawer location="right" color="auto" class="shadow-3   border-none" elevation="0" v-model="drawerCheckerSide">
 
         <div class="d-flex justify-center mx-10">
           <v-progress-linear
@@ -36,7 +36,7 @@
           
           color="blue-grey-darken-4"
           v-if="data.registered == false"
-          class="rtl mx-3 bg-grey-lighten-4  border-opacity-100  my-2"
+          class="rtl mx-3 bg-grey4  border-opacity-100  my-2"
           border="start"
           >
            <div class="text-black text-body-2 irsa">
@@ -48,7 +48,7 @@
            </v-btn>
         
           </v-alert>
-          <v-list active-class="bg-blue-accent-4 text-white" variant="flat" class="ms-3">
+          <v-list active-class="bg-blue-accent-4 text-auto " variant="flat" class="ms-3">
             <div class="rtl text-right px-3 text-body-1 irsa font-weight-black  mt-3">
                       {{ data.title }}
                   </div>
