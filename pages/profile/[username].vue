@@ -5,7 +5,7 @@
 
   <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
-      <v-btn color="auto" variant="text" icon="fal fa-times" @click="snackbar = false">
+      <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
       </v-btn>
     </template>
     کپی شد
@@ -62,10 +62,10 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-sheet height="40" color="auto" elevation="0"  class=" hidden-md-and-up rounded-t-xl  w-100 " style="border:1px solid  light">
+  <v-sheet height="40" color="auto" elevation="0"  class=" hidden-md-and-up rounded-t-lg  w-100 " style="border:1px solid  light">
 
     <div class="d-flex justify-center">
-      <v-sheet width="100" height="6" rounded="pill" class="mt-3" color="grey3"></v-sheet>
+      <v-sheet width="60" height="5" rounded="pill" class="mt-3" color="grey3"></v-sheet>
     </div>
   </v-sheet>
 
@@ -85,8 +85,8 @@
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs">دوره تمام نشده </p>
-              <p class="text-xs irsa ">{{data.unfinished_course}} دوره</p>
+              <p class=" font-weight-bold text-xs-1">دوره تمام نشده </p>
+              <p class="text-xs-1 irsa ">{{data.unfinished_course}} دوره</p>
              </div>
           </v-sheet>
         </v-col>
@@ -98,20 +98,20 @@
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs">دوره  تمام شده </p>
-              <p class="text-xs irsa ">{{data.finished_course}} دوره</p>
+              <p class=" font-weight-bold text-xs-1">دوره  تمام شده </p>
+              <p class="text-xs-1 irsa ">{{data.finished_course}} دوره</p>
              </div>
           </v-sheet>
         </v-col>
         <v-col cols="6" md="2" class="pa-1" v-if="data.status == 't'" >
           <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between  pa-2 pe-3">
-            <v-avatar variant="tonal"  class=" " color="auto" size="38">
+            <v-avatar variant="tonal"  class=" " color="white" size="38">
              <v-icon size="15">
               fad fa-chalkboard-teacher
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-sm font-weight-black">مدرس </p>
+              <p class=" font-weight-bold text-xs font-weight-black">مدرس </p>
           
              </div>
           </v-sheet>
@@ -201,7 +201,7 @@ export default {
   .curved {
     background-color: #060f21;
 
-    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, #0b1630 89.9%, #ffffff00 90%),radial-gradient(ellipse 100% 60% at 30% 100%, #15233f 89.9%, #00000000 90%);
+    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, rgb(var(--v-theme-primary-darken-1)) 89.9%, #00000000 90%),radial-gradient(ellipse 100% 60% at 30% 100%, rgb(var(--v-theme-primary-darken-2)) 89.9%, rgb(var(--v-theme-primary-darken-2)) 90%);
     
   }
 }

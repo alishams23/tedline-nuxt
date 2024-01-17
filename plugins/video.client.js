@@ -1,9 +1,8 @@
-import Vue3VideoPlayer from '@cloudgeek/vue3-video-player'
+import VueVideoPlayer from '@videojs-player/vue'
+import 'video.js/dist/video-js.css'
 
 export default defineNuxtPlugin((nuxtApp) => {
     
-    nuxtApp.vueApp.use(Vue3VideoPlayer,{
-        lang: 'en'
-      })
+    nuxtApp.vueApp.use(VueVideoPlayer,)
 
 })

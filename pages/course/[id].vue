@@ -5,7 +5,7 @@
   <Navbar :shadow="true" />
   <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
-      <v-btn color="auto" variant="text" icon="fal fa-times" @click="snackbar = false">
+      <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
       </v-btn>
     </template>
     کپی شد
@@ -15,21 +15,39 @@
   </div>
   <v-container v-if="loading == false">
     <v-row>
-      <v-col cols="12" md="7" class="">
-
-        <v-img class="rounded-xl mt-12" :aspect-ratio="16 / 9" cover :src="data.image"></v-img>
-       <div v-if="data.teacher" class="d-flex">
-        <v-list-item class="rounded-xl mb-lg-12 mt-2 py-2" :to="'/profile/' + data.teacher.username " >
-          <template v-slot:prepend>
-            <v-avatar size="x-large" class="bg-blue-gradient-2 text-white" :image="data.teacher.image">
-              <v-icon size="small" icon="fad fa-users"></v-icon>
-            </v-avatar>
-          </template>
-          <v-list-item-title class=" font-weight-bold">{{ data.teacher.username }}</v-list-item-title>
-          <v-list-item-subtitle class="text-xs">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
-        </v-list-item>
-
-       </div>
+      <v-col cols="12" md="7" class=""
+      >
+      
+      
+        <v-img class="rounded-xl mt-12 shadow-1" :aspect-ratio="16 / 9" cover :src="data.image">
+         
+          <div v-if="data.teacher" class="d-flex mt-auto">
+       
+            <v-card
+            v-if="data.teacher"
+          
+            class=" rounded-2xl  ma-4 bg-glass inner-shadow-1   "
+            elevation="0"
+            
+            :to="'/profile/' + data.teacher.username "
+          >
+          <v-list-item class="  pa-2 pe-4"  >
+            <template v-slot:prepend>
+              <v-avatar size="43" class="bg-blue-gradient text-white" :image="data.teacher.image">
+                <v-icon size="15" icon="fad fa-users"></v-icon>
+              </v-avatar>
+            </template>
+            <v-list-item-title class=" font-weight-bold text-xs text-nauto">{{ data.teacher.username }}</v-list-item-title>
+            <v-list-item-subtitle class="text-xs-2 text-nauto">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
+          </v-list-item>
+         
+          </v-card>
+           </div>
+        </v-img>
+       
+       
+      
+    
       </v-col>
       <v-col cols="12" md="5" class="pt-lg-10 pt-sm-1 px-lg-12">
         <h1 class=' text-h6 font-weight-black irsa rtl py-5'>
@@ -46,7 +64,7 @@
         
         color="blue-accent-4"
         v-if="data.registered == true"
-        class="rtl inner-shadow-1 rounded-lg bg-grey4  border-opacity-100  my-2"
+        class="rtl inner-shadow-1 rounded-lg bg-grey4 mx-5  border-opacity-100  my-2"
         border="start"
         >
          <div class="text-nauto   text-body-2 irsa">
@@ -63,11 +81,11 @@
           </v-col>
           <v-col class="d-flex justify-center">
             <v-btn variant="flat"  size="large" :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue-accent-4"
-            rounded="xl" elevation="0" class=" w-75 text-body-2 rounded-s-xl rounded-e-0" >
+            rounded="xl" elevation="0" class=" w-75 text-body-2  rounded-s-xl rounded-e-0" >
             مشاهده ی دوره
           </v-btn>
            
-            <v-menu elevation="0" >
+            <v-menu elevation="0"  >
               <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" variant="flat" size="small"   color="blue-accent-3" 
                 elevation="0" height="44"  class=" rounded-e-xl  rounded-s-0">
@@ -76,7 +94,7 @@
                </v-icon>
               </v-btn>
               </template>
-              <v-list elevation="0" class="shadow-2" rounded="lg">
+              <v-list  elevation="0" class="shadow-2 inner-shadow-1" rounded="lg">
                 <v-list-item @click="shareLink">
                   <v-list-item-title class=" font-weight-bold px-5 text-body-2 irsa" >به اشتراک گذاری</v-list-item-title>
                   <template v-slot:prepend>
@@ -93,6 +111,9 @@
         </v-row>
       </v-col>
     </v-row>
+ 
+    
+
     <v-row justify="end" align="stretch" class="mb-12">
       <v-col cols="12">
         <div class="text-h6 irsa font-weight-black rtl px-5"> جزئیات دوره </div>
@@ -121,7 +142,7 @@
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
-        <v-card  class="bg-green-gradient text-auto  custom-rounded-1 rtl mb-4" elevation="0">
+        <v-card  class="bg-green-gradient text-auto   custom-rounded-1 rtl mb-4 " elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="irsa text-sm font-weight-black">
@@ -130,12 +151,12 @@
               <v-card-text v-if="data.price != 0">{{ data.price }} تومان</v-card-text>
               <v-card-text v-else>رایگان</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill " size="50" color="auto">
+            <v-avatar class="ma-3 text-h6 text-teal-darken-2 rounded-pill inner-shadow-1" size="50" color="auto">
               <i class="fad fa-money-bill shadow-2"></i>
             </v-avatar>
           </div>
         </v-card>
-        <v-card  class="bg-blue-circle text-auto  custom-rounded-1 rtl mt-4" elevation="0">
+        <v-card  class="bg-blue-circle text-auto   custom-rounded-1 rtl mt-4 inner-shadow-2" elevation="0">
           <div class="d-flex flex-no-wrap justify-space-between align-center">
             <div>
               <v-card-title class="text-sm irsa font-weight-black">
@@ -143,13 +164,40 @@
               </v-card-title>
               <v-card-text>{{ data.duration }} دقیقه</v-card-text>
             </div>
-            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill " size="50" color="auto">
+            <v-avatar class="ma-3 text-h6 text-blue-accent-4 rounded-pill inner-shadow-1" size="50" color="auto">
               <i class="fad fa-clock"></i>
             </v-avatar>
           </div>
         </v-card>
       </v-col>
     </v-row>
+    <div class="py-8 mt-16 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"  v-if="data.teacher && data.teacher.bio">
+      <div class="text-h6 irsa font-weight-black rtl px-5 mb-10"> مدرس </div>
+      <v-card
+           
+          
+            class=" rounded-xl  ma-4 bg-auto inner-shadow-1   "
+            elevation="0"
+            
+            :to="'/profile/' + data.teacher.username "
+          >
+          <v-list-item class="  pa-4 pe-4"  >
+            <template v-slot:prepend>
+              <v-avatar size="43" class="bg-blue-gradient text-white" :image="data.teacher.image">
+                <v-icon size="15" icon="fad fa-users"></v-icon>
+              </v-avatar>
+            </template>
+            <v-list-item-title class=" font-weight-bold text-xs text-nauto">{{ data.teacher.username }}</v-list-item-title>
+            <v-list-item-subtitle class="text-xs-2 text-nauto">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
+          </v-list-item>
+         
+            <v-card-text  class="rtl text-nauto" v-if="data.teacher.bio">{{data.teacher.bio}}</v-card-text>
+          </v-card>
+    </div>
+    <div class="py-8 mt-16 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl">
+      <div class="text-h6 irsa font-weight-black rtl px-5 mb-10">دوره های پیشنیاز</div>
+      <YourCourseComponents class="bg-auto" v-for="item in [data]" :progress="false" :data="item"  />
+    </div>
     <div class="py-12 mt-12">
       <div class="text-h6 irsa font-weight-black rtl px-5 mb-10">سر فصل های دوره </div>
       <v-timeline side="end">
@@ -178,6 +226,7 @@
 import Course from '~/components/shared/Course.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
+import YourCourseComponents from "~/components/shared/YourCourse.vue";
 
 
 export default {
@@ -193,12 +242,14 @@ export default {
   },
   components: {
     Course,
-    FooterComponent
+    FooterComponent,
+    YourCourseComponents
 
   },
   data: () => ({
     model: null,
     data: {},
+    overlay:true,
     loading: true,
     snackbar: false,
     loadingRegister: false,

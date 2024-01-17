@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   
   ssr:true,
+  devServer:{
+    host: '0',
+  },
   devtools: { enabled: true },
   css: ['~/assets/WebFonts/css/fontiran.css','~/assets/styles/main.scss', '~/assets/WebFonts/css/all.min.css',],
   build: {

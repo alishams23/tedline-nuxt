@@ -4,8 +4,8 @@
       <h3 class=" text-h5 text-md-h3 font-weight-bold irsa text-right text-md-center line-height-sm">
         <span class=" text-blue">بهترین</span> دوره ها
       </h3>
-      <p class="mt-md-6 pt-4 text-muted text-right text-md-center">
-        دوره هایی آموزشی که تدلاین به شما توصیه میکند
+      <p class="mt-md-6 rtl pt-4 text-muted text-right text-md-center">
+        دوره‌های آموزشی که تدلاین به شما توصیه می‌کند.
       </p>
     </v-col>
     <v-col cols="12" lg="9" class="">
@@ -28,7 +28,7 @@
 
 
       <div class="d-flex justify-center">
-        <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+        <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
           indeterminate></v-progress-circular>
       </div>
     </v-col>

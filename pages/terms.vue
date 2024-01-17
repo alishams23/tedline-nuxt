@@ -6,11 +6,10 @@
        
         <Navbar />
         <v-container class="container rtl pt-10 mt-10 pt-5">
-           
+  
             <div v-if="loading == false">
                 <h1 class="irsa fs-1 text-blue">قوانین</h1>
                 <br />
-
                 <div v-for="result in data" :key="result.id" class="border-bottom py-5">
                     <div class="d-flex">
                         <p class=" font-weight-black pa-3 fs-3  ">{{ result.title }}</p>
@@ -19,7 +18,7 @@
                 </div>
             </div>
             <div class="d-flex justify-center">
-                <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+                <v-progress-circular v-if="loading" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
                   indeterminate></v-progress-circular>
               </div>
 

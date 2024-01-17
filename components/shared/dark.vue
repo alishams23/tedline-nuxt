@@ -1,35 +1,73 @@
 <template>
-  <v-btn
-  @click="toggleTheme"
-  class="bg-blue text-dark"
- 
-  size="small"
-  icon=""
+  <v-btn @click="toggleTheme" class="bg-blue text-dark" size="small" icon="">
 
->
-
-<MoonIcon style="height: 20px;" v-if="night == 'light'" />
-<SunIcon style="height: 20px;" v-if="night == 'dark'" />
-</v-btn>
-  </template>
-  
-  <script setup>
-  import { useTheme } from 'vuetify'
-  import {
+    <MoonIcon style="height: 20px;" v-if="night == 'light'" />
+    <SunIcon style="height: 20px;" v-if="night == 'dark'" />
+  </v-btn>
+</template>
+<script>
+import { onBeforeMount, ref, watch } from 'vue';
+import {
   MoonIcon,
   SunIcon
+} from '@heroicons/vue/24/solid';
 
+// Import useTheme from Vuetify
+import { useTheme } from 'vuetify/lib/framework';
 
-} from '@heroicons/vue/24/solid'
-  const theme = useTheme()
-  let night = theme.global.name.value
-  function toggleTheme () {
-    theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
-    night = theme.global.name.value
-  }
+export default {
+  data() {
+    return {
+      night: '',
+    };
+  },
+  components: { MoonIcon, SunIcon },
+  methods: {
+    getLocalStorage(name) {
+      return localStorage.getItem(name);
+    },
+    setLocalStorage(name, value) {
+      localStorage.setItem(name, value);
+    },
+    handledarkmode() {
+      if (this.$isServer) return;
 
-  watch(() => theme.global.name.value, (newValue, oldValue) => {
-  // Do something when theme.global.name.value changes
-  night = theme.global.name.value
-})
-  </script>
+      if (this.theme.global.current.value.dark) {
+        this.setLocalStorage('DarkMode', 'true');
+      } else {
+        this.setLocalStorage('DarkMode', 'false');
+      }
+    },
+    toggleTheme() {
+      this.theme.global.name.value = this.theme.global.current.value.dark ? 'light' : 'dark';
+      this.night = this.theme.global.name.value;
+      this.handledarkmode();
+    },
+  },
+  mounted() {
+    const darkModeLocalStorage = this.getLocalStorage('DarkMode');
+   
+    if (darkModeLocalStorage !== null) {
+      if (darkModeLocalStorage == 'true') {
+        if (this.theme.global.current.value.dark == false) this.toggleTheme();
+      } else {
+        if (this.theme.global.current.value.dark != false) this.toggleTheme();
+      }
+    } else {
+      this.handledarkmode();
+    }
+
+    this.night = this.theme.global.name.value;
+  },
+  watch: {
+    night(newValue, oldValue) {
+      // Do something when night changes
+    },
+  },
+  computed: {
+    theme() {
+      return useTheme();
+    },
+  },
+};
+</script>

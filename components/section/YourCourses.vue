@@ -1,25 +1,25 @@
 <template>
   <v-locale-provider rtl>
   <v-card elevation="0" color="transparent" class="mt-5 ">
-    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent"  color="blue-accent-4"
+    <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent"  color="blue-accent-3"
       density="comfortable">
       <div class=" rounded-pill bg-grey4 ">
-        <v-tab class="bg-transparent text-xs px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
-        <v-tab class="bg-transparent  text-xs  px-md-16 px-10  rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="two">به اتمام
+        <v-tab class="bg-transparent text-xs-1 px-md-16 px-10 rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="one">در حال یادگیری</v-tab>
+        <v-tab class="bg-transparent  text-xs-1  px-md-16 px-10  rounded-pill " variant="flat" v-ripple="{ class: `text-blue` }" value="two">به اتمام
           رسیده</v-tab>
       </div>
     </v-tabs>
-    <v-tabs :hide-slider="true" selected-class="active-tab-class"   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="  border-b   rtl"  elevation="0" 
+    <v-tabs   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="  border-b   rtl"  elevation="0" 
       >
-        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs no-hover-effect"  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-nauto  ' : 'text-grey2'">
+        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs-1 "  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-nauto  ' : 'text-grey1'">
           در حال یادگیری
-          <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>  
+          <v-icon  :color="tab == 'one'?'blue' : 'grey1'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>  
         </div></v-tab>
-        <v-tab color="blue" class="transition-inactive-class rounded-t-lg text-xs no-hover-effect" variant="text" :ripple="false" value="two">
-          <div :class="tab == 'two'?'text-nauto  ' : 'text-grey2'">
+        <v-tab color="blue" class="transition-inactive-class rounded-t-lg text-xs-1 " variant="text" :ripple="false" value="two">
+          <div :class="tab == 'two'?'text-nauto  ' : 'text-grey1'">
             به اتمام
           رسیده
-          <v-icon :color="tab == 'two'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'two' ? 'fad' : 'fa'}} fa-check</v-icon>
+          <v-icon :color="tab == 'two'?'blue' : 'grey1'" size="15" class="ps-5">{{tab == 'two' ? 'fad' : 'fa'}} fa-check</v-icon>
 
           </div>
         </v-tab>
@@ -40,7 +40,7 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+            <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
               indeterminate></v-progress-circular>
               
           </div>
@@ -58,7 +58,7 @@
             </div>
           </v-alert>
           <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+            <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
               indeterminate></v-progress-circular>
           </div>
         </v-window-item>
@@ -126,28 +126,4 @@ props:['username','progress','variant'],
 <style>
 
 
-.active-tab-class::after{
- 
-
-  bottom: -5px; 
-
-
-  opacity: 100% !important;
-  width: 80%;
-  left: 10%;
-  height: 6px ;
-  top:93%;
-  border: 10px solid rgb(0, 153, 255);
-  
-  
-  border-radius: 3px 3px 0px 0px;
-}
-
-.transition-inactive-class::after{
-  transition:  opacity 0s ease-in-out;
-}
-.no-hover-effect:hover {
-  background-color: inherit !important; /* Use !important to override Vuetify styles */
-  color: transparent !important;
-}
 </style>

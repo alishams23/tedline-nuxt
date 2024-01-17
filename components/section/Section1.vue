@@ -15,7 +15,7 @@
               >
               </v-img>
             
-              <v-sheet height="500" class=" hidden-md-and-up">
+              <v-sheet height="500" class="bg-auto hidden-md-and-up">
 
               </v-sheet>
             </v-col>

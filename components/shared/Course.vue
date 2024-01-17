@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <v-card   class=" rounded-xl   text-right" :color="color ? color : 'light'" rounded="xl" elevation="0" >
+    <v-card   class=" rounded-xl   text-right" :color="color ? color : 'auto'" rounded="xl" elevation="0" >
       <v-card  :ripple="false" class=" pa-0  " color="transparent"  elevation="0" :to="'/course/' + data.id">
 
         <div >
@@ -23,7 +23,7 @@
           </v-img>
         </div>
 
-        <v-responsive height="60">
+        <v-responsive height="55">
           <div class=" test-right text-xs   rtl irsa px-3 pt-2  line-height-sm  font-weight-medium font-weight-black-lg">{{
             data.title }}
           </div>

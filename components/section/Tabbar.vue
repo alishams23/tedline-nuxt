@@ -8,7 +8,7 @@
 >
 <template v-slot:actions>
   <v-btn
-    color="auto"
+    color="white"
     variant="text"
     icon="fal fa-times"
     @click="snackbar = false"

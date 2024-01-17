@@ -55,9 +55,21 @@ button {
 }
 
 .inner-shadow-1 {
-    box-shadow:inset rgba(50, 50, 93, 0.05) 0px 50px 100px -20px,inset rgba(var(--v-theme-shadow-inner-dark), 0.1) 0px 30px 60px -30px !important;
-    border-top: solid rgb(var(--v-theme-grey3)) 1px !important;
+    border-top: solid rgba(var(--v-theme-shadow-inner-dark),0.2) 1px !important;
+    box-shadow:inset rgba(50, 50, 93, 0) 0px 50px 100px -20px,inset rgba(var(--v-theme-shadow-inner-dark), 0.15) 0px 30px 60px -30px !important;
+
+   
 }
+
+.inner-shadow-md {
+    border-top: solid rgba(var(--v-theme-shadow-inner-dark),0.3) 1px !important;
+
+    @media (min-width: 960px) {
+        box-shadow:inset rgba(50, 50, 93, 0) 0px 50px 100px -20px,inset rgba(var(--v-theme-shadow-inner-dark), 0.15) 0px 30px 60px -30px !important;
+
+      }
+}
+
 
 .inner-shadow-reverse {
     box-shadow:inset rgba(50, 50, 93, 0.05) 0px 50px 100px -20px,inset rgba(129, 129, 139, 0.1) 0px -30px 60px 0px !important;
@@ -66,17 +78,17 @@ button {
 
 
 .shadow-1 {
-    box-shadow: rgba(50, 50, 93, 0.05) 0px 50px 100px -20px, rgba(var(--v-theme-shadow1), 0.1) 0px 30px 60px -30px !important;
+    box-shadow: rgba(var(--v-theme-shadow1), 0.05) 0px 30px 30px -30px !important;
 }
 
 .shadow-2 {
     box-shadow: rgba(50, 50, 93, 0.05) 0px 25px 40px -20px, rgba(0, 0, 0, 0.17) 0px 15px 30px -10px !important;
 }
 .shadow-3 {
-    box-shadow: rgba(50, 50, 93, 0.05) 0px 25px 40px -20px, rgba(0, 0, 0, 0.05) 0px 15px 30px -10px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 25px 40px -10px !important;
 }
 .shadow-t {
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 40px -20px, rgba(0, 0, 0, 0.059) 0px 15px 30px 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 25px 40px -20px, rgba(0, 0, 0, 0.059) 0px 15px 30px 10px !important;
 }
 
 
@@ -87,12 +99,18 @@ button {
 .text-md{
     font-size: 18px !important;
 }
+.text-md-1{
+    font-size: 14px !important;
+}
 
 .text-xs{
     font-size: 13px !important;
 }
+.text-xs-1{
+    font-size: 11px !important;
+}
 .text-xs-2{
-    font-size: 12px !important;
+    font-size: 10px !important;
 }
 .text-xxs{
     font-size: 8px !important;
@@ -109,27 +127,19 @@ button {
 .rounded-tr-xl{
     border-radius: 0px 20px 0px 0px !important;
 }
+
+
+
+
 .bg-glass{
     /* From https://css.glass */
-background: #ffffff !important;
-
-// backdrop-filter: blur(1px);
-
-border-top: 0.8px solid rgba(218, 218, 218, 0.447) !important;
-}
-
-
-.bg-glass-white{
-    /* From https://css.glass */
-background: rgba(255, 255, 255, 0.771) !important;
+background: rgba(var(--v-theme-auto), 0.771) !important;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3px);
-border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
+backdrop-filter: blur(2px);
+
 
 
 }
-
-
 .bg-blue-circle{
     background-color: #004ac1 !important;
     // background-image: linear-gradient(315deg, #0382f1 0%, #004ac1 74%) !important;
@@ -146,6 +156,11 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 .bg-blue-gradient-2{
     background-color: #1b2845 ;
     background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%) !important;
+    
+}
+.bg-yellow-gradient{
+    background-color: #ffa200 ;
+    background-image: linear-gradient(315deg, rgba(var(--v-theme-secondary1)) 0%, rgba(var(--v-theme-secondary2)) 74%) !important;
     
 }
 .bg-blue-gradient-3{
@@ -175,7 +190,7 @@ border-top: 0.8px solid rgba(218, 218, 218, 0.848) !important;
 
 
 .responsive-card {
-    width: 210px; /* Default width for all screen sizes */
+    width: 200px; /* Default width for all screen sizes */
    /* Extra large screen (xl) and above */
   
     /* Medium screen (md) and above */

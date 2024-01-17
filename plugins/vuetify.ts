@@ -1,11 +1,14 @@
 import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { IconSquareRounded , IconSquareRoundedFilled } from '@tabler/icons-vue';
 
 const dark: ThemeDefinition =  {
   dark: true,
   colors: {
     background:'#181818',
+    secondary1:'#023b96',
+    secondary2:'#023b96',
     'primary-lighten-5':'#022d5c',
     'primary-lighten-4':'#004ac1',
     'primary-lighten-3':'#004ac1',
@@ -18,7 +21,8 @@ const dark: ThemeDefinition =  {
     grey5:'#212121',
     auto:'#181818',
     nauto:'#FFFFFF',
-    shadow1 :'#4E74FF ',
+    'white-in-light':'#00FFFFFF',
+    shadow1 :'#cacaca ',
     'shadow-inner-dark' :'#9898A4',
     
   },
@@ -30,7 +34,8 @@ const light: ThemeDefinition =  {
     'primary-lighten-5':'#d5eef9',
     'primary-lighten-4':'#7498fa',
     'primary-lighten-3':'#4eabf7',
-
+    secondary1:'#d2942a',
+    secondary2:'#ce6b2a',
     grey1:'#BDBDBD',
     grey2:'#E0E0E0',
     grey3:'#EEEEEE',
@@ -41,6 +46,9 @@ const light: ThemeDefinition =  {
     shadow1 :'#000000',
     'primary-darken-1': '#15233f',
     'primary-darken-2': '#0f1931',
+    'white-in-light':'#FFFFFF',
+    'shadow-inner-dark' :'FFFFFF',
+
   },
 }
 export default defineNuxtPlugin(nuxtApp => {
@@ -48,9 +56,16 @@ export default defineNuxtPlugin(nuxtApp => {
     ssr: true,
     components,
     directives,
-    
+    icons: {
+      aliases: {
+      checkboxOff: IconSquareRounded,
+      checkboxOn:IconSquareRoundedFilled
+      }
+
+    },
     theme: {
-      defaultTheme: 'dark',
+      
+  
     
       themes: {
         dark,

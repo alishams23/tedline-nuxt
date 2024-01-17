@@ -80,7 +80,7 @@
  
   
   
-      <v-app-bar color="auto" height="100"   elevation="0">
+      <v-app-bar color="auto" height="80"   elevation="0">
       <v-container class="">
       <v-card-text class="" color="" elevation="0">
         <v-locale-provider rtl>
@@ -99,18 +99,20 @@
     </v-app-bar>
    
   
-    <v-app-bar color="auto" elevation="0" height="60"  >
-
+  
+  <div>
+  
+    <v-container v-if="loading == false"  >
       <v-container>
-        <v-tabs v-model="tab" align-tabs="end"  class="text-grey2">
-          <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="mr-auto mt-auto mb-2"
+        <v-tabs v-model="tab" align-tabs="end" color="transparent" class="text-grey2">
+          <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="me-auto mt-auto "
             @click="drawerChecker = true" size="small" color="nauto "   rounded="pill" icon=""> 
     
-            <AdjustmentsHorizontalIcon style="height: 21px"/>
+            <AdjustmentsHorizontalIcon style="height: 19px"/>
        
           
           </v-btn>
-          <v-tab height="50" class="mt-auto text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="1" >
+          <v-tab  :hide-slider="true" height="50"   class="mt-auto text-xs rounded-2lg px-6 text-auto px-md-16 " variant="tonal" color="blue" :value="1" >
           <div :class="tab == 1 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex">
            <span>
             دوره ها
@@ -121,22 +123,18 @@
             <!-- <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon> -->
           </div>
           </v-tab>
-          <v-tab height="50" class="mt-auto text-xs rounded-0 px-8 px-md-16 rounded-t-lg" variant="text" color="blue" :value="2" >
+          <v-tab :hide-slider="true" height="50"  class="mt-auto  text-xs  text-auto rounded-2lg px-6 px-md-16 " variant="tonal" color="blue" :value="2" >
             
           <div :class="tab == 2 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
           <span>  بلاگ ها</span>
         <DocumentTextIconSolid v-if="tab == 2"  class="text-blue ps-5 "  style="height: 21px"  />
-            <DocumentTextIcon v-else class="text-grey ps-5 "  style="height: 21px" />
+            <DocumentTextIcon v-else class="text-grey1 ps-5 "  style="height: 21px" />
             <!-- <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon> -->
           </div>
           </v-tab>
         </v-tabs>
       </v-container>
-    </v-app-bar>
-  <div>
-  
-    <v-container v-if="loading == false"  >
-      <v-card  color="grey4" class="inner-shadow-1 rounded-2xl pa-3 pa-md-5" elevation="0">
+      <v-card  color="grey4" class="inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">
         <v-window v-model="tab" >
           <v-window-item :value="1">
             <v-row no-gutters >

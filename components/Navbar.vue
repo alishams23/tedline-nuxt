@@ -4,7 +4,7 @@
       <Sidebar />
     </v-navigation-drawer>
     <v-app-bar :class="transparent == true ? 'custom-bg-blue text-auto  ' : shadow == true ? 'shadow-1 bg-auto ' : ''"
-      :scroll-behavior="transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
+      :scroll-behavior=" transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
       class="py-2" app elevation="0">
       <v-app-bar-nav-icon @click.stop="drawerChecker = !drawerChecker">
         <i class="fa fa-bars"></i>
@@ -18,7 +18,7 @@
 
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <div class="me-2" v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
+      <div class="me-2 " :class="transparent == true ? 'text-white' : ''" v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
         <v-list-item  class=" hidden-md-and-down  text-center text-body-2 font-weight-bold" width="120px"
           :color="transparent == true ? 'light': 'blue' " rounded="pill" :key="item.title" :to="item.path">
           {{ item.title }}
@@ -27,7 +27,7 @@
      
 
       <v-btn v-if="isAuthenticated != true" to="/auth/signIn/" width="120px" class="ma-3 font-weight-bold" height="40"
-        variant="flat" :color="transparent == true ? 'indigo-darken-4': 'blue-darken-1'" rounded="pill">
+        variant="flat" :color="transparent == true ? 'blue': 'blue-darken-1'" rounded="pill">
         ورود
       </v-btn>
       <v-btn v-if="isAuthenticated != true" to="/auth/signUp/" width="120px"

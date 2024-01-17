@@ -5,7 +5,7 @@
         دوره های <span class=" text-blue">پیشنهادی</span>
       </h3>
       <p class="mt-md-6 pt-4 text-muted text-right text-md-center">
-        دوره هایی آموزشی که تدلاین به شما توصیه میکند
+        دوره‌های آموزشی که تدلاین به شما توصیه می‌کند.
       </p>
     </v-col>
     <v-col cols="12" lg="9" class="">
@@ -20,12 +20,12 @@
     
     >
       <SwiperSlide v-for="item in data"  :key="item">
-        <Course :data="item" color="grey4" class="my-16 responsive-card mx-1 mx-md-2 inner-shadow-reverse  rounded-2xl" />
+        <Course :data="item" color="grey5" class="my-16 responsive-card mx-1 mx-md-2  shadow-3 rounded-2xl" />
       </SwiperSlide>
     </Swiper>
 
       <div class="d-flex justify-center">
-        <v-progress-circular class="ma-10" v-if="loading" bg-color="transparent" :size="55"  :width="7" color="blue" indeterminate></v-progress-circular>
+        <v-progress-circular class="ma-10" v-if="loading" bg-color="transparent" :size="55"  :width="6" color="blue" indeterminate></v-progress-circular>
       </div>
     </v-col>
   </v-row>

@@ -1,19 +1,19 @@
 <template>
   <v-locale-provider rtl>
-    <v-card elevation="0" class="mt-5 ">
+    <v-card elevation="0" color="transparent" class="mt-5 ">
       
       <v-tabs fixed-tabs  v-model="tab"  class="border-b "  elevation="0" 
         >
   
-          <v-tab color="blue" class=""  variant="text" value="one"><div :class="tab == 'one'?'text-black' : 'text-grey'">
+          <v-tab color="blue" class=""  variant="text" value="one"><div :class="tab == 'one'?'text-nauto' : 'text-grey1'">
             به اتمام رسیده
-            <v-icon  :color="tab == 'one'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-check</v-icon>
+            <v-icon  :color="tab == 'one'?'blue' : 'grey1'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-check</v-icon>
         
           </div></v-tab>
           <v-tab color="blue" class="" variant="text" value="two">
-            <div :class="tab == 'two'?'text-black' : 'text-grey'">
+            <div :class="tab == 'two'?'text-nauto' : 'text-grey1'">
                 در حال برگزاری
-            <v-icon :color="tab == 'two'?'blue' : 'grey'" size="15" class="ps-5">{{tab == 'two' ? 'fad' : 'fa'}} fa-list</v-icon>
+            <v-icon :color="tab == 'two'?'blue' : 'grey1'" size="15" class="ps-5">{{tab == 'two' ? 'fad' : 'fa'}} fa-list</v-icon>
   
             </div>
           </v-tab>
@@ -34,7 +34,7 @@
                   </div>
                 </v-alert>
                 <div class="d-flex justify-center">
-                  <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+                  <v-progress-circular v-if="loadingFinished" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
                     indeterminate></v-progress-circular>
                 </div>
               </v-window-item>
@@ -51,7 +51,7 @@
               </div>
             </v-alert>
             <div class="d-flex justify-center">
-              <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="7" color="blue"
+              <v-progress-circular v-if="loadingUnfinished" bg-color="transparent" :size="55" class="ma-10" :width="6" color="blue"
                 indeterminate></v-progress-circular>
                 
             </div>

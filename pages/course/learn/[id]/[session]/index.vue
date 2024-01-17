@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container >
         <div class="d-flex justify-center mx-10">
             <v-progress-linear
             v-if="loading"
@@ -33,7 +33,7 @@
             </div>
             <v-expansion-panels colo v-model="panel" multiple class="bg-auto  rounded-lg ">
                 <v-expansion-panel active v-for="(boxes, index) in data.boxes" elevation="0" class="bg-auto ">
-                    <v-expansion-panel-title  class="rtl bg-auto  font-weight-bold" expand-icon="fal bg-auto  fa-chevron-left" collapse-icon="fal fa-chevron-up">{{boxes.title}}</v-expansion-panel-title>
+                    <v-expansion-panel-title color="auto" class="rtl bg-auto  font-weight-bold" expand-icon="fal  fa-chevron-left" collapse-icon="fal fa-chevron-up">{{boxes.title}}</v-expansion-panel-title>
                     <v-expansion-panel-text class="bg-auto ">
                         <v-list lines="two" class="bg-auto ">
                             <div v-for="box in boxes.box" :key="box.title">
@@ -99,6 +99,6 @@ components:{box},
 </script>
 <style >
 .v-expansion-panel-title__overlay {
-    background-color: light !important;
+    background-color: transparent !important;
 }
 </style>
