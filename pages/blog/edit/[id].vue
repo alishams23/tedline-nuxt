@@ -31,9 +31,7 @@
 
                         <v-file-input @change="changeImage" rounded="lg" accept=".png,.jpg" persistent-hint variant="outlined" color="primary"
                             v-model="photo" placeholder="Upload your documents" label="عکس‌های هدر">
-                            <template v-slot:prepend>
-                                <PhotoIcon style="margin-left: -20px;" class="text-grey" />
-                            </template>
+                    
 
                         </v-file-input>
 
@@ -66,14 +64,13 @@
 import TextEditor from '@/components/shared/TextEditor.vue';
 import { useUserStore } from '~/store/user';
 import axios from "axios";
-import { PhotoIcon, } from 'vue-tabler-icons';
 
 
 export default {
 
     components: {
         TextEditor,
-        PhotoIcon
+      
     },
     data() {
         return {
