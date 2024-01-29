@@ -123,7 +123,6 @@ import {PencilIcon, PlusIcon, BoxIcon, SearchIcon, FilterCogIcon, SortDescending
 import AddBlog from '@/pages/blog/add_blog.vue';
 import axios from "axios";
 import ShowTextEditor from '~/components/shared/ShowTextEditor.vue';
-import { useUserStore } from '~/store/user';
 
 export default {
  components:{
@@ -155,7 +154,7 @@ export default {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
-          Authorization: `Token ${useUserStore().userToken}`
+          Authorization: `Token ${this.$store.state.token}`,
         },
       }).then((response) => {
         this.loading = false
@@ -168,7 +167,7 @@ export default {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
-          Authorization: `Token ${useUserStore().userToken}`
+          Authorization: `Token ${this.$store.state.token}`,
         },
       }).then((response) => {
        
