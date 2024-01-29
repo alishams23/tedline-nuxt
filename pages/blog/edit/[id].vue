@@ -62,7 +62,7 @@
 <script>
 
 import TextEditor from '@/components/shared/TextEditor.vue';
-import { useUserStore } from '~/store/user';
+
 import axios from "axios";
 
 
@@ -103,10 +103,10 @@ export default {
         },
         async fetchCategories() {
       try {
-        const userToken = useUserStore().userToken; // Get the token from your user store
+      
         const response = await axios.get('https://tedline.org/api/blog/List_category/', {
           headers: {
-            Authorization: `Token ${userToken}`
+            Authorization: `Token ${this.$store.state.token}`,
           }
         });
         this.categories = response.data; // Assuming the API returns an array
@@ -130,7 +130,7 @@ export default {
                 headers: {
 
                     Accept: "application/json",
-                    Authorization: `Token ${useUserStore().userToken}`
+                    Authorization: `Token ${this.$store.state.token}`,
                 },
             }).then((response) => {
 
@@ -156,7 +156,7 @@ export default {
                         {
                             headers: {
                                 'Content-Type': 'multipart/form-data',
-                                Authorization: `Token ${useUserStore().userToken}`
+                                Authorization: `Token ${this.$store.state.token}`,
                             },
                         }
                     )
@@ -198,7 +198,7 @@ export default {
                         headers: {
                             "Content-type": "application/json",
                             Accept: "application/json",
-                            Authorization: `Token ${useUserStore().userToken}`
+                            Authorization: `Token ${this.$store.state.token}`,
                         },
                     }
                 )
