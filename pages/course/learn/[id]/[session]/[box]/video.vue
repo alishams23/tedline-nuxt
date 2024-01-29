@@ -81,10 +81,10 @@ export default {
   async mounted() {
     await this.$store.commit('onStart')
     this.getData()
-    //       document.addEventListener('contextmenu', function (e) {
-    //   e.preventDefault();
-    // }
-    // );
+          document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }
+    );
     // Prevent F12 key from opening developer tools
 
     document.addEventListener('keydown', function (e) {

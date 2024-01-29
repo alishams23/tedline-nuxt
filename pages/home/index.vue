@@ -5,8 +5,8 @@
   <Header />
   <v-container>
    <YourCourses :username="$store.state.username"  />
-    <SuggestionCourses class="my-12  pb-md-16" />
-   <div class="pb-md-16 ">
+    <SuggestionCourses class="  py-10" />
+   <div class="pb-md-5 ">
     <Category1  />
    </div>
     <BestCourses class="my-16 " />

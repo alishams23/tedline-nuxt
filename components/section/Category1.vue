@@ -11,7 +11,7 @@
             :slides-per-view="'auto'"
             :loop="false"
             :space-between="3"
-      class="px-3"
+            class="px-3"
           >
             <SwiperSlide v-for="item in data" :key="item.id + '+category'" >
               <v-btn :to="'/explore/?category=' + item.id" class="ma-2  text-xs inner-shadow-1   rtl" color="auto" elevation="0" rounded="xl"  size="large" min-width="120">
@@ -20,7 +20,6 @@
                   <v-icon color="blue"  size="small" >
                     fal fa-arrow-right
                   </v-icon>
-
                   </v-avatar>
                 </template>
                 {{ item.title }}

@@ -45,7 +45,7 @@
           <v-list>
             <v-list-item class="rtl ">
               <v-list-item-title class="font-weight-bold text-sm">
-                نوتیفیکیشن
+                گزارش ها
               </v-list-item-title>
               <template v-slot:prepend>
                 <v-avatar variant="tonal" color="blue" class="me-4">
@@ -90,13 +90,13 @@ export default {
       loading: true,
       menuItems: [
         { title: "خانه", path: "/", icon: "fa fa-menu" },
-        { title: "وبلاگ", path: "/blog", icon: "mdi-face" },
+        { title: "وبلاگ", path: "/explore/?tab=2", icon: "mdi-face" },
         { title: "ارتباط با ما", path: "/contactUs", icon: "mdi-face" },
         { title: "همه ی دوره ها", path: "/explore", icon: "mdi-lock-open" }
       ], menuItemsLogin: [
 
         { title: "خانه", path: "/home", icon: "fa fa-menu" },
-        { title: "وبلاگ", path: "/blog", icon: "mdi-face" },
+        { title: "وبلاگ", path: "/explore/?tab=2", icon: "mdi-face" },
         { title: "ارتباط با ما", path: "/contactUs", icon: "mdi-face" },
         { title: "همه ی دوره ها", path: "/explore", icon: "mdi-lock-open" }
       ]

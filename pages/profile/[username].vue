@@ -1,8 +1,5 @@
 <template>
-  
   <!-- <Navbar :transparent="false" /> -->
- 
-
   <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
       <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
@@ -21,7 +18,7 @@
     <v-row align="center" class=" mx-10 mb-5 mt-2">
       <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
        <div>
-        <v-avatar   class="text-h5 shadow-1 bg-grey4 inner-shadow-1"   size="110" >
+        <v-avatar   class="text-h5 shadow-1 bg-grey4 "   size="110" >
           
           <v-icon color="nauto " class=" position-absolute " >
             fad fa-user
@@ -73,7 +70,7 @@
   <v-container class="mt-0 mt-md-5">
     
    
-    <div class="text-right rtl mb-10 px-5 " v-if="data && data.bio">
+    <div class="text-right text-xs rtl mb-10 px-5 " v-if="data && data.bio">
         {{ data.bio }}
     </div>
     <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">

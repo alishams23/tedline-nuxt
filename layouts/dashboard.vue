@@ -16,7 +16,7 @@
         <v-icon :size="29" icon="fad fa-bells"></v-icon>
       </v-avatar>
       <div class="my-5 font-weight-bold text-sm">
-        نوتیفیکیشن
+        گزارش ها
       </div>
     </div>
     

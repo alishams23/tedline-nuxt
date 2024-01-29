@@ -70,9 +70,9 @@
                  
                
             <v-list-subheader color="blue-darken-4"
-              class="   text-sm mt-9  text-grey justify-end  mb-2 ">جلسات</v-list-subheader>
-            <v-list-item active-class="bg-blue-gradient-3 text-white"  :to="'/course/learn/' + data.id + '/' + item.id" v-for="(item, i) in data.session"
-              class="  rounded-pill  px-6 mx-3 mb-3 py-2" variant="flat" >
+              class="  text-sm mt-9  text-grey justify-end  mb-2 ">جلسات</v-list-subheader>
+            <v-list-item   active-class="bg-blue-gradient-3 text-white"  :to="'/course/learn/' + data.id + '/' + item.id" v-for="(item, i) in data.session"
+              class=" bg-grey4  rounded-pill  px-6 mx-3 mb-3 py-2" variant="flat" >
               <v-list-item-title class=" text-right rtl font-weight-bold  irsa ">{{ item.title }}</v-list-item-title>
               <v-list-item-subtitle class="text-right rtl text-xs">
                 {{ item.description }}

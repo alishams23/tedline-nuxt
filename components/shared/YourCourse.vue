@@ -2,7 +2,7 @@
 <template>
     <v-card
     :to="progress == false && data.registered == false ? `/course/${data.id}`:`/course/learn/${data.id}/${data.session[0].id}`"
-     class=" bg-grey4 inner-shadow-1 rounded-xl " elevation="0">
+     class=" bg-grey4 inner-shadow-md  rounded-xl " elevation="0">
             <v-row>
                 <v-col cols="12"  sm="5"  class=" rtl text-black ">
                     <v-card
@@ -11,7 +11,7 @@
                     elevation="0"
                     width="100%"
                     rounded="0"
-                    class=" rounded-xl rounded pa-3"
+                    class=" rounded-xl rounded pt-3 pb-0 px-3 pa-sm-3"
                   >
                   <v-img 
                   cover
@@ -24,11 +24,11 @@
                         :persistent="true"
                        
                         contained
-                        class="align-center justify-center ma-3 rounded-2lg font-weight-bold"
+                        class="align-center justify-center mx-3 mt-3 ma-sm-3 rounded-2lg font-weight-bold"
                       >
                       <v-progress-circular
                       :rotate="360"
-                      :size="100"
+                      :size="80"
                       :width="15"
                       :model-value="value"
                     
@@ -42,7 +42,7 @@
                   </v-card>   
                 </v-col>
                 <v-col cols="12" sm="7" class="rtl pt-0 pt-md-3 ">
-                    <div class="mt-md-6 px-6 px-md-10 ">
+                    <div class="mt-0 mt-sm-6  px-6 px-md-10 ">
                         <h3 class=" text-md-1 text-md-body-1 line-height-sm  irsa font-weight-medium ">{{data.title}}</h3>
                         <div class="d-flex pb-5 align-center mt-4 mt-sm-10 ">
                             <h6 class="irsa text-xs text-muted font-weight-light pl-5">

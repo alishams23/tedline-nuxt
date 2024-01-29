@@ -84,7 +84,7 @@
       <v-container class="">
       <v-card-text class="" color="" elevation="0">
         <v-locale-provider rtl>
-        <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="searchCourse" v-model="text"
+        <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="searchCourse();searchBlog()" v-model="text"
           class=" custom-label-color  "  :flat="true" variant="solo-filled" 
           label="جستجو بین درس ها" rounded="pill" single-line hide-details>
           <template v-slot:prepend>
@@ -109,8 +109,6 @@
             @click="drawerChecker = true" size="small" color="nauto "   rounded="pill" icon=""> 
     
             <AdjustmentsHorizontalIcon style="height: 19px"/>
-       
-          
           </v-btn>
           <v-tab  :hide-slider="true" height="50"   class="mt-auto text-xs rounded-2lg px-6 text-auto px-md-16 " variant="tonal" color="blue" :value="1" >
           <div :class="tab == 1 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex">
@@ -151,13 +149,19 @@
             </v-row>
           </v-window-item>
           <v-window-item :value="2">
-            <v-container>
-              <v-alert icon="fa fa-info" variant="tonal" type="info" color="blue"  class="rtl rounded-lg my-10" border="none">
-                <div class=" text-sm  font-weight-black irsa">
-                  این بخش در حال اپدیت است
+            <v-row no-gutters >
+              <v-col v-for="item in blogData" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
+                <CardBlog :data="item"  color="grey4" class="w-100  ma-2 ma-md-5 " />
+              </v-col>
+              <v-container>
+              <v-alert v-if="blogData.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+                <div class="text-sm  font-weight-black irsa">
+                  دوره ای وجود ندارد
                 </div>
               </v-alert>
             </v-container>
+            </v-row>
+          
           </v-window-item>
         </v-window>
       </v-card>
@@ -173,7 +177,8 @@
 
 <script >
 import Sidebar from "~/components/Sidebar.vue";
-import Course from '~/components/shared/Course.vue'
+import Course from '~/components/shared/Course.vue';
+import CardBlog from '~/components/shared/CardBlog.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
 
@@ -201,6 +206,7 @@ export default {
   },
   components: {
     Course,
+    CardBlog,
     DocumentTextIcon,
     DocumentTextIconSolid,
     VideoCameraIconSolid,
@@ -214,6 +220,7 @@ export default {
   data: () => ({
     model: null,
     data: [],
+    blogData: [],
     dataCategoryBest: [],
     drawerChecker: false,
     selectedDataCategoryIds: [],
@@ -229,6 +236,14 @@ export default {
       this.loading = true
       axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
         this.data = response.data.results
+        this.loading = false
+      }
+      )
+    },
+    searchBlog() {
+      this.loading = true
+      axios.get(`https://tedline.org/api/blog/Blog_List/?search=${this.text}`).then((response) => {
+        this.blogData = response.data.results
         this.loading = false
       }
       )
@@ -253,9 +268,11 @@ export default {
 
   }, mounted() {
      if (this.$route.query.search != null) this.text = this.$route.query.search
+     if (this.$route.query.tab != null) this.tab = parseInt(this.$route.query.tab)
      if (this.$route.query.category != null) this.selectedDataCategoryIds = [parseInt(this.$route.query.category)]
 
     this.searchCourse()
+    this.searchBlog()
     this.getDataCategoryBest()
   }
 
