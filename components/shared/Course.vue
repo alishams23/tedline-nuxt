@@ -2,10 +2,10 @@
   <div>
 
     <v-card   class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl" elevation="0" >
-      <v-card  :ripple="false" class=" pa-0  rounded-xl " color="transparent"  elevation="0" :to="'/course/' + data.id">
+      <v-card  :ripple="false" class=" pa-0  rounded-2lg " color="transparent"  elevation="0" :to="'/course/' + data.id">
 
         <div >
-          <v-img class=" align-end rounded-xl  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+          <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
            <!-- <div class="d-flex">
             <div  :class="color? 'bg-' + color : 'bg-auto '"  class="  text-xs   mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
               <div v-if="data.price != 0">
@@ -48,11 +48,13 @@
           </v-img>
         </div>
 
-        <v-responsive height="55">
-          <div :class="titleClass" class=" test-right text-xs   rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
+       <div :class="titleClass">
+        <v-responsive height="55" >
+          <div  class=" test-right text-xs   rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
             data.title }}
           </div>
         </v-responsive>
+       </div>
       </v-card>
       <v-card-actions class=" pb-0 pt-0 ma-0"  v-if="detail!= false">
 
@@ -66,7 +68,7 @@
           <v-list-item class="  px-0" v-if="data.teacher">
             <template v-slot:prepend>
               <v-avatar size="25" class=" rounded-2lg bg-blue-gradient-2 text-nauto">
-                <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
+                <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
                 <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
                   cover></v-img>
 

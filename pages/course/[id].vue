@@ -23,9 +23,7 @@
           <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl py-5 py-md-10'>
             {{ data.title }}
           </h1>
-          <!-- <p class="rtl text-white  font-weight-light text-body-2  irsa px-4 pb-3">
-        {{ data.description }}
-      </p> -->
+     
           <div  class="d-flex justify-end">
             <v-card  color="transparent" class="rtl     " elevation="0"
           >
@@ -104,8 +102,8 @@
   <v-container v-if="loading == false">
     <v-dialog :open-delay="4000" transition="dialog-bottom-transition" v-model="dialog" :scrim="false" persistent
       class="position-dialog-b-l" width="auto" location="top" scroll-strategy="none">
-      <v-alert variant="text" elevation="20" color="blue-accent-4" v-if="data.registered == true"
-        class="rtl rounded-lg bg-auto    border-opacity-100   my-2" border="start">
+      <v-alert variant="text" color="blue-accent-4" v-if="data.registered == true"
+        class="rtl rounded-lg bg-auto shadow-3   border-opacity-100   my-2" border="start">
         <div class="d-flex align-center">
           <div class="text-nauto   text-body-2 irsa">
             شما در این دوره ثبت نام کرده اید
@@ -126,7 +124,7 @@
     <v-locale-provider rtl>
 
       <v-tabs v-model="tab" class="  border-b  mt-10 " elevation="0">
-        <v-tab color="blue" class="px-md-10   transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
+        <v-tab color="blue" class="px-5 px-md-10   transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
           value="one">
           <div :class="tab == 'one' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             جزيیات دوره
@@ -134,7 +132,7 @@
               fa-list</v-icon>
           </div>
         </v-tab>
-        <v-tab color="blue" class="px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
+        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
           value="two">
           <div :class="tab == 'two' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             سرفصل ها
@@ -143,7 +141,7 @@
 
           </div>
         </v-tab>
-        <v-tab color="blue" class="px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
+        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
           value="three">
           <div :class="tab == 'three' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             پیشنیاز ها
@@ -156,7 +154,7 @@
       </v-tabs>
 
       <v-window v-model="tab" >
-        <v-window-item value="one" class="my-16">
+        <v-window-item value="one" class="my-10">
           <v-row justify="end" align="stretch">
             <v-col cols="12">
               <div class="text-h6 irsa font-weight-black rtl px-5"> جزئیات دوره </div>
@@ -250,7 +248,7 @@
             </div>
 
           </v-alert>
-          <v-card elevation="0" color="transparent"  class=" mt-16 ">
+          <v-card elevation="0" color="transparent"  class=" mt-10 ">
             <div class="text-h6 irsa font-weight-black rtl pb-5 px-5 ">سر فصل های دوره </div>
             <v-timeline side="end">
               <v-timeline-item size="small" v-for="item in data.session" dot-color="transparent"
@@ -277,7 +275,7 @@
             </div>
 
           </v-alert>
-          <div class=" mt-16 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"
+          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"
             v-if="data.prerequisite && data.prerequisite.length != 0">
             <div class="text-h6  d-flex justify-space-between  align-center  irsa font-weight-black rtl px-5 mb-10">دوره
               های

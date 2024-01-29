@@ -5,7 +5,7 @@
   <Header />
   <v-container>
    <YourCourses :username="$store.state.username"  />
-    <SuggestionCourses class="  py-10" />
+    <SuggestionCourses class="  " />
    <div class="pb-md-5 ">
     <Category1  />
    </div>
