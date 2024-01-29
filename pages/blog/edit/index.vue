@@ -8,12 +8,12 @@
                     class="mt-5 text-body-2">
                     <template v-slot:prepend-inner>
 
-                    <SearchIcon color="gray" />
+                    <IconSearch color="gray" />
                     </template>
                     <template v-slot:prepend>
                     <v-btn @click="order = !order;searchData()"  variant="tonal" color="primary" rounded="lg" size="50">
-                        <SortDescending2Icon v-if="order" />              
-                        <SortAscending2Icon  v-if="!order"/>
+                        <IconSortDescending2 v-if="order" />              
+                        <IconSortAscending2  v-if="!order"/>
                     </v-btn>
                     </template>
                 </v-text-field>
@@ -21,7 +21,7 @@
             </v-col>
             <v-col cols="8" class="rtl d-flex align-center">
                 <v-avatar color="primary" rounded="lg" size="50">
-                    <ArticleIcon/>
+                    <IconArticle/>
                 </v-avatar>
                 <div class=" px-5 font-weight-bold text-h4">
                     وبلاگ 
@@ -83,7 +83,7 @@
                 >
                     ویرایش
                     <template v-slot:append>
-                    <PencilIcon size="15" />
+                    <IconPencil size="15" />
                     </template>
                 </v-btn>
                 <v-avatar
@@ -95,7 +95,7 @@
                 icon=""
                 
             >
-                <TrashIcon size="15"  />
+                <IconTrash size="15"  />
             </v-avatar>
             <v-sheet class="px-3  text-body-2" >
               {{blog.updated_at}}
@@ -111,13 +111,13 @@
     <VLayoutItem model-value position="bottom" class="text-end" size="88">
       <VBtn to="/blog/add_blog" icon="" size="large" color="primary" elevation="8">
         <v-icon>
-          <PlusIcon />
+          <IconPlus />
         </v-icon>
       </VBtn>
       </VLayoutItem>
 </template>
 <script>
-import {PencilIcon, PlusIcon, BoxIcon, SearchIcon, FilterCogIcon, SortDescending2Icon, SortAscending2Icon, ArticleIcon,TrashIcon } from '@tabler/icons-vue';
+import {IconPencil, IconPlus, IconBox, IconSearch, IconSortDescending2, IconSortAscending2, IconArticle,IconTrash } from '@tabler/icons-vue';
 
 
 import AddBlog from '@/pages/blog/add_blog.vue';
@@ -126,17 +126,17 @@ import ShowTextEditor from '~/components/shared/ShowTextEditor.vue';
 
 export default {
  components:{
-    PencilIcon,
-    PlusIcon,
-    SortDescending2Icon,
-    SortAscending2Icon,
-    BoxIcon,
-    SearchIcon,
-    FilterCogIcon,
-    ArticleIcon,
+    IconPencil,
+    IconPlus,
+    IconSortDescending2,
+    IconSortAscending2,
+    IconBox,
+    IconSearch,
+  
+    IconArticle,
     AddBlog,
     ShowTextEditor,
-    TrashIcon
+    IconTrash
  },
  data() {
    return {
