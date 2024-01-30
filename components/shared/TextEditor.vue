@@ -30,10 +30,10 @@
        
     </template>
 </v-dialog>
-  <client-only>
+
     <quill-editor @ready="onEditorReady($event)" class="rounded-b-lg" :ref="editorContent" content-type="html" v-model:content="content" theme="snow"
       :toolbar="toolbar" :modules="modules" @textChange="updateContent" style="min-height: 300px;"  />
-  </client-only>
+
 </template>
 <script setup lang="ts">
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
