@@ -31,8 +31,9 @@
     </template>
 </v-dialog>
 
-    <quill-editor @ready="onEditorReady($event)" class="rounded-b-lg" :ref="editorContent" content-type="html" v-model:content="content" theme="snow"
-      :toolbar="toolbar" :modules="modules" @textChange="updateContent" style="min-height: 300px;"  />
+   <quill-editor @ready="onEditorReady" class="rounded-b-lg" ref="editorContent" content-type="html" v-model:content="content" theme="snow"
+  :toolbar="toolbar" :modules="modules" @textChange="updateContent" style="min-height: 300px;" />
+
 
 </template>
 <script setup lang="ts">
@@ -68,8 +69,8 @@ const doPaste  = () => {
 
 }
 const onEditorReady = (data) =>  {
-  editor = data
-  const customButton = editor.getModule('toolbar').container.querySelector('.ql-custom');
+  editorContent.value = data;
+  const customButton = editorContent.value.getModule('toolbar').container.querySelector('.ql-custom');
   customButton.innerHTML = 'فیلم'
   if (customButton) {
    
