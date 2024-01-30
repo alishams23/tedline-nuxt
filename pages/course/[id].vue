@@ -60,7 +60,7 @@
 
             </v-card>
           </div>
-          <v-row class="pt-10 pb-3 rtl"  >
+          <v-row class="pt-10 pb-3 rtl" v-if="data.session.length != 0" >
             <v-btn v-if="data.registered == false" variant="flat" size="large" @click="register"
             :loading="loadingRegister" color="blue-accent-4" elevation="0"
             class=" px-10 px-16 mb-3 mx-3 mx-2 bg-blue-gradient-3 text-body-2 " rounded="xl">
@@ -93,6 +93,13 @@
           
 
           </v-row>
+          <div class="d-flex justify-end">
+            <div>
+              <v-alert variant="tonal" border="start" v-if="data.session.length == 0" class="text-white rtl mt-5 text-xs">
+                دوره در حال اپدیت است.
+            </v-alert>
+            </div>
+          </div>
         </v-container>
       </div>
     </div>
@@ -241,15 +248,16 @@
           </div>
         </v-window-item>
         <v-window-item value="two" >
-          <v-alert v-if="data.session.length == 0" icon="fa fa-info" variant="text" color="blue"
+         
+          <v-card elevation="0" color="transparent"  class=" mt-10 ">
+            <div class="text-h6 irsa font-weight-black rtl pb-5 px-5 ">سر فصل های دوره </div>
+            <v-alert v-if="data.session.length == 0" icon="fa fa-info" variant="text" color="blue"
             class="bg-grey5 rtl border-opacity-100  my-10" border="start">
-            <div class="pb-3 text-body-2 font-weight-black irsa">
+            <div class=" text-body-2 font-weight-black irsa">
               سر فصلی وجود ندارد
             </div>
 
           </v-alert>
-          <v-card elevation="0" color="transparent"  class=" mt-10 ">
-            <div class="text-h6 irsa font-weight-black rtl pb-5 px-5 ">سر فصل های دوره </div>
             <v-timeline side="end">
               <v-timeline-item size="small" v-for="item in data.session" dot-color="transparent"
                 :key="item.id + '+session'">
@@ -268,24 +276,25 @@
           </v-card>
         </v-window-item>
         <v-window-item value="three">
-          <v-alert v-if="data.prerequisite.length == 0" icon="fa fa-info" variant="text" color="blue"
+        
+          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"
+           >
+            <div class="text-h6  d-flex justify-space-between  align-center  irsa font-weight-black rtl px-5 mb-10">دوره
+              های
+              پیشنیاز
+
+              <v-avatar  class=" text-h6  rounded-pill inner-shadow-1" size="50" color="blue">
+                <IconListCheck class="text-auto" />
+              </v-avatar>
+            </div>
+            <YourCourseComponents  v-if="data.prerequisite && data.prerequisite.length != 0" class="bg-auto mb-5" v-for="item in data.prerequisite" :progress="false" :data="item" />
+            <v-alert v-if="data.prerequisite.length == 0" icon="fa fa-info" variant="text" color="blue"
             class="bg-grey5 rtl border-opacity-100  my-10" border="start">
             <div class="pb-3 text-body-2 font-weight-black irsa">
               پیشنیازی وجود ندارد
             </div>
 
           </v-alert>
-          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"
-            v-if="data.prerequisite && data.prerequisite.length != 0">
-            <div class="text-h6  d-flex justify-space-between  align-center  irsa font-weight-black rtl px-5 mb-10">دوره
-              های
-              پیشنیاز
-
-              <v-avatar class=" text-h6  rounded-pill inner-shadow-1" size="50" color="blue">
-                <IconListCheck class="text-auto" />
-              </v-avatar>
-            </div>
-            <YourCourseComponents class="bg-auto mb-5" v-for="item in data.prerequisite" :progress="false" :data="item" />
           </div>
         </v-window-item>
       </v-window>

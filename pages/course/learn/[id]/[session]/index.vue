@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div>
-                <div class="rtl pa-5 border bg-grey4 rounded-lg mx-2 my-10">
+                <div class="rtl pa-5 border bg-grey4 text-xs rounded-lg mx-2 my-10">
                     {{ data.description }}
                 </div>
             </div>
@@ -37,7 +37,6 @@
                     <v-expansion-panel-text class="bg-auto ">
                         <v-list lines="two" class="bg-auto ">
                             <div v-for="box in boxes.box" :key="box.title">
-                            
                                <box v-if="box.file" :read="box.is_finished" title="فایل" :disable="box.is_locked == true && data.is_signed == false " color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
                                <box v-if="box.video" :read="box.is_finished" title="ویدئو" :disable="box.is_locked == true && data.is_signed == false " color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
                             </div>

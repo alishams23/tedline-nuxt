@@ -6,18 +6,7 @@
 
         <div >
           <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
-           <!-- <div class="d-flex">
-            <div  :class="color? 'bg-' + color : 'bg-auto '"  class="  text-xs   mb-n1 pl-10 pr-4 py-2 font-weight-medium      rounded-tr-xl " >
-              <div v-if="data.price != 0">
-                {{ data.price }} <span class="  text-grey irsa text-xxs">تومان</span>
-              </div>
-              
-              <div v-else class="text-xs-2" >
-                رایگان
-              
-              </div>
-            </div>
-           </div> -->
+
            <div class="h-100  w-100 rounded-xl d-flex align-end">
             <div class="bg-gradient-glass pt-16 py-5  px-5  w-100 text-white text-right">
              
@@ -33,9 +22,7 @@
                 <div class="rtl text-xs-2 font-weight-light mt-2 ">
                   <v-avatar color="auto" variant="tonal" class="ml-1 " size="20">
                    <IconClockFilled class="text-blue" size="10" />
-                   <!-- <v-icon color="blue"  :size="13">
-                     fa fa-clock
-                   </v-icon> -->
+           
                   </v-avatar>
                    {{ data.duration }}
                    دقیقه
@@ -67,7 +54,7 @@
         <div class="rtl text-xs font-weight-light  ">
           <v-list-item class="  px-0" v-if="data.teacher">
             <template v-slot:prepend>
-              <v-avatar size="25" class=" rounded-2lg bg-blue-gradient-2 text-nauto">
+              <v-avatar size="25" class=" rounded-2lg bg-blue text-nauto">
                 <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
                 <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
                   cover></v-img>

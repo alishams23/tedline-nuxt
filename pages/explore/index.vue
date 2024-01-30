@@ -124,7 +124,7 @@
           <v-tab :hide-slider="true" height="50"  class="mt-auto  text-xs  text-auto rounded-2lg px-6 px-md-16 " variant="tonal" color="blue" :value="2" >
             
           <div :class="tab == 2 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
-          <span>  بلاگ ها</span>
+          <span>  وبلاگ ها</span>
         <DocumentTextIconSolid v-if="tab == 2"  class="text-blue ps-5 "  style="height: 21px"  />
             <DocumentTextIcon v-else class="text-grey1 ps-5 "  style="height: 21px" />
             <!-- <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon> -->
@@ -156,7 +156,7 @@
               <v-container>
               <v-alert v-if="blogData.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
                 <div class="text-sm  font-weight-black irsa">
-                  دوره ای وجود ندارد
+                  وبلاگی ای وجود ندارد
                 </div>
               </v-alert>
             </v-container>
