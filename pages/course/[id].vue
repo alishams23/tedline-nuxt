@@ -46,7 +46,7 @@
                 <template v-slot:prepend>
                   <v-avatar size="50" class=" rounded-2lg bg-blue-gradient-2 text-white">
                     <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                    <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`"
+                    <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
                       cover></v-img>
 
                   </v-avatar>
@@ -233,7 +233,7 @@
                 <template v-slot:prepend>
                   <v-avatar size="43" class="bg-blue-gradient text-white">
                     <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                    <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`"
+                    <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
                       cover></v-img>
 
                   </v-avatar>
@@ -352,7 +352,7 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -402,7 +402,7 @@ export default {
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`http://127.0.0.1:8000/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -427,7 +427,7 @@ export default {
       }
 
       this.loading = true;
-      await fetch(`http://127.0.0.1:8000/api/wallet/increase-money/`, {
+      await fetch(`https://tedline.org/api/wallet/increase-money/`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -459,7 +459,7 @@ export default {
       this.loading = false;
     },
     shareLink() {
-      this.copyToClipboard(`http://127.0.0.1:8000/course/${this.$route.params.id}/`)
+      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
   }, async mounted() {

@@ -56,7 +56,7 @@
             <template v-slot:prepend>
               <v-avatar size="25" class=" rounded-2lg bg-blue text-nauto">
                 <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
-                <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`"
+                <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
                   cover></v-img>
 
               </v-avatar>

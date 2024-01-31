@@ -23,7 +23,7 @@
           <v-icon color="nauto " class=" position-absolute " >
             fad fa-user
           </v-icon>
-          <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
+          <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
         </v-avatar>
         <div class="mt-n10 ">
           <v-menu elevation="0" >
@@ -166,11 +166,11 @@ export default {
       }
     },
     shareLink() {
-      this.copyToClipboard(`http://127.0.0.1:8000/profile/${this.$route.params.username}/`)
+      this.copyToClipboard(`https://tedline.org/profile/${this.$route.params.username}/`)
       this.snackbar = true
     },
     getData() {
-      axios.get(`http://127.0.0.1:8000/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
+      axios.get(`https://tedline.org/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
         this.data = response.data
         this.loading = false
       }

@@ -29,7 +29,7 @@
                   <template v-slot:prepend>
                     <v-avatar size="50" class=" rounded-2lg bg-blue-gradient-2 text-white">
                       <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                      <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.author.username}`"
+                      <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.author.username}`"
                         cover></v-img>
   
                     </v-avatar>
@@ -85,7 +85,7 @@ export default {
       this.loading=true
       await axios
         .get(
-          `http://127.0.0.1:8000/api/blog/blog_retrieve/${this.$route.params.id}/`,
+          `https://tedline.org/api/blog/blog_retrieve/${this.$route.params.id}/`,
           {
             headers: {
               'Content-type': 'application/json',
@@ -103,7 +103,7 @@ export default {
     },
     async like(id) {
       await fetch(
-        `http://127.0.0.1:8000/api/blog/AddLikeView/?id=${this.$route.params.id}`,
+        `https://tedline.org/api/blog/AddLikeView/?id=${this.$route.params.id}`,
         {
           headers: {
             'Content-type': 'application/json',
@@ -124,7 +124,7 @@ export default {
       }
     },
    shareLink() {
-      this.copyToClipboard(`http://127.0.0.1:8000/t/blog/${this.data.id}/`);
+      this.copyToClipboard(`https://tedline.org/t/blog/${this.data.id}/`);
       alert(` کپی شد.`);
     },copyToClipboard (textToCopy) {
       // navigator clipboard api needs a secure context (https)

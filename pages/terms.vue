@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         async getData() {
-            fetch(`http://127.0.0.1:8000/api/account/TermsListApi/`, {
+            fetch(`https://tedline.org/api/account/TermsListApi/`, {
                 headers: {
                     "Content-type": "application/json",
                     Accept: "application/json",

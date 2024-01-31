@@ -70,7 +70,7 @@ export default {
   components: { IconX, QuizMovie },
   data() {
     return {
-      videoUrl: 'http://127.0.0.1:8000/api/box/video/stream_video',
+      videoUrl: 'https://tedline.org/api/box/video/stream_video',
       state: null,
       data: null,
       loading: true,
@@ -114,7 +114,7 @@ export default {
     update(data) {
       this.state = data.state
     }, getData() {
-      axios.get(`http://127.0.0.1:8000/api/box/video/retrieve-video/${this.$route.params.box}/`, {
+      axios.get(`https://tedline.org/api/box/video/retrieve-video/${this.$route.params.box}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
