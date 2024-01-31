@@ -30,11 +30,10 @@
        
     </template>
 </v-dialog>
-
-   <quill-editor @ready="onEditorReady" class="rounded-b-lg" ref="editorContent" content-type="html" v-model:content="content" theme="snow"
-  :toolbar="toolbar" :modules="modules" @textChange="updateContent" style="min-height: 300px;" />
-
-
+  <client-only>
+    <quill-editor @ready="onEditorReady($event)" class="rounded-b-lg" :ref="editorContent" content-type="html" v-model:content="content" theme="snow"
+      :toolbar="toolbar" :modules="modules" @textChange="updateContent" style="min-height: 300px;"  />
+  </client-only>
 </template>
 <script setup lang="ts">
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
@@ -69,8 +68,8 @@ const doPaste  = () => {
 
 }
 const onEditorReady = (data) =>  {
-  editorContent.value = data;
-  const customButton = editorContent.value.getModule('toolbar').container.querySelector('.ql-custom');
+  editor = data
+  const customButton = editor.getModule('toolbar').container.querySelector('.ql-custom');
   customButton.innerHTML = 'فیلم'
   if (customButton) {
    
@@ -102,14 +101,14 @@ let modules: {}
     if (!vueApp._context.components.QuillEditor)
       vueApp.component('QuillEditor', QuillEditor)
 
-   
-    const BlotFormatter = await import('quill-blot-formatter')
+  
+    const BlotFormatter = await import('quill-blot-formatter/dist/BlotFormatter')
 
     // const BlotFormatter = await import('quill-blot-formatter')
  
 
     modules = [
-   
+     
       {
         name: 'blotFormatter',
         module: BlotFormatter.default,
