@@ -102,18 +102,11 @@ let modules: {}
       vueApp.component('QuillEditor', QuillEditor)
 
   
-    const BlotFormatter = await import('quill-blot-formatter/dist/BlotFormatter')
-
-    // const BlotFormatter = await import('quill-blot-formatter')
  
 
     modules = [
      
-      {
-        name: 'blotFormatter',
-        module: BlotFormatter.default,
-        options: {}
-      }
+    
     ]
 
   }
