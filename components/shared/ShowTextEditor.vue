@@ -53,17 +53,11 @@ const { content } = toRefs(props);
       vueApp.component('QuillEditor', QuillEditor)
 
 
-    const BlotFormatter = await import('quill-blot-formatter')
-
+  
     let modules: any[] = !process.server
   ? [
      
-      {
-        name: 'blotFormatter',
-        module: BlotFormatter,
-        readonly:true
-       
-      },
+     
     ]
   : [];
 

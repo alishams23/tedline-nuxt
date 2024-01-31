@@ -23,7 +23,7 @@
           <v-icon color="nauto " class=" position-absolute " >
             fad fa-user
           </v-icon>
-          <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
+          <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
         </v-avatar>
         <div class="mt-n10 ">
           <v-menu elevation="0" >
@@ -166,11 +166,11 @@ export default {
       }
     },
     shareLink() {
-      this.copyToClipboard(`https://tedline.org/profile/${this.$route.params.username}/`)
+      this.copyToClipboard(`http://127.0.0.1:8000/profile/${this.$route.params.username}/`)
       this.snackbar = true
     },
     getData() {
-      axios.get(`https://tedline.org/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
+      axios.get(`http://127.0.0.1:8000/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
         this.data = response.data
         this.loading = false
       }
@@ -198,7 +198,7 @@ export default {
   .curved {
     background-color: #060f21;
 
-    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, rgb(var(--v-theme-primary-darken-1)) 89.9%, #00000000 90%),radial-gradient(ellipse 100% 60% at 30% 100%, rgb(var(--v-theme-primary-darken-2)) 89.9%, rgb(var(--v-theme-primary-darken-2)) 90%);
+    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, #0473e9 89.9%, #00000000 90%),radial-gradient(ellipse 100% 60% at 30% 100%, #045de9 89.9%, #045de9 90%);
     
   }
 }
@@ -207,7 +207,7 @@ export default {
   .curved {
     background-color: #0f1931;
 
-    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, rgb(var(--v-theme-primary-darken-1)) 89.9%, #00000000 90%), radial-gradient(ellipse 100% 90% at 20% 7%, rgb(var(--v-theme-primary-darken-2)) 89.9%, rgb(var(--v-theme-primary-darken-2)) 90%);
+    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #0473e9 89.9%, #00000000 90%), radial-gradient(ellipse 100% 90% at 20% 7%, #045de9 89.9%, #045de9 90%);
     
   }
 }

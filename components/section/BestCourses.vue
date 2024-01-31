@@ -52,7 +52,7 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get('https://tedline.org/api/course/HomeCourses/').then((response) => {
+      axios.get('http://127.0.0.1:8000/api/course/HomeCourses/').then((response) => {
         this.data = response.data
         this.loading = false
       }

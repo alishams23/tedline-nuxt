@@ -84,7 +84,7 @@
     }),
     methods: {
       async getData() {
-        await axios.get(`https://tedline.org/api/course/TeacherUnfinishedCourse/${this.username}/`, {
+        await axios.get(`http://127.0.0.1:8000/api/course/TeacherUnfinishedCourse/${this.username}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -97,7 +97,7 @@
         )
       },
       async getDataFinished() {
-        await axios.get(`https://tedline.org/api/course/TeacherFinishedCourse/${this.username}/`, {
+        await axios.get(`http://127.0.0.1:8000/api/course/TeacherFinishedCourse/${this.username}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",

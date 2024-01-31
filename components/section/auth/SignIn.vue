@@ -75,7 +75,7 @@
       async Login() {
     this.loading = true;
     try {
-      const response = await axios.post("https://tedline.org/api/account/login/", {
+      const response = await axios.post("http://127.0.0.1:8000/api/account/login/", {
         username: this.username,
         password: this.password,
       });

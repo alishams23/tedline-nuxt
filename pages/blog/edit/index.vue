@@ -23,7 +23,7 @@
                 <v-avatar color="primary" rounded="lg" size="50">
                     <IconArticle/>
                 </v-avatar>
-                <div class=" px-5 font-weight-bold text-h4">
+                <div class="irsa px-5 font-weight-bold text-h4">
                     وبلاگ 
                 </div> 
             </v-col>
@@ -43,9 +43,9 @@
                 :key="blog.id" cols="12">
                 <v-card
                 :loading="loadingItem == blog.id"
-                    elevation="10"
+                    elevation="0"
                     rounded="xl"
-                    class="  "
+                    class="shadow-3 border"
                    >
                     <template v-slot:loader="{ isActive }">
                         <v-progress-linear
@@ -76,7 +76,7 @@
                 <v-btn
                     class="px-10 ml-4"
                     variant="flat"
-                    :to="'/blog/'+ blog.id"
+                    :to="'/blog/edit/'+ blog.id"
                     rounded="xl"
                     size="small"
                     color="primary"
@@ -125,6 +125,11 @@ import axios from "axios";
 import ShowTextEditor from '~/components/shared/ShowTextEditor.vue';
 
 export default {
+  setup() {
+    definePageMeta({
+      layout: "dashboard",
+    })
+  },
  components:{
     IconPencil,
     IconPlus,
@@ -150,20 +155,22 @@ export default {
  methods: {
     searchData() {
       this.loading = true
-      axios.get(`https://tedline.org/api/blog/Blog_List/?search=${this.search_text}&ordering=${this.order == false ? '-id' : 'id'}`, {
+      axios.get(`http://127.0.0.1:8000/api/blog/Blog_List/?search=${this.search_text}&ordering=${this.order == false ? '-id' : 'id'}`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
           Authorization: `Token ${this.$store.state.token}`,
         },
-      }).then((response) => {
+      })
+      .then((response) => {
+        console.log(response)
         this.loading = false
         this.data = response.data.results
       })
     }
     ,removeItem(id){
       this.loadingItem = id
-      axios.delete(`https://tedline.org/api/blog/BlogRemove/${id}/`, {
+      axios.delete(`http://127.0.0.1:8000/api/blog/BlogRemove/${id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -176,6 +183,7 @@ export default {
       })
     }
   }, async mounted() {
+    if (this.$store.state.isAuthenticated == null)  this.$store.commit('onStart');
     this.searchData()
   }
 };

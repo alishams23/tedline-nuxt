@@ -89,7 +89,7 @@ props:['username','progress','variant'],
   }),
   methods: {
     async getData() {
-      await axios.get(`https://tedline.org/api/course/UnfinishedCourse/${this.username}/`, {
+      await axios.get(`http://127.0.0.1:8000/api/course/UnfinishedCourse/${this.username}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -102,7 +102,7 @@ props:['username','progress','variant'],
       )
     },
     async getDataFinished() {
-      await axios.get(`https://tedline.org/api/course/FinishedCourse/${this.username}/`, {
+      await axios.get(`http://127.0.0.1:8000/api/course/FinishedCourse/${this.username}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",

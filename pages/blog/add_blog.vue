@@ -103,7 +103,7 @@ import { IconPhoto, } from '@tabler/icons-vue';
         console.log(this.photo)
         await axios
           .post(
-            `https://tedline.org/api/blog/CreateImage/`,
+            `http://127.0.0.1:8000/api/blog/CreateImage/`,
             this.fd,
   
             {
@@ -124,7 +124,7 @@ import { IconPhoto, } from '@tabler/icons-vue';
             this.imageId = response.data.id;
             axios
               .post(
-                `https://tedline.org/api/blog/createBlog/`,
+                `http://127.0.0.1:8000/api/blog/createBlog/`,
                 {
                   title: this.title,
                   body: this.body,
