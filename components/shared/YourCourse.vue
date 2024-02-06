@@ -46,7 +46,10 @@
                         <h3 class=" text-md-1 text-md-body-1 line-height-sm  irsa font-weight-medium ">{{data.title}}</h3>
                         <div class="d-flex pb-5 align-center mt-4 mt-sm-10 ">
                             <h6 class="irsa text-xs text-muted font-weight-light pl-5">
-                                <v-icon icon="fa fa-clock" class="mr-1" size="10" color="blue"></v-icon> {{data.duration}} دقیقه
+                              <v-avatar color="auto" variant="tonal" class="ml-1 " size="20">
+                                <IconClockFilled class="text-blue" size="10" />
+            
+                              </v-avatar>{{convertSeconds(data.duration)}} 
                             </h6>
                         </div>
                     </div>
@@ -59,7 +62,10 @@
 
 <script >
 import axios from "axios";
+import { IconClockFilled } from '@tabler/icons-vue';
+
   export default {
+    components: { IconClockFilled, },
  props:["data","progress"],
     data: () => ({
         value:0,
@@ -67,7 +73,18 @@ import axios from "axios";
       }),
       mounted(){
         this.value = this.data.progress_percent
-      }
+      },
+
+      methods: {
+        convertSeconds(inputMinute) {
+      let totalSeconds = parseInt(inputMinute) * 60;
+      let hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+      return `${hours}:${minutes}`
+    }
+  }
   }
 </script>
 

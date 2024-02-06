@@ -15,12 +15,16 @@
     <v-progress-circular :size="60" class="ma-10" bg-color="transparent" :width="6" color="blue"
       indeterminate></v-progress-circular>
   </div>
-  <v-img v-if="loading == false" class="rounded-xl mt-10 mx-md-10 mx-3" rounded="xl" :aspect-ratio="30 / 9" cover
+
+  <v-container v-if="loading == false">
+ 
+    <v-img v-if="loading == false" class="rounded-xl mt-10 " rounded="xl" :aspect-ratio="30 / 9" cover
     :src="data.image">
+    
     <div class="h-100  w-100 rounded-xl d-flex align-end">
-      <div class="bg-gradient-glass pt-16 py-md-5 w-100 ">
+      <div class="bg-gradient-glass h-100 d-flex flex-column justify-end px-5 pt-16 py-md-5 w-100 ">
         <v-container>
-          <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl py-5 py-md-10'>
+          <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl px-4 py-5 py-md-10'>
             {{ data.title }}
           </h1>
      
@@ -29,8 +33,8 @@
           >
             <v-list-item class=" px-0 text-center ">
              
-              <v-list-item-title v-if="data.price != 0 " class=" font-weight-bold text-md-1 text-grey2"> {{ data.price - (data.price * data.discount / 100) }}</v-list-item-title>
-              <v-list-item-title v-else class=" font-weight-bold text-md-1 text-grey2"> رایگان</v-list-item-title>
+              <v-list-item-title v-if="data.price != 0 " class=" font-weight-bold text-md-1 text-white"> {{ data.price - (data.price * data.discount / 100) }}</v-list-item-title>
+              <v-list-item-title v-else class=" font-weight-bold text-md-1 text-white"> رایگان</v-list-item-title>
               <v-list-item-subtitle class="text-xs mt-2 text-white d-flex align-center ">
                 <div class="mx-1">قیمت</div>
                 <IconCoins size="15" />
@@ -106,7 +110,7 @@
     
 
   </v-img>
-  <v-container v-if="loading == false">
+
     <v-dialog :open-delay="4000" transition="dialog-bottom-transition" v-model="dialog" :scrim="false" persistent
       class="position-dialog-b-l" width="auto" location="top" scroll-strategy="none">
       <v-alert variant="text" color="blue-accent-4" v-if="data.registered == true"
@@ -210,7 +214,7 @@
                     <v-card-title class="text-sm irsa font-weight-black">
                       مدت زمان دوره
                     </v-card-title>
-                    <v-card-text>{{ data.duration }} دقیقه</v-card-text>
+                    <v-card-text>{{ convertSeconds(data.duration) }} </v-card-text>
                   </div>
                   <v-avatar class="ma-3 text-h6  rounded-pill " variant="tonal" size="50" color="auto">
                     <IconClock class="fad fa-clock"></IconClock>
@@ -219,7 +223,21 @@
               </v-card>
             </v-col>
           </v-row>
-
+          <v-card color="grey4" v-if="data.description" class="inner-shadow-1 px-3 my-10 rounded-xl rtl py-10" elevation="0">
+            <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
+              <div>
+                <v-card-title class="irsa text-sm font-weight-black">
+                 توضیحات
+                </v-card-title>
+                <div class="line-height-sm text-body-2 rtl irsa pb-5 px-4    mt-5 ">
+                  {{ data.description }}
+                </div>
+              </div>
+              <v-avatar class="ma-3  text-h6 rounded-pill " size="50" color="blue">
+                <IconPaperclip class="fad fa-key text-auto"></IconPaperclip>
+              </v-avatar>
+            </div>
+          </v-card>
           <div class="py-8 mt-16  inner-shadow-1 rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
             <div class="text-h6 d-flex justify-space-between  align-center irsa font-weight-black rtl px-5 mb-10"> مدرس
 
@@ -318,7 +336,7 @@ import Course from '~/components/shared/Course.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
 import YourCourseComponents from "~/components/shared/YourCourse.vue";
-import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye } from '@tabler/icons-vue';
+import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye,IconPaperclip } from '@tabler/icons-vue';
 
 
 export default {
@@ -336,6 +354,7 @@ export default {
     Course,
     FooterComponent,
     YourCourseComponents,
+    IconPaperclip,
     IconUser, IconListCheck, IconCoins, IconClock,
     IconLockOpen, IconX, IconShare, IconEye
 
@@ -389,6 +408,14 @@ export default {
           textArea.remove();
         });
       }
+    },
+    convertSeconds(inputMinute) {
+      let totalSeconds = parseInt(inputMinute) * 60;
+      let hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+      return `${hours}:${minutes}`
     },
     register() {
       if (this.data.price > 0) {

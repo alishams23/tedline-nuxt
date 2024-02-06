@@ -72,4 +72,12 @@ const { content } = toRefs(props);
 .quillCustom .ql-toolbar.ql-snow{
     display: none;
 }
+
+.ql-container {
+  font-size: 16px;
+ 
+}
+.ql-editor {
+  line-height: 2;
+}
 </style>

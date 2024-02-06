@@ -8,11 +8,11 @@
                     <v-img class=" align-end rounded-xl  text-auto  " :aspect-ratio="1 / 1"
                         :src="data.imageBlog.photo" cover>
                         <div class="h-100  w-100 rounded-xl d-flex align-end">
-                            <div class="bg-gradient-glass pt-16 py-md-5 w-100 ">
+                            <div class="bg-gradient-glass2 pt-16 py-md-5 w-100 ">
                                 <v-container>
-                                    <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl  '>
+                                    <div  class=' text-body-1 text-white text-md-h6 font-weight-black irsa rtl  '>
                                         {{ data.title }}
-                                    </h1>
+                                    </div>
                                 </v-container>
                             </div>
                         </div>

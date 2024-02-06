@@ -3,7 +3,7 @@
   <Navbar :transparent="false" :shadow="true"  />
   <Navbar :transparent="true"  />
   <Header />
-  <v-container>
+  <v-container >
    <YourCourses :username="$store.state.username"  />
     <SuggestionCourses class="  " />
    <div class="pb-md-5 ">

@@ -1,49 +1,51 @@
 <template>
   <div>
 
-    <v-card   class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl" elevation="0" >
-      <v-card  :ripple="false" class=" pa-0  rounded-2lg " color="transparent"  elevation="0" :to="'/course/' + data.id">
+    <v-card class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl"
+      elevation="0">
+      <v-card :ripple="false" class=" pa-0  rounded-2lg " color="transparent" elevation="0" :to="'/course/' + data.id">
 
-        <div >
+        <div>
           <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
 
-           <div class="h-100  w-100 rounded-xl d-flex align-end">
-            <div class="bg-gradient-glass pt-16 py-5  px-5  w-100 text-white text-right">
-             
+            <div class="h-100  w-100 rounded-xl d-flex align-end">
+              <div class="bg-gradient-glass2 h-100 d-flex flex-column justify-end  pt-16 py-5  px-5  w-100 text-white text-right">
+
                 <div v-if="data.price != 0">
                   {{ data.price }} <span class=" text-grey  irsa text-xxs">تومان</span>
                 </div>
-                
-                <div v-else class="text-xs-2" >
+
+                <div v-else class="text-xs-2">
                   رایگان
-                
+
                 </div>
-              
+
                 <div class="rtl text-xs-2 font-weight-light mt-2 ">
                   <v-avatar color="auto" variant="tonal" class="ml-1 " size="20">
-                   <IconClockFilled class="text-blue" size="10" />
-           
+                    <IconClockFilled class="text-blue" size="10" />
+
                   </v-avatar>
-                   {{ data.duration }}
-                   دقیقه
-         
-                 </div>
-           
-            
+                  {{ convertSeconds(data.duration) }}
+                  
+
+                </div>
+
+
+              </div>
             </div>
-          </div>
           </v-img>
         </div>
 
-       <div :class="titleClass">
-        <v-responsive height="55" >
-          <div  class=" test-right text-xs   rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
-            data.title }}
-          </div>
-        </v-responsive>
-       </div>
+        <div :class="titleClass">
+          <v-responsive height="55">
+            <div
+              class=" test-right text-xs   rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
+                data.title }}
+            </div>
+          </v-responsive>
+        </div>
       </v-card>
-      <v-card-actions class=" pb-0 pt-0 ma-0"  v-if="detail!= false">
+      <v-card-actions class=" pb-0 pt-0 ma-0" v-if="detail != false">
 
 
         <v-icon @click="show = !show" class="px-3" size="15">
@@ -56,24 +58,23 @@
             <template v-slot:prepend>
               <v-avatar size="25" class=" rounded-2lg bg-blue text-nauto">
                 <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
-                <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
-                  cover></v-img>
+                <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`" cover></v-img>
 
               </v-avatar>
             </template>
             <v-list-item-title class=" font-weight-bold  text-xs-2 text-nauto">{{ data.teacher.username
             }}
-          </v-list-item-title>
-          
+            </v-list-item-title>
+
           </v-list-item>
- 
+
         </div>
       </v-card-actions>
-      <v-expand-transition >
+      <v-expand-transition>
         <div v-show="show" class="rtl">
           <v-divider></v-divider>
 
-          <v-card-text class="rtl text-xs-2" >
+          <v-card-text class="rtl text-xs-2">
 
             {{ data.description }}
           </v-card-text>
@@ -88,11 +89,21 @@
 <script>
 import { IconClockFilled } from '@tabler/icons-vue';
 export default {
-  props: ["data", "width","detail","color","titleClass","cardClass"],
-  components:{IconClockFilled,},
+  props: ["data", "width", "detail", "color", "titleClass", "cardClass"],
+  components: { IconClockFilled, },
   data: () => ({
     show: false,
   }),
+  methods: {
+    convertSeconds(inputMinute) {
+      let totalSeconds = parseInt(inputMinute) * 60;
+      let hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+      return `${hours}:${minutes}`
+    }
+  }
 }
 </script>
 <style>
