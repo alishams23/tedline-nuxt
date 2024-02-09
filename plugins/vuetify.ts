@@ -22,6 +22,7 @@ const dark: ThemeDefinition =  {
     auto:'#181818',
     nauto:'#FFFFFF',
     'white-in-light':'#00FFFFFF',
+    'black-in-light':'#212121',
     shadow1 :'#cacaca ',
     'shadow-inner-dark' :'#9898A4',
     
@@ -47,6 +48,8 @@ const light: ThemeDefinition =  {
     'primary-darken-1': '#15233f',
     'primary-darken-2': '#0f1931',
     'white-in-light':'#FFFFFF',
+    'black-in-light':'#BDBDBD',
+
     'shadow-inner-dark' :'FFFFFF',
 
   },

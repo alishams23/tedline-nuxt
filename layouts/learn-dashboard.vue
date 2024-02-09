@@ -101,7 +101,7 @@
     </v-main>
 
   </v-app>
-  <v-layout class="overflow-visible  hidden-lg-and-up" style="height: 65px;">
+  <v-layout class="overflow-visible bg-grey4 hidden-lg-and-up" style="height: 65px;">
     <bottomNavigation />
   </v-layout>
 </template>

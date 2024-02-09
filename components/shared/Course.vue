@@ -9,7 +9,7 @@
           <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
 
             <div class="h-100  w-100 rounded-xl d-flex align-end">
-              <div class="bg-gradient-glass2 h-100 d-flex flex-column justify-end  pt-16 py-5  px-5  w-100 text-white text-right">
+              <div class="bg-gradient-glass2 h-100 d-flex flex-column justify-end  pt-16 py-3 py-md-5  px-5  w-100 text-white text-right">
 
                 <div v-if="data.price != 0">
                   {{ data.price }} <span class=" text-grey  irsa text-xxs">تومان</span>

@@ -10,7 +10,7 @@
                         <div class="h-100  w-100 rounded-xl d-flex align-end">
                             <div class="bg-gradient-glass2 pt-16 py-md-5 w-100 ">
                                 <v-container>
-                                    <div  class=' text-body-1 text-white text-md-h6 font-weight-black irsa rtl  '>
+                                    <div  class=' text-body-2 test-n text-white text-md-body-1 font-weight-black irsa rtl  '>
                                         {{ data.title }}
                                     </div>
                                 </v-container>

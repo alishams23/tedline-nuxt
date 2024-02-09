@@ -22,7 +22,7 @@
     :src="data.image">
     
     <div class="h-100  w-100 rounded-xl d-flex align-end">
-      <div class="bg-gradient-glass h-100 d-flex flex-column justify-end px-5 pt-16 py-md-5 w-100 ">
+      <div class="bg-gradient-glass h-100 d-flex flex-column justify-end px-md-5 pt-16 py-md-5 w-100 ">
         <v-container>
           <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl px-4 py-5 py-md-10'>
             {{ data.title }}
@@ -90,7 +90,7 @@
                 <IconShare />
               </v-icon>
             </template>
-            به اشتراک گذاری
+             اشتراک گذاری
           </v-btn>
           </div>
 

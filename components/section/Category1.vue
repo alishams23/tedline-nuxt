@@ -1,5 +1,5 @@
 <template>
-  <v-card  class="rounded-xl  my-15 py-10 text-white  bg-blue-gradient-2" elevation="0">
+  <v-card  class="rounded-xl  my-15 py-10 text-white  background-gradient-category" elevation="0">
     <v-row class=" flex-row-reverse " align="center">
       <v-col cols="12" lg="3" md="4">
         <v-card-title class="irsa  font-weight-black rtl">
@@ -89,4 +89,9 @@ export default {
 }
 .my-gallery figure {
   margin: 0px;
-}</style>
+}
+
+.background-gradient-category{
+  background: linear-gradient(to right, rgb(5, 117, 230), rgb(2, 27, 121));
+}
+</style>

@@ -25,7 +25,7 @@
     </v-navigation-drawer>
 
   </v-app>
-  <v-layout class="overflow-visible  hidden-lg-and-up" style="height: 65px;">
+  <v-layout class="overflow-visible bg-auto hidden-lg-and-up" style="height: 65px;">
     <bottomNavigation />
   </v-layout>
 </template>

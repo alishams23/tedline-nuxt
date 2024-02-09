@@ -74,7 +74,7 @@ const { content } = toRefs(props);
 }
 
 .ql-container {
-  font-size: 16px;
+  font-size: 15px;
  
 }
 .ql-editor {

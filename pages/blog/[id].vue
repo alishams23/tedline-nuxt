@@ -2,8 +2,8 @@
 
 <Navbar :shadow="true" />
 
-<div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular :size="60" class="ma-10" bg-color="transparent" :width="6" color="blue"
+<div v-if="loading" class="d-flex h-100 justify-center align-center" >
+    <v-progress-circular :size="55" class="ma-10" bg-color="grey4" :width="7" color="blue"
       indeterminate></v-progress-circular>
   </div>
 
@@ -54,7 +54,7 @@
 
 
 
-<div class="mx-5 px-md-10">
+<div class=" px-md-10">
   <ShowTextEditor  :content="data.body"/>
 
 </div>
