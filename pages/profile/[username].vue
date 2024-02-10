@@ -49,10 +49,21 @@
       </v-col>
       <v-col class="rtl text-white d-flex   justify-center justify-md-start" cols="12" md="6">
      
-
+        <v-skeleton-loader
+        v-if="!data"
+    
+        color="transparent"
+        :boilerplate="true"
+        class="rounded-2lg"
+        type="text, "
+        width="200"
+      >
+    </v-skeleton-loader>
         <div class=" d-flex flex-column align-center align-md-start">
-          <h3 class="text-h5 text-white  font-weight-black irsa">
+        
+          <h3 v-if="data" class="text-h5 text-white  font-weight-black irsa">
             {{ $route.params.username }}
+          
           </h3>
           <v-list-item-subtitle v-if="data">{{data.get_full_name}}</v-list-item-subtitle>
         </div>
@@ -68,11 +79,20 @@
 
  </div>
   <v-container class="mt-0 mt-md-5">
-    
-   
+
+<v-skeleton-loader
+v-if="!data"
+  v-for="n in 3"
+  color="auto"
+  class="mx-5 my-10 rounded-2lg"
+  type="image, "
+  >
+</v-skeleton-loader>
+
     <div class="text-right text-xs rtl mb-10 px-5 " v-if="data && data.bio">
         {{ data.bio }}
     </div>
+    <v-expand-transition>
     <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">
         <v-col cols="6" md="4" lg="2" class="pa-1 " v-if="data.status == 's'">
           <v-sheet  class="align-center rounded-pill bg-blue-accent-4  d-flex justify-space-between pa-2 pe-3">
@@ -114,6 +134,7 @@
           </v-sheet>
         </v-col>
     </v-row>
+  </v-expand-transition>
     <div class="mt-16"></div>
     <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username"  />
     <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username"  />

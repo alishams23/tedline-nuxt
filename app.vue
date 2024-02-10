@@ -14,6 +14,7 @@
 </div>
   <div>
     <NuxtLayout >
+      
       <NuxtPage/>
     </NuxtLayout>
   </div>
@@ -45,6 +46,8 @@ export default {
 </script>
 
 <style>
+
+
 .progress-bar-container {
   position: fixed;
   top: 0;

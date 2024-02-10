@@ -48,7 +48,7 @@ export default {
             {
                 title: 'وبلاگ',
                 icon: "fa-book",
-                to: '/blog/'
+                to: '/explore/?tab=2'
             },
             {
                 title: 'ارتباط با ما',
@@ -89,7 +89,7 @@ export default {
             {
                 title: 'وبلاگ',
                 icon: "fa-book",
-                to: '/blog/'
+                to: '/explore/?tab=2'
             },
             {
                 title: 'ارتباط با ما',

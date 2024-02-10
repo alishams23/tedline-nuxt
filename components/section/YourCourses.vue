@@ -1,5 +1,6 @@
 <template>
   <v-locale-provider rtl>
+    
   <v-card elevation="0" color="transparent" class="mt-5 ">
     <v-tabs v-if="variant != 'flat'" v-model="tab" align-tabs="center" elevation="0" slider-color="transparent"  color="blue-accent-3"
       density="comfortable">
@@ -28,9 +29,13 @@
     <v-card-text>
       <v-window v-model="tab">
         <v-window-item value="one">
+         
           <div class="my-10" v-for="item in data" :key="item.id+'unfinished'">
+          
             <YourCourseComponents :progress="progress"  :data="item" />
+  
           </div>
+      
           <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class=" rounded-lg rtl bg-grey5  border-opacity-100  my-10" border="start">
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
@@ -39,16 +44,22 @@
               شما هیچ دوره ای برای یادگیری ندارید
             </div>
           </v-alert>
-          <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingUnfinished" :size="55" class="ma-10" bg-color="grey4" :width="7" color="blue"
-              indeterminate></v-progress-circular>
-              
-          </div>
+          <v-skeleton-loader
+          v-if="loadingUnfinished"
+          v-for="n in 3"
+         
+          class="py-0 my-10 rounded-2lg"
+          type="image, "
+        >
+      </v-skeleton-loader>
+         
         </v-window-item>
         <v-window-item value="two">
+      
           <div class="my-10" v-for="item in dataFinished" :key="item.id+'unfinished'">
             <YourCourseComponents :progress="progress" :data="item"  />
           </div>
+
           <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="rounded-lg bg-grey5 rtl border-opacity-100  my-10" border="start">
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
@@ -57,10 +68,15 @@
               شما هیچ دوره های را به اتمام نرسانده اید
             </div>
           </v-alert>
-          <div class="d-flex justify-center">
-            <v-progress-circular v-if="loadingFinished" :size="55" class="ma-10" bg-color="grey4" :width="7" color="blue"
-              indeterminate></v-progress-circular>
-          </div>
+          
+          <v-skeleton-loader
+          v-if="loadingFinished"
+          v-for="n in 3"
+          color="gray4"
+          class="py-0 my-10 rounded-2lg"
+          type="image, "
+        >
+      </v-skeleton-loader>
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -74,10 +90,12 @@ import axios from "axios";
 import YourCourseComponents from "~/components/shared/YourCourse.vue";
 
 
+
 export default {
 props:['username','progress','variant'],
   components: {
     YourCourseComponents,
+
   },
   data: () => ({
     model: null,

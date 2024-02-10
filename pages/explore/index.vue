@@ -102,7 +102,7 @@
   
   <div>
   
-    <v-container v-if="loading == false"  >
+    <v-container   >
       <v-container>
         <v-tabs v-model="tab" align-tabs="end" color="transparent" class="text-grey2">
           <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="me-auto mt-auto "
@@ -133,22 +133,25 @@
         </v-tabs>
       </v-container>
       <v-card  color="grey4" class="inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">
-        <v-window v-model="tab" >
+        <v-scroll-x-transition>
+        <v-window v-model="tab" v-if="loading == false">
           <v-window-item :value="1">
             <v-row no-gutters >
               <v-col v-for="item in data" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
                 <Course :data="item" :detail="false" color="grey4" class="w-100  ma-2 ma-md-5 " />
               </v-col>
               <v-container>
-              <v-alert v-if="data.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
-                <div class="text-sm  font-weight-black irsa">
-                  دوره ای وجود ندارد
-                </div>
-              </v-alert>
+             
+                <v-alert v-if="data.length == 0"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+                  <div class="text-sm  font-weight-black irsa">
+                    دوره ای وجود ندارد
+                  </div>
+                </v-alert>
+         
             </v-container>
             </v-row>
           </v-window-item>
-          <v-window-item :value="2">
+          <v-window-item :value="2" v-if="loading == false">
             <v-row no-gutters >
               <v-col v-for="item in blogData" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
                 <CardBlog :data="item"  color="grey4" class="w-100  ma-2 ma-md-5 " />
@@ -164,6 +167,14 @@
           
           </v-window-item>
         </v-window>
+      </v-scroll-x-transition>
+        <v-row no-gutters >
+          <v-col  v-for="item in 20" v-if="loading" cols="6" lg="3" md="4" sm="6">
+        <v-skeleton-loader color="grey4" class="mx-2 mx-md-5 my-6" type="card"></v-skeleton-loader>
+
+            </v-col>
+            </v-row>
+
       </v-card>
     </v-container>
   </div>
@@ -232,13 +243,14 @@ export default {
     is_discount: false,
   }),
   methods: {
-    searchCourse() {
+   async searchCourse() {
       this.loading = true
-      axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
+      await axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
         this.data = response.data.results
-        this.loading = false
       }
       )
+      this.loading = false
+
     },
     searchBlog() {
       this.loading = true

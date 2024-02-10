@@ -36,9 +36,14 @@
               </div>
               
             </div>
-            <v-chip :to="'/explore/?category=' + item.id"  v-for="item in data" :key="item.id + '+category+header'" color="white" class="mt-3 mx-1 px-3 text-xs-2" size="small" variant="tonal">
+            <v-scroll-x-transition>
+          <div v-if="loading == false">
+            <v-chip :to="'/explore/?category=' + item.id"   v-for="item in data" :key="item.id + '+category+header'" color="white" class="mt-3 mx-1 px-3 text-xs-2" size="small" variant="tonal">
               {{ item.title }}
             </v-chip>
+          </div>
+          </v-scroll-x-transition>
+            <v-skeleton-loader color="transparent" v-if="loading"  class="my-2 rtl" type="chip,chip,chip,"></v-skeleton-loader>
           </div>
         </v-col>
       </v-row>

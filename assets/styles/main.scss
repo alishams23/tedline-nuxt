@@ -1,7 +1,9 @@
 
 @import 'vuetify/styles/main.sass';
 
-
+.v-skeleton-loader__image{
+    border-radius: 20px !important;
+}
 
 $main-color : rgb(6, 145, 192);
 $main-color-dark : rgb(3, 82, 108);
