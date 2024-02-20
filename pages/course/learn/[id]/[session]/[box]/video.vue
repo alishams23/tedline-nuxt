@@ -25,7 +25,8 @@
       <v-sheet rounded="xl">
         <video-player @seeking="seeking" :src="`${videoUrl}/${$route.params.id}/${$route.params.box}/?token=${$store.state.token}#.mp4`"
           data-type="video/mp4" controls oncontextmenu="return false;" :loop="true" @mounted="update" :responsive="true"
-          :fluid="true" :playbackRates="[0.5, 1, 1.5, 2]" :volume="0.6">
+          :fluid="true" :playbackRates="[0.5, 1, 1.5, 2]" :volume="0.6"
+          >
           <template v-if="state" v-slot="{ player, state }">
             {{ dialog == true ? player.pause() : '' }}
             <div v-if="data" v-for="item in data.quiz ">

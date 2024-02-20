@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <v-card class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl"
+    <v-card  class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl"
       elevation="0">
       <v-card :ripple="false" class=" pa-0  rounded-2lg " color="transparent" elevation="0" :to="'/course/' + data.id">
 
@@ -9,18 +9,49 @@
           <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
 
             <div class="h-100  w-100 rounded-xl d-flex align-end">
-              <div class="bg-gradient-glass2 h-100 d-flex flex-column justify-end  pt-16 py-3 py-md-5  px-5  w-100 text-white text-right">
-
-                <div v-if="data.price != 0">
-                  {{ data.price }} <span class=" text-grey  irsa text-xxs">تومان</span>
+              
+              <div class="bg-gradient-glass2 rtl h-100 d-flex flex-column justify-end   pt-md-16 py-3 py-md-5  px-5  w-100 text-white text-right">
+              
+             
+               
+               <div class="d-flex">
+                <v-list-item v-if="detail != true && data.teacher" class="  px-0" >
+                  <template v-slot:prepend>
+                    <v-avatar variant="tonal" color="black" size="25" class=" rounded-2lg  text-nauto">
+                      <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
+                      <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`" cover></v-img>
+      
+                    </v-avatar>
+                  </template>
+                  <v-list-item-title class=" font-weight-bold  text-xs-2 text-white">{{ data.teacher.username
+                  }}
+                  </v-list-item-title>
+      
+                </v-list-item>
+               </div>
+               <div class=" d-flex  flex-wrap align-center">
+                <div v-if="data.price != 0" class="d-flex align-center pl-5 pl-md-0 ">
+                  <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span> 
+                  <span v-else >
+                      
+                      <div class=" text-xxs text-grey1  mb-n1">
+                      <span class="text-decoration-line-through">  {{ data.price }}</span>
+                      <span class="text-red  text-sm font-weight-black">{{data.discount}}%</span>
+                      </div>
+                      <div class="text-xs">
+                        {{ data.price - (data.price * data.discount / 100) }}
+                      </div>
+                  </span> <span :class="data.discount != 0 ? 'mb-n3': '' " class=" text-grey1  irsa text-xxs">تومان</span>
                 </div>
-
-                <div v-else class="text-xs-2">
+  
+                <div v-else class="text-xs-2 pl-3 pl-md-0 font-weight-light ">
                   رایگان
-
+  
                 </div>
+            <div class=" mx-2 py-2 hidden-md-and-down bg-grey-lighten-1" style="padding-left: 0.5px;"></div>
 
-                <div class="rtl text-xs-2 font-weight-light mt-2 ">
+
+                <div class="rtl text-xs-2 font-weight-light  ">
                   <v-avatar color="auto" variant="tonal" class="ml-1 " size="20">
                     <IconClockFilled class="text-blue" size="10" />
 
@@ -29,8 +60,7 @@
                   
 
                 </div>
-
-
+               </div>
               </div>
             </div>
           </v-img>

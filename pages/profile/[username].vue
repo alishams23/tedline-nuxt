@@ -95,7 +95,7 @@ v-if="!data"
     <v-expand-transition>
     <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">
         <v-col cols="6" md="4" lg="2" class="pa-1 " v-if="data.status == 's'">
-          <v-sheet  class="align-center rounded-pill bg-blue-accent-4  d-flex justify-space-between pa-2 pe-3">
+          <v-sheet  class="align-center rounded-pill bg-blue-gradient-3 text-white  d-flex justify-space-between pa-2 pe-3">
             <v-avatar variant="tonal" class=" " color="white" size="38">
              <v-icon size="15">
               fad fa-list
@@ -108,7 +108,7 @@ v-if="!data"
           </v-sheet>
         </v-col>
         <v-col cols="6" md="4" lg="2" class="pa-1" v-if="data.status == 's'" >
-          <v-sheet  class="align-center rounded-pill bg-blue-grey-darken-4  d-flex justify-space-between  pa-2 pe-3">
+          <v-sheet  class="align-center rounded-pill bg-blue-gradient-2 text-white  d-flex justify-space-between  pa-2 pe-3">
             <v-avatar variant="tonal"  class=" " color="white" size="38">
              <v-icon size="15">
               fad fa-check

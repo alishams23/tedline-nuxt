@@ -132,7 +132,7 @@
           </v-tab>
         </v-tabs>
       </v-container>
-      <v-card  color="grey4" class="inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">
+      <v-card  color="grey4" class=" inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">
         <v-scroll-x-transition>
         <v-window v-model="tab" v-if="loading == false">
           <v-window-item :value="1">

@@ -5,7 +5,7 @@
             <v-card :ripple="false" class=" pa-0  " color="transparent" elevation="0" :to="'/blog/' + data.id">
 
                 <div>
-                    <v-img class=" align-end rounded-xl  text-auto  " :aspect-ratio="1 / 1"
+                    <v-img class=" align-end  text-auto  " :aspect-ratio="1 / 1"
                         :src="data.imageBlog.photo" cover>
                         <div class="h-100  w-100 rounded-xl d-flex align-end">
                             <div class="bg-gradient-glass2 pt-16 py-md-5 w-100 ">

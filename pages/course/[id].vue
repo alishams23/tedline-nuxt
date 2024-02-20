@@ -32,8 +32,20 @@
             <v-card  color="transparent" class="rtl     " elevation="0"
           >
             <v-list-item class=" px-0 text-center ">
-             
-              <v-list-item-title v-if="data.price != 0 " class=" font-weight-bold text-md-1 text-white"> {{ data.price - (data.price * data.discount / 100) }}</v-list-item-title>
+            
+              <div v-if="data.price != 0" class="d-flex align-center text-white pt-3">
+                <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
+                <span v-else class="px-1 ">
+    
+                  <div class=" text-xxs text-grey1 mt-n3 mb-n1">
+                    <span class="text-decoration-line-through"> {{ data.price }}</span>
+                    <span class="text-blue  font-weight-black">{{data.discount}}%</span>
+                  </div>
+                  <div class="text-xs">
+                    {{ data.price - (data.price * data.discount / 100) }}
+                  </div>
+                </span> <span class=" text-grey1  irsa text-xxs">تومان</span>
+              </div>
               <v-list-item-title v-else class=" font-weight-bold text-md-1 text-white"> رایگان</v-list-item-title>
               <v-list-item-subtitle class="text-xs mt-2 text-white d-flex align-center ">
                 <div class="mx-1">قیمت</div>
@@ -42,7 +54,7 @@
             </v-list-item>
 
           </v-card>
-            <div class="my-4 mx-8   bg-grey " style="padding-left: 0.5px;"></div>
+            <div class="my-4 mx-8 bg-grey" style="padding-left: 0.5px;"></div>
 
             <v-card v-if="data.teacher" color="transparent" class="rtl     " elevation="0"
               :to="'/profile/' + data.teacher.username">
@@ -200,11 +212,34 @@
                     <v-card-title class="irsa text-sm font-weight-black ">
                       هزینه ی دوره
                     </v-card-title>
-                    <v-card-text v-if="data.price != 0">{{ data.price - (data.price * data.discount / 100)  }} تومان</v-card-text>
-                    <v-card-text v-else>رایگان</v-card-text>
+                    <div v-if="data.price != 0" class="d-flex align-center  pb-3 px-3">
+                      <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
+                      <span v-else class="px-1 ">
+          
+                        <div class=" text-xs  mt-n3 mb-n1">
+                          <span class="text-decoration-line-through "> {{ data.price }}</span>
+                      
+                        </div>
+                        <div class="text-sm font-weight-bold">
+                          {{ data.price - (data.price * data.discount / 100) }}
+                        </div>
+                      </span> <span class="    irsa text-xxs">تومان</span>
+                    </div>
+                    <div v-else class="text-sm px-4 pb-3 ">
+                      رایگان
+          
+                    </div>
                   </div>
-                  <v-avatar class="ma-3 text-h6  rounded-pill " size="50" variant="tonal" color="auto">
-                    <IconCoins />
+                  
+                  <v-avatar v-if="data.discount == 0" class="ma-3 text-h6  rounded-pill " size="50" variant="tonal" color="auto">
+                    <IconCoins  />
+                
+                  </v-avatar>
+                  <v-avatar v-else class="ma-3 text-h6  rounded-pill " size="50" variant="outline" color="auto">
+                  
+                    <div  class="pt-1" >
+                      {{ data.discount }}%
+                    </div>
                   </v-avatar>
                 </div>
               </v-card>

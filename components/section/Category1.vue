@@ -92,6 +92,6 @@ export default {
 }
 
 .background-gradient-category{
-  background: linear-gradient(to right, rgb(5, 117, 230), rgb(2, 27, 121));
+  background: radial-gradient(circle at 10% 20%, rgb(59, 149, 237) 0%, rgb(7, 91, 173) 90%);
 }
 </style>

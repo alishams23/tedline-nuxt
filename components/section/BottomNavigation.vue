@@ -1,12 +1,12 @@
 
 <template>
   <v-bottom-navigation  v-model="value"  height="auto" elevation="0"  class=" bg-transparent  pb-2  w-100 " grow>
-   <div class="bg-auto   shadow-custom d-flex justify-center px-0 align-center mx-0 py-0 px-0 rounded-pill  ">
+   <div class="bg-grey5   shadow-custom d-flex justify-center px-0 align-center mx-0 py-0 px-0 rounded-pill  ">
     <v-btn variant="plain" height="20px" c v-for="(item, index) in menuDown"
     :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`"
     :key="item + '+Down menu'" class="no-hover-effect h-full px-0    space-y-8 space-y-1 margin-x-1 rounded-pill" :ripple="false" color="transparent">
 
-    <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="w-full  bg-auto   rounded-pill ">
+    <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="w-full  bg-grey5   rounded-pill ">
       <component :is="item.icon" class="text-grey" style="height: 19px;" />
     </v-sheet>
 

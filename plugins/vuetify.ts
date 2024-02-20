@@ -12,8 +12,11 @@ const dark: ThemeDefinition =  {
     'primary-lighten-5':'#022d5c',
     'primary-lighten-4':'#004ac1',
     'primary-lighten-3':'#004ac1',
+    'blue-gradient-1':'#1978ec',
+    'blue-gradient-2':'#0026be',
     'primary-darken-1': '#0473e9',
     'primary-darken-2': '#045de9',
+    'gradient-light-box': '#171e1d',
     grey1:'#757575',
     grey2:'#616161',
     grey3:'#424242',
@@ -35,6 +38,8 @@ const light: ThemeDefinition =  {
     'primary-lighten-5':'#d5eef9',
     'primary-lighten-4':'#7498fa',
     'primary-lighten-3':'#4eabf7',
+    'blue-gradient-1':'#4eabf7',
+    'blue-gradient-2':'#194aec',
     secondary1:'#d2942a',
     secondary2:'#ce6b2a',
     grey1:'#BDBDBD',
@@ -49,6 +54,7 @@ const light: ThemeDefinition =  {
     'primary-darken-2': '#0f1931',
     'white-in-light':'#FFFFFF',
     'black-in-light':'#BDBDBD',
+    'gradient-light-box': '#fbfcdb',
 
     'shadow-inner-dark' :'FFFFFF',
 

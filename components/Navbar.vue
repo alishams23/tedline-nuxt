@@ -3,7 +3,7 @@
     <v-navigation-drawer  elevation="0" temporary v-model="drawerChecker">
       <Sidebar />
     </v-navigation-drawer>
-    <v-app-bar :class="transparent == true ? 'custom-bg-blue text-auto  ' : shadow == true ? 'shadow-1 bg-auto ' : ''"
+    <v-app-bar density="comfortable" :class="transparent == true ? 'custom-bg-blue text-auto  ' : shadow == true ? 'shadow-1 bg-auto ' : ''"
       :scroll-behavior=" transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
       class="py-2" app elevation="0">
       <v-app-bar-nav-icon @click.stop="drawerChecker = !drawerChecker">
@@ -11,7 +11,7 @@
       </v-app-bar-nav-icon>
       <v-toolbar-title>
      
-<v-sheet v-if="transparent == false" class="mr-auto hidden-md-and-down rounded-pill   " color="transparent"  height="40" width="110">
+<v-sheet v-if="transparent == false" class="mr-auto hidden-md-and-down rounded-pill   " color="transparent"  height="33" width="110">
   <v-img src="/images/icon2.png"  class="  w-100 h-100  "></v-img>
 
 </v-sheet> 
@@ -19,7 +19,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <div class="me-2 " :class="transparent == true ? 'text-white' : ''" v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
-        <v-list-item  class=" hidden-md-and-down  text-center text-body-2 font-weight-bold" width="120px"
+        <v-list-item  class=" hidden-md-and-down  text-center text-xs font-weight-bold" width="120px"
           :color="transparent == true ? 'light': 'blue' " rounded="pill" :key="item.title" :to="item.path">
           {{ item.title }}
         </v-list-item>

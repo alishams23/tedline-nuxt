@@ -1,8 +1,8 @@
 <template>
-  <v-row justify="center" class="inner-shadow-1  bg-grey4  rounded-xl flex-row-reverse" align="center" no-gutters>
+  <v-row justify="center" class="inner-shadow-1  bg-custom-s rounded-xl flex-row-reverse" align="center" no-gutters>
     <v-col cols="12" lg="3" class="px-6 pb-md-10 pt-10">
       <h3 class=" text-h5 text-md-h3 font-weight-bold irsa text-right text-md-center line-height-sm">
-        <span class=" text-blue">بهترین</span> دوره ها
+        <span class=" text-gradient-1 ">بهترین</span> دوره ها
       </h3>
       <p class="mt-md-6 rtl pt-4 text-muted text-right text-md-center">
         دوره‌های آموزشی که تدلاین به شما توصیه می‌کند.
@@ -20,7 +20,7 @@
     
       <SwiperSlide v-for="item in data"  :key="item">
         
-        <Course :data="item" titleClass="pt-md-3 py-1" cardClass="pa-2 pb-0 " class="my-16  responsive-card px-1 px-md-2"  />
+        <Course :data="item"  :detail="true"  cardClass=" pb-0 " class="my-16 shadow-1  responsive-card px-1 px-md-2"  />
 
       </SwiperSlide>
     </Swiper>
@@ -35,7 +35,7 @@
   </v-row>
 </template>
 <script>
-import Course from '~/components/shared/Course.vue'
+import Course from '~/components/shared/CourseCard2.vue'
 import axios from "axios";
 
 
