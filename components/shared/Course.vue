@@ -32,16 +32,16 @@
                <div class=" d-flex  flex-wrap align-center">
                 <div v-if="data.price != 0" class="d-flex align-center pl-5 pl-md-0 ">
                   <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span> 
-                  <span v-else >
+                  <span v-else  >
                       
-                      <div class=" text-xxs text-grey1  mb-n1">
+                      <div class=" text-xs-2 text-grey1  mb-n1">
                       <span class="text-decoration-line-through">  {{ data.price }}</span>
                       <span class="text-red  text-sm font-weight-black">{{data.discount}}%</span>
                       </div>
                       <div class="text-xs">
                         {{ data.price - (data.price * data.discount / 100) }}
                       </div>
-                  </span> <span :class="data.discount != 0 ? 'mb-n3': '' " class=" text-grey1  irsa text-xxs">تومان</span>
+                  </span> <span :class="data.discount != 0 ? 'mb-n3 mr-n3': '' " class=" text-grey1  irsa text-xxs">تومان</span>
                 </div>
   
                 <div v-else class="text-xs-2 pl-3 pl-md-0 font-weight-light ">

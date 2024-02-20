@@ -72,14 +72,14 @@
             <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
             <span v-else class="px-1 ">
 
-              <div class=" text-xxs text-grey1 mt-n3 mb-n1">
+              <div class=" text-xs-2 text-grey1 mt-n3 mb-n1">
                 <span class="text-decoration-line-through"> {{ data.price }}</span>
                 <span class="text-blue  font-weight-black">{{data.discount}}%</span>
               </div>
               <div class="text-xs">
                 {{ data.price - (data.price * data.discount / 100) }}
               </div>
-            </span> <span class=" text-grey1  irsa text-xxs">تومان</span>
+            </span> <span :class="data.discount > 0 ? 'mr-n2' : ''" class=" text-grey1  irsa text-xxs">تومان</span>
           </div>
 
           <div v-else class="text-xs-2 font-weight-light ">

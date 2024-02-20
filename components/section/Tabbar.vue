@@ -30,9 +30,9 @@
      density="comfortable"
     >
       <v-sheet class=" rounded-pill bg-grey5 " >
-        <v-tab class="bg-transparent  px-7 px-md-16 rounded-pill "  variant="flat" value="one">دانشجویان</v-tab>
-      <v-tab class="bg-transparent px-7 mx-1 px-md-16  rounded-pill "  variant="flat" value="two">مدرسین</v-tab>
-      <v-tab class="bg-transparent px-7 px-md-16 rounded-pill "  variant="flat" value="three">سازمان ها</v-tab>
+        <v-tab class="bg-transparent  px-7 px-md-16 rounded-pill text-xs-1"  variant="flat" value="one">دانشجویان</v-tab>
+      <v-tab class="bg-transparent px-7 mx-1 px-md-16  rounded-pill text-xs-1"  variant="flat" value="two">مدرسین</v-tab>
+      <v-tab class="bg-transparent px-7 px-md-16 rounded-pill text-xs-1"  variant="flat" value="three">سازمان ها</v-tab>
       </v-sheet>
     </v-tabs>
     <v-card-text>

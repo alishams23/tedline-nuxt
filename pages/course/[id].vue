@@ -18,7 +18,7 @@
 
   <v-container v-if="loading == false">
  
-    <v-img v-if="loading == false" class="rounded-xl mt-10 " rounded="xl" :aspect-ratio="30 / 9" cover
+    <v-img v-if="loading == false" class="rounded-xl mt-4 " rounded="xl" :aspect-ratio="30 / 9" cover
     :src="data.image">
     
     <div class="h-100  w-100 rounded-xl d-flex align-end">
@@ -86,7 +86,7 @@
             <v-btn :variant="data.registered == false ? 'text' : 'flat'" size="large"
             :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue"
             :class="data.registered == false ? '' : 'bg-blue-gradient-3'" elevation="0"
-            class="rounded-pill mx-2  text-body-2  ">
+            class="rounded-pill mx-2  text-xs   ">
             مشاهده ی دروس
 
             <template v-slot:prepend>
