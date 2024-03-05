@@ -14,7 +14,7 @@
             class="px-3"
           >
             <SwiperSlide v-for="item in data" :key="item.id + '+category'" >
-              <v-btn :to="'/explore/?category=' + item.id" class="ma-2  text-xs inner-shadow-1   rtl" color="auto" elevation="0" rounded="xl"  size="large" min-width="120">
+              <v-btn :to="'/explore/?category=' + item.id" class="ma-2 mx-1 mx-md-2  text-xs    rtl" color="auto" elevation="0" rounded="xl"  size="large" min-width="120">
                 <template v-slot:prepend>
                   <v-avatar color="blue" variant="tonal" class="" size="25">
                   <v-icon color="blue"  size="small" >

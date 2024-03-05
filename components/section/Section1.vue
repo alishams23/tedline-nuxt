@@ -35,10 +35,10 @@
                     <v-btn
                       color="blue"
                       class="btn-custom-lg linking mt-10 btn-arrow rounded-pill"
-                      nuxt
+                      
                       width="200"
                       large
-                      to="/"
+                      to="/blog/7"
                       elevation="0"
                     >
                       <span>بیشتر بخوانید</span>

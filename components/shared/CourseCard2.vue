@@ -74,7 +74,7 @@
 
               <div class=" text-xs-2 text-grey1 mt-n3 mb-n1">
                 <span class="text-decoration-line-through"> {{ data.price }}</span>
-                <span class="text-blue  font-weight-black">{{data.discount}}%</span>
+                <span class="text-blue pl-1 font-weight-black">{{data.discount}}%</span>
               </div>
               <div class="text-xs">
                 {{ data.price - (data.price * data.discount / 100) }}

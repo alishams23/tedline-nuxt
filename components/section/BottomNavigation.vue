@@ -12,7 +12,7 @@
 
     <v-scale-transition :disabled="currentRouteCheck(item.to) == false">
       <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" height="100%"
-        class="px-5 bg-blue-gradient-3  space-y-1   text-white  rounded-pill d-flex justify-center  align-center " >
+        class="px-6 bg-blue-gradient-3  space-y-1   text-white  rounded-pill d-flex justify-center  align-center " >
         <component :is="item.iconSolid" style="height: 23px;" />
         
         <div v-if="currentRouteCheck(item.to)"
@@ -118,7 +118,7 @@ export default {
 }
 .space-y-1{
   padding-top: 13px;
-  padding-bottom: 13px;
+  padding-bottom: 12px;
 }
 .margin-x-1{
   margin-left: 6px;

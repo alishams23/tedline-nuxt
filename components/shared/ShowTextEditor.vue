@@ -78,6 +78,6 @@ const { content } = toRefs(props);
  
 }
 .ql-editor {
-  line-height: 2;
+  line-height: 2.3;
 }
 </style>
