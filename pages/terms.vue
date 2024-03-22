@@ -3,7 +3,6 @@
         <Title>قوانین</Title>
      </Head>
     <v-app class="">
-       
         <Navbar />
         <v-container class="container rtl pt-10 mt-10 pt-5">
   

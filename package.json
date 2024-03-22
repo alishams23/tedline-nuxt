@@ -20,6 +20,8 @@
     "@pixi/filter-kawase-blur": "^3.2.0",
     "@tabler/icons-vue": "^2.44.0",
     "@videojs-player/vue": "^1.0.0",
+    "@videojs/http-streaming": "^3.10.0",
+    "@vue/runtime-dom": "^3.4.21",
     "@vueup/vue-quill": "^1.2.0",
     "nuxt-swiper": "^1.2.2",
     "pixi.js": "^5.3.12",

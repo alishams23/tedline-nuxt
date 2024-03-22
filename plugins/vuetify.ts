@@ -26,7 +26,7 @@ const dark: ThemeDefinition =  {
     nauto:'#FFFFFF',
     'white-in-light':'#00FFFFFF',
     'black-in-light':'#212121',
-    shadow1 :'#cacaca ',
+    shadow1 :'#cacaca',
     'shadow-inner-dark' :'#9898A4',
     
   },

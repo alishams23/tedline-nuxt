@@ -50,8 +50,8 @@ export default {
   }),
   methods: {
     getData() {
-      axios.get('https://tedline.org/api/course/HomeCourses/?order=?').then((response) =>{
-        this.data = response.data
+      axios.get('https://tedline.org/api/course/HomeCourses/?ordering=?').then((response) =>{
+        this.data = response.data.results
       this.loading = false
       }
     )
