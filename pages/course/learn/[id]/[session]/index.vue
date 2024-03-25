@@ -39,6 +39,7 @@
                             <div v-for="box in boxes.box" :key="box.title">
                                <box v-if="box.file" :read="box.is_finished" title="فایل" :disable="box.is_locked == true && data.is_signed == false " color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
                                <box v-if="box.video" :read="box.is_finished" title="ویدئو" :disable="box.is_locked == true && data.is_signed == false " color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
+                               <box v-if="box.audio" :read="box.is_finished" title="صوت" :disable="box.is_locked == true && data.is_signed == false " color="green" icon="fa-volume" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/audio'" />    
                             </div>
                         </v-list>
                     </v-expansion-panel-text>

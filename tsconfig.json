@@ -1,8 +1,4 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "vueCompilerOptions": {
-    "target": 2.7,
-    // "target": 2, // For Vue version <= 2.6.14
-  }
 }
