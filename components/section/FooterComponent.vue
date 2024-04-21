@@ -40,7 +40,7 @@
   
         menuItems: [
         { title: "خانه", path: "/"},
-        { title: "وبلاگ", path: "/blog"},
+        { title: "وبلاگ", path: "/explore/?tab=2"},
         { title: "ارتباط با ما", path: "/contactUs"},
         { title: "دوره ها", path: "/explore" },
         { title:  'قوانین', path: "/terms" }

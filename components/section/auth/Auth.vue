@@ -8,7 +8,8 @@
               <v-col cols="12" md="6"  class="h-100">
                 
                 <v-card-text  class="mt-12" height="100%">
-                  <h4 class="text-center irsa text-h4 my-10 font-weight-black">ورود به اکانت</h4>
+                  <h4 class="text-center irsa text-h4 my-10 font-weight-black  hidden-sm-and-down ">ورود به اکانت</h4>
+                  <h4 class="text-center irsa text-h4 my-10 font-weight-black text-white hidden-md-and-up block-md">ورود به اکانت</h4>
                 
                   <v-locale-provider rtl>
                     <v-row align="center" justify="center">
@@ -78,7 +79,8 @@
   
               <v-col cols="12" md="6" class="h-100">
                 <v-card-text class="mt-12">
-                  <h4 class="irsa text-center text-h4 my-10 font-weight-black">ثبت نام </h4>
+                  <h4 class="irsa text-center text-h4 my-10 font-weight-black hidden-sm-and-down">ثبت نام </h4>
+                  <h4 class="irsa text-center text-h4 my-10 font-weight-black text-white hidden-md-and-up block-md">ثبت نام </h4>
                   <v-locale-provider rtl>
   
                     <v-row align="center" justify="center">

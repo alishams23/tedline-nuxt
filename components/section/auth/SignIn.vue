@@ -1,111 +1,172 @@
-
 <template>
-   
-   <v-form validate-on="input" @submit.prevent="Login">
-    <v-alert
-      
-      variant="tonal"
-      v-if="generalError == true"
-      icon="fa fa-exclamation-triangle"
-      title="خطا"
-      class="rtl my-8"
-      text="پسورد یا نام کاربری اشتباه میباشد"
-      type="error"
-    ></v-alert>
-  <v-row class="d-flex mb-3">
-      <v-col cols="12">
-          <v-text-field
-          v-model="username"
-          :rules="[rules.required]"
-          label="username"
-          rounded="pill"
-          persistent-hint
-          color="blue"
-          variant="outlined"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-          <v-text-field
-          v-model="password"
-          :rules="[rules.required]"
-          label="password"
-          type="password"
-          rounded="pill"
-          persistent-hint
-          color="blue"
-          variant="outlined"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12" class="pt-0 pb-16 rtl">
-         
-                  <RouterLink to="/"
-                      class=" text-grey-darken-1 text-decoration-none text-body-2 irsa font-weight-light "> فراموشی رمز عبور</RouterLink>
-        
-      </v-col>
-      <v-col cols="12" class="pt-0" >
-          <v-btn type="submit"  :loading="loading" color="blue" rounded="pill" width="100%" size="x-large" class="text-body-2" flat >ورود</v-btn>
-      </v-col>
-  </v-row>
-</v-form>
-  
-  </template>
-  
-  
-  <script>
-  import axios from "axios";
-  export default {
-   
-    data() {
-      return {
-        rules: {
-          required: value => !!value || 'Field is required',
+  <div>
+
+    <v-form validate-on="input" v-if="state != 'get_login_code'" @submit.prevent="sendLoginSms">
+      <v-row align="center" justify="center">
+        <v-col cols="12">
+          <div v-if="error" class="  text-red-accent-4 d-flex justify-start pl-3 pt-1 mb-12">
+            {{ error }}
+          </div>
+          <v-text-field v-model="phoneNumber" :rules="[rules.required, rules.phoneNumber]" rounded="pill"
+            persistent-hint color="blue" variant="outlined" label="شماره موبایل .......۰۹۱" required class="" />
+
+          <v-btn type="submit" class="mt-12" size="large" elevation="0" rounded color="blue" :loading="loading" dark
+            block tile> دریافت کد</v-btn>
+        </v-col>
+      </v-row>
+    </v-form>
+    <v-form validate-on="input" v-if="state == 'get_login_code'" @submit.prevent="check_code">
+      <v-row align="center" justify="center">
+        <v-col cols="12">
+          <div v-if="error" class="  text-red-accent-4 d-flex justify-start pl-3 pt-1 mb-12">
+            {{ error }}
+          </div>
+          <v-text-field v-model="code" :rules="[rules.required, rules.number]" label="کد را وارد کنید" required
+            rounded="pill" persistent-hint color="blue" variant="outlined" />
+          <div @click="state = 'login'" class="  text-indigo-accent-4 d-flex justify-end pl-3 pt-1 cursor-pointer">
+            تغییر شماره {{ phoneNumber }}
+          </div>
+
+
+          <v-btn type="submit" class="mt-16" size="large" elevation="0" rounded color="blue" :loading="loading" dark
+            block tile>
+
+            <div>
+              ورود
+            </div>
+          </v-btn>
+          <div v-if="isCooldownActive" class="text-indigo-accent-2 d-flex  justify-center pt-5">
+            {{ Math.floor(cooldownTime / 60) }}:{{ ('0' + cooldownTime % 60).slice(-2) }} تا تلاش مجدد
+          </div>
+          <div v-else @click="sendLoginSms" class="text-indigo-accent-4 d-flex justify-center cursor-pointer pt-5">
+            دریافت مجدد کد
+          </div>
+        </v-col>
+      </v-row>
+    </v-form>
+  </div>
+</template>
+
+
+<script>
+import axios from "axios";
+export default {
+
+  data() {
+    return {
+      error: null,
+      isCooldownActive: false,
+      cooldownInterval: null,
+      cooldownTime: 120, // 2 minutes in seconds
+      state: 'login',
+
+
+      rules: {
+        required: value => !!value || 'این فیلد اجباری است',
+        phoneNumber: value => {
+          const pattern = /^\d{11}$/; // Updated to check for exactly 11 digits
+          return pattern.test(value) || 'شماره باید ۱۱ رقم و با اعداد انگلیسی باشد';
         },
-        generalError: false,
-        username: "",
-        password: "",
-        loading: false,
-      };
-    },
-    mounted() {
-      if (this.$store.state.isAuthenticated == true) {
-        this.$router.push("/");
-      }
-    },
-    methods: {
-      async Login() {
-    this.loading = true;
-    try {
-      const response = await axios.post("https://tedline.org/api/account/login/", {
-        username: this.username,
-        password: this.password,
-      });
-  
-      if (response.status === 200) {
-        // Login successful
-        this.$store.commit("login", {
-          token: response.data.token,
-          username: this.username,
-        });
-        this.loading = false;
-        this.$router.push("/");
-      } else {
-        // Handle other HTTP status codes (e.g., 401 for unauthorized)
-        this.loading = false;
-        this.generalError = true;
-      }
-    } catch (error) {
-      // Handle network errors or unexpected exceptions
-      this.loading = false;
-      this.generalError = true;
-      
-      // Log the error to the console
-      console.error("API error:", error);
-    }
-  }
-  
-  
+        number: value => {
+          const pattern = /^[0-9]*$/;
+          return pattern.test(value) || 'باید از اعداد استفاده شود';
+        }
       },
-    
-  };
-  </script>
-  
+      generalError: false,
+      phoneNumber: '',
+      code: null,
+      loading: false,
+    }
+  },
+  mounted() {
+    if (this.$store.state.isAuthenticated == true) {
+      this.$router.push("/");
+    }
+  },
+  methods: {
+
+
+    startCooldown() {
+      this.cooldownInterval = setInterval(() => {
+        if (this.cooldownTime > 0) {
+          // Decrease the cooldown time
+          this.cooldownTime -= 1;
+        } else {
+          // Reset cooldown state and time, then clear interval
+          this.isCooldownActive = false;
+          this.cooldownTime = 120; // Reset to 2 minutes
+          clearInterval(this.cooldownInterval);
+        }
+      }, 1000); // Update every second
+    },
+    async sendLoginSms() {
+      // Ensure the phone number is not empty
+      if (this.phoneNumber) {
+
+        this.loading = true
+        await axios.post(`https://tedline.org/api/account/login-sms/${this.phoneNumber}/`,
+        )
+          .then(response => {
+            // Handle success response
+            this.state = 'get_login_code'
+            this.error = null
+            this.loading = false
+            this.isCooldownActive = true;
+            this.cooldownTime = 120
+            clearInterval(this.cooldownInterval)
+            this.startCooldown();
+          })
+          .catch(error => {
+            // Handle error response
+            this.error = 'کاربری با این شماره وجود ندارد'
+            this.loading = false
+            console.log(error);
+
+          });
+      } else {
+        // Phone number is empty, handle accordingly
+        console.error('Phone number is empty');
+
+      }
+    },
+    async check_code() {
+
+      this.loading = true
+      if (this.code) {
+
+
+        const params = new URLSearchParams();
+        params.append('phone', this.phoneNumber);
+        params.append('code', this.code);
+
+        await axios({
+          method: 'post',
+          url: 'https://tedline.org/api/account/code-check/',
+          data: params
+        }).catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        })
+          .then(response => {
+            // Handle success response
+            this.$store.commit("login", {
+              token: response.data.token,
+              username: response.data.username,
+            });
+            this.$router.push(`/`);
+          })
+
+      } else {
+        // Phone number is empty, handle accordingly
+        console.error('Phone number is empty');
+      }
+    },
+
+
+  },
+
+};
+</script>
