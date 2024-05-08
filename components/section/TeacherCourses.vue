@@ -23,7 +23,7 @@
         <v-window v-model="tab">
             <v-window-item value="one">
                 <div class="my-10" v-for="item in dataFinished" :key="item.id+'unfinished'">
-                  <YourCourseComponents :progress="progress" :data="item"  />
+                  <YourCourseComponents :progress="false" :data="item"  />
                 </div>
                 <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="bg-grey5 rtl border-opacity-100  my-10" border="start">
                   <div class="pb-3 text-body-1 font-weight-black irsa">
@@ -88,7 +88,9 @@
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
-            Authorization: `Token ${this.$store.state.token}`,
+            Authorization: this.$store.state.token != ''
+                        ? `Token ${this.$store.state.token}`
+                        : ''
           },
         }).then((response) => {
           this.data = response.data
@@ -101,7 +103,9 @@
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
-            Authorization: `Token ${this.$store.state.token}`,
+            Authorization: this.$store.state.token != ''
+                        ? `Token ${this.$store.state.token}`
+                        : ''
           },
         }).then((response) => {
           this.dataFinished = response.data
