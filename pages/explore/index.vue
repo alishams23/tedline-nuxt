@@ -130,6 +130,14 @@
             <!-- <v-icon  :color="tab == 2?'blue' : 'grey'" size="15" class="ps-5">{{tab == 2 ? 'fad' : 'fa'}} fa-chalkboard-teacher</v-icon> -->
           </div>
           </v-tab>
+          <!-- <v-tab :hide-slider="true" height="50"  class="mt-auto  text-xs  text-auto rounded-2lg px-6 px-md-16 " variant="tonal" color="blue" :value="3" >
+            
+          <div :class="tab == 3 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
+          <span> اساتید</span>
+        <DocumentTextIconSolid v-if="tab == 3"  class="text-blue ps-5 "  style="height: 21px"  />
+            <DocumentTextIcon v-else class="text-grey1 ps-5 "  style="height: 21px" />
+          </div>
+          </v-tab> -->
         </v-tabs>
       </v-container>
       <v-card  color="grey4" class=" inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">

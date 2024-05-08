@@ -77,7 +77,7 @@
             </v-card>
           </div>
           <v-row class="pt-10 pb-3 rtl" v-if="data.session.length != 0" >
-            <v-btn v-if="data.registered == false" variant="flat" size="large" @click="register"
+            <v-btn v-if="data.registered == false" variant="flat" size="large" @click="isAuthenticated == false ? $router.push(`/auth/signUp/?next=${data.id}`) : register()"
             :loading="loadingRegister" color="blue-accent-4" elevation="0"
             class=" px-10 px-16 mb-3 mx-3 mx-2 bg-blue-gradient-3 text-body-2 " rounded="xl">
             ثبت نام
@@ -385,6 +385,11 @@ export default {
       title: 'تدلاین'
     }
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.state.isAuthenticated;
+    }
+  },
   components: {
     Course,
     FooterComponent,
@@ -403,9 +408,10 @@ export default {
     loadingRegister: false,
     dialog: true,
     tab: null,
+    nextRegister : null,
   }),
   methods: {
-    getData() {
+    async getData() {
       axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
@@ -417,6 +423,9 @@ export default {
       }).then((response) => {
         this.data = response.data
         this.loading = false
+        if ( this.nextRegister == 'true' && this.data.registered == false) {
+          this.register()
+      }
       }
       )
     },
@@ -489,6 +498,8 @@ export default {
       }
 
       this.loading = true;
+      this.loadingRegister = true
+
       await fetch(`https://tedline.org/api/wallet/increase-money/`, {
         method: "POST",
         headers: {
@@ -518,16 +529,19 @@ export default {
 
           window.location.href = data["result"]
         });
-      this.loading = false;
+      
     },
     shareLink() {
       this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
   }, async mounted() {
+    if (this.$route.query.register != null) this.nextRegister = this.$route.query.register
     await this.$store.commit('onStart') // get token
 
-    this.getData()
+    await this.getData()
+  
+
     setTimeout(() => (this.dialog = false), 6000)
   }
 }

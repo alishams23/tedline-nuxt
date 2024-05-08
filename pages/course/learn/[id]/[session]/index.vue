@@ -31,7 +31,16 @@
                     {{ data.description }}
                 </div>
             </div>
-            <v-expansion-panels colo v-model="panel" multiple class="bg-auto  rounded-lg ">
+            
+            <v-alert v-for="item in data.alerts"  rounded="lg" icon="fa fa-info" variant="tonal"  :type="item.status == 'w' ? 'orange' : 'red'" class=" rtl border-opacity-100 mx-2 my-10" border="start">
+                  <div class="pb-3 text-body-1 font-weight-black irsa">
+                  {{item.title}}
+                  </div>
+                  <div class="text-body-2 irsa">
+                    {{item .body}}
+                  </div>
+                </v-alert>
+            <v-expansion-panels  v-model="panel" multiple class="bg-auto  rounded-lg ">
                 <v-expansion-panel active v-for="(boxes, index) in data.boxes" elevation="0" class="bg-auto ">
                     <v-expansion-panel-title color="auto" class="rtl bg-auto  font-weight-bold" expand-icon="fal  fa-chevron-left" collapse-icon="fal fa-chevron-up">{{boxes.title}}</v-expansion-panel-title>
                     <v-expansion-panel-text class="bg-auto ">

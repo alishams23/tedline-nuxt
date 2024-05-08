@@ -59,7 +59,10 @@
 
 import axios from 'axios'
 export default {
+  mounted(){
+    if (this.$route.query.next != null) this.next = this.$route.query.next
 
+  },
   data: () => ({
     error: null,
     isCooldownActive: false,
@@ -69,6 +72,7 @@ export default {
     first_name: '',
     last_name: '',
     step: null,
+    next:null,
     rules: {
       required: value => !!value || 'این فیلد اجباری است',
 
@@ -109,6 +113,7 @@ phoneNumber: value => {
       const pattern = /^\d{11}$/; // Updated to check for exactly 11 digits
         return pattern.test(this.phoneNumber) 
     },
+
 
     sendSingUpSms() {
       console.log('sendSingUpSms', this.phoneNumber);
@@ -170,7 +175,12 @@ phoneNumber: value => {
               username: response.data.username,
             });
           }).then(() => {
-            this.$router.push("/home");
+            if (this.next != null) {
+              
+              this.$router.push(`/course/${this.next}/?register=true`);
+            } else {
+              this.$router.push(`/`);
+            }
           })
           .catch(error => {
             // Handle error response

@@ -58,7 +58,7 @@
             در این دوره ثبت نام کنید
            </div>
      
-          <v-btn :to="'/course/' + data.id" variant="flat" class="mt-3 px-4" color="blue-grey-darken-4" size="small" rounded="xl">
+          <v-btn :to="'/course/' + data.id + '/?register=true'" variant="flat" class="mt-3 px-4" color="blue-grey-darken-4" size="small" rounded="xl">
             ثبت نام
            </v-btn>
         

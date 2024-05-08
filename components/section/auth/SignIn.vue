@@ -59,6 +59,7 @@ export default {
       cooldownInterval: null,
       cooldownTime: 120, // 2 minutes in seconds
       state: 'login',
+      next : null,
 
 
       rules: {
@@ -82,6 +83,8 @@ export default {
     if (this.$store.state.isAuthenticated == true) {
       this.$router.push("/");
     }
+    if (this.$route.query.next != null) this.next = this.$route.query.next
+
   },
   methods: {
 
@@ -156,7 +159,14 @@ export default {
               token: response.data.token,
               username: response.data.username,
             });
-            this.$router.push(`/`);
+            if (this.next != null) {
+              
+              this.$router.push(`/course/${this.next}/?register=true`);
+            } else {
+
+              this.$router.push(`/`);
+            }
+            
           })
 
       } else {
