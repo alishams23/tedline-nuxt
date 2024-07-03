@@ -44,7 +44,7 @@
         </v-card-text>
         <v-list lines="three" select-strategy="classic">
   
-          <v-list-item color="blue-accent-4" :active="is_free" @click="is_free = !is_free;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+          <v-list-item color="blue-accent-4" :active="is_free" @click="is_free = !is_free;page=1;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
             <template v-slot:prepend="{ isActive }">
               <v-list-item-action start>
                 <v-checkbox-btn color="blue-accent-4" v-model="is_free" :model-value="is_free" false-icon="fal fa-square"
@@ -58,7 +58,7 @@
           </v-list-item>
     
     
-          <v-list-item color="blue-accent-4" :active="is_discount" @click="is_discount = !is_discount;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
+          <v-list-item color="blue-accent-4" :active="is_discount" @click="is_discount = !is_discount;page=1;searchCourse()" rounded="lg" class="text-right mx-1 my-1 ">
             <template v-slot:prepend="{ isActive }">
               <v-list-item-action start>
                 <v-checkbox-btn color="blue-accent-4" v-model="is_discount" :model-value="is_discount" false-icon="fal fa-square"
@@ -84,11 +84,11 @@
       <v-container class="">
       <v-card-text class="" color="" elevation="0">
         <v-locale-provider rtl>
-        <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="searchCourse();searchBlog()" v-model="text"
+        <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="page=1;searchCourse();searchBlog()" v-model="text"
           class=" custom-label-color  "  :flat="true" variant="solo-filled" 
-          label="جستجو بین درس ها" rounded="pill" single-line hide-details>
+          label="جستجو بین درس ها" rounded="xl" single-line hide-details>
           <template v-slot:prepend>
-            <v-avatar color="blue-accent-4" rounded="pill" class="text-xs" size="55">
+            <v-avatar class="text-xs bg-blue-gradient text-white custom-rounded" size="55">
               <MagnifyingGlassIcon style="height: 21px" />
             </v-avatar>
           </template>
@@ -145,18 +145,35 @@
         <v-window v-model="tab" v-if="loading == false">
           <v-window-item :value="1">
             <v-row no-gutters >
-              <v-col v-for="item in data" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
+              <v-col v-for="item in data.results" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
                 <Course :data="item" :detail="false" color="grey4" class="w-100  ma-2 ma-md-5 " />
               </v-col>
+            
               <v-container>
+
              
-                <v-alert v-if="data.length == 0"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+                <v-alert v-if="data.results && data.results.length == 0"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
                   <div class="text-sm  font-weight-black irsa">
                     دوره ای وجود ندارد
                   </div>
                 </v-alert>
          
             </v-container>
+          
+       
+            <v-col cols="12">
+              <v-pagination
+            class="bg-gray-4 rounded-xl "
+      v-model="page"
+       next-icon=" fal fa-angle-right"
+       prev-icon=" fal fa-angle-left"
+   
+      rounded="pill"
+      :length="data.total_pages"
+      @click="data.total_pages > 1 ? searchCourse() : null"
+      
+    ></v-pagination>
+            </v-col>
             </v-row>
           </v-window-item>
           <v-window-item :value="2" v-if="loading == false">
@@ -239,6 +256,7 @@ export default {
   data: () => ({
     model: null,
     data: [],
+    page:1,
     blogData: [],
     dataCategoryBest: [],
     drawerChecker: false,
@@ -253,8 +271,8 @@ export default {
   methods: {
    async searchCourse() {
       this.loading = true
-      await axios.get(`https://tedline.org/api/course/SearchCourse/?search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
-        this.data = response.data.results
+      await axios.get(`https://tedline.org/api/course/SearchCourse/?page=${this.page}&search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
+        this.data = response.data
       }
       )
       this.loading = false
@@ -283,6 +301,7 @@ export default {
       } else {
         this.selectedDataCategoryIds.splice(index, 1);
       }
+      this.page=1
       this.searchCourse()
     },
 

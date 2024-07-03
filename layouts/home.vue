@@ -1,15 +1,10 @@
 
 <template>
     <v-app >
-  
       <Navbar :transparent="false"   />
-  
       <v-main>
-        
         <slot />  
-      
       </v-main>
-  
     </v-app>
   </template>
   <script>

@@ -3,9 +3,9 @@
     <v-navigation-drawer  elevation="0" temporary v-model="drawerChecker">
       <Sidebar />
     </v-navigation-drawer>
-    <v-app-bar density="comfortable" :class="transparent == true ? 'custom-bg-blue text-auto  ' : shadow == true ? 'shadow-1 bg-auto ' : ''"
-      :scroll-behavior=" transparent == true || transparent == null ? '' : 'elevate hide inverted'" scroll-threshold="1"
-      class="py-2" app elevation="0">
+    <v-app-bar  :class="transparent == true ? 'custom-bg-blue text-auto  ' : shadow == true ? 'shadow-1 bg-auto ' : ''"
+      :scroll-behavior=" transparent == true ? '' : 'elevate hide inverted'" :absolute="transparent == true ? true : false" scroll-threshold="1"
+      class="" app elevation="0">
       <v-app-bar-nav-icon @click.stop="drawerChecker = !drawerChecker">
         <i class="fa fa-bars"></i>
       </v-app-bar-nav-icon>
@@ -19,8 +19,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <div class="me-2 " :class="transparent == true ? 'text-white' : ''" v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
-        <v-list-item  class=" hidden-md-and-down  text-center text-xs font-weight-bold" width="120px"
-          :color="transparent == true ? 'light': 'blue' " rounded="pill" :key="item.title" :to="item.path">
+        <v-list-item  class=" hidden-md-and-down custom-rounded-2  text-center text-xs font-weight-bold" width="120px"
+          :color="transparent == true ? 'light': 'blue' " :key="item.title" :to="item.path">
           {{ item.title }}
         </v-list-item>
       </div>
@@ -37,7 +37,7 @@
       </v-btn>
       <v-menu v-if="isAuthenticated == true" v-model="menuNotification" :close-on-content-click="false" location="start">
         <template v-slot:activator="{ props }">
-          <v-avatar v-bind="props" variant="tonal" :color="transparent == true ? 'white' : 'blue'" class="me-4  hidden-md-and-up">
+          <v-avatar v-bind="props" variant="tonal" :color="transparent == true ? 'white' : 'blue'" class="me-4  hidden-md-and-up custom-rounded-2">
             <v-icon size="13" icon="fa fa-bell"></v-icon>
           </v-avatar>
         </template>

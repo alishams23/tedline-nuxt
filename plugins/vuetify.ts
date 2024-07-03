@@ -1,6 +1,7 @@
 import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+// import '@mdi/font/css/materialdesignicons.css'
 import { IconSquareRounded , IconSquareRoundedFilled } from '@tabler/icons-vue';
 
 const dark: ThemeDefinition =  {
@@ -11,7 +12,7 @@ const dark: ThemeDefinition =  {
     secondary2:'#023b96',
     'primary-lighten-5':'#022d5c',
     'primary-lighten-4':'#004ac1',
-    'primary-lighten-3':'#004ac1',
+    'primary-lighten-3':'#5cc9f7',
     'blue-gradient-1':'#3411c2',
     'blue-gradient-2':'#045de9',
     'primary-darken-1': '#0473e9',
@@ -37,7 +38,7 @@ const light: ThemeDefinition =  {
   colors: {
     'primary-lighten-5':'#d5eef9',
     'primary-lighten-4':'#7498fa',
-    'primary-lighten-3':'#4eabf7',
+    'primary-lighten-3':'#5cc9f7',
     'blue-gradient-1':'#045de9',
     'blue-gradient-2':'#0995f9',
     secondary1:'#d2942a',

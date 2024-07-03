@@ -25,10 +25,7 @@
           :to="`/course/learn/${$route.params.id}/${$route.params.session}/`"
           icon="fal fa-arrow-left"
           rounded="xl"
-          variant="flat"
-        
-        >
-        
+          variant="flat" >
         </v-btn>
       </template>
     </v-list-item>

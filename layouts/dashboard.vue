@@ -2,27 +2,14 @@
 <template>
   <v-app id="inspire">
 
-   <SideNavigation  @updateData="updatePageDrawerChecker"/>
+   <SideNavigation  />
 
     <v-main>
      
       <slot />
    
     </v-main>
-    <v-navigation-drawer temporary color="auto" location="right" class=" rounded-s-xl border-none  hidden-sm-and-down shadow-2 " elevation="0" v-model="drawerChecker">
-      <div class="d-flex  flex-column align-center justify-center mt-11">
-
-      <v-avatar color="blue-accent-4" variant="tonal" :size="80"  >
-        <v-icon :size="29" icon="fad fa-bells"></v-icon>
-      </v-avatar>
-      <div class="my-5 font-weight-bold text-sm">
-        گزارش ها
-      </div>
-    </div>
     
-      <Notification />
-   
-    </v-navigation-drawer>
 
   </v-app>
   <v-layout class="overflow-visible bg-auto hidden-lg-and-up" style="height: 65px;">
@@ -42,14 +29,12 @@ export default {
   components: { Notification,bottomNavigation,SideNavigation },
 
   data: () => ({
-    drawerChecker: false,
+   
  
   }),
 
 methods:{
-  updatePageDrawerChecker() {
-      this.drawerChecker = !this.drawerChecker;
-    },
+
 },
   async mounted() {
    await this.$store.commit('onStart');

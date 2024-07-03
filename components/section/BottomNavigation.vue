@@ -1,18 +1,18 @@
 
 <template>
   <v-bottom-navigation  v-model="value"  height="auto" elevation="0"  class=" bg-transparent  pb-2  w-100 " grow>
-   <div class="bg-grey5   shadow-custom d-flex justify-center px-0 align-center mx-0 py-0 px-0 rounded-pill  ">
+   <div class="bg-grey5   shadow-custom d-flex justify-center px-0 align-center mx-0 py-0 px-0 custom-rounded-xl  ">
     <v-btn variant="plain" height="20px" c v-for="(item, index) in menuDown"
     :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`"
-    :key="item + '+Down menu'" class="no-hover-effect h-full px-0    space-y-8 space-y-1 margin-x-1 rounded-pill" :ripple="false" color="transparent">
+    :key="item + '+Down menu'" class="no-hover-effect h-full px-0    space-y-8 space-y-1 margin-x-1 custom-rounded-xl" :ripple="false" color="transparent">
 
-    <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="w-full  bg-grey5   rounded-pill ">
+    <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="w-full  bg-grey5   custom-rounded-xl ">
       <component :is="item.icon" class="text-grey" style="height: 19px;" />
     </v-sheet>
 
     <v-scale-transition :disabled="currentRouteCheck(item.to) == false">
       <v-sheet v-if="currentRouteCheck(item.to)" variant="flat" height="100%"
-        class="px-6 bg-blue-gradient-3  space-y-1   text-white  rounded-pill d-flex justify-center  align-center " >
+        class="px-6 bg-blue-gradient-3  space-y-1   text-white  custom-rounded-1 d-flex justify-center  align-center " >
         <component :is="item.iconSolid" style="height: 23px;" />
         
         <div v-if="currentRouteCheck(item.to)"
@@ -117,12 +117,12 @@ export default {
   box-shadow: rgba(var(--v-theme-black-in-light), 0.5) 0px 17px 30px 0px !important;
 }
 .space-y-1{
-  padding-top: 13px;
-  padding-bottom: 12px;
+  padding-top: 12px;
+  padding-bottom: 11px;
 }
 .margin-x-1{
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-left:8.5px;
+  margin-right:8.5px;
 }
 .space-y-8{
   margin-top: 20px;

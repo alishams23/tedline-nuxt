@@ -2,11 +2,7 @@
 <template>
   <v-app id="inspire" class="bg-grey4">
     <SideNavigation color="grey4" class=" border " @updateData="updatePageDrawerChecker" />
-    <v-navigation-drawer temporary color="grey4" location="right" class=" border-none  hidden-sm-and-down shadow-2 " elevation="0"
-      v-model="drawerChecker">
-      <Notification />
-
-    </v-navigation-drawer>
+   
     <v-app-bar color="grey4" scroll-threshold="70" elevation="0" icon="" class="rtl  ">
 
       <v-app-bar-nav-icon class="" @click.stop="drawerCheckerSide = !drawerCheckerSide">

@@ -1,12 +1,12 @@
 <template>
   <div>
 
-    <v-card  class=" rounded-xl   text-right" :class="cardClass" :color="color ? color : 'auto'" rounded="xl"
+    <v-card   class="    text-right" variant="text" :class="cardClass" :color="color ? color : 'auto'" 
       elevation="0">
-      <v-card :ripple="false" class=" pa-0  rounded-2lg " color="transparent" elevation="0" :to="'/course/' + data.id">
+      <v-card :ripple="false" class=" pa-0  "  color="transparent" elevation="0" :to="'/course/' + data.id">
 
         <div>
-          <v-img class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+          <v-img transition="" class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
 
             <div class="h-100  w-100 rounded-xl d-flex align-end">
               
@@ -69,7 +69,7 @@
         <div :class="titleClass">
           <v-responsive height="55">
             <div
-              class=" test-right text-xs   rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
+              class=" test-right text-xs  text-nauto  rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">{{
                 data.title }}
             </div>
           </v-responsive>

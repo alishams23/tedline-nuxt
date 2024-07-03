@@ -186,7 +186,7 @@ background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%,rgba(0, 0, 0, 0.
 
 .bg-blue-gradient{
     background-color: #004ac1 ;
-    background-image: linear-gradient(315deg, rgb(var(--v-theme-primary-lighten-3)) 0%, #0f4efc 74%) !important;
+    background-image: linear-gradient(180deg, #258bf0 0%, #083ce6 100%) !important;
 
 }
 
@@ -213,8 +213,18 @@ background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%,rgba(0, 0, 0, 0.
 
   }
 
+.custom-rounded-xl{
+    border-radius: 25px !important;
+}
+.custom-rounded{
+    border-radius: 22px !important;
+}
 .custom-rounded-1{
-    border-radius: 15px !important;
+    border-radius: 18px !important;
+}
+
+.custom-rounded-2{
+    border-radius: 16px !important;
 }
 
 

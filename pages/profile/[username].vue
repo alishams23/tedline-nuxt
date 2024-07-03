@@ -121,17 +121,17 @@ v-if="!data"
           </v-sheet>
         </v-col>
         <v-col cols="6" md="2" class="pa-1" v-if="data.status == 't'" >
-          <v-sheet  class="align-center rounded-pill bg-blue  d-flex justify-space-between  pa-2 pe-3">
-            <v-avatar variant="tonal"  class=" " color="white" size="38">
-             <v-icon size="15">
+          <v-card  color="blue" elevation="0" variant="tonal" class="align-center rounded-pill   d-flex justify-space-between  pa-2 pe-3">
+            <v-avatar variant="flat"   color="blue" size="38">
+             <v-icon size="15" class="text-auto">
               fad fa-chalkboard-teacher
              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs font-weight-black">مدرس </p>
+              <p class=" font-weight-bold text-xs  font-weight-black">مدرس </p>
           
              </div>
-          </v-sheet>
+          </v-card>
         </v-col>
     </v-row>
   </v-expand-transition>
