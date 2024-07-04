@@ -3,7 +3,7 @@
     
         <template v-slot:prepend>
             <v-avatar size="large" rounded="lg" :color="color">
-                <v-icon color="auto"> fad {{ icon }}</v-icon>
+                <v-icon color="auto" size="20"> fad {{ icon }}</v-icon>
             </v-avatar>
         </template>
         <v-list-item-title class="text-body-2 font-weight-bold irsa">
