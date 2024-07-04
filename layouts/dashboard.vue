@@ -2,8 +2,8 @@
 <template>
   <v-app id="inspire">
 
-   <SideNavigation  />
-
+    
+    <SideNavigation  />
     <v-main>
      
       <slot />

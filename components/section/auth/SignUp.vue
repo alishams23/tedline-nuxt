@@ -119,7 +119,7 @@ phoneNumber: value => {
       console.log('sendSingUpSms', this.phoneNumber);
       // Ensure the phone number is not empty
       if (this.phoneNumber && this.checkNumber() == true) {
-        const apiUrl = `https://tedline.org/api/account/sign-up-sms/`;
+        const apiUrl = `http://127.0.0.1:8000/api/account/sign-up-sms/`;
         const params = new URLSearchParams();
         params.append('first_name', this.first_name);
         params.append('last_name', this.last_name);
@@ -158,7 +158,7 @@ phoneNumber: value => {
       this.loading = true
 
       if (this.code) {
-        const apiUrl = `https://tedline.org/api/account/code-check-sign-up/`;
+        const apiUrl = `http://127.0.0.1:8000/api/account/code-check-sign-up/`;
         const params = new URLSearchParams();
 
         params.append('code', this.code);

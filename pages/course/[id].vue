@@ -1,4 +1,5 @@
 <template>
+
   <Head>
     <Title v-if="data.title"> دوره ی {{ data.title }}</Title>
   </Head>
@@ -11,117 +12,219 @@
     </template>
     کپی شد
   </v-snackbar>
+
+  <v-snackbar v-model="snackbarDiscount" class="rtl" color="green-darken-1" elevation="24" rounded="lg">
+    <template v-slot:actions>
+      <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbarDiscount = false">
+      </v-btn>
+    </template>
+   کد تخفیف اعمال شد
+  </v-snackbar>
+  <v-snackbar v-model="snackbarDiscountError" class="rtl" color="red-darken-1" elevation="24" rounded="lg">
+    <template v-slot:actions>
+      <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbarDiscountError = false">
+      </v-btn>
+    </template>
+   {{ error_discount }}
+  </v-snackbar>
+
   <div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63"  :width="8" color="blue" indeterminate></v-progress-circular>
+    <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63" :width="8" color="blue"
+      indeterminate></v-progress-circular>
 
   </div>
 
   <v-container v-if="loading == false">
- 
-    <v-img v-if="loading == false" class="rounded-xl mt-4 " rounded="xl" :aspect-ratio="30 / 9" cover
-    :src="data.image">
-    
-    <div class="h-100  w-100 rounded-xl d-flex align-end">
-      <div class="bg-gradient-glass h-100 d-flex flex-column justify-end px-md-5 pt-16 py-md-5 w-100 ">
-        <v-container>
-          <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl px-4 py-5 py-md-10'>
-            {{ data.title }}
-          </h1>
-     
-          <div  class="d-flex justify-end">
-            <v-card  color="transparent" class="rtl     " elevation="0"
-          >
-            <v-list-item class=" px-0 text-center ">
-            
-              <div v-if="data.price != 0" class="d-flex align-center text-white pt-3">
-                <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
-                <span v-else class="px-1 ">
-    
-                  <div class=" text-xxs text-grey1 mt-n3 mb-n1">
-                    <span class="text-decoration-line-through"> {{ data.price }}</span>
-                    <span class="text-blue  font-weight-black">{{data.discount}}%</span>
+
+    <v-img v-if="loading == false" class="rounded-xl mt-4 " rounded="xl" :aspect-ratio="30 / 9" cover :src="data.image">
+
+      <div class="h-100  w-100 rounded-xl d-flex align-end">
+        <div class="bg-gradient-glass h-100 d-flex flex-column justify-end px-md-5 pt-16 py-md-5 w-100 ">
+          <v-container>
+            <h1 class=' text-h6 text-white text-md-h5 font-weight-black irsa rtl px-4 py-5 py-md-10'>
+              {{ data.title }}
+            </h1>
+
+            <div class="d-flex justify-end">
+              <v-card color="transparent" class="rtl     " elevation="0">
+                <v-list-item class=" px-0 text-center ">
+
+                  <div v-if="data.price != 0" class="d-flex align-center text-white pt-3">
+                    <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
+                    <span v-else class="px-1 ">
+
+                      <div class=" text-xxs text-grey1 mt-n3 mb-n1">
+                        <span class="text-decoration-line-through"> {{ data.price }}</span>
+                        <span class="text-blue  font-weight-black">{{ data.discount }}%</span>
+                      </div>
+                      <div class="text-xs">
+                        {{ data.price - (data.price * data.discount / 100) }}
+                      </div>
+                    </span> <span class=" text-grey1  irsa text-xxs">تومان</span>
                   </div>
-                  <div class="text-xs">
-                    {{ data.price - (data.price * data.discount / 100) }}
-                  </div>
-                </span> <span class=" text-grey1  irsa text-xxs">تومان</span>
-              </div>
-              <v-list-item-title v-else class=" font-weight-bold text-md-1 text-white"> رایگان</v-list-item-title>
-              <v-list-item-subtitle class="text-xs mt-2 text-white d-flex align-center ">
-                <div class="mx-1">قیمت</div>
-                <IconCoins size="15" />
-              </v-list-item-subtitle>
-            </v-list-item>
+                  <v-list-item-title v-else class=" font-weight-bold text-md-1 text-white"> رایگان</v-list-item-title>
+                  <v-list-item-subtitle class="text-xs mt-2 text-white d-flex align-center ">
+                    <div class="mx-1">قیمت</div>
+                    <IconCoins size="15" />
+                  </v-list-item-subtitle>
+                </v-list-item>
 
-          </v-card>
-            <div class="my-4 mx-8 bg-grey" style="padding-left: 0.5px;"></div>
+              </v-card>
+              <div class="my-4 mx-8 bg-grey" style="padding-left: 0.5px;"></div>
 
-            <v-card v-if="data.teacher" color="transparent" class="rtl     " elevation="0"
-              :to="'/profile/' + data.teacher.username">
-              <v-list-item class=" px-0 m ">
-                <template v-slot:prepend>
-                  <v-avatar size="50" class=" rounded-2lg bg-blue-gradient-2 text-white">
-                    <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                    <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
-                      cover></v-img>
+              <v-card v-if="data.teacher" color="transparent" class="rtl     " elevation="0"
+                :to="'/profile/' + data.teacher.username">
+                <v-list-item class=" px-0 m ">
+                  <template v-slot:prepend>
+                    <v-avatar size="50" class=" rounded-2lg bg-blue-gradient-2 text-white">
+                      <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
+                      <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`"
+                        cover></v-img>
 
-                  </v-avatar>
-                </template>
-                <v-list-item-title class=" font-weight-bold text-md-1 text-white">{{ data.teacher.username
-                }}
-              </v-list-item-title>
-                <v-list-item-subtitle class="text-xs mt-2 text-white">{{ data.teacher.get_full_name
-                }}</v-list-item-subtitle>
-              </v-list-item>
+                    </v-avatar>
+                  </template>
+                  <v-list-item-title class=" font-weight-bold text-md-1 text-white">{{ data.teacher.username
+                    }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle class="text-xs mt-2 text-white">{{ data.teacher.get_full_name
+                    }}</v-list-item-subtitle>
+                </v-list-item>
 
-            </v-card>
-          </div>
-          <v-row class="pt-10 pb-3 rtl" v-if="data.session.length != 0" >
-            <v-btn v-if="data.registered == false" variant="flat" size="large" @click="isAuthenticated == false ? $router.push(`/auth/signUp/?next=${data.id}`) : register()"
-            :loading="loadingRegister" color="blue-accent-4" elevation="0"
-            class=" px-10 px-16 mb-3 mx-3 mx-2 bg-blue-gradient-3 text-body-2 " rounded="xl">
-            ثبت نام
-          </v-btn>
-          <div class="d-flex">
-            <v-btn :variant="data.registered == false ? 'text' : 'flat'" size="large"
-            :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue"
-            :class="data.registered == false ? '' : 'bg-blue-gradient-3'" elevation="0"
-            class="rounded-pill mx-2  text-xs   ">
-            مشاهده ی دروس
-
-            <template v-slot:prepend>
-              <v-icon>
-                <IconEye />
-              </v-icon>
-            </template>
-          </v-btn>
-          <v-btn variant="text" @click="shareLink" size="large" color="blue" elevation="0"
-            class="rounded-pill  text-body-2  ">
-            <template v-slot:prepend>
-              <v-icon>
-                <IconShare />
-              </v-icon>
-            </template>
-             اشتراک گذاری
-          </v-btn>
-          </div>
-
-          
-
-          </v-row>
-          <div class="d-flex justify-end">
-            <div>
-              <v-alert variant="tonal" border="start" v-if="data.session.length == 0" class="text-white rtl mt-5 text-xs">
-                دوره در حال اپدیت است.
-            </v-alert>
+              </v-card>
             </div>
-          </div>
-        </v-container>
-      </div>
-    </div>
-    
+            <v-row class="pt-10 pb-3 rtl" v-if="data.session.length != 0">
+              <v-btn v-if="data.registered == false" variant="flat" size="large"
+                @click="isAuthenticated == false ? $router.push(`/auth/signUp/?next=${data.id}`) : data.price > 0 ?   dialog_register = true : registerFree()"
+                :loading="loadingRegister" color="blue-accent-4" elevation="0"
+                class=" px-10 px-16 mb-3 mx-3 mx-2 bg-blue-gradient-3 text-body-2 " rounded="xl">
+                ثبت نام
+              </v-btn>
 
-  </v-img>
+
+              <v-dialog v-model="dialog_register" max-width="500" >
+
+                <v-locale-provider rtl>
+                <v-card rounded="xl">
+                  <div class="d-flex flex-no-wrap justify-space-between align-center pa-4">
+                    <v-card elevation="0" >
+                      <v-card-title class="text-h5 pt-0 irsa">
+                        {{ data.title }}
+                      </v-card-title>
+                      
+                      <v-card-subtitle>  {{ data.description }}</v-card-subtitle>
+                    </v-card>
+                    
+                    <div>
+                      <v-avatar class="ma-3 custom-rounded-2"  size="90">
+                        <v-img :src="data.image"></v-img>
+                      </v-avatar>
+                    </div>
+                  </div>
+                  <v-expansion-panels   elevation="0"   class="border">
+      <v-expansion-panel rounded="lg" class="">
+        <v-expansion-panel-title expand-icon="fal  fa-chevron-down" collapse-icon="fal fa-chevron-up" class="px-2 rounded-0 text-xs">اعمال کد تخفیف</v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <div class="d-flex mx-4 mt-3">
+                 <div class="w-100">
+                     <v-text-field
+                       v-model="discount_code"
+                       label="کد تخفیف"
+                     variant="outlined" rounded="xl"
+                       :loading="btn_discount_loading"
+                             class="ml-2 mb-0 pb-0"                   
+                         >
+                       </v-text-field>
+                <p class=" mt-n5 text-grey text-xs-2">در صورتی که کد تخفیف دارید آن را در این قسمت وارد کنید</p>
+                       
+                 </div>
+                      <v-btn
+                      rounded="xl"
+                      variant="flat"
+                    class=" text-xs mt-2"
+                      color="blue-accent-4"
+                      icon="fa fa-check"
+                      :loading="btn_discount_loading"
+                      @click="checkDiscountCode"
+                      ></v-btn>
+                </div>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+
+                  </v-expansion-panels>
+         
+                  <!-- <v-divider></v-divider> -->
+                  <template v-slot:actions>
+                  
+
+            <div class="mt-3 mb-4 w-100 d-flex mx-4 justify-space-between justify-center">
+                    <div>
+                        <v-btn @click="registerCredit()"  class=" bg-blue-gradient-3 text-white text-xs px-6" variant="flat" rounded="pill">
+                          نهایی کردن خرید
+                        </v-btn>
+                    </div>
+                      <!-- <v-btn rounded="pill" class="text-xs " @click="dialog_register = false">
+                        کنسل کردن
+                      </v-btn> -->
+                    <div class="text-center d-flex flex-column justify-center">
+                      <div class=" font-weight-bold">
+                          {{ data.price - (data.price * data.discount / 100) - discount_amount }}
+                        </div>
+                        <div v-if="data.discount > 0 || discount_amount > 0" class=" text-xs text-grey1  ">
+                          <span class="text-decoration-line-through"> {{ data.price }}</span>
+                       
+                        </div>
+                       
+                    </div>
+            </div>
+
+                   
+                  </template>
+                </v-card>
+              </v-locale-provider>
+              </v-dialog>
+
+
+              <div class="d-flex">
+                <v-btn :variant="data.registered == false ? 'text' : 'flat'" size="large"
+                  :to="`/course/learn/${data.id}/${data.session[0].id}`" color="blue"
+                  :class="data.registered == false ? '' : 'bg-blue-gradient-3'" elevation="0"
+                  class="rounded-pill mx-2  text-xs   ">
+                  مشاهده ی دروس
+
+                  <template v-slot:prepend>
+                    <v-icon>
+                      <IconEye />
+                    </v-icon>
+                  </template>
+                </v-btn>
+                <v-btn variant="text" @click="shareLink" size="large" color="blue" elevation="0"
+                  class="rounded-pill  text-body-2  ">
+                  <template v-slot:prepend>
+                    <v-icon>
+                      <IconShare />
+                    </v-icon>
+                  </template>
+                  اشتراک گذاری
+                </v-btn>
+              </div>
+
+
+
+            </v-row>
+            <div class="d-flex justify-end">
+              <div>
+                <v-alert variant="tonal" border="start" v-if="data.session.length == 0"
+                  class="text-white rtl mt-5 text-xs">
+                  دوره در حال اپدیت است.
+                </v-alert>
+              </div>
+            </div>
+          </v-container>
+        </div>
+      </div>
+
+
+    </v-img>
 
     <v-dialog :open-delay="4000" transition="dialog-bottom-transition" v-model="dialog" :scrim="false" persistent
       class="position-dialog-b-l" width="auto" location="top" scroll-strategy="none">
@@ -147,16 +250,16 @@
     <v-locale-provider rtl>
 
       <v-tabs v-model="tab" class="  border-b  mt-10 " elevation="0">
-        <v-tab color="blue" class="px-5 px-md-10   transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
-          value="one">
+        <v-tab color="blue" class="px-5 px-md-10   transition-inactive-class rounded-t-lg text-xs " variant="text"
+          :ripple="false" value="one">
           <div :class="tab == 'one' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             جزيیات دوره
             <v-icon :color="tab == 'one' ? 'blue' : 'grey2'" size="13" class="ps-5">{{ tab == 'one' ? 'fad' : 'fa' }}
               fa-list</v-icon>
           </div>
         </v-tab>
-        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
-          value="two">
+        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text"
+          :ripple="false" value="two">
           <div :class="tab == 'two' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             سرفصل ها
             <v-icon :color="tab == 'two' ? 'blue' : 'grey2'" size="13" class="ps-5">{{ tab == 'two' ? 'fad' : 'fa' }}
@@ -164,11 +267,12 @@
 
           </div>
         </v-tab>
-        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text" :ripple="false"
-          value="three">
+        <v-tab color="blue" class="px-5 px-md-10 transition-inactive-class rounded-t-lg text-xs " variant="text"
+          :ripple="false" value="three">
           <div :class="tab == 'three' ? 'text-nauto font-weight-bold  ' : ' font-weight-light text-nauto'">
             پیشنیاز ها
-            <v-icon :color="tab == 'three' ? 'blue' : 'grey2'" size="13" class="ps-5">{{ tab == 'three' ? 'fad' : 'fa' }}
+            <v-icon :color="tab == 'three' ? 'blue' : 'grey2'" size="13" class="ps-5">{{ tab == 'three' ? 'fad' : 'fa'
+              }}
               fa-check</v-icon>
 
           </div>
@@ -176,7 +280,7 @@
 
       </v-tabs>
 
-      <v-window v-model="tab" >
+      <v-window v-model="tab">
         <v-window-item value="one" class="my-10">
           <v-row justify="end" align="stretch">
             <v-col cols="12">
@@ -215,10 +319,10 @@
                     <div v-if="data.price != 0" class="d-flex align-center  pb-3 px-3">
                       <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
                       <span v-else class="px-1 ">
-          
+
                         <div class=" text-xs  mt-n3 mb-n1">
                           <span class="text-decoration-line-through "> {{ data.price }}</span>
-                      
+
                         </div>
                         <div class="text-sm font-weight-bold">
                           {{ data.price - (data.price * data.discount / 100) }}
@@ -227,17 +331,18 @@
                     </div>
                     <div v-else class="text-sm px-4 pb-3 ">
                       رایگان
-          
+
                     </div>
                   </div>
-                  
-                  <v-avatar v-if="data.discount == 0" class="ma-3 text-h6  rounded-pill " size="50" variant="tonal" color="auto">
-                    <IconCoins  />
-                
+
+                  <v-avatar v-if="data.discount == 0" class="ma-3 text-h6  rounded-pill " size="50" variant="tonal"
+                    color="auto">
+                    <IconCoins />
+
                   </v-avatar>
                   <v-avatar v-else class="ma-3 text-h6  rounded-pill " size="50" variant="outline" color="auto">
-                  
-                    <div  class="pt-1" >
+
+                    <div class="pt-1">
                       {{ data.discount }}%
                     </div>
                   </v-avatar>
@@ -258,11 +363,12 @@
               </v-card>
             </v-col>
           </v-row>
-          <v-card color="grey4" v-if="data.description" class="inner-shadow-1 px-3 my-10 rounded-xl rtl py-10" elevation="0">
+          <v-card color="grey4" v-if="data.description" class="inner-shadow-1 px-3 my-10 rounded-xl rtl py-10"
+            elevation="0">
             <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
               <div>
                 <v-card-title class="irsa text-sm font-weight-black">
-                 توضیحات
+                  توضیحات
                 </v-card-title>
                 <div class="line-height-sm text-body-2 rtl irsa pb-5 px-4    mt-5 ">
                   {{ data.description }}
@@ -286,31 +392,32 @@
                 <template v-slot:prepend>
                   <v-avatar size="43" class="bg-blue-gradient text-white">
                     <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                    <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
+                    <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`"
                       cover></v-img>
 
                   </v-avatar>
                 </template>
                 <v-list-item-title class=" font-weight-bold text-xs text-nauto">{{ data.teacher.username
-                }}</v-list-item-title>
-                <v-list-item-subtitle class="text-xs-2 text-nauto">{{ data.teacher.get_full_name }}</v-list-item-subtitle>
+                  }}</v-list-item-title>
+                <v-list-item-subtitle class="text-xs-2 text-nauto">{{ data.teacher.get_full_name
+                  }}</v-list-item-subtitle>
               </v-list-item>
               <v-card-text class="rtl text-nauto text-xs irsa" v-if="data.teacher.bio">{{ data.teacher.bio
-              }}</v-card-text>
+                }}</v-card-text>
             </v-card>
           </div>
         </v-window-item>
-        <v-window-item value="two" >
-         
-          <v-card elevation="0" color="transparent"  class=" mt-10 ">
+        <v-window-item value="two">
+
+          <v-card elevation="0" color="transparent" class=" mt-10 ">
             <div class="text-h6 irsa font-weight-black rtl pb-5 px-5 ">سر فصل های دوره </div>
             <v-alert v-if="data.session.length == 0" icon="fa fa-info" variant="text" color="blue"
-            class="bg-grey5 rtl border-opacity-100  my-10" border="start">
-            <div class=" text-body-2 font-weight-black irsa">
-              سر فصلی وجود ندارد
-            </div>
+              class="bg-grey5 rtl border-opacity-100  my-10" border="start">
+              <div class=" text-body-2 font-weight-black irsa">
+                سر فصلی وجود ندارد
+              </div>
 
-          </v-alert>
+            </v-alert>
             <v-timeline side="end">
               <v-timeline-item size="small" v-for="item in data.session" dot-color="transparent"
                 :key="item.id + '+session'">
@@ -329,25 +436,25 @@
           </v-card>
         </v-window-item>
         <v-window-item value="three">
-        
-          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl"
-           >
+
+          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl">
             <div class="text-h6  d-flex justify-space-between  align-center  irsa font-weight-black rtl px-5 mb-10">دوره
               های
               پیشنیاز
 
-              <v-avatar  class=" text-h6  rounded-pill inner-shadow-1" size="50" color="blue">
+              <v-avatar class=" text-h6  rounded-pill inner-shadow-1" size="50" color="blue">
                 <IconListCheck class="text-auto" />
               </v-avatar>
             </div>
-            <YourCourseComponents  v-if="data.prerequisite && data.prerequisite.length != 0" class="bg-auto mb-5" v-for="item in data.prerequisite" :progress="false" :data="item" />
+            <YourCourseComponents v-if="data.prerequisite && data.prerequisite.length != 0" class="bg-auto mb-5"
+              v-for="item in data.prerequisite" :progress="false" :data="item" />
             <v-alert v-if="data.prerequisite.length == 0" icon="fa fa-info" variant="text" color="blue"
-            class="bg-grey5 rtl border-opacity-100  my-10" border="start">
-            <div class="pb-3 text-body-2 font-weight-black irsa">
-              پیشنیازی وجود ندارد
-            </div>
+              class="bg-grey5 rtl border-opacity-100  my-10" border="start">
+              <div class="pb-3 text-body-2 font-weight-black irsa">
+                پیشنیازی وجود ندارد
+              </div>
 
-          </v-alert>
+            </v-alert>
           </div>
         </v-window-item>
       </v-window>
@@ -366,12 +473,12 @@
 
 
 
-<script >
+<script>
 import Course from '~/components/shared/Course.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
 import YourCourseComponents from "~/components/shared/YourCourse.vue";
-import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye,IconPaperclip } from '@tabler/icons-vue';
+import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye, IconPaperclip } from '@tabler/icons-vue';
 
 
 export default {
@@ -408,11 +515,18 @@ export default {
     loadingRegister: false,
     dialog: true,
     tab: null,
-    nextRegister : null,
+    nextRegister: null,
+    dialog_register: false,
+    btn_discount_loading:false,
+    discount_code: null,
+    discount_amount: 0,
+    snackbarDiscount:false,
+    snackbarDiscountError:false,
+    error_discount:'',
   }),
   methods: {
     async getData() {
-      axios.get(`https://tedline.org/api/course/RetrieveCourses/${this.$route.params.id}/`, {
+      axios.get(`http://127.0.0.1:8000/api/course/RetrieveCourses/${this.$route.params.id}/`, {
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
@@ -423,9 +537,9 @@ export default {
       }).then((response) => {
         this.data = response.data
         this.loading = false
-        if ( this.nextRegister == 'true' && this.data.registered == false) {
-          this.register()
-      }
+        if (this.nextRegister == 'true' && this.data.registered == false) {
+          this.dialog_register = true
+        }
       }
       )
     },
@@ -461,19 +575,12 @@ export default {
       let seconds = totalSeconds % 60;
       return `${hours}:${minutes}`
     },
-    register() {
-      if (this.data.price > 0) {
-        this.registerCredit()
-      } else {
-        this.registerFree()
-      }
-    },
     registerFree() {
       this.loadingRegister = true
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`http://127.0.0.1:8000/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -500,7 +607,7 @@ export default {
       this.loading = true;
       this.loadingRegister = true
 
-      await fetch(`https://tedline.org/api/wallet/increase-money/`, {
+      await fetch(`http://127.0.0.1:8000/api/wallet/increase-money/`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -511,43 +618,78 @@ export default {
               : "",
         },
         body: JSON.stringify({
-          course_id: this.$route.params.id
+          course_id: this.$route.params.id,
+          discount_code: this.discount_code
         }),
       })
         .then((response) => {
-          console.log('ddd')
 
           if (response.status == 200) {
             return response.json();
           } else {
             // Handle error
-            console.log('ddd')
-
+           
+            if(this.discount_code != null && this.discount_code != '') this.checkDiscountCode()
+            
           }
         })
         .then((data) => {
 
           window.location.href = data["result"]
         });
-      
+
     },
     shareLink() {
-      this.copyToClipboard(`https://tedline.org/course/${this.$route.params.id}/`)
+      this.copyToClipboard(`http://127.0.0.1:8000/course/${this.$route.params.id}/`)
       this.snackbar = true
     },
+    checkDiscountCode() {
+           
+            this.btn_discount_loading = true
+            const apiUrl = `http://127.0.0.1:8000/api/course/check-valid-product-discount/${this.discount_code}/${this.$route.params.id}/`;
+            axios.get(apiUrl,{
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Accept: "application/json",
+                     Authorization: `Token ${this.$store.state.token}`
+                },
+            }).then(response => {
+                console.log('discount', response.data);
+                if (response.data.valid){
+                    if(response.data.is_percentage){
+                        this.discount_amount = (this.data.price - (this.data.price * this.data.discount / 100)) * (response.data.amount/100)  
+                    }else{
+                        this.discount_amount = response.data.amount 
+                    }
+                    this.snackbarDiscount = true
+                }else{
+                
+                    this.error_discount = 'کد تخفیف معتبر نیست'
+                    this.snackbarDiscountError = true
+                }
+                console.log('amount', this.discount_amount, this.product);
+                this.btn_discount_loading = false
+            }).catch(error => {
+                // Handle error response
+                this.snackbarDiscountError = true
+
+                this.error_discount = 'مشکلی پیش‌آمده'
+            });
+        },
   }, async mounted() {
     if (this.$route.query.register != null) this.nextRegister = this.$route.query.register
     await this.$store.commit('onStart') // get token
 
     await this.getData()
-  
+
 
     setTimeout(() => (this.dialog = false), 6000)
   }
 }
 </script>
 
-<style lang="scss">:root {
+<style lang="scss">
+:root {
   --dialog-xpos: -10px;
   --dialog-ypos: 0px;
 
@@ -560,4 +702,5 @@ export default {
 .position-dialog-b-l .v-overlay__content {
   bottom: var(--dialog-ypos);
   right: var(--dialog-xpos);
-}</style>
+}
+</style>

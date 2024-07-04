@@ -107,7 +107,7 @@ export default {
       if (this.phoneNumber) {
 
         this.loading = true
-        await axios.post(`https://tedline.org/api/account/login-sms/${this.phoneNumber}/`,
+        await axios.post(`http://127.0.0.1:8000/api/account/login-sms/${this.phoneNumber}/`,
         )
           .then(response => {
             // Handle success response
@@ -144,7 +144,7 @@ export default {
 
         await axios({
           method: 'post',
-          url: 'https://tedline.org/api/account/code-check/',
+          url: 'http://127.0.0.1:8000/api/account/code-check/',
           data: params
         }).catch(function (error) {
           if (error.response) {
