@@ -48,7 +48,7 @@ export default {
         },
         getData() {
             this.loafing = true
-            axios.get(`http://127.0.0.1:8000/api/box/video/check_answer/${this.answer}/${this.idVideo}/${this.data.id}/`, {
+            axios.get(`https://tedline.org/api/box/video/check_answer/${this.answer}/${this.idVideo}/${this.data.id}/`, {
                 headers: {
                     "Content-type": "application/json",
                     Accept: "application/json",

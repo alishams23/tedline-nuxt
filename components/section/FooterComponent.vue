@@ -21,7 +21,7 @@
        </v-col>
         <v-col cols="1">
           <div >
-            <a href="http://127.0.0.1:8000/api/wallet/enamad/" >
+            <a href="https://tedline.org/api/wallet/enamad/" >
               <v-img src="images/enamad.png" height="50"></v-img>
             </a>
            </div>

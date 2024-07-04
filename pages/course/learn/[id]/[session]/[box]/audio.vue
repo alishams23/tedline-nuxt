@@ -135,7 +135,7 @@ export default {
   components: { IconX, QuizMovie,IconUser },
   data() {
     return {
-      audioUrl: "http://127.0.0.1:8000/api/box/audio/stream_audio",
+      audioUrl: "https://tedline.org/api/box/audio/stream_audio",
       state: null,
       data: null,
       loading: true,
@@ -188,7 +188,7 @@ export default {
       
       axios
         .get(
-          `http://127.0.0.1:8000/api/box/audio/retrieve-audio/${this.$route.params.box}/`,
+          `https://tedline.org/api/box/audio/retrieve-audio/${this.$route.params.box}/`,
           {
             headers: {
               "Content-type": "application/json",

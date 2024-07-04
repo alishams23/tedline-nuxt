@@ -109,7 +109,7 @@ export default {
         async fetchCategories() {
       try {
       
-        const response = await axios.get('http://127.0.0.1:8000/api/blog/List_category/', {
+        const response = await axios.get('https://tedline.org/api/blog/List_category/', {
           headers: {
             Authorization: `Token ${this.$store.state.token}`,
           }
@@ -131,7 +131,7 @@ export default {
     },
         getData() {
 
-            axios.get(`http://127.0.0.1:8000/api/blog/blog_retrieve/${this.$route.params.id}/`, {
+            axios.get(`https://tedline.org/api/blog/blog_retrieve/${this.$route.params.id}/`, {
                 headers: {
 
                     Accept: "application/json",
@@ -155,7 +155,7 @@ export default {
                 console.log(this.photo)
                 await axios
                     .post(
-                        `http://127.0.0.1:8000/api/blog/CreateImage/`,
+                        `https://tedline.org/api/blog/CreateImage/`,
                         this.fd,
 
                         {
@@ -197,7 +197,7 @@ export default {
             if (this.imageId) data['imageBlog'] = this.imageId
             await axios
                 .put(
-                    `http://127.0.0.1:8000/api/blog/BlogUpdate/${this.$route.params.id}/`,
+                    `https://tedline.org/api/blog/BlogUpdate/${this.$route.params.id}/`,
                     data,
                     {
                         headers: {

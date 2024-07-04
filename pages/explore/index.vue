@@ -271,7 +271,7 @@ export default {
   methods: {
    async searchCourse() {
       this.loading = true
-      await axios.get(`http://127.0.0.1:8000/api/course/SearchCourse/?page=${this.page}&search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
+      await axios.get(`https://tedline.org/api/course/SearchCourse/?page=${this.page}&search=${this.text}&is_free=${this.is_free}&is_discount=${this.is_discount}${this.selectedDataCategoryIds.length != 0 ? '&categories=' + this.selectedDataCategoryIds.join(',') : ''}`).then((response) => {
         this.data = response.data
       }
       )
@@ -280,14 +280,14 @@ export default {
     },
     searchBlog() {
       this.loading = true
-      axios.get(`http://127.0.0.1:8000/api/blog/Blog_List/?search=${this.text}`).then((response) => {
+      axios.get(`https://tedline.org/api/blog/Blog_List/?search=${this.text}`).then((response) => {
         this.blogData = response.data.results
         this.loading = false
       }
       )
     },
     getDataCategoryBest() {
-      axios.get('http://127.0.0.1:8000/api/course/CourseCategoryPopular/').then((response) => {
+      axios.get('https://tedline.org/api/course/CourseCategoryPopular/').then((response) => {
         this.dataCategoryBest = response.data
         this.loadingCategoryBest = false
       }
