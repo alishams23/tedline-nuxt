@@ -1,16 +1,15 @@
 <template>
-    <v-list-item :disabled="disable" :to="to" class="mb-3 rounded-lg  border rtl">
+    <v-list-item :disabled="disable" :to="to" class="mb-3 px-2 px-md-5 rounded-lg  border rtl">
     
         <template v-slot:prepend>
-            <v-avatar size="x-large" rounded="lg" :color="color">
+            <v-avatar size="large" rounded="lg" :color="color">
                 <v-icon color="auto"> fad {{ icon }}</v-icon>
             </v-avatar>
         </template>
-        <template v-slot:title>
-            <div class="font-weight-bold">
-                {{ title }}
-            </div>
-        </template>
+        <v-list-item-title class="text-body-2 font-weight-bold irsa">
+            {{ title }}
+        </v-list-item-title>
+        
 
         <template v-slot:append>
             <v-btn v-if="read == true" color="green" append-icon="fal fa-check" size="x-small" variant="flat"> خوانده شده</v-btn>
