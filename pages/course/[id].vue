@@ -379,14 +379,14 @@
               </v-avatar>
             </div>
           </v-card>
-          <div class="py-8 mt-16  inner-shadow-1 rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
+          <div class=" bg-grey4 py-8 mt-16  inner-shadow-1 rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
             <div class="text-h6 d-flex justify-space-between  align-center irsa font-weight-black rtl px-5 mb-10"> مدرس
 
-              <v-avatar class=" text-h6  rounded-pill inner-shadow-1" size="50" color="green">
+              <v-avatar class=" text-h6  rounded-pill " size="50" color="green">
                 <IconUser class="text-auto" />
               </v-avatar>
             </div>
-            <v-card class=" rounded-xl  ma-4 bg-auto inner-shadow-1   " elevation="0"
+            <v-card class=" rounded-xl  ma-4 bg-auto    " elevation="0"
               :to="'/profile/' + data.teacher.username">
               <v-list-item class="  pa-4 pe-4">
                 <template v-slot:prepend>
