@@ -4,7 +4,7 @@
    <div class="bg-grey5   shadow-custom d-flex justify-center px-0 align-center mx-0 py-0 px-0 custom-rounded-xl  ">
     <v-btn variant="plain" height="20px" c v-for="(item, index) in menuDown"
     :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`"
-    :key="item + '+Down menu'" class="no-hover-effect h-full px-0    space-y-8 space-y-1 margin-x-1 custom-rounded-xl" :ripple="false" color="transparent">
+    :key="item + '+Down menu'" @click="vibrateOnButtonClick" class="no-hover-effect h-full px-0    space-y-8 space-y-1 margin-x-1 custom-rounded-xl" :ripple="false" color="transparent">
 
     <v-sheet v-if="currentRouteCheck(item.to) == false" variant="flat" class="w-full  bg-grey5   custom-rounded-xl ">
       <component :is="item.icon" class="text-grey" style="height: 19px;" />
@@ -83,7 +83,15 @@ export default {
     currentRouteCheck(url) {
       return this.$route.name.split("-").includes(url.split('/')[1]);
     },
-
+    vibrateOnButtonClick() {
+      // Check if the Vibration API is supported
+      if (navigator.vibrate) {
+        // Vibrate for 200 milliseconds
+        navigator.vibrate(1);
+      } else {
+        console.log("Vibration API is not supported by this browser.");
+      }
+    }
 
   },
   async beforeMount() {
