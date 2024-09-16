@@ -47,7 +47,7 @@
                         <v-list lines="two" class="bg-auto ">
                             <div v-for="box in boxes.box" :key="box.title">
                                <box v-if="box.file" :read="box.is_finished" :title="box.title ? box.title :'فایل'" :disable="box.is_locked == true && data.is_signed == false " color="amber" icon="fa-file" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.file+ '/files'" />    
-                               <box v-if="box.video" :read="box.is_finished" :title="box.title ? box.title :'ویدئو'" :disable="box.is_locked == true && data.is_signed == false " color="blue" icon="fa-video" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/video'" />    
+                               <box v-if="box.video" :read="box.is_finished" :title="box.title ? box.title :'ویدئو'" :disable="box.is_locked == true && data.is_signed == false " color="blue" icon="fa-video" :href="'https://player.tedline.org/#/player/'+ $route.params.id +'/'+  $route.params.session + '/' + box.id+ '/'+(token ? token : 'null') +'/' + (username ? username : 'null')" />    
                                <box v-if="box.audio" :read="box.is_finished" :title="box.title ? box.title :'صوت'" :disable="box.is_locked == true && data.is_signed == false " color="green" icon="fa-volume" :to="'/course/learn/'+ $route.params.id +'/'+ $route.params.session + '/' + box.id+ '/audio'" />    
                             </div>
                         </v-list>
@@ -72,6 +72,14 @@ export default {
             layout: "learn-dashboard",
         })
     },
+    computed: {
+    token() {
+      return this.$store.state.token;
+    },
+    username() {
+      return this.$store.state.username;
+    }
+  },
 components:{box},
     data: () => ({
         model: null,
