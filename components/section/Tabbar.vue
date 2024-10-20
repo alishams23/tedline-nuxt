@@ -93,7 +93,7 @@
                         <v-btn
                           nuxt
                           large
-                          @click="snackbar = true"
+                          to="/contactUs"
                           
                           class="btn-custom-lg btn-arrow px-12"
                           depressed
@@ -126,7 +126,7 @@
                         <v-btn
                           nuxt
                           large
-                          @click="snackbar = true"
+                          to="/contactUs"
 
                           class="btn-custom-lg btn-arrow px-12"
                           depressed

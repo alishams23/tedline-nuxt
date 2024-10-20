@@ -6,7 +6,7 @@
       <v-card :ripple="false" class=" pa-0  "  color="transparent" elevation="0" :to="'/course/' + data.id">
 
         <div>
-          <v-img transition="" class=" align-end rounded-2lg  text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+          <v-img  class=" align-end rounded-2lg bg-grey2 text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
 
             <div class="h-100  w-100 rounded-xl d-flex align-end">
               

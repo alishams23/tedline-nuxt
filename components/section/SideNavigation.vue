@@ -10,10 +10,10 @@
       </div>
     </div>
     
-      <Notification />
+      <!-- <Notification /> -->
    
     </v-navigation-drawer>
-  <v-navigation-drawer :color="color ? color: 'auto'" class="hidden-sm-and-down border-none" location="right" rail-width="90" rail
+  <v-navigation-drawer :color="color ? color: 'auto'" class="hidden-sm-and-down border-none" location="right" rail-width="80" rail
     style="position:fixed; top:0; right:0; " elevation="0">
     <div class="d-flex flex-column justify-center align-center" style="height: 100%;">
       <!-- <v-btn rounded="xl" elevation="0" size="small" width="50" height="50" class="text-sm text-blue-darken-4 font-weight-black mt-5 mb-auto">تدلاین</v-btn> -->
@@ -25,13 +25,13 @@
       <v-img src="/pwa-512x512.png" width="50" class="custom-rounded-1">
       </v-img>
       </v-sheet> -->
-      <v-btn v-for="(item,index) in menu" variant="flat" :key="item + '+sidebar'"
-        :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 custom-rounded-1"
-        :class="currentRouteCheck(item.to) ? 'bg-blue-gradient text-white text-xs-1' : color ? 'bg-' + color : 'bg-auto  text-grey  '" 
+      <v-btn v-for="item,index in menu" variant="flat" 
+        :to="item.login && isAuthenticated == false ? '/auth/signIn' : item.to + `${index == 2 ? '/' + username : ''}`" elevation="0" size="x-small" width="50" height="50" class="my-3 rounded-xl"
+        :class="currentRouteCheck(item.to) ? 'bg-blue-gradient text-auto text-xs-1' : color ? 'bg-' + color : 'bg-grey4   text-grey  '" 
         :icon="currentRouteCheck(item.to) ? 'fa ' + item.icon : 'far ' + item.icon"></v-btn>
-        <v-btn  variant="flat" :key="item + '+sidebar'"
-        elevation="0" @click="drawerChecker = true" size="x-small" width="50" height="50" class="my-3 custom-rounded-1 text-grey1"
-        :class=" color ? 'bg-' + color :'bg-auto '"
+        <v-btn  variant="flat" 
+        elevation="0" @click="drawerChecker = true" size="x-small" width="50" height="50" class="my-3 bg-grey4 text-grey"
+        :class=" color ? 'bg-' + color :' '"
         :icon="'far ' + 'fa-bells'"></v-btn>
         <!-- <v-btn rounded="xl" variant="text" @click="changeComponentData" elevation="0" size="small" width="45" height="45"
         class="mt-auto mb-5 bg-grey4 custom-rounded-1" color="blue-darken-3" icon="fad fa-bells"></v-btn> -->

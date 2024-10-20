@@ -46,6 +46,7 @@
           variant="text"
           
           color="blue-grey-darken-4"
+          rounded="lg"
           v-if="data.registered == false"
           class="rtl mx-3 bg-grey3   border-opacity-100  my-2"
           border="start"

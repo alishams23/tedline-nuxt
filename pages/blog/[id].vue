@@ -3,7 +3,7 @@
 <Navbar :shadow="true" />
 
 <div v-if="loading" class="d-flex h-100 justify-center align-center" >
-    <v-progress-circular :size="55" class="ma-10" bg-color="grey4" :width="7" color="blue"
+    <v-progress-circular :size="55" class="ma-10" bg-color="grey4" :width="5" color="blue"
       indeterminate></v-progress-circular>
   </div>
 

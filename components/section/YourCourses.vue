@@ -10,13 +10,13 @@
           رسیده</v-tab>
       </div>
     </v-tabs>
-    <v-tabs   fixed-tabs v-if="variant == 'flat'" v-model="tab"  class="  border-b   rtl"  elevation="0" 
+    <v-tabs    v-if="variant == 'flat'" v-model="tab"  class="  border-b   rtl"  elevation="0" 
       >
-        <v-tab color="blue" class="  transition-inactive-class rounded-t-lg text-xs-1 "  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-nauto  ' : 'text-grey1'">
+        <v-tab color="blue" class="  transition-inactive-class px-10 rounded-t-lg text-xs-1 "  variant="text" :ripple="false" value="one"><div :class="tab == 'one'?'text-nauto  ' : 'text-grey1'">
           در حال یادگیری
           <v-icon  :color="tab == 'one'?'blue' : 'grey1'" size="15" class="ps-5">{{tab == 'one' ? 'fad' : 'fa'}} fa-list</v-icon>  
         </div></v-tab>
-        <v-tab color="blue" class="transition-inactive-class rounded-t-lg text-xs-1 " variant="text" :ripple="false" value="two">
+        <v-tab color="blue" class="transition-inactive-class px-10 rounded-t-lg text-xs-1 " variant="text" :ripple="false" value="two">
           <div :class="tab == 'two'?'text-nauto  ' : 'text-grey1'">
             به اتمام
           رسیده
@@ -36,7 +36,7 @@
   
           </div>
       
-          <v-alert  v-if="loadingUnfinished == false && data.length == 0" icon="fa fa-info" variant="text" color="blue" class=" rounded-lg rtl bg-grey5  border-opacity-100  my-10" border="start">
+          <v-alert  v-if="loadingUnfinished == false && data.length == 0"  variant="text" color="blue" class=" rounded-lg rtl  text-center  my-10" >
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
             </div>
@@ -60,7 +60,7 @@
             <YourCourseComponents :progress="progress" :data="item"  />
           </div>
 
-          <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  icon="fa fa-info" variant="text" color="blue" class="rounded-lg bg-grey5 rtl border-opacity-100  my-10" border="start">
+          <v-alert v-if="loadingFinished == false && dataFinished.length == 0"  variant="text" color="blue" class="rtl text-center   my-10" >
             <div class="pb-3 text-body-1 font-weight-black irsa">
               دوره ای وجود ندارد
             </div>

@@ -1,8 +1,8 @@
 <template>
-  <v-btn @click="toggleTheme"  class="bg-blue custom-rounded-2 text-dark" size="small" icon="">
+  <v-btn @click="toggleTheme"  class="bg-blue "  size="small" icon="">
 
-    <MoonIcon style="height: 20px;" v-if="night == 'light'" />
-    <SunIcon style="height: 20px;" v-if="night == 'dark'" />
+    <MoonIcon style="height: 20px;"  v-if="night == 'light'" />
+    <SunIcon style="height: 20px;" class="text-black"  v-if="night == 'dark'" />
   </v-btn>
 </template>
 <script>

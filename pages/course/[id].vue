@@ -29,7 +29,7 @@
   </v-snackbar>
 
   <div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63" :width="8" color="blue"
+    <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63" :width="7" color="blue"
       indeterminate></v-progress-circular>
 
   </div>
@@ -226,26 +226,18 @@
 
     </v-img>
 
-    <v-dialog :open-delay="4000" transition="dialog-bottom-transition" v-model="dialog" :scrim="false" persistent
-      class="position-dialog-b-l" width="auto" location="top" scroll-strategy="none">
-      <v-alert variant="text" color="blue-accent-4" v-if="data.registered == true"
-        class="rtl rounded-lg bg-auto shadow-3   border-opacity-100   my-2" border="start">
-        <div class="d-flex align-center">
-          <div class="text-nauto   text-body-2 irsa">
-            شما در این دوره ثبت نام کرده اید
-          </div>
-          <v-avatar color="blue" size="25" variant="tonal" @click="dialog = false" class="mr-4">
-            <IconX size="15" />
-          </v-avatar>
-
-        </div>
-        <v-btn variant="flat" size="small" :to="`/course/learn/${data.id}/${data.session[0].id}`"
-          color="blue-accent-4 mt-4" rounded="xl" elevation="0" class=" text-xs  px-5 rounded-xl ">
-          مشاهده ی دروس
+    <v-snackbar v-model="dialog" v-if="data.registered == true" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
+    <template v-slot:actions>
+      <v-btn variant="flat" size="small" :to="`/course/learn/${data.id}/${data.session[0].id}`"
+          color="blue-accent-4 " rounded="xl" elevation="0" class=" text-xs  font-weight-bold px-5 rounded-xl ">
+      مشاهده
         </v-btn>
-      </v-alert>
-
-    </v-dialog>
+      <!-- <v-btn color="blue-lighten-4" variant="text" icon="fal fa-times" @click="dialog = false">
+      </v-btn> -->
+     
+    </template>
+    شما در این دوره ثبت نام کرده اید
+  </v-snackbar>
 
     <v-locale-provider rtl>
 
@@ -287,7 +279,7 @@
               <div class="text-h6 irsa font-weight-black rtl px-5"> جزئیات دوره </div>
             </v-col>
             <v-col cols="12" md="8">
-              <v-card height="100%" color="grey4" class="inner-shadow-1 px-3 rounded-xl rtl " elevation="0">
+              <v-card height="100%" color="grey4" class="   px-3 rounded-xl rtl " elevation="0">
                 <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
                   <div>
                     <v-card-title class="irsa text-sm font-weight-black">
@@ -363,7 +355,7 @@
               </v-card>
             </v-col>
           </v-row>
-          <v-card color="grey4" v-if="data.description" class="inner-shadow-1 px-3 my-10 rounded-xl rtl py-10"
+          <v-card color="grey4" v-if="data.description" class="   px-3 my-10 rounded-xl rtl py-10"
             elevation="0">
             <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
               <div>
@@ -379,7 +371,7 @@
               </v-avatar>
             </div>
           </v-card>
-          <div class=" bg-grey4 py-8 mt-16  inner-shadow-1 rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
+          <div class=" bg-grey4 py-8 mt-16     rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
             <div class="text-h6 d-flex justify-space-between  align-center irsa font-weight-black rtl px-5 mb-10"> مدرس
 
               <v-avatar class=" text-h6  rounded-pill " size="50" color="green">
@@ -422,7 +414,7 @@
               <v-timeline-item size="small" v-for="item in data.session" dot-color="transparent"
                 :key="item.id + '+session'">
                 <template v-slot:icon>
-                  <v-avatar class="bg-blue-gradient-2" size="30"></v-avatar>
+                  <v-avatar class="bg-blue" size="30"></v-avatar>
                 </template>
                 <template v-slot:opposite>
                   <span class=" font-weight-bold"> {{ item.title }}</span>
@@ -437,19 +429,19 @@
         </v-window-item>
         <v-window-item value="three">
 
-          <div class=" mt-10 py-8 inner-shadow-1 rounded-xl bg-grey4 px-3 rtl">
+          <div class=" mt-10 py-8    rounded-xl bg-grey4 px-3 rtl">
             <div class="text-h6  d-flex justify-space-between  align-center  irsa font-weight-black rtl px-5 mb-10">دوره
               های
               پیشنیاز
 
-              <v-avatar class=" text-h6  rounded-pill inner-shadow-1" size="50" color="blue">
+              <v-avatar class=" text-h6  rounded-pill   " size="50" color="blue">
                 <IconListCheck class="text-auto" />
               </v-avatar>
             </div>
             <YourCourseComponents v-if="data.prerequisite && data.prerequisite.length != 0" class="bg-auto mb-5"
               v-for="item in data.prerequisite" :progress="false" :data="item" />
             <v-alert v-if="data.prerequisite.length == 0" icon="fa fa-info" variant="text" color="blue"
-              class="bg-grey5 rtl border-opacity-100  my-10" border="start">
+              class=" rtl  my-10">
               <div class="pb-3 text-body-2 font-weight-black irsa">
                 پیشنیازی وجود ندارد
               </div>
@@ -683,7 +675,7 @@ export default {
     await this.getData()
 
 
-    setTimeout(() => (this.dialog = false), 6000)
+ 
   }
 }
 </script>

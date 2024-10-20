@@ -23,7 +23,7 @@
         <v-spacer></v-spacer>
         <div class="me-2 " :class="transparent == true ? 'text-white' : ''"
           v-for="item in isAuthenticated != true ? menuItems : menuItemsLogin">
-          <v-list-item class=" hidden-md-and-down custom-rounded-2  text-center text-xs font-weight-bold" width="120px"
+          <v-list-item  density="comfortable" class=" hidden-md-and-down rounded-pill  text-center text-xs font-weight-bold" width="110px"
             :color="transparent == true ? 'light' : 'blue'" :key="item.title" :to="item.path">
             {{ item.title }}
           </v-list-item>
@@ -43,7 +43,7 @@
           location="start">
           <template v-slot:activator="{ props }">
             <v-avatar v-bind="props" variant="tonal" :color="transparent == true ? 'white' : 'blue'"
-              class="me-4  hidden-md-and-up custom-rounded-2">
+              class="me-4  hidden-md-and-up ">
               <v-icon size="13" icon="fa fa-bell"></v-icon>
             </v-avatar>
           </template>

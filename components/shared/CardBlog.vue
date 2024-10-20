@@ -5,18 +5,13 @@
             <v-card :ripple="false" class=" pa-0  " color="transparent" elevation="0" :to="'/blog/' + data.id">
 
                 <div>
-                    <v-img class=" align-end  text-auto  " :aspect-ratio="1 / 1"
+                    <v-img  class=" align-end  text-auto bg-grey2 rounded-xl " :aspect-ratio="2 / 1"
                         :src="data.imageBlog.photo" cover>
-                        <div class="h-100  w-100 rounded-xl d-flex align-end">
-                            <div class="bg-gradient-glass2 pt-16 py-md-5 w-100 ">
-                                <v-container>
-                                    <div  class=' text-body-2 test-n text-white text-md-body-1 font-weight-black irsa rtl  '>
+                      
+                    </v-img>
+                    <div  class=' pt-5 pb-2 px-3  test-n  text-body-2 font-weight-black irsa rtl  '>
                                         {{ data.title }}
                                     </div>
-                                </v-container>
-                            </div>
-                        </div>
-                    </v-img>
                 </div>
                
             </v-card>
@@ -37,7 +32,14 @@ export default {
 .test-n {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}</style>
+    word-wrap: break-word;
+    height: 62px;
+   
+}
+
+
+</style>

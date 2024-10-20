@@ -1,5 +1,7 @@
 <template>
   <!-- <Navbar :transparent="false" /> -->
+  <Navbar :shadow="true" />
+
   <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
       <v-btn color="white" variant="text" icon="fal fa-times" @click="snackbar = false">
@@ -7,154 +9,145 @@
     </template>
     کپی شد
   </v-snackbar>
- <div class=" curved text-auto  rounded-b-xl mx-md-16">
-  <v-progress-linear
-  color="auto"
-  v-if="loading"
-  indeterminate
-  height="3"
-></v-progress-linear>
-  <v-container >
-    <v-row align="center" class=" mx-10 mb-5 mt-2">
-      <v-col class="d-flex justify-center justify-md-end rtl"  cols="12" md="6">
-       <div>
-        <v-avatar   class="text-h5 shadow-1 bg-grey4 "   size="110" >
-          
-          <v-icon color="nauto " class=" position-absolute " >
-            fad fa-user
-          </v-icon>
-          <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`" cover></v-img>
-        </v-avatar>
-        <div class="mt-n10 ">
-          <v-menu elevation="0" >
-            <template v-slot:activator="{ props }">
-              <v-btn size="small" class="shadow-2  bg-glass-light"     v-bind="props" icon="far  fa-ellipsis-v"  variant="flat"></v-btn>
-            </template>
-            <v-list elevation="0" class="shadow-2 py-0" rounded="lg">
-              <v-list-item @click="shareLink">
-                <v-list-item-title class=" font-weight-bold px-5 text-body-2 irsa" >به اشتراک گذاری</v-list-item-title>
-                <template v-slot:prepend>
-                  <v-avatar class="text-blue " icon="" size="20" rounded="0">
-                    <v-icon size="15">
-                      fa fa-external-link
-                    </v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </div>
-       </div>
-       
-      </v-col>
-      <v-col class="rtl text-white d-flex   justify-center justify-md-start" cols="12" md="6">
-     
-        <v-skeleton-loader
-        v-if="!data"
-    
-        color="transparent"
-        :boilerplate="true"
-        class="rounded-2lg"
-        type="text, "
-        width="200"
-      >
-    </v-skeleton-loader>
-        <div class=" d-flex flex-column align-center align-md-start">
+  <div class=" curved text-auto custom-rounded-md    mx-md-16">
+    <v-progress-linear color="auto" v-if="loading" indeterminate height="3"></v-progress-linear>
+    <v-container>
+      <v-row align="center" class=" mx-10  mt-2">
+        <v-col class="d-flex justify-center justify-md-end rtl" cols="12" md="6">
+          <div class="pa-2 rounded-pill border-md ">
+            <v-avatar color="auto" class="text-h5 shadow-1  " size="140">
+
+              <v-icon  class=" position-absolute ">
+                fad fa-user
+              </v-icon>
+              <v-img :src="`https://tedline.org/api/account/user_profile_image/${$route.params.username}`"
+                cover></v-img>
+            </v-avatar>
+
+          </div>
+
+        </v-col>
+        <v-col class="rtl text-white d-flex   justify-center justify-md-start" cols="12" md="6">
+
+          <v-skeleton-loader v-if="!data" color="transparent" :boilerplate="true" class="rounded-2lg" type="text, "
+            width="200">
+          </v-skeleton-loader>
+          <div class=" d-flex flex-column align-center align-md-start">
+
+            <h3 v-if="data" class="text-h5 text-white  font-weight-black irsa">
+              {{ $route.params.username }}
+
+            </h3>
+            <v-list-item-subtitle v-if="data">{{ data.get_full_name }}</v-list-item-subtitle>
+          </div>
+
+        </v-col>
+
+      </v-row>
+      <v-container v-if="data"> 
+  
+          <div class="d-flex  justify-center justify-md-end  align-center">
+            <v-btn icon=""  density="comfortable" @click="shareLink" color="auto" variant="tonal">
+              <ShareIcon  class="text-white" style="height: 15px;" />
+            </v-btn>
+            <v-card  color="auto" elevation="0" width="120" v-if="data.status == 't'" variant="tonal"
+              class="align-center rounded-pill  mx-3  d-flex justify-space-between  pa-1 pe-3">
+              <v-avatar variant="tonal" color="black" size="33">
+                <v-icon size="14" class="text-white">
+                  <UserIcon style="height: 14px;" />
+                </v-icon>
+              </v-avatar>
+              <div class="rtl">
+                <p class=" font-weight-bold text-xs text-white">مدرس </p>
+              </div>
+            </v-card>
+          </div>
         
-          <h3 v-if="data" class="text-h5 text-white  font-weight-black irsa">
-            {{ $route.params.username }}
-          
-          </h3>
-          <v-list-item-subtitle v-if="data">{{data.get_full_name}}</v-list-item-subtitle>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
-  <v-sheet height="40" color="auto" elevation="0"  class=" hidden-md-and-up rounded-t-lg  w-100 " style="border:1px solid  light">
+            
+        
+  
+      </v-container>
+    </v-container>
+    <v-sheet height="40" color="auto" elevation="0" class=" hidden-md-and-up rounded-t-lg  w-100 "
+      style="border:1px solid  light">
 
-    <div class="d-flex justify-center">
-      <v-sheet width="60" height="5" rounded="pill" class="mt-3" color="grey3"></v-sheet>
-    </div>
-  </v-sheet>
+      <div class="d-flex justify-center">
+        <v-sheet width="60" height="5" rounded="pill" class="mt-3" color="grey3"></v-sheet>
+      </div>
+    </v-sheet>
 
- </div>
+  </div>
   <v-container class="mt-0 mt-md-5">
 
-<v-skeleton-loader
-v-if="!data"
-  v-for="n in 3"
-  color="auto"
-  class="mx-5 my-10 rounded-2lg"
-  type="image, "
-  >
-</v-skeleton-loader>
+    <v-skeleton-loader v-if="!data" v-for="n in 3" color="auto" class="mx-5 my-10 rounded-2lg" type="image, ">
+    </v-skeleton-loader>
 
     <div class="text-right text-xs rtl mb-10 px-5 " v-if="data && data.bio">
-        {{ data.bio }}
+      {{ data.bio }}
     </div>
     <v-expand-transition>
-    <v-row v-if="loading == false"  class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">
+      <v-row v-if="loading == false"
+        class="d-flex flex-row-reverse justify-md-start justify-center mx-1  flex-wrap align-stretch">
         <v-col cols="6" md="4" lg="2" class="pa-1 " v-if="data.status == 's'">
-          <v-sheet  class="align-center rounded-pill bg-blue-gradient-3 text-white  d-flex justify-space-between pa-2 pe-3">
-            <v-avatar variant="tonal" class=" " color="white" size="38">
-             <v-icon size="15">
-              fad fa-list
-             </v-icon>
+          <v-card variant="tonal" color="blue-darken-1"
+            class="align-center rounded-pill  text-white  d-flex justify-space-between pa-2 pe-3">
+            <v-avatar variant="flat" class=" " color="blue" size="38">
+              <v-icon size="15">
+                fad fa-list
+              </v-icon>
             </v-avatar>
             <div class="rtl">
-              <p class=" font-weight-bold text-xs-1">دوره تمام نشده </p>
-              <p class="text-xs-1 irsa ">{{data.unfinished_course}} دوره</p>
-             </div>
-          </v-sheet>
-        </v-col>
-        <v-col cols="6" md="4" lg="2" class="pa-1" v-if="data.status == 's'" >
-          <v-sheet  class="align-center rounded-pill bg-blue-gradient-2 text-white  d-flex justify-space-between  pa-2 pe-3">
-            <v-avatar variant="tonal"  class=" " color="white" size="38">
-             <v-icon size="15">
-              fad fa-check
-             </v-icon>
-            </v-avatar>
-            <div class="rtl">
-              <p class=" font-weight-bold text-xs-1">دوره  تمام شده </p>
-              <p class="text-xs-1 irsa ">{{data.finished_course}} دوره</p>
-             </div>
-          </v-sheet>
-        </v-col>
-        <v-col cols="6" md="2" class="pa-1" v-if="data.status == 't'" >
-          <v-card  color="blue" elevation="0" variant="tonal" class="align-center rounded-pill   d-flex justify-space-between  pa-2 pe-3">
-            <v-avatar variant="flat"   color="blue" size="38">
-             <v-icon size="15" class="text-auto">
-              fad fa-chalkboard-teacher
-             </v-icon>
-            </v-avatar>
-            <div class="rtl">
-              <p class=" font-weight-bold text-xs  font-weight-black">مدرس </p>
-          
-             </div>
+              <p class=" font-weight-bold text-xs-1 text-blue-darken-2">دوره تمام نشده </p>
+              <p class="text-xs-1 irsa   text-blue-lighten-1">{{ data.unfinished_course }} دوره</p>
+            </div>
           </v-card>
         </v-col>
-    </v-row>
-  </v-expand-transition>
+        <v-col cols="6" md="4" lg="2" class="pa-1" v-if="data.status == 's'">
+          <v-card variant="tonal" color="grey"
+            class="align-center  rounded-pill   d-flex justify-space-between  pa-2 pe-3">
+            <v-avatar variant="flat" class=" " color="black" size="38">
+              <v-icon size="15">
+                fad fa-check
+              </v-icon>
+            </v-avatar>
+            <div class="rtl">
+              <p class=" font-weight-bold text-xs-1 text-nauto">دوره تمام شده </p>
+              <p class="text-xs-1 irsa text-nauto">{{ data.finished_course }} دوره</p>
+            </div>
+          </v-card>
+        </v-col>
+        
+      </v-row>
+    </v-expand-transition>
     <div class="mt-16"></div>
-    <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat" :username="$route.params.username"  />
-    <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username"  />
+    <YourCourses v-if="loading == false && data.status == 's'" :progress="false" variant="flat"
+      :username="$route.params.username" />
+    <TeacherCourses v-if="loading == false && data.status == 't'" :username="$route.params.username" />
   </v-container>
 
 
 </template>
 <script>
 import axios from "axios";
-
+import { ShareIcon, } from '@heroicons/vue/24/outline'
+import { UserIcon } from '@heroicons/vue/24/solid'
 import YourCourses from "~/components/section/YourCourses.vue";
 import TeacherCourses from "~/components/section/TeacherCourses.vue";
 
 export default {
 
-  data(){
-    return{
-      snackbar :false,
-      data:null,
-      loading:true,
+  components: {
+
+    YourCourses,
+    TeacherCourses,
+    ShareIcon,
+    UserIcon
+  },
+  data() {
+    return {
+      snackbar: false,
+      data: null,
+      loading: true,
     }
   },
   setup() {
@@ -162,7 +155,7 @@ export default {
       layout: "dashboard",
     })
   },
-  methods:{
+  methods: {
     copyToClipboard(textToCopy) {
       // navigator clipboard api needs a secure context (https)
       if (navigator.clipboard && window.isSecureContext) {
@@ -197,40 +190,32 @@ export default {
       }
       )
     },
-    
+
   },
-  mounted(){
+  mounted() {
     this.getData()
   },
-  components: {
 
-    YourCourses,
-    TeacherCourses
-
-  },
 }
 </script>
 
 <style scoped>
-
-
-
 @media (max-width: 767px) {
   .curved {
-    background-color: #060f21;
+    background-color: #5ba7ee42;
 
-    background-image:radial-gradient(ellipse 100% 100% at -20% 20%, #0473e9 89.9%, #00000000 90%),radial-gradient(ellipse 100% 60% at 30% 100%, #045de9 89.9%, #045de9 90%);
-    
+    background-image: radial-gradient(ellipse 100% 140% at -10% 20%, #2b4968 89.9%, #00000000 90%), radial-gradient(ellipse 100% 100% at 30% 100%, #54a1e98c 89.9%, #045ce900 90%);
+
   }
 }
+
 @media (min-width: 767px) {
 
   .curved {
-    background-color: #0f1931;
+    background-color: #5ba7ee42;
 
-    background-image:radial-gradient(ellipse 50% 200% at 80% 0%, #0473e9 89.9%, #00000000 90%), radial-gradient(ellipse 100% 90% at 20% 7%, #045de9 89.9%, #045de9 90%);
-    
+    background-image: radial-gradient(ellipse 50% 200% at 80% 0%, #2b4968 89.9%, #00000000 90%), radial-gradient(ellipse 30% 100% at 30% -10%, #54a1e98c 89.9%, #045ce900 90%);
+
   }
 }
-
 </style>

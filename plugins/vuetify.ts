@@ -2,7 +2,8 @@ import { createVuetify, type ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 // import '@mdi/font/css/materialdesignicons.css'
-import { IconSquareRounded , IconSquareRoundedFilled } from '@tabler/icons-vue';
+import { IconSquareRounded , IconSquareRoundedFilled ,IconCircle,IconCircleCheckFilled} from '@tabler/icons-vue';
+
 
 const dark: ThemeDefinition =  {
   dark: true,
@@ -69,7 +70,9 @@ export default defineNuxtPlugin(nuxtApp => {
     icons: {
       aliases: {
       checkboxOff: IconSquareRounded,
-      checkboxOn:IconSquareRoundedFilled
+      checkboxOn:IconSquareRoundedFilled,
+      radioOff : IconCircle,
+      radioOn:IconCircleCheckFilled,
       }
 
     },

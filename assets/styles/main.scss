@@ -219,22 +219,17 @@ background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%,rgba(0, 0, 0, 0.
 .custom-rounded{
     border-radius: 22px !important;
 }
-.custom-rounded-1{
-    border-radius: 18px !important;
+
+
+
+.custom-rounded-md{
+    @media (min-width: 960px) {
+        border-radius: 18px ;
+
+      }
 }
 
-.custom-rounded-2{
-    border-radius: 16px !important;
-}
 
-
-
-
-
-.custom-bg-blue{
-    background-color: #0473e9 !important;
-
-}
 
 
 
@@ -286,7 +281,25 @@ background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 30%,rgba(0, 0, 0, 0.
        
 }
 
+.text-gradient-2{
+    @media (min-width: 767px) {
+        background: linear-gradient(to right,#dd880a 30%, #f4af19) ;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    color: rgb(0, 166, 255);
+       
+}
+
 .bg-custom-s{
     background: linear-gradient(-20deg, rgba(64, 144, 249, 0.086)0%, rgb(var(--v-theme-gradient-light-box)) 100%);
 }
 
+
+
+
+
+.custom-bg-blue{
+    background-color: #0473e9 !important;
+
+}

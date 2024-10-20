@@ -22,7 +22,7 @@
         <v-col cols="1">
           <div >
             <a href="https://tedline.org/api/wallet/enamad/" >
-              <v-img src="images/enamad.png" height="50"></v-img>
+              <v-img src="/images/enamad.png" height="50"></v-img>
             </a>
            </div>
         </v-col>

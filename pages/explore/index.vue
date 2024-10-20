@@ -80,15 +80,15 @@
  
   
   
-      <v-app-bar color="auto" height="80"   elevation="0">
+      <v-app-bar color="auto" height="74"   elevation="0">
       <v-container class="">
-      <v-card-text class="" color="" elevation="0">
+      <v-card-text class=" mt-7" color="" elevation="0">
         <v-locale-provider rtl>
-        <v-text-field   :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="page=1;searchCourse();searchBlog()" v-model="text"
-          class=" custom-label-color  "  :flat="true" variant="solo-filled" 
-          label="جستجو بین درس ها" rounded="xl" single-line hide-details>
+        <v-text-field  density="compact"  :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="page=1;searchCourse();searchBlog()" v-model="text"
+          class="   "  :flat="true" variant="solo-filled" 
+          label="جستجو   ..." rounded="pill"  >
           <template v-slot:prepend>
-            <v-avatar class="text-xs bg-blue-gradient text-white custom-rounded" size="55">
+            <v-avatar class="text-xs bg-blue-gradient text-auto " size="55">
               <MagnifyingGlassIcon style="height: 21px" />
             </v-avatar>
           </template>
@@ -104,13 +104,13 @@
   
     <v-container   >
       <v-container>
-        <v-tabs v-model="tab" align-tabs="end" color="transparent" class="text-grey2">
+        <v-tabs density="comfortable" v-model="tab" align-tabs="end" color="transparent" class="text-grey2">
           <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="me-auto mt-auto "
             @click="drawerChecker = true" size="small" color="nauto "   rounded="pill" icon=""> 
     
             <AdjustmentsHorizontalIcon style="height: 19px"/>
           </v-btn>
-          <v-tab  :hide-slider="true" height="50"   class="mt-auto text-xs rounded-2lg px-6 text-auto px-md-16 " variant="tonal" color="blue" :value="1" >
+          <v-tab  :hide-slider="true"    class="mt-auto text-xs rounded-pill px-6 text-auto px-md-8 " variant="tonal" color="blue" :value="1" >
           <div :class="tab == 1 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex">
            <span>
             دوره ها
@@ -121,7 +121,7 @@
             <!-- <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon> -->
           </div>
           </v-tab>
-          <v-tab :hide-slider="true" height="50"  class="mt-auto  text-xs  text-auto rounded-2lg px-6 px-md-16 " variant="tonal" color="blue" :value="2" >
+          <v-tab :hide-slider="true"   class="mt-auto  text-xs  text-auto rounded-pill px-6 px-md-8 " variant="tonal" color="blue" :value="2" >
             
           <div :class="tab == 2 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
           <span>  وبلاگ ها</span>
@@ -152,7 +152,7 @@
               <v-container>
 
              
-                <v-alert v-if="data.results && data.results.length == 0"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+                <v-alert v-if="data.results && data.results.length == 0"  color="blue" icon="fa fa-info" variant="text"  class="rtl border-opacity-100 my-10">
                   <div class="text-sm  font-weight-black irsa">
                     دوره ای وجود ندارد
                   </div>
@@ -182,9 +182,9 @@
                 <CardBlog :data="item"  color="grey4" class="w-100  ma-2 ma-md-5 " />
               </v-col>
               <v-container>
-              <v-alert v-if="blogData.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="tonal"  class="rtl border-opacity-100 my-10">
+              <v-alert v-if="blogData.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="text"  class="rtl border-opacity-100 my-10">
                 <div class="text-sm  font-weight-black irsa">
-                  وبلاگی ای وجود ندارد
+                  وبلاگی وجود ندارد
                 </div>
               </v-alert>
             </v-container>
@@ -322,5 +322,7 @@ export default {
 .custom-label-color .v-label {
   font-size: 14px ;
 }
-
+.v-bottom-sheet__content{
+  border-radius: 20px !important;
+}
 </style>

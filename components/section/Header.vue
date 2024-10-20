@@ -64,7 +64,7 @@ export default {
 
   data: () => ({
 
-   
+    text:'',
     data: [],
     loading: true,
   }),

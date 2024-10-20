@@ -7,10 +7,12 @@
     <div class="pb-16 pt-8">
       <BestCourses class="my-16" />
     </div>
-    <Courses />
+    <SectionSchoolCourses/>
    <div class="pt-16 pb-md-7">
     <Category1  />
    </div>
+   <SectionSwapCourses />
+ 
     <Section1 />
   </v-container>
   <FooterComponent />
@@ -21,7 +23,7 @@
 <script>
 import Header from "~/components/section/Header.vue";
 import FooterComponent from "~/components/section/FooterComponent.vue";
-import Courses from "~/components/section/Courses.vue";
+
 import Section1 from "~/components/section/Section1.vue";
 import Tabbar from "~/components/section/Tabbar.vue";
 import Category1 from "~/components/section/Category1.vue";
@@ -39,7 +41,6 @@ export default {
   components: {
     Header,
     FooterComponent,
-    Courses,
     Section1,
     Tabbar,
     Category1,

@@ -2,7 +2,7 @@
 <template>
     <v-card
     :to="progress == false && data.registered == false ? `/course/${data.id}`:`/course/learn/${data.id}/${data.session[0].id}`"
-     class=" bg-grey4 inner-shadow-md  rounded-xl " elevation="0">
+     class=" bg-grey4   rounded-xl " elevation="0">
             <v-row>
                 <v-col cols="12"  sm="5"  class=" rtl text-black ">
                     <v-card

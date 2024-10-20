@@ -16,7 +16,7 @@
    به سایت tedline خوش آمدید
     </div>
     <template v-slot:prepend>
-      <v-avatar rounded="lg" variant="tonal" size="40"   color="blue" class="me-4" >
+      <v-avatar  variant="tonal" size="40"   color="blue" class="me-4" >
         👨‍🏫
       </v-avatar>
     </template>
