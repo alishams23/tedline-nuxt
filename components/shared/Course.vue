@@ -6,7 +6,7 @@
       <v-card :ripple="false" class=" pa-0  "  color="transparent" elevation="0" :to="'/course/' + data.id">
 
         <div>
-          <v-img  class=" align-end   rounded-lg text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover >
+          <v-img  class=" align-end  course-image-rounded  rounded-lg text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover >
             <div class=" position-absolute bottom-0 right-0 top-0 left-0 bg-grey2 rounded-xl" style="z-index: -10;"> 
 
             </div>
@@ -138,7 +138,7 @@ export default {
   }
 }
 </script>
-<style scope>
+<style >
 .test-n {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -147,7 +147,7 @@ export default {
   text-overflow: ellipsis;
 }
 
-.v-img__img{
+.course-image-rounded .v-img__img{
  border-radius: 21px;
 }
 </style>
