@@ -12,7 +12,7 @@
             </div>
             <div class=" h-100  w-100  d-flex align-end">
               
-              <div class="bg-gradient-glass2 rounded-2lg rtl h-100 d-flex flex-column justify-end   pt-md-16 py-3 py-md-5  px-5  w-100 text-white text-right">
+              <div class="bg-gradient-glass2 rounded-b-2lg rtl h-100 d-flex flex-column justify-end   pt-md-16 py-3 py-md-5  px-5  w-100 text-white text-right">
               
              
                
