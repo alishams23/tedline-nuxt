@@ -5,7 +5,7 @@
           دوره های <span class="text-gradient-1">تحصیلی</span>
         </h3>
         <p class="mt-md-6 pt-4 rtl text-muted text-right text-md-center mx-md-4">
-          بهترین دوره های تحصیلی برای <br/>  دانش آموزان
+       دوره های تحصیلی پیشنهادی
         </p>
       </v-col>
       <v-col cols="12" lg="9" class="">

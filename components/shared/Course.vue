@@ -6,11 +6,13 @@
       <v-card :ripple="false" class=" pa-0  "  color="transparent" elevation="0" :to="'/course/' + data.id">
 
         <div>
-          <v-img  class=" align-end rounded-2lg bg-grey2 text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover>
+          <v-img  class=" align-end   rounded-lg text-auto  text-left" :aspect-ratio="1 / 1" :src="data.image" cover >
+            <div class=" position-absolute bottom-0 right-0 top-0 left-0 bg-grey2 rounded-xl" style="z-index: -10;"> 
 
-            <div class="h-100  w-100 rounded-xl d-flex align-end">
+            </div>
+            <div class=" h-100  w-100  d-flex align-end">
               
-              <div class="bg-gradient-glass2 rtl h-100 d-flex flex-column justify-end   pt-md-16 py-3 py-md-5  px-5  w-100 text-white text-right">
+              <div class="bg-gradient-glass2 rounded-2lg rtl h-100 d-flex flex-column justify-end   pt-md-16 py-3 py-md-5  px-5  w-100 text-white text-right">
               
              
                
@@ -88,7 +90,7 @@
             <template v-slot:prepend>
               <v-avatar size="25" class=" rounded-2lg bg-blue text-nauto">
                 <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
-                <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`" cover></v-img>
+                <v-img :src="`http://127.0.0.1:8000/api/account/user_profile_image/${data.teacher.username}`" cover></v-img>
 
               </v-avatar>
             </template>
@@ -136,12 +138,16 @@ export default {
   }
 }
 </script>
-<style>
+<style scope>
 .test-n {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.v-img__img{
+ border-radius: 21px;
 }
 </style>

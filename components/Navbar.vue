@@ -44,7 +44,7 @@
           <template v-slot:activator="{ props }">
             <v-avatar v-bind="props" variant="tonal" :color="transparent == true ? 'white' : 'blue'"
               class="me-4  hidden-md-and-up ">
-              <v-icon size="13" icon="fa fa-bell"></v-icon>
+              <v-icon size="13" icon="fa fa-bell" :class="transparent == true ? 'text-black' : ''"></v-icon>
             </v-avatar>
           </template>
           <v-card min-width="300" elevation="24" class="rounded-lg">

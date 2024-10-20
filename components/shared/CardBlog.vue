@@ -1,11 +1,11 @@
 <template>
     <div>
 
-        <v-card class=" rounded-xl   text-right" :color="color ? color : 'auto'" rounded="xl" elevation="0">
+        <v-card class="   text-right" :color="color ? color : 'auto'" rounded="xl" elevation="0">
             <v-card :ripple="false" class=" pa-0  " color="transparent" elevation="0" :to="'/blog/' + data.id">
 
                 <div>
-                    <v-img  class=" align-end  text-auto bg-grey2 rounded-xl " :aspect-ratio="2 / 1"
+                    <v-img  class=" align-end  text-auto bg-grey2  rounded-xl " :aspect-ratio="1.6 / 1"
                         :src="data.imageBlog.photo" cover>
                       
                     </v-img>

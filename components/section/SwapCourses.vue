@@ -5,7 +5,7 @@
         دوره های <span class="text-gradient-2">مهارت ورزی</span>
       </h3>
       <p class="mt-md-6 pt-4 rtl text-muted text-right text-md-center mx-md-4">
-        بهترین دوره های مهارت ورزی 
+         دوره های مهارت ورزی پیشنهادی 
       </p>
     </v-col>
     <v-col cols="12" lg="9" class="">
