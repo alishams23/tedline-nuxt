@@ -1,4 +1,8 @@
 <template>
+        <Head>
+        <Title>خانه</Title>
+      
+     </Head>
   <Navbar :transparent="false" :shadow="true"  />
   <Navbar :transparent="true"  />
   

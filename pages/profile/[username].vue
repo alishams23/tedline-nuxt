@@ -1,6 +1,11 @@
 <template>
   <!-- <Navbar :transparent="false" /> -->
   <Navbar :shadow="true" />
+  <Head>
+        <Title v-if="loading==false">{{ data.get_full_name }} | پروفایل</Title>
+        <Title v-else>{{ $route.params.username }} | پروفایل</Title>
+      
+     </Head>
 
   <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>
@@ -127,76 +132,41 @@
 
 
 </template>
-<script>
-import axios from "axios";
-import { ShareIcon, } from '@heroicons/vue/24/outline'
-import { UserIcon } from '@heroicons/vue/24/solid'
+<script setup>
+import { useAsyncData, useRoute } from "nuxt/app";
+import { ShareIcon, UserIcon } from "@heroicons/vue/24/solid";
 import YourCourses from "~/components/section/YourCourses.vue";
 import TeacherCourses from "~/components/section/TeacherCourses.vue";
 
-export default {
+definePageMeta({
+  layout: 'dashboard', // Specify the layout name here
+});
+const route = useRoute();
+const snackbar = ref(false);
+const { data, pending: loading } = useAsyncData(() =>
+  $fetch(`https://tedline.org/api/account/RetrieveUser/${route.params.username}/`)
+);
 
-  components: {
+const copyToClipboard = (textToCopy) => {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(textToCopy);
+  } else {
+    const textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    document.execCommand("copy") ? textArea.remove() : null;
+  }
+};
 
-    YourCourses,
-    TeacherCourses,
-    ShareIcon,
-    UserIcon
-  },
-  data() {
-    return {
-      snackbar: false,
-      data: null,
-      loading: true,
-    }
-  },
-  setup() {
-    definePageMeta({
-      layout: "dashboard",
-    })
-  },
-  methods: {
-    copyToClipboard(textToCopy) {
-      // navigator clipboard api needs a secure context (https)
-      if (navigator.clipboard && window.isSecureContext) {
-        // navigator clipboard api method'
-        return navigator.clipboard.writeText(textToCopy);
-      } else {
-        // text area method
-        let textArea = document.createElement("textarea");
-        textArea.value = textToCopy;
-        // make the textarea out of viewport
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999999px";
-        textArea.style.top = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        return new Promise((res, rej) => {
-          // here the magic happens
-          document.execCommand("copy") ? res() : rej();
-          textArea.remove();
-        });
-      }
-    },
-    shareLink() {
-      this.copyToClipboard(`https://tedline.org/profile/${this.$route.params.username}/`)
-      this.snackbar = true
-    },
-    getData() {
-      axios.get(`https://tedline.org/api/account/RetrieveUser/${this.$route.params.username}/`).then((response) => {
-        this.data = response.data
-        this.loading = false
-      }
-      )
-    },
-
-  },
-  mounted() {
-    this.getData()
-  },
-
-}
+const shareLink = () => {
+  copyToClipboard(`https://tedline.org/profile/${route.params.username}/`);
+  snackbar.value = true;
+};
 </script>
 
 <style scoped>

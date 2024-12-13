@@ -1,5 +1,8 @@
 <template>
-
+      <Head>
+        <Title>جستجو | تدلاین</Title>
+      
+     </Head>
 
       <v-bottom-sheet  inset v-if="tab == 1"  elevation="0" v-model="drawerChecker">
       <v-card  elevation="0" class="rounded-t-xl ">

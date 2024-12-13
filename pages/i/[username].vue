@@ -1,4 +1,8 @@
 <template>
+      <Head>
+        <Title v-if="pending==false">{{ data.name }} | پروفایل</Title>
+      
+     </Head>
 
 <v-snackbar v-model="snackbar" class="rtl" color="blue-accent-4" elevation="24" rounded="lg">
     <template v-slot:actions>

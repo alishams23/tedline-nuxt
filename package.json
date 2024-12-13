@@ -10,9 +10,12 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/sitemap": "^6.1.5",
+    "@pinia/nuxt": "^0.9.0",
     "@types/node": "^18.16.19",
     "@vite-pwa/nuxt": "^0.1.0",
-    "nuxt": "^3.6.3"
+    "nuxt": "^3.6.3",
+    "pinia": "^2.3.0"
   },
   "dependencies": {
     "@cloudgeek/vue3-video-player": "^0.3.10",
