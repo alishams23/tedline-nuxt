@@ -5,20 +5,19 @@
       <v-card :ripple="false" class=" pa-0  " color="transparent" elevation="0" :to="'/course/' + data.id">
 
         <div>
-          <v-img class=" align-end  course-image-rounded  rounded-lg text-auto  text-left" :aspect-ratio="1 / 1"
+          <v-img class="  course-image-rounded  rounded-2lg text-auto  text-left" :aspect-ratio="1 / 1"
             :src="data.image" cover>
-            <div class=" position-absolute bottom-0 right-0 top-0 left-0 bg-grey2 rounded-xl" style="z-index: -10;">
 
-            </div>
             <div class=" h-100  w-100  d-flex align-end">
 
               <div
-                class="bg-gradient-glass2 rounded-b-2lg rtl h-100 d-flex flex-column justify-end   pt-md-16 pt-10 py-1 py-md-2  px-5  w-100 text-white text-right">
-                <div class="d-flex">
-                </div>
-                <div class=" d-flex  flex-wrap align-center">
-                  <div v-if="data.price != 0" class="d-flex align-center pl-5 pl-md-0 ">
-                    <span v-if="data.discount == 0" class="pl-1">{{ data.price }}</span>
+              :class="detail == true ? '' : 'bg-gradient-glass2 pt-md-16 pt-10 px-5  py-1 py-md-2 ' "
+                class="rounded-b-2lg rtl h-100 d-flex flex-column justify-end      w-100 text-white text-right">
+        
+            <div>
+              <div class=" d-flex  flex-wrap align-center" :class="detail == true ? 'bg-glass-black px-4 py-3 ma-2 rounded-2lg' : '' ">
+                  <div v-if="data.price != 0" class="d-flex align-center pl-5 mb-n1 pl-md-0 ">
+                    <span v-if="data.discount == 0" class="pl-1  ">{{ data.price }}</span>
                     <span v-else>
                       <div class=" text-xs-2 text-white  mb-n1">
                         <span class="text-decoration-line-through"> {{ data.price }}</span>
@@ -41,7 +40,7 @@
                     {{ convertSeconds(data.duration) }}
                   </div>
                 </div>
-                <v-list-item v-if="detail != true && data.institute" class=" pb-0 px-0">
+                <v-list-item v-if="detail != true && data.institute" class=" pb-0 px-0 pt-0">
                   <template v-slot:prepend>
                   
           
@@ -59,7 +58,7 @@
                   </v-list-item-title>
                  
                 </v-list-item>
-                <v-list-item v-if="detail != true && data.teacher && !data.institute" class=" pb-0 px-0">
+                <v-list-item v-if="detail != true && data.teacher && !data.institute" class=" pb-0 px-0 pt-0">
                   <template v-slot:prepend>
                     <v-avatar variant="tonal" color="black" size="25" class=" rounded-2lg  text-nauto">
                       <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
@@ -71,30 +70,20 @@
                     }}
                   </v-list-item-title>
                 </v-list-item>
+            </div>
               </div>
             </div>
           </v-img>
         </div>
         <div :class="titleClass">
-          <v-responsive height="55">
+          <v-responsive >
             <div
               class=" test-right text-xs  text-nauto  rtl irsa px-3 pt-1  line-height-sm  font-weight-medium font-weight-black-lg">
               {{
                 data.title }}
             </div>
-          </v-responsive>
-        </div>
-      </v-card>
-      <v-card-actions class=" pb-0 pt-0 ma-0" v-if="detail != false">
-
-
-        <v-icon @click="show = !show" class="px-3" size="15">
-          {{ show ? 'fal fa-chevron-up' : 'fal fa-chevron-down' }}
-        </v-icon>
-
-        <v-spacer></v-spacer>
-        <div class="rtl text-xs font-weight-light  ">
-          <v-list-item class="  px-0" v-if="data.teacher ">
+            <div class="rtl text-xs font-weight-light  " v-if="detail != false">
+          <v-list-item class="  px-0 pt-0" v-if="data.teacher ">
             <template v-slot:prepend>
               <v-avatar size="25" class=" rounded-2lg bg-blue text-nauto">
                 <v-icon size="10" class="position-absolute text-white " icon="fad fa-users"></v-icon>
@@ -110,19 +99,11 @@
           </v-list-item>
 
         </div>
-      </v-card-actions>
-      <v-expand-transition>
-        <div v-show="show" class="rtl">
-          <v-divider></v-divider>
-
-          <v-card-text class="rtl text-xs-2">
-
-            {{ data.description }}
-          </v-card-text>
-
-
+          </v-responsive>
         </div>
-      </v-expand-transition>
+        
+      </v-card>
+
 
     </v-card>
   </div>
@@ -163,6 +144,6 @@ export default {
 
 .company-rounded-card .v-img__img {
   border-radius:5px !important;
-  border:solid 1px white
+  
 }
 </style>

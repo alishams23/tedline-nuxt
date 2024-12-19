@@ -83,9 +83,9 @@
  
   
   
-      <v-app-bar color="auto" height="74"   elevation="0">
-      <v-container class="">
-      <v-card-text class=" mt-7" color="" elevation="0">
+      <v-app-bar color="auto" scroll-behavior="elevate" height="74"  class="custom-elevation">
+    
+      <v-card-text class=" mt-7 mx-3" color=""  elevation="0">
         <v-locale-provider rtl>
         <v-text-field  density="compact"  :loading="loading ? 'blue-accent-4' : false" elevation="0" @update:model-value="page=1;searchCourse();searchBlog()" v-model="text"
           class="   "  :flat="true" variant="solo-filled" 
@@ -98,22 +98,22 @@
         </v-text-field>
       </v-locale-provider>
       </v-card-text>
-    </v-container>
+
     </v-app-bar>
    
   
   
   <div>
   
-    <v-container   >
-      <v-container>
-        <v-tabs density="comfortable" v-model="tab" align-tabs="end" color="transparent" class="text-grey2">
+   
+     
+        <v-tabs density="comfortable" v-model="tab" align-tabs="end"  class="text-grey2 border-b px-2 px-md-10 mt-4">
           <v-btn  v-if="drawerChecker == false && tab != 2" variant="text" class="me-auto mt-auto "
             @click="drawerChecker = true" size="small" color="nauto "   rounded="pill" icon=""> 
     
             <AdjustmentsHorizontalIcon style="height: 19px"/>
           </v-btn>
-          <v-tab  :hide-slider="true"    class="mt-auto text-xs rounded-pill px-6 text-auto px-md-8 " variant="tonal" color="blue" :value="1" >
+          <v-tab     class="mt-auto text-xs  px-6 text-auto px-md-8  rounded-t-lg" variant="tonal" color="blue" :value="1" >
           <div :class="tab == 1 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex">
            <span>
             دوره ها
@@ -124,7 +124,7 @@
             <!-- <v-icon  :color="tab == 1?'blue' : 'grey'" size="15" class="ps-5">{{tab == 1 ? 'fad' : 'fa'}} fa-video</v-icon> -->
           </div>
           </v-tab>
-          <v-tab :hide-slider="true"   class="mt-auto  text-xs  text-auto rounded-pill px-6 px-md-8 " variant="tonal" color="blue" :value="2" >
+          <v-tab   class="mt-auto  text-xs  text-auto  px-6 px-md-8 rounded-t-lg " variant="tonal" color="blue" :value="2" >
             
           <div :class="tab == 2 ? 'text-nauto  ' : 'text-grey1'" class="align-center justify-center d-flex" >
           <span>  وبلاگ ها</span>
@@ -142,14 +142,34 @@
           </div>
           </v-tab> -->
         </v-tabs>
-      </v-container>
-      <v-card  color="grey4" class=" inner-shadow-md rounded-2xl pa-3 pa-md-5" elevation="0">
+        <v-container  class="pt-3 pt-md-0"  >
+      <v-card  class="  pa-3 pa-md-5 pt-0 " color="transparent" elevation="0">
         <v-scroll-x-transition>
         <v-window v-model="tab" v-if="loading == false">
           <v-window-item :value="1">
+            <div class="d-flex  overflow-x-auto flex-0-0-100">
+            <div    v-for="item in dataCategoryBest"
+            :key="item.id">
+              <v-chip
+           
+            
+              :color=" selectedDataCategoryIds.includes(item.id)  ? 'blue-accent-4' : 'nauto'"
+             
+              filter
+              :isSelected="selectedDataCategoryIds.includes(item.id) "
+              :append-icon="selectedDataCategoryIds.includes(item.id)  ? 'fal fa-check' : ''"
+             class="ma-1 border-card whitespace-nowrap text-xs-1"
+              :variant="selectedDataCategoryIds.includes(item.id)  ? 'flat' : 'outlined'"
+              @click="toggleDataCategory(item.id)"
+            >
+              {{ item.title }}
+            </v-chip>
+            </div>
+            </div>
+
             <v-row no-gutters >
-              <v-col v-for="item in data.results" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
-                <Course :data="item" :detail="false" color="grey4" class="w-100  ma-2 ma-md-5 " />
+              <v-col v-for="item in data.results" :key="item" class="d-flex justify-center  " cols="12" lg="6" md="6" sm="12">
+                <SharedCourseHorizontal :data="item"  class="w-100  ma-2 ma-md-5 " />
               </v-col>
             
               <v-container>
@@ -182,7 +202,7 @@
           <v-window-item :value="2" v-if="loading == false">
             <v-row no-gutters >
               <v-col v-for="item in blogData" :key="item" class="d-flex justify-center  " cols="6" lg="3" md="4" sm="6">
-                <CardBlog :data="item"  color="grey4" class="w-100  ma-2 ma-md-5 " />
+                <CardBlog :data="item"  color="auto" class="w-100  ma-2 ma-md-5 " />
               </v-col>
               <v-container>
               <v-alert v-if="blogData.length == 0 && loading == false"  color="blue" icon="fa fa-info" variant="text"  class="rtl border-opacity-100 my-10">
@@ -197,8 +217,8 @@
         </v-window>
       </v-scroll-x-transition>
         <v-row no-gutters >
-          <v-col  v-for="item in 20" v-if="loading" cols="6" lg="3" md="4" sm="6">
-        <v-skeleton-loader color="grey4" class="mx-2 mx-md-5 my-6" type="card"></v-skeleton-loader>
+          <v-col  v-for="item in 20" v-if="loading" cols="12" lg="6" md="6" sm="12">
+        <v-skeleton-loader  class="mx-2 mx-md-5 my-6" type="image"></v-skeleton-loader>
 
             </v-col>
             </v-row>
@@ -327,5 +347,9 @@ export default {
 }
 .v-bottom-sheet__content{
   border-radius: 20px !important;
+}
+
+.v-app-bar.v-toolbar:not(.v-toolbar--flat) {
+  box-shadow: rgba(0, 0, 0, 0.221) 0px 25px 40px -30px !important;
 }
 </style>

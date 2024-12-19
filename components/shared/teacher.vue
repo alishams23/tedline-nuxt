@@ -18,11 +18,3 @@
 
 </script>
 
-<style>
-.text-overflow{
-    white-space: nowrap;   
-    overflow: hidden;
-    text-overflow: ellipsis;  
-    display: block;            
-}
-</style>

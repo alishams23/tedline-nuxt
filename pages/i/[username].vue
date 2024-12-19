@@ -19,7 +19,7 @@
     <v-container style="padding: 12px; height: 100vh" fluid v-if="pending == false">
 
         <v-row dir="rtl" class="curved_profile rounded-b-lg row-one display">
-            <v-col class="mt-5" cols="12" sm="8" md="4">
+            <v-col class="mt-5" cols="9" sm="8" md="4">
                 <div class="d-flex">
                     <div>
                       <v-badge color="blue" >
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </v-col>
-            <v-col class="mt-md-5  "  cols="12"  md="2" >
+            <v-col class="mt-md-5  "  cols="3"  md="2" >
                 <div  class="d-flex mb-16 justify-end">
                     <v-btn  @click="shareLink" icon="" variant="tonal" color="#F3E8FD"
                         class=" mb-10 ml-3  ">
@@ -70,7 +70,7 @@
                     </p>
                 </v-card>
             </v-col>
-            <v-col cols="12" sm="12" md="8" class="ml-none ml-md-4">
+            <v-col cols="12" sm="12" md="8" class="ml-none ml-md-4 pb-16">
                 <v-card elevation="0" class="rounded-lg rtl px-9 py-9 shadow-3 mb-5">
                     <div class="d-block d-sm-flex mb-10" v-if="data.bio">
                         <h3 style="white-space: nowrap" class="ml-12  mb-sm-0">
