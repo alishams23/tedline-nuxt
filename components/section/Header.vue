@@ -16,12 +16,12 @@
                 هیجان یادگیری و شگفتی های نو
               </div>
  
-              <h2 class="text-h5 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa mt-3 ">پلتفرم آموزشی <span class="text-auto  rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
+              <h2 class="text-h5 text-white text-md-h4 pt-3 font-weight-bold line-height-sm  irsa mt-3 "> مدرسه ی آنلاین <span class="text-auto  rounded-pill bg-blue bg-blue-darken-4  px-7   ">تدلاین</span>
               </h2>
             </div>
         
             <p class=" rtl  mt-3 pt-4 me-lg-16 text-blue-lighten-4 pe-lg-16 line-height-md text-body-2 text-md-body-1 irsa">
-              فضایی برای یادگیری و آموزش، که منجر به کسب مهارت و توسعه حرفه‌ای شما می‌شود.
+              فضایی برای یادگیری و آموزش، که منجر به کسب مهارت و  پیشرفت تحصیلی شما می‌شود.
             </p>
             <div class="mt-6 pt-2 justify-center justify-lg-end  d-flex">
               <div>

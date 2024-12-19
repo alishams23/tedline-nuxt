@@ -80,7 +80,7 @@
             </v-list-item>
             <v-list-subheader color="blue-darken-4"
               class="   text-sm mt-9  text-grey justify-end  mb-2 ">عمومی</v-list-subheader>
-            <v-list-item :to="'/course/' + data.id" class="  rounded-pill  px-6 mx-3 mb-3 py-2 bg-grey4"
+            <v-list-item :to="'/course/' + data.id" class="  rounded-pill  px-6 mx-3 mb-16 py-2 bg-grey4"
               color="grey4">
               <v-list-item-title class="  rtl font-weight-bold  irsa "> توضیحات دوره</v-list-item-title>
             </v-list-item>
