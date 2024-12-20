@@ -4,11 +4,11 @@
   <Header />
   <v-container>
     <Tabbar />
-    <div class="pb-16 pt-8">
-      <BestCourses class="my-16" />
+    <div class="pb-8 pt-4">
+      <BestCourses class="my-8" />
     </div>
     <SectionSchoolCourses/>
-   <div class="pt-16 pb-md-7">
+   <div class="pt-9 pb-md-5">
     <Category1  />
    </div>
    <SectionSwapCourses />
