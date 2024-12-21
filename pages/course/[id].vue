@@ -33,7 +33,7 @@
       indeterminate></v-progress-circular> -->
 
     <v-container>
-      <v-skeleton-loader height="350" class="rounded-xl" color="transparent"></v-skeleton-loader>
+      <v-skeleton-loader height="320" class="rounded-xl" color="transparent"></v-skeleton-loader>
       <v-row justify="end">
         <v-col cols="4" md="2">
           <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-8" color="transparent"></v-skeleton-loader>
