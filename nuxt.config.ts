@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   //   url: 'http://localhost:3001', 
   //   name: 'My Awesome Website' 
   // }, 
+
   pwa: {
     registerType: "autoUpdate",
     manifest: {

@@ -139,7 +139,7 @@
           </v-tab> -->
     </v-tabs>
     <v-slide-y-transition>
-    <div class="d-flex  overflow-x-auto flex-0-0-100 pt-3 " v-if="tab == 1">
+    <div class="d-flex justify-md-center  overflow-x-auto flex-0-0-100 pt-3 " v-if="tab == 1">
                 <div v-for="item in dataCategoryBest" :key="item.id">
                   <v-chip :color="selectedDataCategoryIds.includes(item.id) ? 'blue-accent-4' : 'nauto'" filter
                     :isSelected="selectedDataCategoryIds.includes(item.id)"
@@ -153,8 +153,15 @@
               </div>
             </v-slide-y-transition>
 
+            
     <v-container class="pt-3 pt-md-0">
-      <v-card class="  pa-3 pt-0 " color="transparent" elevation="0">
+      <v-row no-gutters>
+          <v-col v-for="item in 20" v-if="loading" cols="12" lg="6" md="6" sm="12">
+            <v-skeleton-loader color="transparent" class="mx-2 mx-md-5 my-6" type="image"></v-skeleton-loader>
+
+          </v-col>
+        </v-row>
+      <v-card class="   pt-0 " color="transparent" elevation="0">
         <v-scroll-x-transition>
           <v-window v-model="tab" v-if="loading == false">
             <v-window-item :value="1">
@@ -205,12 +212,7 @@
             </v-window-item>
           </v-window>
         </v-scroll-x-transition>
-        <v-row no-gutters>
-          <v-col v-for="item in 20" v-if="loading" cols="12" lg="6" md="6" sm="12">
-            <v-skeleton-loader class="mx-2 mx-md-5 my-6" type="image"></v-skeleton-loader>
-
-          </v-col>
-        </v-row>
+        
 
       </v-card>
     </v-container>

@@ -28,9 +28,38 @@
     {{ error_discount }}
   </v-snackbar>
 
-  <div class="d-flex h-100 justify-center align-center" v-if="loading">
-    <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63" :width="6" color="blue"
-      indeterminate></v-progress-circular>
+  <div class="ma-3" v-if="loading">
+    <!-- <v-progress-circular class="ma-10" v-if="loading" bg-color="primary-lighten-5" :size="63" :width="6" color="blue"
+      indeterminate></v-progress-circular> -->
+
+    <v-container>
+      <v-skeleton-loader height="350" class="rounded-xl" color="transparent"></v-skeleton-loader>
+      <v-row justify="end">
+        <v-col cols="4" md="2">
+          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-5" color="transparent"></v-skeleton-loader>
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-5" color="transparent"></v-skeleton-loader>
+        </v-col>
+      </v-row>
+
+      <v-divider></v-divider>
+      <v-row class="mt-4">
+        <v-col cols="12" md="6">
+          <v-skeleton-loader height="70" class="rounded-xl" color="transparent"></v-skeleton-loader>
+          <v-skeleton-loader height="70" class="rounded-xl mt-5" color="transparent"></v-skeleton-loader>
+
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-skeleton-loader height="160" class="rounded-xl" color="transparent"></v-skeleton-loader>
+        </v-col>
+
+
+      </v-row>
+      <v-skeleton-loader class="mt-10" type="article" color="transparent"></v-skeleton-loader>
+
+    </v-container>
+
 
   </div>
 
@@ -77,8 +106,7 @@
                   <template v-slot:prepend>
                     <v-avatar size="50" class=" rounded-lg bg-blue-gradient-2 text-white">
                       <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                      <v-img :src="data.institute.image"
-                        cover></v-img>
+                      <v-img :src="data.institute.image" cover></v-img>
 
                     </v-avatar>
                   </template>
@@ -367,24 +395,23 @@
               </v-card>
             </v-col>
           </v-row>
-          <v-card color="grey4" v-if="data.teacher" class="   px-3 my-10 rounded-xl rtl py-10 pb-4" elevation="0">
-            <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
-              <div>
-                <v-card-title class="irsa text-sm font-weight-black">
-                  مدرسان
-                </v-card-title>
-                <div class="line-height-sm text-body-2 rtl irsa pb-5 px-4    mt-5 ">
-               
-                  <SharedTeacher v-if="data.teachers.length > 0" v-for="(item, index) in data.teachers" :key="index + 'teacher'" :data="item" />
-                  <SharedTeacher  v-else  :data="data.teacher" />
+          <div v-if="data.teacher" class=" bg-grey4 py-8 mt-16     rounded-xl  px-3 rtl">
 
-                </div>
-              </div>
+            <div class=" d-flex justify-space-between  align-center irsa font-weight-black rtl px-5 mb-10">
+              مدرسان
               <v-avatar class="ma-3  text-h6 rounded-pill " size="50" color="blue">
                 <IconUsers size="20" class=" text-auto"></IconUsers>
               </v-avatar>
             </div>
-          </v-card>
+            <div class="line-height-sm text-body-2 rtl irsa pb-5 px-4    mt-5 ">
+
+              <SharedTeacher v-if="data.teachers.length > 0" v-for="(item, index) in data.teachers"
+                :key="index + 'teacher'" :data="item" />
+              <SharedTeacher v-else :data="data.teacher" />
+
+            </div>
+
+          </div>
 
           <v-card color="grey4" v-if="data.description" class="   px-3 my-10 rounded-xl rtl py-10" elevation="0">
             <div class="d-flex flex-no-wrap justify-space-between align-center fill-height">
@@ -401,32 +428,7 @@
               </v-avatar>
             </div>
           </v-card>
-          <div class=" bg-grey4 py-8 mt-16     rounded-xl  px-3 rtl" v-if="data.teacher && data.teacher.bio">
-            <div class="text-h6 d-flex justify-space-between  align-center irsa font-weight-black rtl px-5 mb-10"> مدرس
 
-              <v-avatar class=" text-h6  rounded-pill " size="50" color="green">
-                <IconUser class="text-auto" />
-              </v-avatar>
-            </div>
-            <v-card class=" rounded-xl  ma-4 bg-auto    " elevation="0" :to="'/profile/' + data.teacher.username">
-              <v-list-item class="  pa-4 pe-4">
-                <template v-slot:prepend>
-                  <v-avatar size="43" class="bg-blue-gradient text-white">
-                    <v-icon size="15" class="position-absolute" icon="fad fa-users"></v-icon>
-                    <v-img :src="`https://tedline.org/api/account/user_profile_image/${data.teacher.username}`"
-                      cover></v-img>
-
-                  </v-avatar>
-                </template>
-                <v-list-item-title class=" font-weight-bold text-xs text-nauto">{{ data.teacher.username
-                  }}</v-list-item-title>
-                <v-list-item-subtitle class="text-xs-2 text-nauto">{{ data.teacher.get_full_name
-                  }}</v-list-item-subtitle>
-              </v-list-item>
-              <v-card-text class="rtl text-nauto text-xs irsa" v-if="data.teacher.bio">{{ data.teacher.bio
-                }}</v-card-text>
-            </v-card>
-          </div>
         </v-window-item>
         <v-window-item value="two">
 
@@ -499,7 +501,7 @@ import Course from '~/components/shared/Course.vue'
 import axios from "axios";
 import FooterComponent from "~/components/section/FooterComponent.vue";
 import YourCourseComponents from "~/components/shared/YourCourse.vue";
-import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye, IconPaperclip , IconUsers } from '@tabler/icons-vue';
+import { IconUser, IconListCheck, IconCoins, IconClock, IconLockOpen, IconX, IconShare, IconEye, IconPaperclip, IconUsers } from '@tabler/icons-vue';
 
 
 export default {
@@ -524,7 +526,7 @@ export default {
     YourCourseComponents,
     IconPaperclip,
     IconUser, IconListCheck, IconCoins, IconClock,
-    IconLockOpen, IconX, IconShare, IconEye,IconUsers
+    IconLockOpen, IconX, IconShare, IconEye, IconUsers
 
   },
   data: () => ({
