@@ -36,15 +36,18 @@
       <v-skeleton-loader height="350" class="rounded-xl" color="transparent"></v-skeleton-loader>
       <v-row justify="end">
         <v-col cols="4" md="2">
-          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-5" color="transparent"></v-skeleton-loader>
+          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-8" color="transparent"></v-skeleton-loader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-5" color="transparent"></v-skeleton-loader>
+          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-8" color="transparent"></v-skeleton-loader>
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-skeleton-loader height="40" class="rounded-b-0 rounded-t-lg mt-8" color="transparent"></v-skeleton-loader>
         </v-col>
       </v-row>
 
       <v-divider></v-divider>
-      <v-row class="mt-4">
+      <v-row class="mt-16">
         <v-col cols="12" md="6">
           <v-skeleton-loader height="70" class="rounded-xl" color="transparent"></v-skeleton-loader>
           <v-skeleton-loader height="70" class="rounded-xl mt-5" color="transparent"></v-skeleton-loader>

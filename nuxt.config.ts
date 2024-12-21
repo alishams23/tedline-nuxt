@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
-  modules: ["@vite-pwa/nuxt", "nuxt-swiper", "@nuxtjs/sitemap", "@pinia/nuxt"],
+  modules: ["@vite-pwa/nuxt", "nuxt-swiper", "@nuxtjs/sitemap"],
   // site: { 
   //   url: 'http://localhost:3001', 
   //   name: 'My Awesome Website' 
