@@ -606,7 +606,7 @@ export default {
       if (this.$store.state.isAuthenticated != true) {
         this.$router.push(`/auth/signIn/`)
       } else {
-        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/`, {
+        axios.get(`https://tedline.org/api/course/RegisterCourseFree/${this.$route.params.id}/?discount_code=${this.discount_code}`, {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
@@ -630,6 +630,10 @@ export default {
         }
       }
 
+      if ((this.data.price - (this.data.price * this.data.discount / 100) - this.discount_amount ) == 0){
+        this.registerFree()
+        return;
+      }
       this.loading = true;
       this.loadingRegister = true
 
