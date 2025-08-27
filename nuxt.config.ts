@@ -4,17 +4,7 @@ export default defineNuxtConfig({
   devServer: {
     host: "0",
   },
-  vite: {
-      build: {
-        rollupOptions: {
-          output: {
-            entryFileNames: `[name].[hash].js`,
-            chunkFileNames: `[name].[hash].js`,
-            assetFileNames: `[name].[hash].[ext]`
-          }
-        }
-      }
-  },
+
   devtools: { enabled: true },
   css: [
     "~/assets/WebFonts/css/fontiran.css",
@@ -23,7 +13,6 @@ export default defineNuxtConfig({
   ],
   build: {
     transpile: ["vuetify"],
-    
   },
   modules: ["@vite-pwa/nuxt", "nuxt-swiper", "@nuxtjs/sitemap"],
   // site: { 
