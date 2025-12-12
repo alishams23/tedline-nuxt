@@ -18,7 +18,7 @@
     </v-overlay>
     <v-container style="padding: 12px; height: 100vh" fluid v-if="pending == false">
 
-        <v-row dir="rtl" class="curved_profile rounded-b-lg row-one display">
+        <v-row dir="rtl" class="curved_profile rounded-b-lg row-one display" :style="headerBackgroundStyle">
             <v-col class="mt-5" cols="9" sm="8" md="4">
                 <div class="d-flex">
                     <div>
@@ -142,6 +142,18 @@ if (process.server) {
 if (process.client) {
     console.log("Data rendered on the client.")
 }
+
+const headerBackgroundStyle = computed(() => {
+    const backgroundImage = data.value?.background_image
+    if (!backgroundImage) return {}
+
+    return {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    }
+})
 </script>
 
 <style scope>
